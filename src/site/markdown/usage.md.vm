@@ -1,0 +1,72 @@
+#set( $symbol_pound = '#' )
+${symbol_pound} Usage
+
+Once the Archetype has been [acquired][acquire] it can be used as a template to generate new Maven projects.
+
+${symbol_pound}${symbol_pound} Using the Archetype through an IDE
+
+To use the Archetype with an IDE consult your preferred IDE's manual.
+
+${symbol_pound}${symbol_pound} Using the Archetype through a Maven command
+
+The Archetype can used by Maven with the following command.
+
+As it includes the repository from which it can be acquired, this command will also install the archetype in the local repository if it isn't already there.
+
+```sh
+$ mvn archetype:generate -DarchetypeGroupId=$project.groupId -DarchetypeArtifactId=$project.artifactId -DarchetypeVersion=$project.version -DarchetypeRepository=$repoDownloadURL
+```
+
+The *-D* parameter serves to define a variable. These variables are as it follows:
+
+|Variable|Usage|
+|---|---|
+|archetypeGroupId|Group Id for the Archetype|
+|archetypeArtifactId|Artifact Id for the Archetype|
+|archetypeVersion|Archetype version|
+|archetypeRepository|Repository containing the Archetype|
+
+${symbol_pound}${symbol_pound} Templating variables in the Archetype
+
+Maven Archetypes make use of templating variables to prepare the project. The values for these will be asked when creating a new project, and most of them will have default values which show the kind of data each of them expects.
+
+${symbol_pound}${symbol_pound}${symbol_pound} Maven coordinates
+
+|Variable|Usage|
+|---|---|
+|artifactId|Will be used as Maven's ID for the project, part of the Maven coordinates|
+|groupId|The group holding this project, part of the Maven coordinates|
+
+${symbol_pound}${symbol_pound}${symbol_pound} General information
+
+The Archetype is not prepared to set up an organization, so it will use the developer's information for the organization information on the POM.
+
+|Variable|Usage|
+|---|---|
+|projectName|Name given to the project|
+|projectDescription|Short description for the project|
+|developerId|Developer's ID|
+|developerName|Developer's name|
+|developerMail|Developer's mail|
+|developerUrl|Developer's webpage URL|
+
+${symbol_pound}${symbol_pound}${symbol_pound} Repositories
+
+The repoUserId is used, along the artifactId, to build the Github link for the project, and will also be reused for building the Travis and Bintray ones.
+
+|Variable|Usage|
+|---|---|
+|repoUserId|ID of the user on Github|
+
+${symbol_pound}${symbol_pound}${symbol_pound} Sites repositories
+
+URLs for the Maven site. The deployment URLs are used by the plugins to push the documents, while the other URLs are the ones used to read those documents.
+
+|Variable|Usage|
+|---|---|
+|urlSiteDeployRelease|URL for deploying the release version documents|
+|urlSiteDeployDevelop|URL for deploying the development documents|
+|urlSiteRelease|URL where the release version documents can be found|
+|urlSiteDevelop|URL where the development documents can be found|
+
+[acquire]: ./acquire.html

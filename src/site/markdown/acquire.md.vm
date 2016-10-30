@@ -1,0 +1,50 @@
+#set( $symbol_pound = '#' )
+${symbol_pound} Acquiring the project
+
+The project files are hosted on a [Bintray repository][bintray-repo], and have been replicated on JCenter and OSS Sonatype, which also replicates into the [Maven Central Repository][maven-repo].
+
+But if one should be chosen, then it is recommended using the Bintray repository.
+
+${symbol_pound}${symbol_pound} Adding the Archetype to the local catalog
+
+To be able to use the Archetype it should be installed into the local Maven repository, and registered into the Archetypes catalog.
+
+${symbol_pound}${symbol_pound}${symbol_pound} Using an IDE
+
+To find out how to add the archetype to the local catalog consult your preferred IDE's manual.
+
+${symbol_pound}${symbol_pound}${symbol_pound} Manual installation
+
+It is always possible to manually install the Archetype by just getting the code from the [code repository][code-repo] and using the following command:
+
+```sh
+$ mvn install
+```
+
+The project is prepared to automatically update the local catalog when installed.
+
+${symbol_pound}${symbol_pound}${symbol_pound} Maven command
+
+It is possible to install the Archetype at the same time it is used for the first time, if a repository is given. Check the Maven command used for this in the [usage section][usage].
+
+${symbol_pound}${symbol_pound} Archetype identification
+
+When acquiring the Archetype the following data will be used to identify it:
+
+${symbol_pound}${symbol_pound}${symbol_pound} Version
+
+|Group ID|Artifact ID|Version|
+|---|---|---|---|
+|$project.groupId|$project.artifactId|$project.version|
+
+${symbol_pound}${symbol_pound}${symbol_pound} Downloads link
+
+|Repository URL|
+|---|
+|$repoDownloadURL |
+
+[code-repo]: $project.scm.url
+[bintray-repo]: ${bintrayURL}
+[maven-repo]: ${mavenURL}
+
+[usage]: ./usage.html

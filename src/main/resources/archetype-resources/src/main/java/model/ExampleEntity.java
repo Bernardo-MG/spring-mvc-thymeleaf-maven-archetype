@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  * <p>
- * Copyright (c) ${currentYear} the original author or authors.
+ * Copyright (c) 2015 the original author or authors.
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,34 +22,51 @@
  * SOFTWARE.
  */
 
-package $package;
+package com.wandrell.example.swss.model;
+
+import java.io.Serializable;
 
 /**
- * Greeter class.
+ * A simple entity for the example application.
  * <p>
- * This is just a placeholder class which may be safely removed.
- * <p>
- * Pay attention to the fact that this is used on the placeholder tests too
+ * This is meant to be the internal domain model used by the web service. The
+ * one for the SOAP messages is in the JAXB generated classes package.
  *
- * @author ${developerName}
+ * @author Bernardo Martínez Garrido
  */
-
-public final class Greeter {
-
-    /**
-     * Default constructor.
-     */
-    public Greeter() {
-        super();
-    }
+public interface ExampleEntity extends Serializable {
 
     /**
-     * Returns a greeting.
+     * Returns the identifier assigned to this entity.
+     * <p>
+     * If no identifier has been assigned yet, then the value is expected to be
+     * {@code null} or lower than zero.
      *
-     * @return a greeting
+     * @return the entity's identifier
      */
-    public String sayHello() {
-        return "Hello World!";
-    }
+    public Integer getId();
+
+    /**
+     * Returns the name of the entity.
+     *
+     * @return the entity's name
+     */
+    public String getName();
+
+    /**
+     * Sets the identifier assigned to this entity.
+     *
+     * @param identifier
+     *            the identifier for the entity
+     */
+    public void setId(final Integer identifier);
+
+    /**
+     * Changes the name of the entity.
+     *
+     * @param name
+     *            the name to set on the entity
+     */
+    public void setName(final String name);
 
 }

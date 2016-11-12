@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  * <p>
- * Copyright (c) ${currentYear} the original author or authors.
+ * Copyright (c) 2015 the original author or authors.
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,8 +21,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-/**
- * Provides placeholder classes.
- */
-package $package;
 
+package com.wandrell.example.swss.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.wandrell.example.swss.model.DefaultExampleEntity;
+
+/**
+ * Spring-JPA repository for {@link DefaultExampleEntity}.
+ * <p>
+ * This is a simple repository just to allow the endpoints querying the entities
+ * they are asked for.
+ *
+ * @author Bernardo Martínez Garrido
+ */
+public interface ExampleEntityRepository
+        extends JpaRepository<DefaultExampleEntity, Integer> {
+
+}

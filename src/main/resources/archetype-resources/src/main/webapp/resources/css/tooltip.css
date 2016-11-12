@@ -1,0 +1,12 @@
+/*!
+ * Docs Boostrap Template font styles
+ * Copyright 2015 Bernardo Mart�nez Garrido
+ * Licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php)
+ *
+ * This file contains tooltip styles.
+ */
+
+.tooltip-text {
+    cursor: help;
+    border-bottom: 1px dotted;
+}

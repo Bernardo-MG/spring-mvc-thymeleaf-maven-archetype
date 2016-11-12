@@ -1,0 +1,35 @@
+/*!
+ * Docs Boostrap Template footer styles
+ * Copyright 2015 Bernardo Mart�nez Garrido
+ * Licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php)
+ *
+ * This file contains styles for the footer.
+ */
+
+
+/**
+* General footer configuration.
+*/
+
+footer {
+    width: 100%;
+    padding-top: 1em;
+    color: #535353;
+    background-color: #f5f5f5;
+    border-top: 1px solid #e7e7e7;
+}
+
+/**
+* Footer links.
+*
+* Their colors are inverted to improve contrast against the background.
+*/
+
+footer a {
+    color: #0050aa;
+}
+
+footer a:hover,
+footer a:focus {
+    color: #2780e3;
+}

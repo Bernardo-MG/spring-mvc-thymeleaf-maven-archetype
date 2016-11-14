@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.wandrell.example.swss.model;
+package ${package}.model;
 
 import java.io.Serializable;
 

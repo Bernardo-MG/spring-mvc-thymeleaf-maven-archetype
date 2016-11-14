@@ -14,7 +14,7 @@
  * the License.
  */
 
-package com.wandrell.tabletop.dreadball.web.toolkit.builder.dbx.controller;
+package ${package}.controller;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 

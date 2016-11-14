@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.wandrell.example.swss.service.domain;
+package ${package}.service;
 
 import com.wandrell.example.swss.model.ExampleEntity;
 

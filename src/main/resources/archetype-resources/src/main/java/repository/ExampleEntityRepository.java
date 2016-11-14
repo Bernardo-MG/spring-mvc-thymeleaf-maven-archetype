@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.wandrell.example.swss.repository;
+package ${package}.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

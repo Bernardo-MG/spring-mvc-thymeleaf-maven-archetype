@@ -29,9 +29,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.wandrell.example.swss.model.DefaultExampleEntity;
-import com.wandrell.example.swss.model.ExampleEntity;
-import com.wandrell.example.swss.repository.ExampleEntityRepository;
+import ${package}.model.DefaultExampleEntity;
+import ${package}.model.ExampleEntity;
+import ${package}.repository.ExampleEntityRepository;
 
 /**
  * Example entity domain service, using an {@link ExampleEntityRepository} for

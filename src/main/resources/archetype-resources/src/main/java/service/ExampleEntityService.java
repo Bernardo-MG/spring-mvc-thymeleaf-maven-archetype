@@ -24,7 +24,7 @@
 
 package ${package}.service;
 
-import com.wandrell.example.swss.model.ExampleEntity;
+import ${package}.model.ExampleEntity;
 
 /**
  * Service for the example entity domain.

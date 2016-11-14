@@ -26,7 +26,7 @@ package ${package}.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.wandrell.example.swss.model.DefaultExampleEntity;
+import ${package}.model.DefaultExampleEntity;
 
 /**
  * Spring-JPA repository for {@link DefaultExampleEntity}.

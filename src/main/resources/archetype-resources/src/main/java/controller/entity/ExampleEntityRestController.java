@@ -14,7 +14,7 @@
  * the License.
  */
 
-package ${package}.controller;
+package ${package}.entity.controller;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 

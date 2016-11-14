@@ -14,7 +14,7 @@
  * the License.
  */
 
-package ${package}.controller;
+package ${package}.entity.controller;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -45,7 +45,7 @@ import com.wandrell.tabletop.dreadball.web.toolkit.builder.dbx.controller.bean.S
  */
 @Controller
 @RequestMapping("/builder/team/dbx")
-public class ViewController {
+public class ExampleEntityViewController {
 
     /**
      * Sponsor bean parameter name.

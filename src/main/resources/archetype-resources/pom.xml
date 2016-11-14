@@ -321,8 +321,13 @@
       <manifest.name>${packageInPathFormat}</manifest.name>
       <!-- Dependencies versions -->
       <guava.version>19.0</guava.version>
+      <h2.version>1.4.192</h2.version>
+      <hibernate.validator.version>5.2.4.Final</hibernate.validator.version>
+      <hibernate.version>5.1.0.Final</hibernate.version>
+      <hikari.version>2.5.0</hikari.version>
       <log4j.version>2.6.2</log4j.version>
       <mockito.version>1.10.19</mockito.version>
+      <mysql.version>5.1.39</mysql.version>
       <spring.data.version>1.10.2.RELEASE</spring.data.version>
       <spring.version>4.3.2.RELEASE</spring.version>
       <testng.version>6.9.10</testng.version>
@@ -426,6 +431,33 @@
          <groupId>org.thymeleaf</groupId>
          <artifactId>thymeleaf-spring4</artifactId>
          <version>${thymeleaf.version}</version>
+      </dependency>
+      <!-- ============================================== -->
+      <!-- ================ HIBERNATE =================== -->
+      <!-- ============================================== -->
+      <dependency>
+         <!-- Hibernate Ehcache -->
+         <groupId>org.hibernate</groupId>
+         <artifactId>hibernate-ehcache</artifactId>
+         <version>${hibernate.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Hibernate Entity Manager -->
+         <groupId>org.hibernate</groupId>
+         <artifactId>hibernate-entitymanager</artifactId>
+         <version>${hibernate.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Hibernate validator -->
+         <groupId>org.hibernate</groupId>
+         <artifactId>hibernate-validator</artifactId>
+         <version>${hibernate.validator.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Hikari CP -->
+         <groupId>com.zaxxer</groupId>
+         <artifactId>HikariCP</artifactId>
+         <version>${hikari.version}</version>
       </dependency>
       <!-- ============================================== -->
       <!-- ======= TEST ENVIRONMENT DEPENDENCIES ======== -->

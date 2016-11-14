@@ -328,6 +328,7 @@
       <log4j.version>2.6.2</log4j.version>
       <mockito.version>1.10.19</mockito.version>
       <mysql.version>5.1.39</mysql.version>
+      <servlet.version>3.1.0</servlet.version>
       <spring.data.version>1.10.2.RELEASE</spring.data.version>
       <spring.version>4.3.2.RELEASE</spring.version>
       <testng.version>6.9.10</testng.version>
@@ -458,6 +459,16 @@
          <groupId>com.zaxxer</groupId>
          <artifactId>HikariCP</artifactId>
          <version>${hikari.version}</version>
+      </dependency>
+      <!-- ============================================== -->
+      <!-- ================ SERVLET ===================== -->
+      <!-- ============================================== -->
+      <dependency>
+         <!-- Servlet API -->
+         <groupId>javax.servlet</groupId>
+         <artifactId>javax.servlet-api</artifactId>
+         <version>${servlet.version}</version>
+         <scope>provided</scope>
       </dependency>
       <!-- ============================================== -->
       <!-- ======= TEST ENVIRONMENT DEPENDENCIES ======== -->

@@ -14,7 +14,7 @@
  * the License.
  */
 
-package ${package}.entity.controller;
+package ${package}.controller.entity;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -31,10 +31,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.wandrell.tabletop.dreadball.build.dbx.DbxSponsorBuilder;
-import com.wandrell.tabletop.dreadball.model.faction.Sponsor;
-import com.wandrell.tabletop.dreadball.model.team.SponsorTeam;
-import com.wandrell.tabletop.dreadball.web.toolkit.builder.dbx.controller.bean.SponsorForm;
+import ${package}.service.ExampleEntityService;
+import ${package}.controller.entity.bean.ExampleEntityForm;
 
 /**
  * Controller for the DBX Sponsor building view.
@@ -90,7 +88,7 @@ public class ExampleEntityViewController {
     /**
      * DBX team builder service.
      */
-    private final DbxSponsorBuilder sponsorCreationService;
+    private final ExampleEntityService exampleEntityService;
 
     /**
      * Constructs a controller with the specified dependencies.
@@ -99,10 +97,10 @@ public class ExampleEntityViewController {
      *            the sponsor creation service
      */
     @Autowired
-    public SponsorCreationController(final DbxSponsorBuilder service) {
+    public ExampleEntityViewController(final ExampleEntityService service) {
         super();
 
-        sponsorCreationService = checkNotNull(service,
+        exampleEntityService = checkNotNull(service,
                 "Received a null pointer as sponsor creation service");
     }
 
@@ -123,8 +121,8 @@ public class ExampleEntityViewController {
      * @return the name for the view to show
      */
     @PostMapping
-    public final String checkSponsorInfo(final ModelMap model,
-            @ModelAttribute(BEAN_SPONSOR) @Valid final SponsorForm sponsor,
+    public final String checkForm(final ModelMap model,
+            @ModelAttribute(BEAN_SPONSOR) @Valid final ExampleEntityForm sponsor,
             final BindingResult bindingResult, final HttpSession session) {
         final String path;
 
@@ -132,7 +130,7 @@ public class ExampleEntityViewController {
             // Invalid sponsor data
 
             // Loads required data into the model
-            loadSponsorModel(model);
+            loadFormModel(model);
             // Returns to the sponsor creation view
             path = VIEW_SPONSOR;
             // TODO: Maybe it should return a bad request status?
@@ -152,8 +150,8 @@ public class ExampleEntityViewController {
      * @return the initial Sponsor form data
      */
     @ModelAttribute(BEAN_SPONSOR)
-    public final SponsorForm getSponsorForm() {
-        return new SponsorForm();
+    public final ExampleEntityForm getEntityForm() {
+        return new ExampleEntityForm();
     }
 
     /**
@@ -166,14 +164,14 @@ public class ExampleEntityViewController {
      * @return the name for the sponsor edition view
      */
     @GetMapping
-    public final String showSponsorForm(final ModelMap model,
+    public final String showEntityForm(final ModelMap model,
             final SessionStatus status) {
         // Clears session
         // TODO: Is this required here? Maybe a controller advice should be used
         status.setComplete();
 
         // Loads required data into the model
-        loadSponsorModel(model);
+        loadFormModel(model);
 
         return VIEW_SPONSOR;
     }
@@ -183,8 +181,8 @@ public class ExampleEntityViewController {
      * 
      * @return the DBX team builder service
      */
-    private final DbxSponsorBuilder getDbxSponsorCreationService() {
-        return sponsorCreationService;
+    private final ExampleEntityService getExampleEntityService() {
+        return exampleEntityService;
     }
 
     /**
@@ -198,20 +196,7 @@ public class ExampleEntityViewController {
      *            Sponsor form data
      */
     private final void loadNextStepModel(final ModelMap model,
-            final HttpSession session, final SponsorForm form) {
-        final Sponsor sponsor;  // Sponsor data
-        final SponsorTeam team; // Sponsor team
-
-        sponsor = getDbxSponsorCreationService().getSponsor(form);
-        team = getDbxSponsorCreationService().getSponsorTeam(sponsor);
-
-        session.setAttribute(PARAM_TEAM, team);
-
-        model.put(PARAM_SPONSOR, sponsor);
-        model.put(PARAM_TEAM, team);
-        // TODO: This should be loaded in the next step
-        model.put(PARAM_AVAILABLE_PLAYERS, getDbxSponsorCreationService()
-                .getAvailableUnits(sponsor.getAffinityGroups()));
+            final HttpSession session, final ExampleEntityForm form) {
     }
 
     /**
@@ -220,13 +205,7 @@ public class ExampleEntityViewController {
      * @param model
      *            model map
      */
-    private final void loadSponsorModel(final ModelMap model) {
-        // Initial sponsor rank
-        model.put(PARAM_INITIAL_RANK,
-                getDbxSponsorCreationService().getInitialRank());
-        // Affinity groups for the sponsors
-        model.put(PARAM_AFFINITIES,
-                getDbxSponsorCreationService().getAvailableAffinityGroups());
+    private final void loadFormModel(final ModelMap model) {
     }
 
 }

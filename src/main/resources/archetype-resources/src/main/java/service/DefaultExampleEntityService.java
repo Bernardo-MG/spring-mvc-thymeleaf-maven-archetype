@@ -100,4 +100,14 @@ public class DefaultExampleEntityService implements ExampleEntityService {
         return entityRepository;
     }
 
+    @Override
+    public final ExampleEntity add(final DefaultExampleEntity entity) {
+        return getExampleEntityRepository().save(entity);
+    }
+
+    @Override
+    public final void remove(final DefaultExampleEntity entity) {
+        getExampleEntityRepository().delete(entity);
+    }
+
 }

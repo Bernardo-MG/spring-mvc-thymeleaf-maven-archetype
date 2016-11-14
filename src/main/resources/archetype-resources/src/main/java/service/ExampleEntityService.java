@@ -24,6 +24,7 @@
 
 package ${package}.service;
 
+import ${package}.model.DefaultExampleEntity;
 import ${package}.model.ExampleEntity;
 
 /**
@@ -48,4 +49,8 @@ public interface ExampleEntityService {
      */
     public ExampleEntity findById(final Integer identifier);
 
+    public ExampleEntity add(final DefaultExampleEntity entity);
+
+    public void remove(final DefaultExampleEntity entity);
+    
 }

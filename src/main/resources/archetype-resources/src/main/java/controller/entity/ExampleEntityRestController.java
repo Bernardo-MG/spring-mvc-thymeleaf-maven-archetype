@@ -14,7 +14,7 @@
  * the License.
  */
 
-package ${package}.entity.controller;
+package ${package}.controller.entity;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -33,11 +33,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
-import com.wandrell.tabletop.dreadball.build.dbx.DbxTeamBuilder;
-import com.wandrell.tabletop.dreadball.model.team.SponsorTeam;
-import com.wandrell.tabletop.dreadball.model.unit.Unit;
-import com.wandrell.tabletop.dreadball.web.toolkit.builder.dbx.controller.bean.SponsorTeamAssets;
-import com.wandrell.tabletop.dreadball.web.toolkit.builder.dbx.controller.bean.SponsorTeamPlayer;
+import ${package}.model.DefaultExampleEntity;
+import ${package}.service.ExampleEntityService;
+import ${package}.controller.entity.bean.ExampleEntityForm;
 
 /**
  * Controller for the DBX team building AJAX operations.
@@ -51,15 +49,9 @@ import com.wandrell.tabletop.dreadball.web.toolkit.builder.dbx.controller.bean.S
 public class ExampleEntityRestController {
 
     /**
-     * Parameter name for the team.
+     * DBX team builder service.
      */
-    private static final String PARAM_TEAM = "team";
-
-    /**
-     * DBX team building service.
-     */
-    @Autowired
-    private DbxTeamBuilder      dbxTeamBuilderService;
+    private final ExampleEntityService exampleEntityService;
 
     /**
      * Constructs a controller with the specified dependencies.
@@ -67,13 +59,17 @@ public class ExampleEntityRestController {
      * @param service
      *            team builder service
      */
-    public DbxTeamBuilderRestController(final DbxTeamBuilder service) {
+    public ExampleEntityRestController(final ExampleEntityService service) {
         super();
 
         // TODO: Should give support for validating the team valoration
 
-        dbxTeamBuilderService = checkNotNull(service,
+        exampleEntityService = checkNotNull(service,
                 "Received a null pointer as team builder service");
+    }
+    
+    private final ExampleEntityService getExampleEntityService(){
+        return exampleEntityService;
     }
 
     /**
@@ -87,34 +83,19 @@ public class ExampleEntityRestController {
      *            results from binding
      * @return the team with the new player
      */
-    @PostMapping(path = "/players", consumes = MediaType.APPLICATION_JSON_VALUE,
+    @PostMapping(path = "/entities", consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public final SponsorTeam addPlayer(
-            @RequestBody final SponsorTeamPlayer player,
-            @SessionAttribute(PARAM_TEAM) @Valid final SponsorTeam team,
+    public final void addEntity(
+            @RequestBody final ExampleEntityForm player,
             final BindingResult errors) {
-        final Integer maxUnits; // Maximum number of units allowed
-        final Unit unit;        // Unit to add
+        final DefaultExampleEntity entity;
 
         // TODO: Maybe the response status should change if the data is invalid
         if (!errors.hasErrors()) {
-            maxUnits = getDbxTeamBuilderService().getMaxTeamUnits();
-
-            // TODO: Instead of enforcing the maximum send a warning
-            if (team.getPlayers().size() < maxUnits) {
-                unit = getDbxTeamBuilderService().getUnit(
-                        player.getTemplateName(),
-                        team.getSponsor().getAffinityGroups());
-
-                // TODO: Maybe the response status should change if the unit
-                // does not exist
-                if (unit != null) {
-                    addPlayer(team, unit);
-                }
-            }
+            // TODO: Map form to entity
+            entity = new DefaultExampleEntity();
+            getExampleEntityService().add(entity);
         }
-
-        return team;
     }
 
     /**
@@ -128,95 +109,20 @@ public class ExampleEntityRestController {
      *            results from binding
      * @return the team without the removed player
      */
-    @DeleteMapping(path = "/players",
+    @DeleteMapping(path = "/entities",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public final SponsorTeam removePlayer(
-            @RequestBody final SponsorTeamPlayer player,
-            @SessionAttribute(PARAM_TEAM) @Valid final SponsorTeam team,
+    public final void removeEntity(
+            @RequestBody final ExampleEntityForm player,
             final BindingResult errors) {
+        final DefaultExampleEntity entity;
 
         // TODO: Maybe the response status should change if the data is invalid
         if (!errors.hasErrors()) {
-            team.removePlayer(player.getPosition());
+            // TODO: Map form to entity
+            entity = new DefaultExampleEntity();
+            getExampleEntityService().remove(entity);
         }
-
-        return team;
-    }
-
-    /**
-     * Sets the assets in the team.
-     * 
-     * @param assets
-     *            the assets to set on the team
-     * @param team
-     *            the team where the dice will be set
-     * @param errors
-     *            results from binding
-     * @return the team with the new assets set
-     */
-    @PutMapping(path = "/assets", consumes = MediaType.APPLICATION_JSON_VALUE,
-            produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public final SponsorTeam setAssets(
-            @RequestBody final SponsorTeamAssets assets,
-            @SessionAttribute(PARAM_TEAM) @Valid final SponsorTeam team,
-            final BindingResult errors) {
-
-        // TODO: Maybe the response status should change if the data is invalid
-        if (!errors.hasErrors()) {
-            team.setCheerleaders(assets.getCheerleaders());
-            team.setCoachingDice(assets.getCoachingDice());
-            team.setMediBots(assets.getMediBots());
-            team.setSabotageCards(assets.getSabotageCards());
-            team.setSpecialMoveCards(assets.getSpecialMoveCards());
-            team.setWagers(assets.getWagers());
-        }
-
-        return team;
-    }
-
-    /**
-     * Adds a unit to the team.
-     * 
-     * @param team
-     *            team to add the unit
-     * @param unit
-     *            unit to add
-     */
-    private final void addPlayer(final SponsorTeam team, final Unit unit) {
-        final Boolean unique;
-        final Iterator<Unit> units;
-        Boolean uniqueFound;
-
-        if ((unit.getGiant()) || (unit.getMvp())) {
-            unique = true;
-        } else {
-            unique = false;
-        }
-
-        if (unique) {
-            uniqueFound = false;
-            units = team.getPlayers().values().iterator();
-            while ((!uniqueFound) && (units.hasNext())) {
-                uniqueFound = units.next().getTemplateName()
-                        .equals(unit.getTemplateName());
-            }
-
-            if (!uniqueFound) {
-                team.addPlayer(unit);
-            }
-        } else {
-            team.addPlayer(unit);
-        }
-    }
-
-    /**
-     * Returns the DBX team builder service.
-     * 
-     * @return the DBX team builder service
-     */
-    private final DbxTeamBuilder getDbxTeamBuilderService() {
-        return dbxTeamBuilderService;
     }
 
 }

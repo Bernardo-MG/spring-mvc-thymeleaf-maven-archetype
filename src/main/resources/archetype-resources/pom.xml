@@ -80,9 +80,9 @@
    <profiles>
       <profile>
          <!-- Profile for the Eclipse Maven plugin -->
-         <!-- Sets the POM so this plugin does not give the usual unregistered goals
+         <!-- Sets the POM so this plugin does not give the usual unregistered goals 
             errors -->
-         <!-- It will be activated automatically on Eclipse if this has the m2e plugin,
+         <!-- It will be activated automatically on Eclipse if this has the m2e plugin, 
             by detecting the version property -->
          <id>eclipse-maven</id>
          <activation>
@@ -96,19 +96,19 @@
                   <plugin>
                      <!-- m2e lifecycle mapping -->
                      <!-- This is used to configure the Maven plugin for Eclipse. -->
-                     <!-- Among other things, it allows registering goals, which
+                     <!-- Among other things, it allows registering goals, which 
                         Eclipse would otherwise reject. -->
                      <!-- It has no real effect on Maven. -->
                      <groupId>org.eclipse.m2e</groupId>
                      <artifactId>lifecycle-mapping</artifactId>
                      <version>${plugin.lifecycle.version}</version>
                      <configuration>
-                        <!-- Sample fix for plugin executions. -->
-                        <!-- This is to be used in case a Maven plugin gives problems
+                        <!-- Sample fix for plugin executions -->
+                        <!-- This is to be used in case a Maven plugins gives problems 
                            in Eclipse -->
-                        <!-- <lifecycleMappingMetadata> <pluginExecutions> <pluginExecution>
-                           <pluginExecutionFilter> <groupId>org.jacoco</groupId> <artifactId>jacoco-maven-plugin</artifactId>
-                           <versionRange>[0.5,)</versionRange> <goals> <goal>prepare-agent</goal> </goals> </pluginExecutionFilter>
+                        <!-- <lifecycleMappingMetadata> <pluginExecutions> <pluginExecution> 
+                           <pluginExecutionFilter> <groupId>org.jacoco</groupId> <artifactId>jacoco-maven-plugin</artifactId> 
+                           <versionRange>[0.5,)</versionRange> <goals> <goal>prepare-agent</goal> </goals> </pluginExecutionFilter> 
                            <action> <ignore /> </action> </pluginExecution> </pluginExecutions> </lifecycleMappingMetadata> -->
                         <downloadSources>true</downloadSources>
                         <downloadJavadocs>true</downloadJavadocs>
@@ -119,41 +119,171 @@
          </build>
       </profile>
       <profile>
-         <!-- Release site deployment profile. -->
-         <!-- Sets the site repository to point to the releases repo. -->
+         <!-- H2 database profile -->
+         <!-- Prepares the project to make use of an H2 in-memory database -->
+         <id>h2</id>
+         <properties>
+            <!-- Access data -->
+            <database.url>jdbc:h2:mem:dreadball_toolkit</database.url>
+            <database.username>sa</database.username>
+            <database.password></database.password>
+            <!-- Spring context -->
+            <spring.profile.database>h2</spring.profile.database>
+         </properties>
+         <dependencies>
+            <dependency>
+               <!-- H2 database -->
+               <groupId>com.h2database</groupId>
+               <artifactId>h2</artifactId>
+               <version>${h2.version}</version>
+            </dependency>
+         </dependencies>
+      </profile>
+      <profile>
+         <!-- MySQL database profile -->
+         <!-- Prepares the project to make use of an H2 in-memory database -->
+         <id>mysql</id>
+         <properties>
+            <!-- Access data -->
+            <database.url>jdbc:mysql://localhost:3306/dreadball_toolkit</database.url>
+            <database.username>root</database.username>
+            <database.password></database.password>
+            <!-- Spring context -->
+            <spring.profile.database>mysql</spring.profile.database>
+         </properties>
+         <dependencies>
+            <dependency>
+               <!-- MySQL connector -->
+               <groupId>mysql</groupId>
+               <artifactId>mysql-connector-java</artifactId>
+               <version>${mysql.version}</version>
+            </dependency>
+         </dependencies>
+      </profile>
+      <profile>
+         <!-- Release site deployment profile -->
+         <!-- Sets the site repository to point to the releases repo -->
          <id>deploy-site-release</id>
          <activation>
-            <!-- Active by default so the repository appears in the reports. -->
+            <!-- Active by default so the repository appears in the reports -->
             <activeByDefault>true</activeByDefault>
          </activation>
          <distributionManagement>
             <site>
                <id>site</id>
                <name>Project Documentation Site</name>
-               <url>${urlSiteDeployRelease}/${artifactId}</url>
+               <url>scp://docs.wandrell.com:2222/home1/duenco/www/maven/dreadball-toolkit-webpage</url>
             </site>
          </distributionManagement>
       </profile>
       <profile>
-         <!-- Development site deployment profile. -->
-         <!-- Sets the site repository to point to the development repo. -->
+         <!-- Development site deployment profile -->
+         <!-- Sets the site repository to point to the development repo -->
          <id>deploy-site-development</id>
          <distributionManagement>
             <site>
                <id>site-development</id>
                <name>Project Development Documentation Site</name>
-               <url>${urlSiteDeployDevelop}/${artifactId}</url>
+               <url>scp://docs.wandrell.com:2222/home1/duenco/www/development/maven/dreadball-toolkit-webpage</url>
             </site>
          </distributionManagement>
       </profile>
       <profile>
-         <!-- Deployment profile. -->
-         <!-- Sets ups the environment for deployment. -->
+         <!-- Deployment profile -->
+         <!-- Sets ups the environment for deployment -->
          <id>deployment</id>
          <properties>
-            <!-- Tests are skipped. -->
+            <!-- Tests are skipped -->
             <maven.test.skip>true</maven.test.skip>
          </properties>
+      </profile>
+      <profile>
+         <!-- Jetty profile -->
+         <!-- Sets ups Jetty for testing and local deployment -->
+         <id>jetty</id>
+         <build>
+            <plugins>
+               <plugin>
+                  <!-- Jetty -->
+                  <!-- Jetty will run the web service during the integration tests -->
+                  <groupId>org.eclipse.jetty</groupId>
+                  <artifactId>jetty-maven-plugin</artifactId>
+                  <version>${plugin.jetty.version}</version>
+                  <configuration>
+                     <stopKey>STOP</stopKey>
+                     <stopPort>9999</stopPort>
+                     <stopWait>5</stopWait>
+                     <webApp>
+                        <contextPath>${server.test.path}</contextPath>
+                     </webApp>
+                  </configuration>
+                  <executions>
+                     <execution>
+                        <id>start-jetty-it</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                           <goal>start</goal>
+                        </goals>
+                        <configuration>
+                           <scanIntervalSeconds>0</scanIntervalSeconds>
+                           <daemon>true</daemon>
+                           <useTestScope>true</useTestScope>
+                           <webApp>
+                              <overrideDescriptor>${project.build.directory}/${project.artifactId}-${project.version}/WEB-INF/web.xml</overrideDescriptor>
+                           </webApp>
+                        </configuration>
+                     </execution>
+                     <execution>
+                        <id>stop-jetty-it</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                           <goal>stop</goal>
+                        </goals>
+                     </execution>
+                  </executions>
+               </plugin>
+            </plugins>
+         </build>
+      </profile>
+      <profile>
+         <!-- Tomcat 7 profile -->
+         <!-- Sets ups Tomcat 7 for testing and local deployment -->
+         <id>tomcat7</id>
+         <build>
+            <plugins>
+               <plugin>
+                  <!-- Tomcat 7 -->
+                  <!-- Tomcat 7 will run the web service during the integration tests -->
+                  <groupId>org.apache.tomcat.maven</groupId>
+                  <artifactId>tomcat7-maven-plugin</artifactId>
+                  <version>${plugin.tomcat7.version}</version>
+                  <configuration>
+                     <path>${server.test.path}</path>
+                  </configuration>
+                  <executions>
+                     <execution>
+                        <id>start-tomcat-it</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                           <goal>run</goal>
+                        </goals>
+                        <configuration>
+                           <fork>true</fork>
+                           <useTestClasspath>true</useTestClasspath>
+                           <warSourceDirectory>${project.build.directory}/${project.artifactId}-${project.version}/</warSourceDirectory>
+                        </configuration>
+                     </execution>
+                     <execution>
+                        <id>stop-tomcat-it</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                           <goal>shutdown</goal>
+                        </goals>
+                     </execution>
+                  </executions>
+               </plugin>
+            </plugins>
+         </build>
       </profile>
    </profiles>
 
@@ -193,14 +323,21 @@
       <guava.version>19.0</guava.version>
       <log4j.version>2.6.2</log4j.version>
       <mockito.version>1.10.19</mockito.version>
+      <spring.data.version>1.10.2.RELEASE</spring.data.version>
+      <spring.version>4.3.2.RELEASE</spring.version>
       <testng.version>6.9.10</testng.version>
+      <thymeleaf.version>3.0.1.RELEASE</thymeleaf.version>
       <!-- Plugins versions -->
       <plugin.changes.version>2.12</plugin.changes.version>
+      <plugin.jetty.version>9.3.11.v20160721</plugin.jetty.version>
+      <plugin.jshint.version>1.6.0</plugin.jshint.version>
       <plugin.site.velocity.version>1.7</plugin.site.velocity.version>
+      <plugin.tomcat7.version>2.2</plugin.tomcat7.version>
+      <plugin.war.version>3.0.0</plugin.war.version>
       <!-- Maven Site -->
       <site.skin.version>0.4.0</site.skin.version>
-      <bintrayURL>https://bintray.com/${repoUserId}/maven/${artifactId}/view</bintrayURL>
-      <mavenURL>http://mvnrepository.com/artifact/${groupId}/${artifactId}</mavenURL>
+      <!-- Testing server -->
+      <server.test.path>/${artifactId}</server.test.path>
    </properties>
 
    <!-- ********************************************** -->
@@ -213,6 +350,82 @@
          <groupId>com.google.guava</groupId>
          <artifactId>guava</artifactId>
          <version>${guava.version}</version>
+      </dependency>
+      <!-- ============================================== -->
+      <!-- ================== SPRING ==================== -->
+      <!-- ============================================== -->
+      <dependency>
+         <!-- Spring beans -->
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-beans</artifactId>
+         <version>${spring.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Spring context -->
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-context</artifactId>
+         <version>${spring.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Spring context support -->
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-context-support</artifactId>
+         <version>${spring.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Spring Core -->
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-core</artifactId>
+         <version>${spring.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Spring Data JPA -->
+         <groupId>org.springframework.data</groupId>
+         <artifactId>spring-data-jpa</artifactId>
+         <version>${spring.data.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Spring JDBC -->
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-jdbc</artifactId>
+         <version>${spring.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Spring OXM -->
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-oxm</artifactId>
+         <version>${spring.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Spring transactions -->
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-tx</artifactId>
+         <version>${spring.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Spring Web MVC -->
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-webmvc</artifactId>
+         <version>${spring.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Spring ORM -->
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-orm</artifactId>
+         <version>${spring.version}</version>
+      </dependency>
+      <!-- ============================================== -->
+      <!-- ================ THYMELEAF =================== -->
+      <!-- ============================================== -->
+      <dependency>
+         <groupId>org.thymeleaf</groupId>
+         <artifactId>thymeleaf</artifactId>
+         <version>${thymeleaf.version}</version>
+      </dependency>
+      <dependency>
+         <groupId>org.thymeleaf</groupId>
+         <artifactId>thymeleaf-spring4</artifactId>
+         <version>${thymeleaf.version}</version>
       </dependency>
       <!-- ============================================== -->
       <!-- ======= TEST ENVIRONMENT DEPENDENCIES ======== -->
@@ -252,7 +465,37 @@
    <!-- ********************************************** -->
 
    <build>
-      <defaultGoal>clean package install</defaultGoal>
+      <defaultGoal>clean package</defaultGoal>
+      <resources>
+         <resource>
+            <directory>src/main/resources/</directory>
+         </resource>
+         <resource>
+            <directory>src/main/resources/</directory>
+            <includes>
+               <!-- Filter the application context -->
+               <include>context/application-context.xml</include>
+               <!-- Filter the persistence access properties -->
+               <include>config/persistence-access.properties</include>
+               <!-- Filter the project info properties -->
+               <include>config/project.properties</include>
+            </includes>
+            <filtering>true</filtering>
+         </resource>
+      </resources>
+      <testResources>
+         <testResource>
+            <directory>src/test/resources/</directory>
+         </testResource>
+         <testResource>
+            <directory>src/test/resources/</directory>
+            <includes>
+               <!-- Filter the DBX builder context -->
+               <include>context/builder-dbx.xml</include>
+            </includes>
+            <filtering>true</filtering>
+         </testResource>
+      </testResources>
       <plugins>
          <plugin>
             <!-- Changes -->
@@ -326,6 +569,72 @@
                </suiteXmlFiles>
             </configuration>
          </plugin>
+         <plugin>
+            <!-- WAR -->
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>${plugin.war.version}</version>
+            <configuration>
+               <filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
+               <webResources>
+                  <resource>
+                     <!-- Persistence access data is filtered -->
+                     <filtering>true</filtering>
+                     <directory>${project.basedir}/src/main/resources/config</directory>
+                     <targetPath>WEB-INF/classes/config</targetPath>
+                     <includes>
+                        <include>persistence-access.properties</include>
+                     </includes>
+                  </resource>
+               </webResources>
+               <!-- Variables to to override will be delimited with a @. -->
+               <!-- This avoids collisions with Spring variables. -->
+               <!-- So instead of replacing ${project.name} Maven will replace @project.name@. -->
+               <useDefaultDelimiters>false</useDefaultDelimiters>
+               <delimiters>
+                  <delimiter>@</delimiter>
+               </delimiters>
+            </configuration>
+         </plugin>
+         <plugin>
+            <!-- Resources -->
+            <!-- Handles the project resources. -->
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <configuration>
+               <!-- Variables to to override will be delimited with a @. -->
+               <!-- This avoids collisions with Spring variables. -->
+               <!-- So instead of replacing ${project.name} Maven will replace @project.name@. -->
+               <useDefaultDelimiters>false</useDefaultDelimiters>
+               <delimiters>
+                  <delimiter>@</delimiter>
+               </delimiters>
+            </configuration>
+         </plugin>
+         <plugin>
+            <!-- JSHint -->
+            <groupId>com.cj.jshintmojo</groupId>
+            <artifactId>jshint-maven-plugin</artifactId>
+            <version>${plugin.jshint.version}</version>
+            <executions>
+               <execution>
+                  <id>jshint</id>
+                  <phase>test</phase>
+                  <goals>
+                     <goal>lint</goal>
+                  </goals>
+               </execution>
+            </executions>
+            <configuration>
+               <options>maxdepth:3,latedef,nonew,jquery</options>
+               <directories>
+                  <directory>src/main/webapp/resources/js</directory>
+               </directories>
+               <reporter>checkstyle</reporter>
+               <reportFile>target/jshint.xml</reportFile>
+               <failOnError>true</failOnError>
+            </configuration>
+         </plugin>
       </plugins>
    </build>
 
@@ -336,14 +645,14 @@
    <reporting>
       <plugins>
          <plugin>
-             <!-- FindBugs -->
-             <!-- Checks for patterns which are prone to errors -->
-             <groupId>org.codehaus.mojo</groupId>
-             <artifactId>findbugs-maven-plugin</artifactId>
-             <configuration>
-                 <!-- Exclusion patterns -->
-                 <excludeFilterFile>${project.basedir}/src/config/findbugs/findbugs-exclude.xml</excludeFilterFile>
-             </configuration>
+            <!-- FindBugs -->
+            <!-- Checks for patterns which are prone to errors -->
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>findbugs-maven-plugin</artifactId>
+            <configuration>
+               <!-- Exclusion patterns -->
+               <excludeFilterFile>${project.basedir}/src/config/findbugs/findbugs-exclude.xml</excludeFilterFile>
+            </configuration>
          </plugin>
          <plugin>
             <!-- Checkstyle -->

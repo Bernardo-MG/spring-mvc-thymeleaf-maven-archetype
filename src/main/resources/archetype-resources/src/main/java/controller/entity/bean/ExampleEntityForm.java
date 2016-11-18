@@ -28,6 +28,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.Objects;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import com.google.common.base.MoreObjects;
 
 /**
@@ -52,7 +54,8 @@ public final class ExampleEntityForm {
      * This is to have additional data apart from the id, to be used on the
      * tests.
      */
-    private String            name             = "";
+    @NotEmpty
+    private String            name;
 
     /**
      * Constructs an example entity.

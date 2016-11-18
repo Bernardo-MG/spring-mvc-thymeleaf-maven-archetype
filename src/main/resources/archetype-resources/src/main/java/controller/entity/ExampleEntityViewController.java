@@ -51,31 +51,6 @@ public class ExampleEntityViewController {
     private static final String     BEAN_SPONSOR            = "form";
 
     /**
-     * Parameter name for the affinities.
-     */
-    private static final String     PARAM_AFFINITIES        = "affinities";
-
-    /**
-     * Parameter name for the available players.
-     */
-    private static final String     PARAM_AVAILABLE_PLAYERS = "availablePlayers";
-
-    /**
-     * Parameter name for the initial rank.
-     */
-    private static final String     PARAM_INITIAL_RANK      = "initialRank";
-
-    /**
-     * Parameter name for the sponsor.
-     */
-    private static final String     PARAM_SPONSOR           = "sponsor";
-
-    /**
-     * Parameter name for the team.
-     */
-    private static final String     PARAM_TEAM              = "team";
-
-    /**
      * Name for the view after the sponsor view.
      */
     private static final String     VIEW_NEXT               = "builder/dbx/players";

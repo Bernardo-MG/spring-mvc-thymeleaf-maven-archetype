@@ -28,17 +28,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.Objects;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Transient;
-
 import com.google.common.base.MoreObjects;
-
-import ${package}.model.ExampleEntity;
 
 /**
  * Persistent entity for the example application.
@@ -54,7 +44,6 @@ public final class ExampleEntityForm {
     /**
      * Serialization ID.
      */
-    @Transient
     private static final long serialVersionUID = 1328776989450853491L;
 
     /**

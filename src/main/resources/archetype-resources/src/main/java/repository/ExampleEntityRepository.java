@@ -26,7 +26,7 @@ package ${package}.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import ${package}.model.DefaultExampleEntity;
+import ${package}.model.persistence.DefaultExampleEntity;
 
 /**
  * Spring-JPA repository for {@link DefaultExampleEntity}.

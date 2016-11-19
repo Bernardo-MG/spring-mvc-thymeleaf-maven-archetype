@@ -38,6 +38,8 @@ import javax.persistence.Transient;
 
 import com.google.common.base.MoreObjects;
 
+import ${package}.model.ExampleEntity;
+
 /**
  * Persistent entity for the example application.
  * <p>

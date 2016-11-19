@@ -24,7 +24,7 @@
 
 package ${package}.service;
 
-import ${package}.model.DefaultExampleEntity;
+import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.model.ExampleEntity;
 
 /**

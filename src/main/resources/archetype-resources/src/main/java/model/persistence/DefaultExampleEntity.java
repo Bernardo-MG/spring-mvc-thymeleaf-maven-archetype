@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package ${package}.persistence.model;
+package ${package}.model.persistence;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 

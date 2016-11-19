@@ -29,7 +29,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ${package}.model.DefaultExampleEntity;
+import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.model.ExampleEntity;
 import ${package}.repository.ExampleEntityRepository;
 

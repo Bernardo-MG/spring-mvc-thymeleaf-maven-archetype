@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
-import ${package}.model.DefaultExampleEntity;
+import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.service.ExampleEntityService;
 import ${package}.controller.entity.bean.ExampleEntityForm;
 

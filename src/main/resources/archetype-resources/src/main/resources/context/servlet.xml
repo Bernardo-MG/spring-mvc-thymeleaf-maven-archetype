@@ -33,10 +33,6 @@
       </mvc:message-converters>
    </mvc:annotation-driven>
 
-   <bean id="jsonMessageConverter" class="${converter.json.class}">
-      <property name="objectMapper" ref="dreadballObjectMapper" />
-   </bean>
-
    <!-- Static resources -->
    <mvc:resources mapping="/static/**" location="/webjars/, /resources/">
       <mvc:cache-control cache-public="true" max-age="2592000" />

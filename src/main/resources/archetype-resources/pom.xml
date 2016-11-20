@@ -337,6 +337,13 @@
       <spring.version>4.3.2.RELEASE</spring.version>
       <testng.version>6.9.10</testng.version>
       <thymeleaf.version>3.0.1.RELEASE</thymeleaf.version>
+      <webjars.bootstrap.version>3.3.7-1</webjars.bootstrap.version>
+      <webjars.bootswatch.simplex.version>3.3.5+4</webjars.bootswatch.simplex.version>
+      <webjars.datatables.version>1.10.12-1</webjars.datatables.version>
+      <webjars.fontAwesome.version>4.6.3</webjars.fontAwesome.version>
+      <webjars.html5shiv.version>3.7.3</webjars.html5shiv.version>
+      <webjars.jquery.version>2.2.4</webjars.jquery.version>
+      <webjars.locator.version>0.32</webjars.locator.version>
       <!-- Plugins versions -->
       <plugin.changes.version>2.12</plugin.changes.version>
       <plugin.jetty.version>9.3.11.v20160721</plugin.jetty.version>
@@ -494,6 +501,51 @@
          <artifactId>javax.servlet-api</artifactId>
          <version>${servlet.version}</version>
          <scope>provided</scope>
+      </dependency>
+      <!-- ============================================== -->
+      <!-- ================ WEBJARS ===================== -->
+      <!-- ============================================== -->
+      <dependency>
+         <!-- Bootstrap -->
+         <groupId>org.webjars</groupId>
+         <artifactId>bootstrap</artifactId>
+         <version>${webjars.bootstrap.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Bootswatch Simplex -->
+         <groupId>org.webjars</groupId>
+         <artifactId>bootswatch-simplex</artifactId>
+         <version>${webjars.bootswatch.simplex.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Datatables -->
+         <groupId>org.webjars</groupId>
+         <artifactId>datatables</artifactId>
+         <version>${webjars.datatables.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Font Awesome -->
+         <groupId>org.webjars</groupId>
+         <artifactId>font-awesome</artifactId>
+         <version>${webjars.fontAwesome.version}</version>
+      </dependency>
+      <dependency>
+         <!-- HTML5 Shiv -->
+         <groupId>org.webjars</groupId>
+         <artifactId>html5shiv</artifactId>
+         <version>${webjars.html5shiv.version}</version>
+      </dependency>
+      <dependency>
+         <!-- JQuery -->
+         <groupId>org.webjars</groupId>
+         <artifactId>jquery</artifactId>
+         <version>${webjars.jquery.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Webjars Locator -->
+         <groupId>org.webjars</groupId>
+         <artifactId>webjars-locator</artifactId>
+         <version>${webjars.locator.version}</version>
       </dependency>
       <!-- ============================================== -->
       <!-- =========== VERSION ENFORCEMENT ============== -->

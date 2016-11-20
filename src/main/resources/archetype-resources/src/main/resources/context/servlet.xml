@@ -28,9 +28,6 @@
    <!-- MVC configuration -->
    <mvc:annotation-driven conversion-service="conversionService"
       validator="validator">
-      <mvc:message-converters>
-         <ref bean="jsonMessageConverter" />
-      </mvc:message-converters>
    </mvc:annotation-driven>
 
    <!-- Static resources -->

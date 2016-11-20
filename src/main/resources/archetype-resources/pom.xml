@@ -328,6 +328,7 @@
       <hibernate.validator.version>5.2.4.Final</hibernate.validator.version>
       <hibernate.version>5.1.0.Final</hibernate.version>
       <hikari.version>2.5.0</hikari.version>
+      <jackson.version>2.8.3</jackson.version>
       <log4j.version>2.6.2</log4j.version>
       <mockito.version>1.10.19</mockito.version>
       <mysql.version>5.1.39</mysql.version>
@@ -359,6 +360,27 @@
          <groupId>com.google.guava</groupId>
          <artifactId>guava</artifactId>
          <version>${guava.version}</version>
+      </dependency>
+      <!-- ============================================== -->
+      <!-- ================= JACKSON ==================== -->
+      <!-- ============================================== -->
+      <dependency>
+         <!-- Jackson -->
+         <groupId>com.fasterxml.jackson.core</groupId>
+         <artifactId>jackson-core</artifactId>
+         <version>${jackson.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Jackson databinding -->
+         <groupId>com.fasterxml.jackson.core</groupId>
+         <artifactId>jackson-databind</artifactId>
+         <version>${jackson.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Jackson annotations -->
+         <groupId>com.fasterxml.jackson.core</groupId>
+         <artifactId>jackson-annotations</artifactId>
+         <version>${jackson.version}</version>
       </dependency>
       <!-- ============================================== -->
       <!-- ================== SPRING ==================== -->

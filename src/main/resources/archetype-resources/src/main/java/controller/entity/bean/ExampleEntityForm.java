@@ -26,11 +26,13 @@ package ${package}.controller.entity.bean;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.google.common.base.MoreObjects;
+import com.wandrell.util.prueba2.controller.entity.bean.Serializable;
 
 /**
  * Persistent entity for the example application.
@@ -41,7 +43,7 @@ import com.google.common.base.MoreObjects;
  *
  * @author Bernardo Martínez Garrido
  */
-public final class ExampleEntityForm {
+public final class ExampleEntityForm implements Serializable {
 
     /**
      * Serialization ID.

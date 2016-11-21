@@ -124,7 +124,7 @@
          <id>h2</id>
          <properties>
             <!-- Access data -->
-            <database.url>jdbc:h2:mem:dreadball_toolkit</database.url>
+            <database.url>jdbc:h2:mem:${groupId}</database.url>
             <database.username>sa</database.username>
             <database.password></database.password>
             <!-- Spring context -->
@@ -145,7 +145,7 @@
          <id>mysql</id>
          <properties>
             <!-- Access data -->
-            <database.url>jdbc:mysql://localhost:3306/dreadball_toolkit</database.url>
+            <database.url>jdbc:mysql://localhost:3306/${groupId}</database.url>
             <database.username>root</database.username>
             <database.password></database.password>
             <!-- Spring context -->
@@ -172,7 +172,7 @@
             <site>
                <id>site</id>
                <name>Project Documentation Site</name>
-               <url>scp://docs.wandrell.com:2222/home1/duenco/www/maven/dreadball-toolkit-webpage</url>
+               <url>${urlSiteDeployRelease}/${artifactId}</url>
             </site>
          </distributionManagement>
       </profile>
@@ -184,7 +184,7 @@
             <site>
                <id>site-development</id>
                <name>Project Development Documentation Site</name>
-               <url>scp://docs.wandrell.com:2222/home1/duenco/www/development/maven/dreadball-toolkit-webpage</url>
+               <url>${urlSiteDeployDevelop}/${artifactId}</url>
             </site>
          </distributionManagement>
       </profile>

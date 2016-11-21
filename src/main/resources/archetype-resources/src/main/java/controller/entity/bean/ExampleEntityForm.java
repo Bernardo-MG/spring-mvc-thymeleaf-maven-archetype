@@ -32,7 +32,6 @@ import java.util.Objects;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.google.common.base.MoreObjects;
-import com.wandrell.util.prueba2.controller.entity.bean.Serializable;
 
 /**
  * Persistent entity for the example application.

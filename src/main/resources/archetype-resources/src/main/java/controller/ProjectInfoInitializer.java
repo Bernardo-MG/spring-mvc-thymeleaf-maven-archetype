@@ -56,25 +56,25 @@ public final class ProjectInfoInitializer {
      * Project description.
      */
     @Value("${project.description}")
-    private String projectDescription;
+    private String pageDescription;
 
     /**
      * Project keywords.
      */
     @Value("${project.keywords}")
-    private String projectKeywords;
+    private String pageKeywords;
 
     /**
      * Project version.
      */
     @Value("${project.version}")
-    private String projectVersion;
+    private String appVersion;
 
     /**
      * Project year.
      */
     @Value("${project.year}")
-    private String projectYear;
+    private String appYear;
 
     /**
      * Project license SCM URL.
@@ -94,7 +94,7 @@ public final class ProjectInfoInitializer {
      * 
      * @return the project license name
      */
-    @ModelAttribute("projectLicense")
+    @ModelAttribute("appLicense")
     public final String getLicense() {
         return licenseName;
     }
@@ -104,7 +104,7 @@ public final class ProjectInfoInitializer {
      * 
      * @return the project license URL
      */
-    @ModelAttribute("projectLicenseUrl")
+    @ModelAttribute("appLicenseUrl")
     public final String getLicenseUrl() {
         return licenseUrl;
     }
@@ -134,9 +134,9 @@ public final class ProjectInfoInitializer {
      * 
      * @return the project description
      */
-    @ModelAttribute("projectDescription")
-    public final String getProjectDescription() {
-        return projectDescription;
+    @ModelAttribute("pageDescription")
+    public final String getPageDescription() {
+        return pageDescription;
     }
 
     /**
@@ -144,9 +144,9 @@ public final class ProjectInfoInitializer {
      * 
      * @return the project keywords
      */
-    @ModelAttribute("projectKeywords")
-    public final String getProjectKeywords() {
-        return projectKeywords;
+    @ModelAttribute("pageKeywords")
+    public final String getPageKeywords() {
+        return pageKeywords;
     }
 
     /**
@@ -154,9 +154,9 @@ public final class ProjectInfoInitializer {
      * 
      * @return the project version
      */
-    @ModelAttribute("projectVersion")
-    public final String getProjectVersion() {
-        return projectVersion;
+    @ModelAttribute("appVersion")
+    public final String getAppVersion() {
+        return appVersion;
     }
 
     /**
@@ -164,9 +164,9 @@ public final class ProjectInfoInitializer {
      * 
      * @return the project year
      */
-    @ModelAttribute("projectYear")
-    public final String getProjectYear() {
-        return projectYear;
+    @ModelAttribute("appYear")
+    public final String getAppYear() {
+        return appYear;
     }
 
     /**

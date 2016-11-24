@@ -42,7 +42,7 @@ import ${package}.controller.entity.bean.ExampleEntityForm;
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @Controller
-@RequestMapping("/builder/team/dbx")
+@RequestMapping("/entity")
 public class ExampleEntityViewController {
 
     /**
@@ -58,7 +58,7 @@ public class ExampleEntityViewController {
     /**
      * Name for the sponsor view.
      */
-    private static final String     VIEW_SPONSOR            = "builder/dbx/sponsor";
+    private static final String     VIEW_ENTITY_FORM            = "entity/form";
 
     /**
      * DBX team builder service.
@@ -107,7 +107,7 @@ public class ExampleEntityViewController {
             // Loads required data into the model
             loadFormModel(model);
             // Returns to the sponsor creation view
-            path = VIEW_SPONSOR;
+            path = VIEW_ENTITY_FORM;
             // TODO: Maybe it should return a bad request status?
         } else {
             // Loads required data into the model and session
@@ -138,7 +138,7 @@ public class ExampleEntityViewController {
      *            session status
      * @return the name for the sponsor edition view
      */
-    @GetMapping
+    @GetMapping(path="/edit")
     public final String showEntityForm(final ModelMap model,
             final SessionStatus status) {
         // Clears session
@@ -148,7 +148,7 @@ public class ExampleEntityViewController {
         // Loads required data into the model
         loadFormModel(model);
 
-        return VIEW_SPONSOR;
+        return VIEW_ENTITY_FORM;
     }
 
     /**

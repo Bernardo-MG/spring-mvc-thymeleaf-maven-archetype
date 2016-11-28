@@ -73,7 +73,7 @@ public final class DefaultExampleEntity implements ExampleEntity {
      * This is to have additional data apart from the id, to be used on the
      * tests.
      */
-    @Column(name = "name", nullable = false)
+    @Column(name = "name", nullable = false, unique = true)
     private String            name             = "";
 
     /**

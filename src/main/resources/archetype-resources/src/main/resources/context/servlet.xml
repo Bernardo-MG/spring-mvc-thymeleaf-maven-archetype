@@ -23,7 +23,7 @@
                    classpath:config/servlet.properties" />
 
    <!-- Scans for beans -->
-   <context:component-scan base-package="${groupId}" />
+   <context:component-scan base-package="${package}" />
 
    <!-- MVC configuration -->
    <mvc:annotation-driven conversion-service="conversionService"

@@ -14,7 +14,7 @@
    <!-- ============================= CONFIGURATION ============================= -->
 
    <!-- Repositories -->
-   <jpa:repositories base-package="${groupId}.${artifactId}.repository" />
+   <jpa:repositories base-package="${package}.repository" />
 
    <!-- ================================== JPA ================================== -->
 

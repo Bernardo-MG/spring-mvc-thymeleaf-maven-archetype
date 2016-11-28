@@ -6,6 +6,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
 import org.testng.annotations.Test;
+
+import com.wandrell.util.prueba2.model.ExampleEntity;
+
 import org.testng.Assert;
 
 import ${package}.model.ExampleEntity;
@@ -27,12 +30,21 @@ public final class ITDefaultExampleEntityService
     }
 
     @Test
-    public final void testRead() {
+    public final void testRead_Existing_NotNull() {
         final ExampleEntity entity;
-        
+
         entity = service.findById(1);
-        
-        Assert.assertNotNull(entity);
+
+        Assert.assertEquals(entity.getId(), new Integer(1));
+    }
+
+    @Test
+    public final void testRead_NotExisting_Null() {
+        final ExampleEntity entity;
+
+        entity = service.findById(100);
+
+        Assert.assertEquals(entity.getId(), new Integer(-1));
     }
 
 }

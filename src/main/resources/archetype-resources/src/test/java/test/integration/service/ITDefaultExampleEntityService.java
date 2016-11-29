@@ -7,8 +7,6 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
 import org.testng.annotations.Test;
 
-import com.wandrell.util.prueba2.model.ExampleEntity;
-
 import org.testng.Assert;
 
 import ${package}.model.ExampleEntity;
@@ -30,7 +28,7 @@ public final class ITDefaultExampleEntityService
     }
 
     @Test
-    public final void testRead_Existing_NotNull() {
+    public final void testRead_Existing_Valid() {
         final ExampleEntity entity;
 
         entity = service.findById(1);
@@ -39,7 +37,7 @@ public final class ITDefaultExampleEntityService
     }
 
     @Test
-    public final void testRead_NotExisting_Null() {
+    public final void testRead_NotExisting_Invalid() {
         final ExampleEntity entity;
 
         entity = service.findById(100);

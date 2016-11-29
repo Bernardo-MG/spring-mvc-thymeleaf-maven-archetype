@@ -38,7 +38,7 @@ import ${package}.controller.entity.bean.ExampleEntityForm;
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @RestController
-@RequestMapping("/builder/team/dbx")
+@RequestMapping("/entity")
 public class ExampleEntityRestController {
 
     /**

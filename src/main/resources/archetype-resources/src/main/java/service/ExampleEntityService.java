@@ -37,6 +37,8 @@ import ${package}.model.ExampleEntity;
  */
 public interface ExampleEntityService {
 
+    public ExampleEntity add(final DefaultExampleEntity entity);
+
     /**
      * Returns an entity with the given id.
      * <p>
@@ -49,7 +51,7 @@ public interface ExampleEntityService {
      */
     public ExampleEntity findById(final Integer identifier);
 
-    public ExampleEntity add(final DefaultExampleEntity entity);
+    public Iterable<DefaultExampleEntity> getAllEntities();
 
     public void remove(final DefaultExampleEntity entity);
     

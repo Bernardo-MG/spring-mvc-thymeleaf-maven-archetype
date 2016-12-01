@@ -48,17 +48,27 @@ public class ExampleEntityViewController {
     /**
      * Sponsor bean parameter name.
      */
-    private static final String     BEAN_SPONSOR            = "form";
+    private static final String        BEAN_SPONSOR     = "form";
 
     /**
-     * Name for the view after the sponsor view.
+     * Sponsor bean parameter name.
      */
-    private static final String     VIEW_NEXT               = "builder/dbx/players";
+    private static final String        PARAM_ENTITIES   = "entities";
 
     /**
      * Name for the sponsor view.
      */
-    private static final String     VIEW_ENTITY_FORM            = "entity/form";
+    private static final String        VIEW_ENTITY_FORM = "entity/form";
+
+    /**
+     * Name for the sponsor view.
+     */
+    private static final String        VIEW_ENTITY_LIST = "entity/list";
+
+    /**
+     * Name for the view after the sponsor view.
+     */
+    private static final String        VIEW_NEXT        = "builder/dbx/players";
 
     /**
      * DBX team builder service.
@@ -138,17 +148,20 @@ public class ExampleEntityViewController {
      *            session status
      * @return the name for the sponsor edition view
      */
-    @GetMapping(path="/edit")
-    public final String showEntityForm(final ModelMap model,
-            final SessionStatus status) {
-        // Clears session
-        // TODO: Is this required here? Maybe a controller advice should be used
-        status.setComplete();
-
+    @GetMapping(path = "/edit")
+    public final String showEntityForm(final ModelMap model) {
         // Loads required data into the model
         loadFormModel(model);
 
         return VIEW_ENTITY_FORM;
+    }
+
+    @GetMapping(path = "/list")
+    public final String showEntityList(final ModelMap model) {
+        // Loads required data into the model
+        loadViewModel(model);
+
+        return VIEW_ENTITY_LIST;
     }
 
     /**
@@ -161,6 +174,14 @@ public class ExampleEntityViewController {
     }
 
     /**
+     * Loads the model data required for the Sponsor edition view.
+     * 
+     * @param model
+     *            model map
+     */
+    private final void loadFormModel(final ModelMap model) {}
+
+    /**
      * Loads the model data required for the next step.
      * 
      * @param model
@@ -171,8 +192,7 @@ public class ExampleEntityViewController {
      *            Sponsor form data
      */
     private final void loadNextStepModel(final ModelMap model,
-            final HttpSession session, final ExampleEntityForm form) {
-    }
+            final HttpSession session, final ExampleEntityForm form) {}
 
     /**
      * Loads the model data required for the Sponsor edition view.
@@ -180,7 +200,8 @@ public class ExampleEntityViewController {
      * @param model
      *            model map
      */
-    private final void loadFormModel(final ModelMap model) {
+    private final void loadViewModel(final ModelMap model) {
+        model.put(PARAM_ENTITIES, getExampleEntityService().getAllEntities());
     }
 
 }

@@ -66,6 +66,11 @@ public class DefaultExampleEntityService implements ExampleEntityService {
                 "Received a null pointer as repository");
     }
 
+    @Override
+    public final ExampleEntity add(final DefaultExampleEntity entity) {
+        return getExampleEntityRepository().save(entity);
+    }
+
     /**
      * Returns an entity with the given id.
      * <p>
@@ -91,6 +96,16 @@ public class DefaultExampleEntityService implements ExampleEntityService {
         return entity;
     }
 
+    @Override
+    public final Iterable<DefaultExampleEntity> getAllEntities() {
+        return getExampleEntityRepository().findAll();
+    }
+
+    @Override
+    public final void remove(final DefaultExampleEntity entity) {
+        getExampleEntityRepository().delete(entity);
+    }
+
     /**
      * Returns the repository used to acquire the domain entities.
      *
@@ -98,16 +113,6 @@ public class DefaultExampleEntityService implements ExampleEntityService {
      */
     private final ExampleEntityRepository getExampleEntityRepository() {
         return entityRepository;
-    }
-
-    @Override
-    public final ExampleEntity add(final DefaultExampleEntity entity) {
-        return getExampleEntityRepository().save(entity);
-    }
-
-    @Override
-    public final void remove(final DefaultExampleEntity entity) {
-        getExampleEntityRepository().delete(entity);
     }
 
 }

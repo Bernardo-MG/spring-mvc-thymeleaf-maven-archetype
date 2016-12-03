@@ -31,11 +31,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.wandrell.util.prueba.controller.entity.bean.ExampleEntityForm;
-import com.wandrell.util.prueba.model.persistence.DefaultExampleEntity;
-import com.wandrell.util.prueba.service.ExampleEntityService;
-
 import ${package}.service.ExampleEntityService;
+import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.controller.entity.bean.ExampleEntityForm;
 
 /**

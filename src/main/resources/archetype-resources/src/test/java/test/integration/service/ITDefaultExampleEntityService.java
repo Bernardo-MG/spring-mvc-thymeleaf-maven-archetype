@@ -9,13 +9,10 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
 import org.testng.annotations.Test;
 
-import com.wandrell.util.prueba.model.ExampleEntity;
-import com.wandrell.util.prueba.model.persistence.DefaultExampleEntity;
-import com.wandrell.util.prueba.service.ExampleEntityService;
-
 import org.testng.Assert;
 
 import ${package}.model.ExampleEntity;
+import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.service.ExampleEntityService;
 
 @ContextConfiguration(locations = { "classpath:context/service.xml",

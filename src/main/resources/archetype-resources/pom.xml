@@ -628,19 +628,6 @@
             <filtering>true</filtering>
          </resource>
       </resources>
-      <testResources>
-         <testResource>
-            <directory>src/test/resources/</directory>
-         </testResource>
-         <testResource>
-            <directory>src/test/resources/</directory>
-            <includes>
-               <!-- Filter the DBX builder context -->
-               <include>context/builder-dbx.xml</include>
-            </includes>
-            <filtering>true</filtering>
-         </testResource>
-      </testResources>
       <plugins>
          <plugin>
             <!-- Changes -->

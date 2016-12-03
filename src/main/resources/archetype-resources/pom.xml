@@ -548,6 +548,14 @@
          <version>${webjars.locator.version}</version>
       </dependency>
       <!-- ============================================== -->
+      <!-- ================== JAVA X ==================== -->
+      <!-- ============================================== -->
+      <dependency>
+         <groupId>javax.el</groupId>
+         <artifactId>javax.el-api</artifactId>
+         <version>${javax.el.version}</version>
+      </dependency>
+      <!-- ============================================== -->
       <!-- =========== VERSION ENFORCEMENT ============== -->
       <!-- ============================================== -->
       <dependency>

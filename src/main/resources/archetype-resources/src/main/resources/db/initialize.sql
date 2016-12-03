@@ -31,6 +31,6 @@
 -- Example entity table
 
 CREATE TABLE example_entities (
-    id                      INTEGER PRIMARY KEY,
+    id                      INTEGER PRIMARY KEY AUTO_INCREMENT,
     name                    VARCHAR(30) NOT NULL UNIQUE
 );

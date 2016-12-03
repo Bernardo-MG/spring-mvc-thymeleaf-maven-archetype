@@ -31,6 +31,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.wandrell.util.prueba.controller.entity.bean.ExampleEntityForm;
+import com.wandrell.util.prueba.model.persistence.DefaultExampleEntity;
+import com.wandrell.util.prueba.service.ExampleEntityService;
+
 import ${package}.service.ExampleEntityService;
 import ${package}.controller.entity.bean.ExampleEntityForm;
 
@@ -66,11 +70,6 @@ public class ExampleEntityViewController {
     private static final String        VIEW_ENTITY_LIST = "entity/list";
 
     /**
-     * Name for the view after the sponsor view.
-     */
-    private static final String        VIEW_NEXT        = "builder/dbx/players";
-
-    /**
      * DBX team builder service.
      */
     private final ExampleEntityService exampleEntityService;
@@ -97,7 +96,7 @@ public class ExampleEntityViewController {
      * 
      * @param model
      *            model map
-     * @param sponsor
+     * @param form
      *            sponsor form data
      * @param bindingResult
      *            binding result data
@@ -106,10 +105,11 @@ public class ExampleEntityViewController {
      * @return the name for the view to show
      */
     @PostMapping
-    public final String checkForm(final ModelMap model,
-            @ModelAttribute(BEAN_SPONSOR) @Valid final ExampleEntityForm sponsor,
+    public final String saveEntity(final ModelMap model,
+            @ModelAttribute(BEAN_SPONSOR) @Valid final ExampleEntityForm form,
             final BindingResult bindingResult, final HttpSession session) {
         final String path;
+        final DefaultExampleEntity entity;
 
         if (bindingResult.hasErrors()) {
             // Invalid sponsor data
@@ -120,10 +120,15 @@ public class ExampleEntityViewController {
             path = VIEW_ENTITY_FORM;
             // TODO: Maybe it should return a bad request status?
         } else {
-            // Loads required data into the model and session
-            loadNextStepModel(model, session, sponsor);
+            entity = new DefaultExampleEntity();
+            entity.setName(form.getName());
 
-            path = VIEW_NEXT;
+            getExampleEntityService().add(entity);
+
+            // Loads required data into the model and session
+            loadViewModel(model);
+
+            path = VIEW_ENTITY_LIST;
         }
 
         return path;
@@ -180,19 +185,6 @@ public class ExampleEntityViewController {
      *            model map
      */
     private final void loadFormModel(final ModelMap model) {}
-
-    /**
-     * Loads the model data required for the next step.
-     * 
-     * @param model
-     *            model map
-     * @param session
-     *            session data
-     * @param form
-     *            Sponsor form data
-     */
-    private final void loadNextStepModel(final ModelMap model,
-            final HttpSession session, final ExampleEntityForm form) {}
 
     /**
      * Loads the model data required for the Sponsor edition view.

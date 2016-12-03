@@ -2,7 +2,7 @@
 
 A [Maven Archetype][maven-archetype] for generating a Spring MVC project using Thymeleaf for the frontend.
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.wandrell.maven.archetypes/library-archetype.svg)][maven-repo]
+[![Maven Central](https://img.shields.io/maven-central/v/com.wandrell.maven.archetypes/spring-mvc-thymeleaf-maven-archetype.svg)][maven-repo]
 [![Bintray](https://api.bintray.com/packages/bernardo-mg/maven/spring-mvc-thymeleaf-maven-archetype/images/download.svg)][bintray-repo]
 
 [![Release docs](https://img.shields.io/badge/docs-release-blue.svg)][site-release]
@@ -58,7 +58,7 @@ The Maven coordinates and URL for it are:
 
 ```
 Group ID: com.wandrell.maven.archetypes
-Artifact ID: library-archetype
+Artifact ID: spring-mvc-thymeleaf-maven-archetype
 Version: (Check POM or badges)
 URL: https://dl.bintray.com/bernardo-mg/maven/
 ```
@@ -66,7 +66,7 @@ URL: https://dl.bintray.com/bernardo-mg/maven/
 For example, to use it through command line type the following:
 
 ```
-$ mvn archetype:generate -DarchetypeGroupId=com.wandrell.maven.archetypes -DarchetypeArtifactId=library-archetype -DarchetypeVersion=1.0.0 -DarchetypeRepository=https://dl.bintray.com/bernardo-mg/maven/
+$ mvn archetype:generate -DarchetypeGroupId=com.wandrell.maven.archetypes -DarchetypeArtifactId=spring-mvc-thymeleaf-maven-archetype -DarchetypeVersion=1.0.0 -DarchetypeRepository=https://dl.bintray.com/bernardo-mg/maven/
 ```
 
 If using an IDE check its documentation to find out how to use Maven Archetypes, and how to add these to the local repository.
@@ -96,7 +96,7 @@ If you wish to fork or modify the code, visit the [GitHub project page][scm], wh
 The project has been released under the [MIT License][license].
 
 [bintray-repo]: https://bintray.com/bernardo-mg/maven/spring-mvc-thymeleaf-maven-archetype/view
-[maven-repo]: http://mvnrepository.com/artifact/com.wandrell.maven.archetypes/library-archetype
+[maven-repo]: http://mvnrepository.com/artifact/com.wandrell.maven.archetypes/spring-mvc-thymeleaf-maven-archetype
 [testng]: http://testng.org
 [issues]: https://github.com/Bernardo-MG/spring-mvc-thymeleaf-maven-archetype/issues
 [license]: http://www.opensource.org/licenses/mit-license.php

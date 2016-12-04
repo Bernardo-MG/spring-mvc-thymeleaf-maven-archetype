@@ -41,14 +41,14 @@ import ${package}.service.ExampleEntityReportService;
 import ${package}.service.ExampleEntityService;
 
 @Controller
-@RequestMapping("/builder/team/dbx")
+@RequestMapping("/entity")
 public class ReportController {
 
     private final ExampleEntityService exampleEntityService;
     
     private final ExampleEntityReportService exampleEntityReportService;
 
-    private static final String   FILENAME   = "DbxTeam";
+    private static final String   FILENAME   = "EntityReport";
 
     @Autowired
     public ReportController(final ExampleEntityService entityService,

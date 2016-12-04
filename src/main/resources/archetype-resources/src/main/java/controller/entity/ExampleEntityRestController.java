@@ -55,8 +55,6 @@ public class ExampleEntityRestController {
     public ExampleEntityRestController(final ExampleEntityService service) {
         super();
 
-        // TODO: Should give support for validating the team valoration
-
         exampleEntityService = checkNotNull(service,
                 "Received a null pointer as team builder service");
     }

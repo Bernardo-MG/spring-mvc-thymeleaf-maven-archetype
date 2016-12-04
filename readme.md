@@ -10,8 +10,13 @@ A [Maven Archetype][maven-archetype] for generating a Spring MVC project using T
 
 ## Features
 
-- Spring MVC
-- Thymeleaf
+- Creates the base for a [Spring MVC][spring-mvc] project.
+- Integrates with [Thymeleaf][thymeleaf] for the view templates.
+- Creates a new Maven library with a fully configured POM, extending from [Wandrell's Base POM][base-pom], including features such as build validation, changes report or manifest configuration.
+- Sets up continuous integration with [Github][github], [Travis][travis] and [Bintray][bintray]. Making a distinction between releases and development versions.
+- Prepared for unit and integration tests suites. Created with [TestNG][testng] and ready to be run with [Surefire][surefire] and [Failsafe][failsafe].
+- A Maven site, using the [Docs Maven Skin][docs-skin], for sharing the project's documentation along the Javadocs and various reports which range from code quality to changes log.
+- Includes basic files such as readme, gitignore and license.
 
 ## Sample project
 
@@ -107,6 +112,9 @@ The project has been released under the [MIT License][license].
 [maven-archetype]: https://maven.apache.org/guides/introduction/introduction-to-archetypes.html
 
 [sample-project]: https://github.com/Bernardo-MG/spring-mvc-thymeleaf-maven-archetype-example
+
+[spring-mvc]: https://spring.io/
+[thymeleaf]: http://www.thymeleaf.org/
 
 [docs-skin]: https://github.com/Bernardo-MG/docs-maven-skin
 [base-pom]: https://github.com/Bernardo-MG/base-pom

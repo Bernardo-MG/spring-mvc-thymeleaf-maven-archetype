@@ -1,4 +1,4 @@
-# Library Maven Archetype
+# Spring MVC with Thymeleaf Maven Archetype
 
 A [Maven Archetype][maven-archetype] for generating a Spring MVC project using Thymeleaf for the frontend.
 

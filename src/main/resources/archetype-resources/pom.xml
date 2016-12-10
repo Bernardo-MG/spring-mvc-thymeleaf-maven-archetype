@@ -574,6 +574,12 @@
          <version>${log4j.version}</version>
       </dependency>
       <dependency>
+         <!-- Log4j Web -->
+         <groupId>org.apache.logging.log4j</groupId>
+         <artifactId>log4j-web</artifactId>
+         <version>${log4j.version}</version>
+      </dependency>
+      <dependency>
          <!-- SL4J API -->
          <groupId>org.slf4j</groupId>
          <artifactId>slf4j-api</artifactId>

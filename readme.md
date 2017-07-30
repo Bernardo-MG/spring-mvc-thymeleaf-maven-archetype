@@ -49,9 +49,7 @@ It is a Maven Archetype, and can be used through command line or an IDE as long 
 ### Prerequisites
 
 The project has been tested on the following Java versions:
-* JDK 7
 * JDK 8
-* OpenJDK 7
 
 All other dependencies are handled through Maven, and noted in the included POM file.
 

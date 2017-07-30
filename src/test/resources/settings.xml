@@ -1,6 +1,6 @@
 <settings>
    <activeProfiles>
       <activeProfile>h2</activeProfile>
-      <activeProfile>jetty</activeProfile>
+      <activeProfile>tomcat7</activeProfile>
    </activeProfiles>
 </settings>

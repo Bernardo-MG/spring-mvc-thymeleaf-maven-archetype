@@ -15,12 +15,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.wandrell.util.prueba.controller.entity.ExampleEntityViewController;
-import com.wandrell.util.prueba.model.persistence.DefaultExampleEntity;
-import com.wandrell.util.prueba.service.ExampleEntityService;
-import com.wandrell.util.prueba.test.config.BeanConfig;
-import com.wandrell.util.prueba.test.config.UrlConfig;
-
 import ${package}.controller.entity.ExampleEntityViewController;
 import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.service.ExampleEntityService;
@@ -102,7 +96,6 @@ public final class TestExampleEntityViewControllerFormMissingData {
      * 
      * @return a mocked controller
      */
-    @SuppressWarnings("unchecked")
     private final ExampleEntityViewController getController() {
         final ExampleEntityService service;
         final Collection<DefaultExampleEntity> entities;

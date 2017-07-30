@@ -63,17 +63,6 @@ public class ExampleEntityRestController {
         return exampleEntityService;
     }
 
-    /**
-     * Adds a player to the team.
-     * 
-     * @param player
-     *            data of the player to add
-     * @param team
-     *            team where the player will be added
-     * @param errors
-     *            results from binding
-     * @return the team with the new player
-     */
     @PostMapping(path = "/entities", consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public final void addEntity(
@@ -89,17 +78,6 @@ public class ExampleEntityRestController {
         }
     }
 
-    /**
-     * Removes a player from the team.
-     * 
-     * @param player
-     *            data of the player to remove
-     * @param team
-     *            team containing the player
-     * @param errors
-     *            results from binding
-     * @return the team without the removed player
-     */
     @DeleteMapping(path = "/entities",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

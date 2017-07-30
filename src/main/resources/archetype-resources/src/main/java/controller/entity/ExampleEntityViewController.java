@@ -85,22 +85,6 @@ public class ExampleEntityViewController {
                 "Received a null pointer as sponsor creation service");
     }
 
-    /**
-     * Checks the sponsor info before moving to the next view.
-     * <p>
-     * If the data is invalid then the view returns to the Sponsor edition view,
-     * otherwise it moves to the next view.
-     * 
-     * @param model
-     *            model map
-     * @param form
-     *            sponsor form data
-     * @param bindingResult
-     *            binding result data
-     * @param session
-     *            session data
-     * @return the name for the view to show
-     */
     @PostMapping
     public final String saveEntity(final ModelMap model,
             @ModelAttribute(BEAN_SPONSOR) @Valid final ExampleEntityForm form,
@@ -146,8 +130,6 @@ public class ExampleEntityViewController {
      * 
      * @param model
      *            model map
-     * @param status
-     *            session status
      * @return the name for the sponsor edition view
      */
     @GetMapping(path = "/edit")

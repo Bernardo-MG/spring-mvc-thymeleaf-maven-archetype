@@ -33,16 +33,6 @@ import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.model.ExampleEntity;
 import ${package}.repository.ExampleEntityRepository;
 
-/**
- * Example entity domain service, using an {@link ExampleEntityRepository} for
- * acquiring the entities.
- * <p>
- * This service just wraps and hides an instance of the
- * {@link com.wandrell.example.swss.repository.ExampleEntityRepository
- * ExampleEntityRepository}.
- *
- * @author Bernardo Martínez Garrido
- */
 @Service
 public class DefaultExampleEntityService implements ExampleEntityService {
 

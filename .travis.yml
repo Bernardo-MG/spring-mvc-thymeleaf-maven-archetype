@@ -3,16 +3,9 @@
 
 # Using Java for the project
 language: java
-matrix:
-  include:
-    # - jdk: openjdk6
-    - jdk: openjdk7
-    # Code artifacts deployed with JDK7
-    - jdk: oraclejdk7
-      env: DEPLOY=true
-    # Documentation deployed with JDK8
-    - jdk: oraclejdk8
-      env: DEPLOY_DOCS=true
+jdk:
+# JDK 8 is set to deploy the docs and artifacts
+  - oraclejdk8
 
 before_install:
   # Gets scripts

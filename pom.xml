@@ -186,6 +186,8 @@
       <!-- ============================================== -->
       <!-- Relativizing the Maven Site links has a tendency to break them -->
       <relativizeDecorationLinks>false</relativizeDecorationLinks>
+      <!-- Archetype test settings -->
+      <archetype.test.settingsFile>${project.build.testResources[0].directory}/settings.xml</archetype.test.settingsFile>
       <!-- ============================================== -->
       <!-- ============= EXTENSIONS VERSIONS ============ -->
       <!-- ============================================== -->

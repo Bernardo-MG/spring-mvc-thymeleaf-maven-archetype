@@ -1,0 +1,6 @@
+<settings>
+   <activeProfiles>
+      <activeProfile>h2</activeProfile>
+      <activeProfile>jetty</activeProfile>
+   </activeProfiles>
+</settings>

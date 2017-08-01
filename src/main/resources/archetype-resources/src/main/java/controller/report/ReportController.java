@@ -38,9 +38,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.wandrell.test.archetype.test.service.ExampleEntityReportService;
-import com.wandrell.test.archetype.test.service.ExampleEntityService;
-
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperPrint;

@@ -54,7 +54,7 @@ public class ExampleEntityViewController {
     /**
      * Form parameter name.
      */
-    private static final String        BEAN_FORM        = "form";
+    public static final String        BEAN_FORM        = "form";
 
     /**
      * Entities parameter name.

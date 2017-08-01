@@ -38,6 +38,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import com.wandrell.test.archetype.test.controller.entity.ExampleEntityViewController;
+
 import ${package}.controller.entity.ExampleEntityViewController;
 import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.service.ExampleEntityService;
@@ -91,11 +93,11 @@ public final class TestExampleEntityViewControllerFormMissingData {
 
         // The response model contains the expected attributes
         result.andExpect(MockMvcResultMatchers.model()
-                .attributeExists(BeanConfig.FORM_BEAN));
+                .attributeExists(ExampleEntityViewController.BEAN_FORM));
 
         // The response contains the expected errors
         result.andExpect(MockMvcResultMatchers.model()
-                .attributeHasFieldErrors(BeanConfig.FORM_BEAN, "name"));
+                .attributeHasFieldErrors(ExampleEntityViewController.BEAN_FORM, "name"));
     }
 
     /**

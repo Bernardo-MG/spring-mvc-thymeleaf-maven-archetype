@@ -31,9 +31,7 @@ import ${package}.service.ExampleEntityService;
 import ${package}.controller.entity.bean.ExampleEntityForm;
 
 /**
- * Controller for the DBX team building AJAX operations.
- * <p>
- * The team to be edited is stored as a session variable.
+ * REST controller for the example entity.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
@@ -42,7 +40,7 @@ import ${package}.controller.entity.bean.ExampleEntityForm;
 public class ExampleEntityRestController {
 
     /**
-     * DBX team builder service.
+     * Service for the example entity.
      */
     private final ExampleEntityService exampleEntityService;
 
@@ -50,25 +48,31 @@ public class ExampleEntityRestController {
      * Constructs a controller with the specified dependencies.
      * 
      * @param service
-     *            team builder service
+     *            example entity service
      */
     public ExampleEntityRestController(final ExampleEntityService service) {
         super();
 
         exampleEntityService = checkNotNull(service,
-                "Received a null pointer as team builder service");
-    }
-    
-    private final ExampleEntityService getExampleEntityService(){
-        return exampleEntityService;
+                "Received a null pointer as service");
     }
 
-    @PostMapping(path = "/entities", consumes = MediaType.APPLICATION_JSON_VALUE,
+    /**
+     * Adds an entity to the DB.
+     * 
+     * @param toCreate
+     *            entity to persist on DB
+     * @param errors
+     *            binding errors
+     */
+    @PostMapping(path = "/entities",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public final void addEntity(
-            @RequestBody final ExampleEntityForm player,
+    public final void addEntity(@RequestBody final ExampleEntityForm toCreate,
             final BindingResult errors) {
         final DefaultExampleEntity entity;
+
+        // TODO: Generate the entity from the form
 
         // TODO: Maybe the response status should change if the data is invalid
         if (!errors.hasErrors()) {
@@ -78,13 +82,23 @@ public class ExampleEntityRestController {
         }
     }
 
+    /**
+     * Removes and entity from the DB.
+     * 
+     * @param toDelete
+     *            entity to remove from DB
+     * @param errors
+     *            binding errors
+     */
     @DeleteMapping(path = "/entities",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public final void removeEntity(
-            @RequestBody final ExampleEntityForm player,
+            @RequestBody final ExampleEntityForm toDelete,
             final BindingResult errors) {
         final DefaultExampleEntity entity;
+
+        // TODO: Generate the entity from the form
 
         // TODO: Maybe the response status should change if the data is invalid
         if (!errors.hasErrors()) {
@@ -92,6 +106,15 @@ public class ExampleEntityRestController {
             entity = new DefaultExampleEntity();
             getExampleEntityService().remove(entity);
         }
+    }
+
+    /**
+     * Returns the sample entity service.
+     * 
+     * @return the sample entity service
+     */
+    private final ExampleEntityService getExampleEntityService() {
+        return exampleEntityService;
     }
 
 }

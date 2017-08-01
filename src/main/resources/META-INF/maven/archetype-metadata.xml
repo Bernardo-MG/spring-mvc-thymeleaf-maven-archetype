@@ -5,13 +5,13 @@
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="library-archetype">
    <requiredProperties>
       <requiredProperty key="projectName">
-         <defaultValue>Basic Maven Project</defaultValue>
+         <defaultValue>Spring MVC Project</defaultValue>
       </requiredProperty>
       <requiredProperty key="projectDescription">
-         <defaultValue>A Maven project created from the library archetype.</defaultValue>
+         <defaultValue>A Spring MVC project using Thymeleaf for the views.</defaultValue>
       </requiredProperty>
       <requiredProperty key="currentYear">
-         <defaultValue>2016</defaultValue>
+         <defaultValue>2017</defaultValue>
       </requiredProperty>
       <requiredProperty key="developerId">
          <defaultValue>bmg</defaultValue>

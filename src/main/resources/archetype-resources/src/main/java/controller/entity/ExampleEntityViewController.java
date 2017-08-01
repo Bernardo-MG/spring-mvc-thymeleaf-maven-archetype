@@ -29,16 +29,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.support.SessionStatus;
 
 import ${package}.service.ExampleEntityService;
 import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.controller.entity.bean.ExampleEntityForm;
 
 /**
- * Controller for the DBX Sponsor building view.
- * <p>
- * The team to be edited is stored as a session variable.
+ * Controller for the example entities views.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
@@ -47,27 +44,27 @@ import ${package}.controller.entity.bean.ExampleEntityForm;
 public class ExampleEntityViewController {
 
     /**
-     * Sponsor bean parameter name.
+     * Form parameter name.
      */
-    private static final String        BEAN_SPONSOR     = "form";
+    private static final String        BEAN_FORM        = "form";
 
     /**
-     * Sponsor bean parameter name.
+     * Entities parameter name.
      */
     private static final String        PARAM_ENTITIES   = "entities";
 
     /**
-     * Name for the sponsor view.
+     * Name for the entity form.
      */
     private static final String        VIEW_ENTITY_FORM = "entity/form";
 
     /**
-     * Name for the sponsor view.
+     * Name for the entities view.
      */
     private static final String        VIEW_ENTITY_LIST = "entity/list";
 
     /**
-     * DBX team builder service.
+     * Example entity service.
      */
     private final ExampleEntityService exampleEntityService;
 
@@ -75,19 +72,42 @@ public class ExampleEntityViewController {
      * Constructs a controller with the specified dependencies.
      * 
      * @param service
-     *            the sponsor creation service
+     *            example entity service
      */
     @Autowired
     public ExampleEntityViewController(final ExampleEntityService service) {
         super();
 
         exampleEntityService = checkNotNull(service,
-                "Received a null pointer as sponsor creation service");
+                "Received a null pointer as service");
     }
 
+    /**
+     * Returns the initial Sponsor form data.
+     * 
+     * @return the initial Sponsor form data
+     */
+    @ModelAttribute(BEAN_FORM)
+    public final ExampleEntityForm getEntityForm() {
+        return new ExampleEntityForm();
+    }
+
+    /**
+     * Adds an entity to the DB.
+     * 
+     * @param model
+     *            model map
+     * @param form
+     *            form data
+     * @param bindingResult
+     *            binding result
+     * @param session
+     *            HTTP session
+     * @return the next view to show
+     */
     @PostMapping
     public final String saveEntity(final ModelMap model,
-            @ModelAttribute(BEAN_SPONSOR) @Valid final ExampleEntityForm form,
+            @ModelAttribute(BEAN_FORM) @Valid final ExampleEntityForm form,
             final BindingResult bindingResult, final HttpSession session) {
         final String path;
         final DefaultExampleEntity entity;
@@ -116,21 +136,11 @@ public class ExampleEntityViewController {
     }
 
     /**
-     * Returns the initial Sponsor form data.
-     * 
-     * @return the initial Sponsor form data
-     */
-    @ModelAttribute(BEAN_SPONSOR)
-    public final ExampleEntityForm getEntityForm() {
-        return new ExampleEntityForm();
-    }
-
-    /**
-     * Shows the sponsor edition view.
+     * Shows the entity edition view.
      * 
      * @param model
      *            model map
-     * @return the name for the sponsor edition view
+     * @return the name for the entity edition view
      */
     @GetMapping(path = "/edit")
     public final String showEntityForm(final ModelMap model) {
@@ -140,6 +150,13 @@ public class ExampleEntityViewController {
         return VIEW_ENTITY_FORM;
     }
 
+    /**
+     * Shows the entity listing view.
+     * 
+     * @param model
+     *            model map
+     * @return the name for the entity listing view
+     */
     @GetMapping(path = "/list")
     public final String showEntityList(final ModelMap model) {
         // Loads required data into the model
@@ -149,16 +166,16 @@ public class ExampleEntityViewController {
     }
 
     /**
-     * Returns the DBX team builder service.
+     * Returns the example entity service.
      * 
-     * @return the DBX team builder service
+     * @return the example entity service
      */
     private final ExampleEntityService getExampleEntityService() {
         return exampleEntityService;
     }
 
     /**
-     * Loads the model data required for the Sponsor edition view.
+     * Loads the model data required for the edition view.
      * 
      * @param model
      *            model map
@@ -166,7 +183,7 @@ public class ExampleEntityViewController {
     private final void loadFormModel(final ModelMap model) {}
 
     /**
-     * Loads the model data required for the Sponsor edition view.
+     * Loads the model data required for the edition view.
      * 
      * @param model
      *            model map

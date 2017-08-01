@@ -34,11 +34,12 @@ import org.hibernate.validator.constraints.NotEmpty;
 import com.google.common.base.MoreObjects;
 
 /**
- * Persistent entity for the example application.
+ * Represents the form used on the creating and edition view.
  * <p>
- * This makes use of JPA annotations for the persistence configuration.
+ * This is a DTO, meant to allow communication between the view and the
+ * controller, and mapping all the values from the form.
  * <p>
- * For the JAXB annotated model check the generated classes folder.
+ * Includes Java validation annotations, for applying binding validating.
  *
  * @author Bernardo Martínez Garrido
  */
@@ -50,16 +51,13 @@ public final class ExampleEntityForm implements Serializable {
     private static final long serialVersionUID = 1328776989450853491L;
 
     /**
-     * Name of the entity.
-     * <p>
-     * This is to have additional data apart from the id, to be used on the
-     * tests.
+     * Value from the name field in the form.
      */
     @NotEmpty
     private String            name;
 
     /**
-     * Constructs an example entity.
+     * Constructs a DTO for the example form.
      */
     public ExampleEntityForm() {
         super();
@@ -83,6 +81,11 @@ public final class ExampleEntityForm implements Serializable {
         return Objects.equals(name, other.name);
     }
 
+    /**
+     * Returns the value of the name field.
+     * 
+     * @return the value of the name field
+     */
     public final String getName() {
         return name;
     }
@@ -92,6 +95,12 @@ public final class ExampleEntityForm implements Serializable {
         return Objects.hash(name);
     }
 
+    /**
+     * Sets the value of the name field.
+     * 
+     * @param value
+     *            the new value for the name field
+     */
     public final void setName(final String value) {
         name = checkNotNull(value, "Received a null pointer as name");
     }

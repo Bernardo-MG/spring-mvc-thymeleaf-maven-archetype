@@ -27,9 +27,7 @@ package ${package}.controller.report;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
-import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -39,7 +37,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttribute;
+
+import com.wandrell.test.archetype.test.service.ExampleEntityReportService;
+import com.wandrell.test.archetype.test.service.ExampleEntityService;
 
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
@@ -48,35 +48,73 @@ import net.sf.jasperreports.engine.JasperPrint;
 import ${package}.service.ExampleEntityReportService;
 import ${package}.service.ExampleEntityService;
 
+/**
+ * Controller for generating reports.
+ * 
+ * @author Bernardo Mart&iacute;nez Garrido
+ *
+ */
 @Controller
 @RequestMapping("/entity")
 public class ReportController {
 
-    private final ExampleEntityService exampleEntityService;
-    
+    /**
+     * Default report file name.
+     */
+    private static final String              FILENAME = "EntityReport";
+
+    /**
+     * Example entity report service.
+     */
     private final ExampleEntityReportService exampleEntityReportService;
 
-    private static final String   FILENAME   = "EntityReport";
+    /**
+     * Example entity service.
+     */
+    private final ExampleEntityService       exampleEntityService;
 
+    /**
+     * Constructs a controller with the specified dependencies.
+     * 
+     * @param entityService
+     *            example entity service
+     * @param reportService
+     *            report service
+     */
     @Autowired
     public ReportController(final ExampleEntityService entityService,
             final ExampleEntityReportService reportService) {
         super();
 
         exampleEntityService = checkNotNull(entityService,
-                "Received a null pointer as team builder service");
+                "Received a null pointer as service");
         exampleEntityReportService = checkNotNull(reportService,
-                "Received a null pointer as team builder service");
+                "Received a null pointer as report service");
     }
 
+    /**
+     * Generates a PDF report and returns it in the response.
+     * 
+     * @param model
+     *            model
+     * @param request
+     *            HTTP request
+     * @param response
+     *            HTTP response
+     * @throws JRException
+     *             if there is a problem during the report generation
+     * @throws IOException
+     *             if there is a problem when streaming into the response
+     */
     @GetMapping(path = "/pdf")
-    public final void getReport(
-            final Model model, final HttpServletRequest request,
+    public final void getPdfReport(final Model model,
+            final HttpServletRequest request,
             final HttpServletResponse response)
-            throws JRException, NamingException, SQLException, IOException {
+            throws JRException, IOException {
         final JasperPrint jasperPrint;
 
-        jasperPrint = getExampleEntityReportService().getReport(getExampleEntityService().getAllEntities());
+        jasperPrint = getExampleEntityReportService()
+                .getReport(getExampleEntityService().getAllEntities());
 
         response.setContentType(MediaType.APPLICATION_PDF_VALUE);
         response.setHeader("Content-disposition",
@@ -86,12 +124,22 @@ public class ReportController {
                 response.getOutputStream());
     }
 
-    private final ExampleEntityService getExampleEntityService(){
-        return exampleEntityService;
+    /**
+     * Returns the report service.
+     * 
+     * @return the report service
+     */
+    private final ExampleEntityReportService getExampleEntityReportService() {
+        return exampleEntityReportService;
     }
 
-    private final ExampleEntityReportService getExampleEntityReportService(){
-        return exampleEntityReportService;
+    /**
+     * Returns the example entity service.
+     * 
+     * @return the example entity service
+     */
+    private final ExampleEntityService getExampleEntityService() {
+        return exampleEntityService;
     }
 
 }

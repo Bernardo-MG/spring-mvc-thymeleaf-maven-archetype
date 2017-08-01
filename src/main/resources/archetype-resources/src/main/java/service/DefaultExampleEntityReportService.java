@@ -33,8 +33,6 @@ import org.apache.commons.collections.IteratorUtils;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
-import com.wandrell.test.archetype.test.service.ExampleEntityReportService;
-
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;

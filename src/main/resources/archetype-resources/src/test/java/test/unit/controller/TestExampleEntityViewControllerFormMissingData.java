@@ -38,8 +38,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.wandrell.test.archetype.test.controller.entity.ExampleEntityViewController;
-
 import ${package}.controller.entity.ExampleEntityViewController;
 import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.service.ExampleEntityService;

@@ -26,13 +26,14 @@ package ${package}.service;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.apache.commons.collections.IteratorUtils;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
+
+import com.wandrell.test.archetype.test.service.ExampleEntityReportService;
 
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -43,9 +44,19 @@ import net.sf.jasperreports.engine.util.JRLoader;
 
 import ${package}.model.persistence.DefaultExampleEntity;
 
+/**
+ * Default implementation of the report service.
+ * 
+ * @author Bernardo Mart&iacute;nez Garrido
+ *
+ */
 @Service
-public final class DefaultExampleEntityReportService implements ExampleEntityReportService {
+public final class DefaultExampleEntityReportService
+        implements ExampleEntityReportService {
 
+    /**
+     * Default constructor.
+     */
     public DefaultExampleEntityReportService() {
         super();
     }

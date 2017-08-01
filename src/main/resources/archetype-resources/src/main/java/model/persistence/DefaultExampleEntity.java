@@ -44,10 +44,8 @@ import ${package}.model.ExampleEntity;
  * Persistent entity for the example application.
  * <p>
  * This makes use of JPA annotations for the persistence configuration.
- * <p>
- * For the JAXB annotated model check the generated classes folder.
  *
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 @Entity(name = "ExampleEntity")
 @Table(name = "example_entities")

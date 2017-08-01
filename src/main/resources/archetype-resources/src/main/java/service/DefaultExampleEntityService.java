@@ -33,6 +33,12 @@ import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.model.ExampleEntity;
 import ${package}.repository.ExampleEntityRepository;
 
+/**
+ * Default implementation of the example entity service.
+ * 
+ * @author Bernardo Mart&iacute;nez Garrido
+ *
+ */
 @Service
 public class DefaultExampleEntityService implements ExampleEntityService {
 

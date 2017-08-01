@@ -27,12 +27,9 @@ package ${package}.model;
 import java.io.Serializable;
 
 /**
- * A simple entity for the example application.
- * <p>
- * This is meant to be the internal domain model used by the web service. The
- * one for the SOAP messages is in the JAXB generated classes package.
+ * A simple entity to be used as an example.
  *
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 public interface ExampleEntity extends Serializable {
 

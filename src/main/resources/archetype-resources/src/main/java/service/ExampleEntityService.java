@@ -33,10 +33,17 @@ import ${package}.model.ExampleEntity;
  * This is a domain service just to allow the endpoints querying the entities
  * they are asked for.
  *
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 public interface ExampleEntityService {
 
+    /**
+     * Persists an entity.
+     * 
+     * @param entity
+     *            entity to persist
+     * @return the persisted entity
+     */
     public ExampleEntity add(final DefaultExampleEntity entity);
 
     /**
@@ -51,8 +58,19 @@ public interface ExampleEntityService {
      */
     public ExampleEntity findById(final Integer identifier);
 
+    /**
+     * Returns all the entities from the DB.
+     * 
+     * @return the persisted entities
+     */
     public Iterable<DefaultExampleEntity> getAllEntities();
 
+    /**
+     * Removes an entity from persistence.
+     * 
+     * @param entity
+     *            entity to remove
+     */
     public void remove(final DefaultExampleEntity entity);
     
 }

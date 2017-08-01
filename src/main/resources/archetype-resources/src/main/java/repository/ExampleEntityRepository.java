@@ -34,7 +34,7 @@ import ${package}.model.persistence.DefaultExampleEntity;
  * This is a simple repository just to allow the endpoints querying the entities
  * they are asked for.
  *
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 public interface ExampleEntityRepository
         extends JpaRepository<DefaultExampleEntity, Integer> {

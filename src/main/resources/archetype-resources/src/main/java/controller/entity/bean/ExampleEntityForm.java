@@ -41,7 +41,7 @@ import com.google.common.base.MoreObjects;
  * <p>
  * Includes Java validation annotations, for applying binding validating.
  *
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 public final class ExampleEntityForm implements Serializable {
 

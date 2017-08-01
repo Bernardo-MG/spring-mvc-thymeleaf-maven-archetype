@@ -28,6 +28,12 @@ import net.sf.jasperreports.engine.JasperPrint;
 
 import ${package}.model.persistence.DefaultExampleEntity;
 
+/**
+ * Service for generating reports for the example entities.
+ * 
+ * @author Bernardo Mart&iacute;nez Garrido
+ *
+ */
 public interface ExampleEntityReportService {
 
     public JasperPrint getReport(final Iterable<DefaultExampleEntity> data);

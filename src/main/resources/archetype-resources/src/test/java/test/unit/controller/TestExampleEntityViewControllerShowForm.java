@@ -40,7 +40,6 @@ import org.testng.annotations.Test;
 import ${package}.controller.entity.ExampleEntityViewController;
 import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.service.ExampleEntityService;
-import ${package}.test.config.BeanConfig;
 import ${package}.test.config.UrlConfig;
 
 /**

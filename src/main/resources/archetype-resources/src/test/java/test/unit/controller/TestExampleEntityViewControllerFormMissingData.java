@@ -54,7 +54,7 @@ public final class TestExampleEntityViewControllerFormMissingData {
     /**
      * Mocked MVC context.
      */
-    private MockMvc             mockMvc;
+    private MockMvc mockMvc;
 
     /**
      * Default constructor;
@@ -88,8 +88,8 @@ public final class TestExampleEntityViewControllerFormMissingData {
                 .attributeExists(ExampleEntityViewController.BEAN_FORM));
 
         // The response contains the expected errors
-        result.andExpect(MockMvcResultMatchers.model()
-                .attributeHasFieldErrors(ExampleEntityViewController.BEAN_FORM, "name"));
+        result.andExpect(MockMvcResultMatchers.model().attributeHasFieldErrors(
+                ExampleEntityViewController.BEAN_FORM, "name"));
     }
 
     /**
@@ -103,7 +103,8 @@ public final class TestExampleEntityViewControllerFormMissingData {
         result = mockMvc.perform(getNoNameFormRequest());
 
         // The view is valid
-        result.andExpect(MockMvcResultMatchers.view().name(ExampleEntityViewController.VIEW_ENTITY_FORM));
+        result.andExpect(MockMvcResultMatchers.view()
+                .name(ExampleEntityViewController.VIEW_ENTITY_FORM));
     }
 
     /**

@@ -71,9 +71,9 @@ public final class ITDefaultExampleEntityService
      */
     @Test
     public final void testAdd_NotExisting_Added() {
-        final DefaultExampleEntity entity;
-        final Integer entitiesCount;
-        final Integer finalEntitiesCount;
+        final DefaultExampleEntity entity; // Entity to add
+        final Integer entitiesCount;       // Original number of entities
+        final Integer finalEntitiesCount;  // Final number of entities
 
         entitiesCount = ((Collection<DefaultExampleEntity>) service
                 .getAllEntities()).size();
@@ -95,7 +95,7 @@ public final class ITDefaultExampleEntityService
      */
     @Test
     public final void testFindById_Existing_Valid() {
-        final ExampleEntity entity;
+        final ExampleEntity entity; // Found entity
 
         entity = service.findById(1);
 
@@ -108,7 +108,7 @@ public final class ITDefaultExampleEntityService
      */
     @Test
     public final void testFindById_NotExisting_Invalid() {
-        final ExampleEntity entity;
+        final ExampleEntity entity; // Found entity
 
         entity = service.findById(100);
 

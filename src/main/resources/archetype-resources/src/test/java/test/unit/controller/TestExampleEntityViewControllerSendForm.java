@@ -103,7 +103,8 @@ public final class TestExampleEntityViewControllerSendForm {
         result = mockMvc.perform(getFormRequest());
 
         // The view is valid
-        result.andExpect(MockMvcResultMatchers.view().name(ExampleEntityViewController.VIEW_ENTITY_LIST));
+        result.andExpect(MockMvcResultMatchers.view()
+                .name(ExampleEntityViewController.VIEW_ENTITY_LIST));
     }
 
     /**
@@ -133,8 +134,8 @@ public final class TestExampleEntityViewControllerSendForm {
      * @return a request builder with valid form data
      */
     private final RequestBuilder getFormRequest() {
-        return MockMvcRequestBuilders.post(UrlConfig.URL_FORM_POST).param("name",
-                "name");
+        return MockMvcRequestBuilders.post(UrlConfig.URL_FORM_POST)
+                .param("name", "name");
     }
 
 }

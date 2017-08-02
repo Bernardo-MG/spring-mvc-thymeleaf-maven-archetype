@@ -39,7 +39,8 @@ import ${package}.controller.entity.bean.ExampleEntityForm;
 /**
  * Unit tests for {@link ExampleEntityForm} bean validation.
  * <p>
- * These tests verify that the bean applies the correct Java validation annotations.
+ * These tests verify that the bean applies the correct Java validation
+ * annotations.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */

@@ -44,8 +44,8 @@ import ${package}.service.ExampleEntityReportService;
 import ${package}.service.ExampleEntityService;
 
 /**
- * Unit tests for {@link ReportController}, checking the methods for
- * generating reports.
+ * Unit tests for {@link ReportController}, checking the methods for generating
+ * reports.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */

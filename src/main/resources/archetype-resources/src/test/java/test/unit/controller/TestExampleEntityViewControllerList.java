@@ -89,8 +89,8 @@ public final class TestExampleEntityViewControllerList {
         result.andExpect(MockMvcResultMatchers.status().isOk());
 
         // The response model contains the expected attributes
-        result.andExpect(
-                MockMvcResultMatchers.model().attributeExists(ExampleEntityViewController.PARAM_ENTITIES));
+        result.andExpect(MockMvcResultMatchers.model()
+                .attributeExists(ExampleEntityViewController.PARAM_ENTITIES));
     }
 
     /**

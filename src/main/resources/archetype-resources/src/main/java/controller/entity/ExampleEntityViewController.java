@@ -54,22 +54,22 @@ public class ExampleEntityViewController {
     /**
      * Form parameter name.
      */
-    public static final String        BEAN_FORM        = "form";
+    public static final String         BEAN_FORM        = "form";
 
     /**
      * Entities parameter name.
      */
-    private static final String        PARAM_ENTITIES   = "entities";
+    public static final String         PARAM_ENTITIES   = "entities";
 
     /**
      * Name for the entity form.
      */
-    private static final String        VIEW_ENTITY_FORM = "entity/form";
+    public static final String         VIEW_ENTITY_FORM = "entity/form";
 
     /**
      * Name for the entities view.
      */
-    private static final String        VIEW_ENTITY_LIST = "entity/list";
+    public static final String         VIEW_ENTITY_LIST = "entity/list";
 
     /**
      * Example entity service.

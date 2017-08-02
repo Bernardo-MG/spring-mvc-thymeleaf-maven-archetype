@@ -52,11 +52,6 @@ import ${package}.test.config.UrlConfig;
 public final class TestExampleEntityViewControllerFormMissingData {
 
     /**
-     * The sponsor form view.
-     */
-    private static final String VIEW_FORM = "entity/form";
-
-    /**
      * Mocked MVC context.
      */
     private MockMvc             mockMvc;
@@ -108,7 +103,7 @@ public final class TestExampleEntityViewControllerFormMissingData {
         result = mockMvc.perform(getNoNameFormRequest());
 
         // The view is valid
-        result.andExpect(MockMvcResultMatchers.view().name(VIEW_FORM));
+        result.andExpect(MockMvcResultMatchers.view().name(ExampleEntityViewController.VIEW_ENTITY_FORM));
     }
 
     /**

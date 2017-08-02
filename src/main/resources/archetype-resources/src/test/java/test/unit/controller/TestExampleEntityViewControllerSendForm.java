@@ -103,7 +103,7 @@ public final class TestExampleEntityViewControllerSendForm {
         result = mockMvc.perform(getFormRequest());
 
         // The view is valid
-        result.andExpect(MockMvcResultMatchers.view().name("entity/list"));
+        result.andExpect(MockMvcResultMatchers.view().name(ExampleEntityViewController.VIEW_ENTITY_LIST));
     }
 
     /**

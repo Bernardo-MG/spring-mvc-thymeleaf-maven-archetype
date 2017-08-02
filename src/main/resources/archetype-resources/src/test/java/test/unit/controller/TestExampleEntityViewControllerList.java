@@ -50,11 +50,6 @@ import ${package}.service.ExampleEntityService;
 public final class TestExampleEntityViewControllerList {
 
     /**
-     * The name of the players bean.
-     */
-    private static final String ENTITIES = "entities";
-
-    /**
      * Form view URL.
      */
     private static final String URL_VIEW = "/entity/list";
@@ -95,7 +90,7 @@ public final class TestExampleEntityViewControllerList {
 
         // The response model contains the expected attributes
         result.andExpect(
-                MockMvcResultMatchers.model().attributeExists(ENTITIES));
+                MockMvcResultMatchers.model().attributeExists(ExampleEntityViewController.PARAM_ENTITIES));
     }
 
     /**

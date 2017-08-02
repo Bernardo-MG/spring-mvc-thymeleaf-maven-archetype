@@ -34,12 +34,14 @@ import org.hibernate.validator.constraints.NotEmpty;
 import com.google.common.base.MoreObjects;
 
 /**
- * Represents the form used on the creating and edition view.
+ * Represents the form used for the creating and edition example entities.
  * <p>
  * This is a DTO, meant to allow communication between the view and the
- * controller, and mapping all the values from the form.
+ * controller, and mapping all the values from the form. Each of field in the
+ * DTO matches a field in the form.
  * <p>
- * Includes Java validation annotations, for applying binding validating.
+ * Includes Java validation annotations, for applying binding validation. This
+ * way the controller will make sure it receives all the required data.
  *
  * @author Bernardo Mart&iacute;nez Garrido
  */
@@ -51,13 +53,15 @@ public final class ExampleEntityForm implements Serializable {
     private static final long serialVersionUID = 1328776989450853491L;
 
     /**
-     * Value from the name field in the form.
+     * Name field.
+     * <p>
+     * This is a required field and can't be empty.
      */
     @NotEmpty
     private String            name;
 
     /**
-     * Constructs a DTO for the example form.
+     * Constructs a DTO for the example entity form.
      */
     public ExampleEntityForm() {
         super();

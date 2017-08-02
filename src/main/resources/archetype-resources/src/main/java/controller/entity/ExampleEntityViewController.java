@@ -52,7 +52,7 @@ import ${package}.controller.entity.bean.ExampleEntityForm;
 public class ExampleEntityViewController {
 
     /**
-     * Form parameter name.
+     * Form bean name.
      */
     public static final String         BEAN_FORM        = "form";
 
@@ -62,17 +62,20 @@ public class ExampleEntityViewController {
     public static final String         PARAM_ENTITIES   = "entities";
 
     /**
-     * Name for the entity form.
+     * Example entity form view name.
      */
     public static final String         VIEW_ENTITY_FORM = "entity/form";
 
     /**
-     * Name for the entities view.
+     * Example entity listing view name.
      */
     public static final String         VIEW_ENTITY_LIST = "entity/list";
 
     /**
      * Example entity service.
+     * <p>
+     * This should contain all the business logic for handling the example
+     * entity.
      */
     private final ExampleEntityService exampleEntityService;
 
@@ -91,9 +94,16 @@ public class ExampleEntityViewController {
     }
 
     /**
-     * Returns the initial Sponsor form data.
+     * Returns the initial form data.
+     * <p>
+     * Thanks to the {@code ModelAttribute} annotation the bean returned by this
+     * method is mapped to the model view and exposed to the view.
+     * <p>
+     * This makes it easier mapping the bean to and from the view.
+     * <p>
+     * As the form is by default empty the entity is created empty.
      * 
-     * @return the initial Sponsor form data
+     * @return the initial form data
      */
     @ModelAttribute(BEAN_FORM)
     public final ExampleEntityForm getEntityForm() {
@@ -101,7 +111,7 @@ public class ExampleEntityViewController {
     }
 
     /**
-     * Adds an entity to the DB.
+     * Persists an entity.
      * 
      * @param model
      *            model map

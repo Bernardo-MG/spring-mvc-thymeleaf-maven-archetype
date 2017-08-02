@@ -27,7 +27,6 @@ package ${package}.test.unit.controller;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import org.mockito.Matchers;
 import org.mockito.Mockito;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;

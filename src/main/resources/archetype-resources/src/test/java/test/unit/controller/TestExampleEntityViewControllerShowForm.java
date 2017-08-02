@@ -43,7 +43,7 @@ import ${package}.service.ExampleEntityService;
 import ${package}.test.config.UrlConfig;
 
 /**
- * Unit tests for {@link SponsorCreationController}, checking the methods for
+ * Unit tests for {@link ExampleEntityViewController}, checking the methods for
  * showing the form.
  * 
  * @author Bernardo Mart&iacute;nez Garrido

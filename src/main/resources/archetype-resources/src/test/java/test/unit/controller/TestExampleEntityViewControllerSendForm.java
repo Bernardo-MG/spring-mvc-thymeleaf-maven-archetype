@@ -44,7 +44,7 @@ import ${package}.service.ExampleEntityService;
 import ${package}.test.config.UrlConfig;
 
 /**
- * Unit tests for {@link SponsorCreationController}, checking the methods for
+ * Unit tests for {@link ExampleEntityViewController}, checking the methods for
  * sending the form data.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
@@ -133,7 +133,7 @@ public final class TestExampleEntityViewControllerSendForm {
      * @return a request builder with valid form data
      */
     private final RequestBuilder getFormRequest() {
-        return MockMvcRequestBuilders.post(UrlConfig.URL_POST).param("name",
+        return MockMvcRequestBuilders.post(UrlConfig.URL_FORM_POST).param("name",
                 "name");
     }
 

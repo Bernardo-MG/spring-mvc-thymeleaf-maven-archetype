@@ -37,7 +37,9 @@ import org.testng.annotations.Test;
 import ${package}.controller.entity.bean.ExampleEntityForm;
 
 /**
- * Unit tests for {@link SponsorForm} bean validation.
+ * Unit tests for {@link ExampleEntityForm} bean validation.
+ * <p>
+ * These tests verify that the bean applies the correct Java validation annotations.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
@@ -64,6 +66,7 @@ public final class TestExampleEntityFormValidation {
     }
 
     /**
+     * Verifies that if the name is null this field is marked with an error.
      */
     @Test
     public final void testValidation_NullName_Error() {
@@ -84,6 +87,7 @@ public final class TestExampleEntityFormValidation {
     }
 
     /**
+     * Verifies that if the name is empty this field is marked with an error.
      */
     @Test
     public final void testValidation_EmptyName_Error() {

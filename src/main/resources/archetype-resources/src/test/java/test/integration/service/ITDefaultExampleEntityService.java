@@ -38,6 +38,13 @@ import ${package}.model.ExampleEntity;
 import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.service.ExampleEntityService;
 
+/**
+ * Integration tests for the {@link ExampleEntityService}.
+ * <p>
+ * As this service doesn't contain any actual business logic, and it just wraps
+ * the example entities repository, these tests are mostly smoke tests, to
+ * verify everything is set up correctly and working.
+ */
 @ContextConfiguration(locations = { "classpath:context/service.xml",
         "classpath:context/persistence.xml",
         "classpath:context/application-context.xml" })
@@ -46,15 +53,24 @@ import ${package}.service.ExampleEntityService;
 public final class ITDefaultExampleEntityService
         extends AbstractTransactionalTestNGSpringContextTests {
 
+    /**
+     * Service being tested.
+     */
     @Autowired
     private ExampleEntityService service;
 
+    /**
+     * Default constructor.
+     */
     public ITDefaultExampleEntityService() {
         super();
     }
 
+    /**
+     * Verifies that the service adds entities into persistence.
+     */
     @Test
-    public final void testAdd_Existing_Valid() {
+    public final void testAdd_NotExisting_Added() {
         final DefaultExampleEntity entity;
         final Integer entitiesCount;
         final Integer finalEntitiesCount;
@@ -73,6 +89,10 @@ public final class ITDefaultExampleEntityService
         Assert.assertEquals(finalEntitiesCount, new Integer(entitiesCount + 1));
     }
 
+    /**
+     * Verifies that searching an existing entity by id returns the expected
+     * entity.
+     */
     @Test
     public final void testFindById_Existing_Valid() {
         final ExampleEntity entity;
@@ -82,6 +102,10 @@ public final class ITDefaultExampleEntityService
         Assert.assertEquals(entity.getId(), new Integer(1));
     }
 
+    /**
+     * Verifies that searching for a not existing entity by id returns an empty
+     * entity.
+     */
     @Test
     public final void testFindById_NotExisting_Invalid() {
         final ExampleEntity entity;

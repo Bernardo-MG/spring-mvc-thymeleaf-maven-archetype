@@ -36,9 +36,15 @@ public final class UrlConfig {
      */
     public static final String URL_FORM = "/entity/edit";
 
-    public static final String URL_LIST = "/entity/list";
+    /**
+     * URL for posting the form data.
+     */
+    public static final String URL_FORM_POST = "/entity";
 
-    public static final String URL_POST = "/entity";
+    /**
+     * Entities list view URL.
+     */
+    public static final String URL_LIST = "/entity/list";
 
     /**
      * Default constructor to avoid initialization.

@@ -42,8 +42,8 @@ import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.service.ExampleEntityService;
 
 /**
- * Unit tests for {@link SponsorCreationController}, checking the methods for
- * showing the form.
+ * Unit tests for {@link ExampleEntityViewController}, checking the methods for
+ * listing entities.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */

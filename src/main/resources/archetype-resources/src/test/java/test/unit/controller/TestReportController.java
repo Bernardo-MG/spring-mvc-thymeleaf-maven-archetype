@@ -44,8 +44,8 @@ import ${package}.service.ExampleEntityReportService;
 import ${package}.service.ExampleEntityService;
 
 /**
- * Unit tests for {@link SponsorCreationController}, checking the methods for
- * showing the form.
+ * Unit tests for {@link ReportController}, checking the methods for
+ * generating reports.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */

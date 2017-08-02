@@ -44,7 +44,7 @@ import ${package}.service.ExampleEntityService;
 import ${package}.test.config.UrlConfig;
 
 /**
- * Unit tests for {@link SponsorCreationController}, checking the methods for
+ * Unit tests for {@link ExampleEntityViewController}, checking the methods for
  * sending the form data with missing data.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
@@ -137,7 +137,7 @@ public final class TestExampleEntityViewControllerFormMissingData {
      * @return a request builder with form data without a sponsor name
      */
     private final RequestBuilder getNoNameFormRequest() {
-        return MockMvcRequestBuilders.post(UrlConfig.URL_POST);
+        return MockMvcRequestBuilders.post(UrlConfig.URL_FORM_POST);
     }
 
 }

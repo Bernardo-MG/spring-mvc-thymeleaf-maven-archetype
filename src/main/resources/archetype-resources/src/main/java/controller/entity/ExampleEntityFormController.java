@@ -43,7 +43,9 @@ import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.controller.entity.bean.ExampleEntityForm;
 
 /**
- * Controller for the example entities views.
+ * Controller for the example entities form view.
+ * <p>
+ * This serves as an adapter between the UI and the services layer.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
@@ -81,7 +83,7 @@ public class ExampleEntityFormController {
     }
 
     /**
-     * Adds an entity to the DB.
+     * Persists an entity.
      * 
      * @param model
      *            model map
@@ -101,19 +103,20 @@ public class ExampleEntityFormController {
         final DefaultExampleEntity entity;
 
         if (bindingResult.hasErrors()) {
-            // Invalid sponsor data
+            // Invalid form data
 
-            // Loads required data into the model
-            loadFormModel(model);
-            // Returns to the sponsor creation view
+            // Returns to the form view
             path = ExampleEntityViewConstants.VIEW_ENTITY_FORM;
             // TODO: Maybe it should return a bad request status?
         } else {
+
             entity = new DefaultExampleEntity();
             entity.setName(form.getName());
 
             getExampleEntityService().add(entity);
 
+            // TODO: This flow decision shouldn't be handled by the controller
+            // TODO: This should be a redirection to the list controller
             // Loads required data into the model and session
             loadViewModel(model);
 
@@ -125,16 +128,14 @@ public class ExampleEntityFormController {
 
     /**
      * Shows the entity edition view.
+     * <p>
+     * Actually it just returns the name of the view. Spring will take care of
+     * the rest.
      * 
-     * @param model
-     *            model map
      * @return the name for the entity edition view
      */
     @GetMapping(path = "/edit")
-    public final String showEntityForm(final ModelMap model) {
-        // Loads required data into the model
-        loadFormModel(model);
-
+    public final String showEntityForm() {
         return ExampleEntityViewConstants.VIEW_ENTITY_FORM;
     }
 
@@ -148,15 +149,10 @@ public class ExampleEntityFormController {
     }
 
     /**
-     * Loads the model data required for the edition view.
-     * 
-     * @param model
-     *            model map
-     */
-    private final void loadFormModel(final ModelMap model) {}
-
-    /**
-     * Loads the model data required for the edition view.
+     * Loads the model data required for the entities listing view.
+     * <p>
+     * As the view will list all the entities, it requires these entities as one
+     * of the parameters.
      * 
      * @param model
      *            model map

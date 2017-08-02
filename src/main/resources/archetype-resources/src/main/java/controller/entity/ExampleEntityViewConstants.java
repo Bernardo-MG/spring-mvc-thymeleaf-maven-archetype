@@ -25,14 +25,14 @@
 package ${package}.controller.entity;
 
 /**
- * Constants for the view controllers.
+ * Constants for the example entity view controllers.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
 public class ExampleEntityViewConstants {
 
     /**
-     * Form parameter name.
+     * Form bean parameter name.
      */
     public static final String BEAN_FORM        = "form";
 

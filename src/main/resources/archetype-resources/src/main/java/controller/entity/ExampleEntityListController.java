@@ -35,7 +35,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import ${package}.service.ExampleEntityService;
 
 /**
- * Controller for the example entities views.
+ * Controller for the example entities listing view.
+ * <p>
+ * This serves as an adapter between the UI and the services layer.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
@@ -63,11 +65,17 @@ public class ExampleEntityListController {
     }
 
     /**
-     * Shows the entity listing view.
+     * Shows the entities listing view.
+     * <p>
+     * Actually it just returns the name of the view. Spring will take care of
+     * the rest.
+     * <p>
+     * Before returning the name the model should be loaded with all the data
+     * required by the view.
      * 
      * @param model
      *            model map
-     * @return the name for the entity listing view
+     * @return the name for the entities listing view
      */
     @GetMapping(path = "/list")
     public final String showEntityList(final ModelMap model) {
@@ -87,7 +95,10 @@ public class ExampleEntityListController {
     }
 
     /**
-     * Loads the model data required for the edition view.
+     * Loads the model data required for the entities listing view.
+     * <p>
+     * As the view will list all the entities, it requires these entities as one
+     * of the parameters.
      * 
      * @param model
      *            model map

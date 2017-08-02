@@ -47,6 +47,8 @@ import ${package}.service.ExampleEntityService;
 
 /**
  * Controller for generating reports.
+ * <p>
+ * This serves as an adapter between the UI and the services layer.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  *

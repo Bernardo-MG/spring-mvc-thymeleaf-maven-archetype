@@ -52,17 +52,12 @@ import ${package}.test.config.UrlConfig;
 public final class TestExampleEntityViewControllerSendForm {
 
     /**
-     * The view after the form.
-     */
-    private static final String VIEW_FORM = "/entity/form";
-
-    /**
      * Mocked MVC context.
      */
     private MockMvc             mockMvc;
 
     /**
-     * Default constructor;
+     * Default constructor.
      */
     public TestExampleEntityViewControllerSendForm() {
         super();
@@ -70,6 +65,8 @@ public final class TestExampleEntityViewControllerSendForm {
 
     /**
      * Sets up the mocked MVC context.
+     * <p>
+     * It expects all the responses to have the OK (200) HTTP code.
      */
     @BeforeTest
     public final void setUpMockContext() {
@@ -78,7 +75,7 @@ public final class TestExampleEntityViewControllerSendForm {
     }
 
     /**
-     * Tests that after receiving valid form data the expected attributes are
+     * Verifies that after receiving valid form data the expected attributes are
      * loaded into the model.
      */
     @Test
@@ -89,11 +86,11 @@ public final class TestExampleEntityViewControllerSendForm {
         result = mockMvc.perform(getFormRequest());
 
         // The response model contains the expected attributes
-        result.andExpect(MockMvcResultMatchers.model().attributeExists("form"));
+        result.andExpect(MockMvcResultMatchers.model().attributeExists(ExampleEntityViewController.BEAN_FORM));
     }
 
     /**
-     * Tests that after received valid form data the expected view is returned.
+     * Verifies that after received valid form data the expected view is returned.
      */
     @Test
     public final void testSendFormData_ExpectedView() throws Exception {
@@ -108,16 +105,14 @@ public final class TestExampleEntityViewControllerSendForm {
     }
 
     /**
-     * Returns a mocked controller.
-     * <p>
-     * It can create mocked sponsor, sponsor team and units.
+     * Returns a controller with mocked dependencies.
      * 
      * @return a mocked controller
      */
     @SuppressWarnings("unchecked")
     private final ExampleEntityViewController getController() {
-        final ExampleEntityService service;
-        final Collection<DefaultExampleEntity> entities;
+        final ExampleEntityService service; // Mocked service
+        final Collection<DefaultExampleEntity> entities; // Mocked entities
 
         service = Mockito.mock(ExampleEntityService.class);
 
@@ -129,9 +124,13 @@ public final class TestExampleEntityViewControllerSendForm {
     }
 
     /**
-     * Returns a request builder for posting valid form data.
+     * Returns a request builder for posting the form data.
+     * <p>
+     * This request contains all the required request parameters.
+     * <p>
+     * There is only a single required parameter, the {@code name} parameter.
      * 
-     * @return a request builder with valid form data
+     * @return a request builder for posting the form data
      */
     private final RequestBuilder getFormRequest() {
         return MockMvcRequestBuilders.post(UrlConfig.URL_FORM_POST)

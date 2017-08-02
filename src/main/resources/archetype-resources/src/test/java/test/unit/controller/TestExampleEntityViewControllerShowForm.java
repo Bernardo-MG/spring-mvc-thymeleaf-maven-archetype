@@ -56,7 +56,7 @@ public final class TestExampleEntityViewControllerShowForm {
     private MockMvc mockMvc;
 
     /**
-     * Default constructor;
+     * Default constructor.
      */
     public TestExampleEntityViewControllerShowForm() {
         super();
@@ -64,6 +64,8 @@ public final class TestExampleEntityViewControllerShowForm {
 
     /**
      * Sets up the mocked MVC context.
+     * <p>
+     * It expects all the responses to have the OK (200) HTTP code.
      */
     @BeforeTest
     public final void setUpMockContext() {
@@ -72,7 +74,7 @@ public final class TestExampleEntityViewControllerShowForm {
     }
 
     /**
-     * Tests that the form view loads the expected attributes into the model.
+     * Verifies that the form view loads the expected attributes into the model.
      * <p>
      * The form requires a bean which will contain all its data.
      */
@@ -88,9 +90,7 @@ public final class TestExampleEntityViewControllerShowForm {
     }
 
     /**
-     * Returns a mocked controller.
-     * <p>
-     * It has all the dependencies stubbed.
+     * Returns a controller with mocked dependencies.
      * 
      * @return a mocked controller
      */

@@ -40,6 +40,7 @@ import org.testng.annotations.Test;
 import ${package}.controller.entity.ExampleEntityViewController;
 import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.service.ExampleEntityService;
+import ${package}.test.config.UrlConfig;
 
 /**
  * Unit tests for {@link ExampleEntityViewController}, checking the methods for
@@ -50,17 +51,12 @@ import ${package}.service.ExampleEntityService;
 public final class TestExampleEntityViewControllerList {
 
     /**
-     * Form view URL.
-     */
-    private static final String URL_VIEW = "/entity/list";
-
-    /**
      * Mocked MVC context.
      */
     private MockMvc             mockMvc;
 
     /**
-     * Default constructor;
+     * Default constructor.
      */
     public TestExampleEntityViewControllerList() {
         super();
@@ -68,14 +64,17 @@ public final class TestExampleEntityViewControllerList {
 
     /**
      * Sets up the mocked MVC context.
+     * <p>
+     * It expects all the responses to have the OK (200) HTTP code.
      */
     @BeforeTest
     public final void setUpMockContext() {
-        mockMvc = MockMvcBuilders.standaloneSetup(getController()).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(getController())
+                .alwaysExpect(MockMvcResultMatchers.status().isOk()).build();
     }
 
     /**
-     * Tests that the form view loads the expected attributes into the model.
+     * Verifies that the form view loads the expected attributes into the model.
      * <p>
      * The form requires a bean which will contain all its data.
      */
@@ -85,24 +84,19 @@ public final class TestExampleEntityViewControllerList {
 
         result = mockMvc.perform(getViewRequest());
 
-        // The operation was accepted
-        result.andExpect(MockMvcResultMatchers.status().isOk());
-
         // The response model contains the expected attributes
         result.andExpect(MockMvcResultMatchers.model()
                 .attributeExists(ExampleEntityViewController.PARAM_ENTITIES));
     }
 
     /**
-     * Returns a mocked controller.
-     * <p>
-     * It has all the dependencies stubbed.
+     * Returns a controller with mocked dependencies.
      * 
      * @return a mocked controller
      */
     private final ExampleEntityViewController getController() {
-        final ExampleEntityService service;
-        final Collection<DefaultExampleEntity> entities;
+        final ExampleEntityService service; // Mocked service
+        final Collection<DefaultExampleEntity> entities; // Mocked entities
 
         service = Mockito.mock(ExampleEntityService.class);
 
@@ -114,12 +108,12 @@ public final class TestExampleEntityViewControllerList {
     }
 
     /**
-     * Returns a request builder for getting the tested form view.
+     * Returns a request builder for getting the entities list view.
      * 
-     * @return a request builder for the form view
+     * @return a request builder for the entities list view
      */
     private final RequestBuilder getViewRequest() {
-        return MockMvcRequestBuilders.get(URL_VIEW);
+        return MockMvcRequestBuilders.get(UrlConfig.URL_LIST);
     }
 
 }

@@ -45,7 +45,9 @@ import ${package}.test.config.UrlConfig;
 
 /**
  * Unit tests for {@link ExampleEntityViewController}, checking the methods for
- * sending the form data with missing data.
+ * sending the form data.
+ * <p>
+ * These tests send data with missing values, to validate that the controller handles binding error cases.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
@@ -57,7 +59,7 @@ public final class TestExampleEntityViewControllerFormMissingData {
     private MockMvc mockMvc;
 
     /**
-     * Default constructor;
+     * Default constructor.
      */
     public TestExampleEntityViewControllerFormMissingData() {
         super();
@@ -65,6 +67,8 @@ public final class TestExampleEntityViewControllerFormMissingData {
 
     /**
      * Sets up the mocked MVC context.
+     * <p>
+     * It expects all the responses to have the OK (200) HTTP code.
      */
     @BeforeTest
     public final void setUpMockContext() {
@@ -73,15 +77,15 @@ public final class TestExampleEntityViewControllerFormMissingData {
     }
 
     /**
-     * Tests that after receiving form data missing the sponsor name the
-     * expected attributes are loaded into the model.
+     * Verifies that after receiving form data missing the name, which is a
+     * required field, this is marked as an error.
      */
     @Test
     public final void testSendFormData_NoName_ExpectedAttributeModel()
             throws Exception {
         final ResultActions result; // Request result
 
-        result = mockMvc.perform(getNoNameFormRequest());
+        result = mockMvc.perform(getFormRequest());
 
         // The response model contains the expected attributes
         result.andExpect(MockMvcResultMatchers.model()
@@ -93,14 +97,14 @@ public final class TestExampleEntityViewControllerFormMissingData {
     }
 
     /**
-     * Tests that after receiving form data missing an affinity the view is
-     * again the form view.
+     * Verifies that after receiving form data missing the name, which is a
+     * required field, the view is again the form view.
      */
     @Test
     public final void testSendFormData_NoName_NoViewChange() throws Exception {
         final ResultActions result; // Request result
 
-        result = mockMvc.perform(getNoNameFormRequest());
+        result = mockMvc.perform(getFormRequest());
 
         // The view is valid
         result.andExpect(MockMvcResultMatchers.view()
@@ -108,15 +112,13 @@ public final class TestExampleEntityViewControllerFormMissingData {
     }
 
     /**
-     * Returns a mocked controller.
-     * <p>
-     * It can create mocked sponsor, sponsor team and units.
+     * Returns a controller with mocked dependencies.
      * 
      * @return a mocked controller
      */
     private final ExampleEntityViewController getController() {
-        final ExampleEntityService service;
-        final Collection<DefaultExampleEntity> entities;
+        final ExampleEntityService service; // Mocked service
+        final Collection<DefaultExampleEntity> entities; // Mocked entities
 
         service = Mockito.mock(ExampleEntityService.class);
 
@@ -128,11 +130,15 @@ public final class TestExampleEntityViewControllerFormMissingData {
     }
 
     /**
-     * Returns a request builder for posting form data without a sponsor name.
+     * Returns a request builder for posting the form data.
+     * <p>
+     * This request is missing all the required request parameters.
+     * <p>
+     * There is only a single required parameter, the {@code name} parameter.
      * 
-     * @return a request builder with form data without a sponsor name
+     * @return a request builder for posting the form data
      */
-    private final RequestBuilder getNoNameFormRequest() {
+    private final RequestBuilder getFormRequest() {
         return MockMvcRequestBuilders.post(UrlConfig.URL_FORM_POST);
     }
 

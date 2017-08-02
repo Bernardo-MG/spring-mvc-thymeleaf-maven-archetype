@@ -62,7 +62,7 @@ public final class TestReportController {
     private MockMvc             mockMvc;
 
     /**
-     * Default constructor;
+     * Default constructor.
      */
     public TestReportController() {
         super();
@@ -77,7 +77,7 @@ public final class TestReportController {
     }
 
     /**
-     * Tests that the PDF view sets the expected attributes.
+     * Verifies that the PDF view sets the expected attributes.
      */
     @Test
     public final void testPdf_ExpectedAttributeModel() throws Exception {
@@ -94,9 +94,7 @@ public final class TestReportController {
     }
 
     /**
-     * Returns a mocked controller.
-     * <p>
-     * It has all the dependencies stubbed.
+     * Returns a controller with mocked dependencies.
      * 
      * @return a mocked controller
      */

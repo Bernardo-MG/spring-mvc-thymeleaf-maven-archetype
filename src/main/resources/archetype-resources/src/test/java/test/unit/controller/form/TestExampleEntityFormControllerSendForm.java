@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  * <p>
- * Copyright (c) ${currentYear} the original author or authors.
+ * Copyright (c) 2017 the original author or authors.
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package ${package}.test.unit.controller;
+package ${package}.test.unit.controller.form;
 
 import java.util.Collection;
 import java.util.LinkedList;
@@ -37,28 +37,29 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import ${package}.controller.entity.ExampleEntityViewController;
+import ${package}.controller.entity.ExampleEntityFormController;
+import ${package}.controller.entity.ExampleEntityViewConstants;
 import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.service.ExampleEntityService;
 import ${package}.test.config.UrlConfig;
 
 /**
- * Unit tests for {@link ExampleEntityViewController}, checking the methods for
+ * Unit tests for {@link ExampleEntityFormController}, checking the methods for
  * sending the form data.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
-public final class TestExampleEntityViewControllerSendForm {
+public final class TestExampleEntityFormControllerSendForm {
 
     /**
      * Mocked MVC context.
      */
-    private MockMvc             mockMvc;
+    private MockMvc mockMvc;
 
     /**
      * Default constructor.
      */
-    public TestExampleEntityViewControllerSendForm() {
+    public TestExampleEntityFormControllerSendForm() {
         super();
     }
 
@@ -85,11 +86,13 @@ public final class TestExampleEntityViewControllerSendForm {
         result = mockMvc.perform(getFormRequest());
 
         // The response model contains the expected attributes
-        result.andExpect(MockMvcResultMatchers.model().attributeExists(ExampleEntityViewController.BEAN_FORM));
+        result.andExpect(MockMvcResultMatchers.model()
+                .attributeExists(ExampleEntityViewConstants.BEAN_FORM));
     }
 
     /**
-     * Verifies that after received valid form data the expected view is returned.
+     * Verifies that after received valid form data the expected view is
+     * returned.
      */
     @Test
     public final void testSendFormData_ExpectedView() throws Exception {
@@ -100,7 +103,7 @@ public final class TestExampleEntityViewControllerSendForm {
 
         // The view is valid
         result.andExpect(MockMvcResultMatchers.view()
-                .name(ExampleEntityViewController.VIEW_ENTITY_LIST));
+                .name(ExampleEntityViewConstants.VIEW_ENTITY_LIST));
     }
 
     /**
@@ -108,8 +111,7 @@ public final class TestExampleEntityViewControllerSendForm {
      * 
      * @return a mocked controller
      */
-    @SuppressWarnings("unchecked")
-    private final ExampleEntityViewController getController() {
+    private final ExampleEntityFormController getController() {
         final ExampleEntityService service; // Mocked service
         final Collection<DefaultExampleEntity> entities; // Mocked entities
 
@@ -119,7 +121,7 @@ public final class TestExampleEntityViewControllerSendForm {
 
         Mockito.when(service.getAllEntities()).thenReturn(entities);
 
-        return new ExampleEntityViewController(service);
+        return new ExampleEntityFormController(service);
     }
 
     /**

@@ -49,33 +49,10 @@ import ${package}.controller.entity.bean.ExampleEntityForm;
  */
 @Controller
 @RequestMapping("/entity")
-public class ExampleEntityViewController {
-
-    /**
-     * Form bean name.
-     */
-    public static final String         BEAN_FORM        = "form";
-
-    /**
-     * Entities parameter name.
-     */
-    public static final String         PARAM_ENTITIES   = "entities";
-
-    /**
-     * Example entity form view name.
-     */
-    public static final String         VIEW_ENTITY_FORM = "entity/form";
-
-    /**
-     * Example entity listing view name.
-     */
-    public static final String         VIEW_ENTITY_LIST = "entity/list";
+public class ExampleEntityFormController {
 
     /**
      * Example entity service.
-     * <p>
-     * This should contain all the business logic for handling the example
-     * entity.
      */
     private final ExampleEntityService exampleEntityService;
 
@@ -86,7 +63,7 @@ public class ExampleEntityViewController {
      *            example entity service
      */
     @Autowired
-    public ExampleEntityViewController(final ExampleEntityService service) {
+    public ExampleEntityFormController(final ExampleEntityService service) {
         super();
 
         exampleEntityService = checkNotNull(service,
@@ -94,24 +71,17 @@ public class ExampleEntityViewController {
     }
 
     /**
-     * Returns the initial form data.
-     * <p>
-     * Thanks to the {@code ModelAttribute} annotation the bean returned by this
-     * method is mapped to the model view and exposed to the view.
-     * <p>
-     * This makes it easier mapping the bean to and from the view.
-     * <p>
-     * As the form is by default empty the entity is created empty.
+     * Returns the initial Sponsor form data.
      * 
-     * @return the initial form data
+     * @return the initial Sponsor form data
      */
-    @ModelAttribute(BEAN_FORM)
+    @ModelAttribute(ExampleEntityViewConstants.BEAN_FORM)
     public final ExampleEntityForm getEntityForm() {
         return new ExampleEntityForm();
     }
 
     /**
-     * Persists an entity.
+     * Adds an entity to the DB.
      * 
      * @param model
      *            model map
@@ -125,7 +95,7 @@ public class ExampleEntityViewController {
      */
     @PostMapping
     public final String saveEntity(final ModelMap model,
-            @ModelAttribute(BEAN_FORM) @Valid final ExampleEntityForm form,
+            @ModelAttribute(ExampleEntityViewConstants.BEAN_FORM) @Valid final ExampleEntityForm form,
             final BindingResult bindingResult, final HttpSession session) {
         final String path;
         final DefaultExampleEntity entity;
@@ -136,7 +106,7 @@ public class ExampleEntityViewController {
             // Loads required data into the model
             loadFormModel(model);
             // Returns to the sponsor creation view
-            path = VIEW_ENTITY_FORM;
+            path = ExampleEntityViewConstants.VIEW_ENTITY_FORM;
             // TODO: Maybe it should return a bad request status?
         } else {
             entity = new DefaultExampleEntity();
@@ -147,7 +117,7 @@ public class ExampleEntityViewController {
             // Loads required data into the model and session
             loadViewModel(model);
 
-            path = VIEW_ENTITY_LIST;
+            path = ExampleEntityViewConstants.VIEW_ENTITY_LIST;
         }
 
         return path;
@@ -165,22 +135,7 @@ public class ExampleEntityViewController {
         // Loads required data into the model
         loadFormModel(model);
 
-        return VIEW_ENTITY_FORM;
-    }
-
-    /**
-     * Shows the entity listing view.
-     * 
-     * @param model
-     *            model map
-     * @return the name for the entity listing view
-     */
-    @GetMapping(path = "/list")
-    public final String showEntityList(final ModelMap model) {
-        // Loads required data into the model
-        loadViewModel(model);
-
-        return VIEW_ENTITY_LIST;
+        return ExampleEntityViewConstants.VIEW_ENTITY_FORM;
     }
 
     /**
@@ -207,7 +162,8 @@ public class ExampleEntityViewController {
      *            model map
      */
     private final void loadViewModel(final ModelMap model) {
-        model.put(PARAM_ENTITIES, getExampleEntityService().getAllEntities());
+        model.put(ExampleEntityViewConstants.PARAM_ENTITIES,
+                getExampleEntityService().getAllEntities());
     }
 
 }

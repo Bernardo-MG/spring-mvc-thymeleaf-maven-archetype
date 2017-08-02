@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  * <p>
- * Copyright (c) ${currentYear} the original author or authors.
+ * Copyright (c) 2017 the original author or authors.
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,12 +22,12 @@
  * SOFTWARE.
  */
 
-package ${package}.test.unit.controller;
+package ${package}.unit.controller.list;
 
-import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedList;
 
 import org.mockito.Mockito;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.ResultActions;
@@ -37,60 +37,57 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import ${package}.controller.report.ReportController;
+import ${package}.controller.entity.ExampleEntityListController;
+import ${package}.controller.entity.ExampleEntityViewConstants;
 import ${package}.model.persistence.DefaultExampleEntity;
-import ${package}.service.DefaultExampleEntityReportService;
-import ${package}.service.ExampleEntityReportService;
 import ${package}.service.ExampleEntityService;
+import ${package}.test.config.UrlConfig;
 
 /**
- * Unit tests for {@link ReportController}, checking the methods for generating
- * reports.
+ * Unit tests for {@link ExampleEntityListController}, checking the methods for
+ * listing entities.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
-public final class TestReportController {
-
-    /**
-     * PDF view URL.
-     */
-    private static final String URL_PDF = "/entity/pdf";
+public final class TestExampleEntityListControllerList {
 
     /**
      * Mocked MVC context.
      */
-    private MockMvc             mockMvc;
+    private MockMvc mockMvc;
 
     /**
      * Default constructor.
      */
-    public TestReportController() {
+    public TestExampleEntityListControllerList() {
         super();
     }
 
     /**
      * Sets up the mocked MVC context.
+     * <p>
+     * It expects all the responses to have the OK (200) HTTP code.
      */
     @BeforeTest
     public final void setUpMockContext() {
-        mockMvc = MockMvcBuilders.standaloneSetup(getController()).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(getController())
+                .alwaysExpect(MockMvcResultMatchers.status().isOk()).build();
     }
 
     /**
-     * Verifies that the PDF view sets the expected attributes.
+     * Verifies that the form view loads the expected attributes into the model.
+     * <p>
+     * The form requires a bean which will contain all its data.
      */
     @Test
-    public final void testPdf_ExpectedAttributeModel() throws Exception {
+    public final void testShowForm_ExpectedAttributeModel() throws Exception {
         final ResultActions result; // Request result
 
-        result = mockMvc.perform(getRequest());
+        result = mockMvc.perform(getViewRequest());
 
-        // The operation was accepted
-        result.andExpect(MockMvcResultMatchers.status().isOk());
-
-        // The response indicates it is a PDF
-        result.andExpect(MockMvcResultMatchers.content()
-                .contentType(MediaType.APPLICATION_PDF));
+        // The response model contains the expected attributes
+        result.andExpect(MockMvcResultMatchers.model()
+                .attributeExists(ExampleEntityViewConstants.PARAM_ENTITIES));
     }
 
     /**
@@ -98,28 +95,26 @@ public final class TestReportController {
      * 
      * @return a mocked controller
      */
-    private final ReportController getController() {
-        final ExampleEntityService service; // Mocked unit codex
-        final ExampleEntityReportService reportService; // Mocked unit codex
-        final Iterable<DefaultExampleEntity> entities;
-
-        entities = new ArrayList<DefaultExampleEntity>();
+    private final ExampleEntityListController getController() {
+        final ExampleEntityService service; // Mocked service
+        final Collection<DefaultExampleEntity> entities; // Mocked entities
 
         service = Mockito.mock(ExampleEntityService.class);
+
+        entities = new LinkedList<>();
+
         Mockito.when(service.getAllEntities()).thenReturn(entities);
 
-        reportService = new DefaultExampleEntityReportService();
-
-        return new ReportController(service, reportService);
+        return new ExampleEntityListController(service);
     }
 
     /**
-     * Returns a request builder for getting the PDF view.
+     * Returns a request builder for getting the entities list view.
      * 
-     * @return a request builder for the PDF view
+     * @return a request builder for the entities list view
      */
-    private final RequestBuilder getRequest() {
-        return MockMvcRequestBuilders.get(URL_PDF);
+    private final RequestBuilder getViewRequest() {
+        return MockMvcRequestBuilders.get(UrlConfig.URL_LIST);
     }
 
 }

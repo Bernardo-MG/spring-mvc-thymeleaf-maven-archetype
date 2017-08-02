@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  * <p>
- * Copyright (c) ${currentYear} the original author or authors.
+ * Copyright (c) 2017 the original author or authors.
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package ${package}.test.unit.controller;
+package ${package}.test.unit.controller.form;
 
 import java.util.Collection;
 import java.util.LinkedList;
@@ -37,18 +37,19 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import ${package}.controller.entity.ExampleEntityViewController;
+import ${package}.controller.entity.ExampleEntityFormController;
+import ${package}.controller.entity.ExampleEntityViewConstants;
 import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.service.ExampleEntityService;
 import ${package}.test.config.UrlConfig;
 
 /**
- * Unit tests for {@link ExampleEntityViewController}, checking the methods for
+ * Unit tests for {@link ExampleEntityFormController}, checking the methods for
  * showing the form.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
-public final class TestExampleEntityViewControllerShowForm {
+public final class TestExampleEntityFormControllerShowForm {
 
     /**
      * Mocked MVC context.
@@ -58,7 +59,7 @@ public final class TestExampleEntityViewControllerShowForm {
     /**
      * Default constructor.
      */
-    public TestExampleEntityViewControllerShowForm() {
+    public TestExampleEntityFormControllerShowForm() {
         super();
     }
 
@@ -86,7 +87,7 @@ public final class TestExampleEntityViewControllerShowForm {
 
         // The response model contains the expected attributes
         result.andExpect(MockMvcResultMatchers.model()
-                .attributeExists(ExampleEntityViewController.BEAN_FORM));
+                .attributeExists(ExampleEntityViewConstants.BEAN_FORM));
     }
 
     /**
@@ -94,7 +95,7 @@ public final class TestExampleEntityViewControllerShowForm {
      * 
      * @return a mocked controller
      */
-    private final ExampleEntityViewController getController() {
+    private final ExampleEntityFormController getController() {
         final ExampleEntityService service;
         final Collection<DefaultExampleEntity> entities;
 
@@ -104,7 +105,7 @@ public final class TestExampleEntityViewControllerShowForm {
 
         Mockito.when(service.getAllEntities()).thenReturn(entities);
 
-        return new ExampleEntityViewController(service);
+        return new ExampleEntityFormController(service);
     }
 
     /**

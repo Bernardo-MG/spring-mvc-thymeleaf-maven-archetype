@@ -355,6 +355,7 @@
       <plugin.changes.version>2.12.1</plugin.changes.version>
       <plugin.jetty.version>9.4.6.v20170531</plugin.jetty.version>
       <plugin.jshint.version>1.6.0</plugin.jshint.version>
+      <plugin.minify.version>1.7.6</plugin.minify.version>
       <plugin.tomcat7.version>2.2</plugin.tomcat7.version>
       <plugin.war.version>3.0.0</plugin.war.version>
       <!-- Maven Site -->
@@ -666,18 +667,25 @@
          <plugins>
             <!-- Plugin versions and configurations are enforced here. -->
             <plugin>
-               <!-- WAR -->
-               <!-- Generates the WAR package. -->
-               <groupId>org.apache.maven.plugins</groupId>
-               <artifactId>maven-war-plugin</artifactId>
-               <version>${plugin.war.version}</version>
-            </plugin>
-            <plugin>
                <!-- JSHint -->
                <!-- Validates Javascript files. -->
                <groupId>com.cj.jshintmojo</groupId>
                <artifactId>jshint-maven-plugin</artifactId>
                <version>${plugin.jshint.version}</version>
+            </plugin>
+            <plugin>
+               <!-- Minify -->
+               <!-- Minifies files. -->
+               <groupId>com.samaxes.maven</groupId>
+               <artifactId>minify-maven-plugin</artifactId>
+               <version>${plugin.minify.version}</version>
+            </plugin>
+            <plugin>
+               <!-- WAR -->
+               <!-- Generates the WAR package. -->
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-war-plugin</artifactId>
+               <version>${plugin.war.version}</version>
             </plugin>
          </plugins>
       </pluginManagement>
@@ -722,6 +730,28 @@
                   <version>${site.skin.version}</version>
                </dependency>
             </dependencies>
+         </plugin>
+         <plugin>
+            <!-- Minify -->
+            <!-- Minifies files. -->
+            <groupId>com.samaxes.maven</groupId>
+            <artifactId>minify-maven-plugin</artifactId>
+            <executions>
+               <execution>
+                  <id>default-minify</id>
+                  <phase>package</phase><!-- When omitted defaults to 'process-resources' -->
+                  <configuration>
+                     <cssSourceDir>resources/css</cssSourceDir>
+                     <cssSourceIncludes>
+                        <cssSourceInclude>**</cssSourceInclude>
+                     </cssSourceIncludes>
+                     <cssFinalFile>style.css</cssFinalFile>
+                  </configuration>
+                  <goals>
+                     <goal>minify</goal>
+                  </goals>
+               </execution>
+            </executions>
          </plugin>
          <plugin>
             <!-- WAR -->

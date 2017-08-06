@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package ${package}.unit.controller.list;
+package ${package}.test.unit.controller.list;
 
 import java.util.Collection;
 import java.util.LinkedList;

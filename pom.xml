@@ -186,8 +186,6 @@
       <pluginManagement>
          <plugins>
             <!-- Plugin versions and configurations are enforced here. -->
-            <!-- Some of these plugins are added by default by Maven in some 
-               situations. -->
             <plugin>
                <!-- JSHint -->
                <!-- Validates JS -->

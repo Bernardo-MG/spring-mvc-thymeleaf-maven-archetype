@@ -759,7 +759,8 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-war-plugin</artifactId>
             <configuration>
-               <filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
+               <warSourceExcludes>resources/*.css</warSourceExcludes>
+               <warSourceIncludes>resources/*.min.css</warSourceIncludes>
                <webResources>
                   <resource>
                      <!-- Persistence access data is filtered -->

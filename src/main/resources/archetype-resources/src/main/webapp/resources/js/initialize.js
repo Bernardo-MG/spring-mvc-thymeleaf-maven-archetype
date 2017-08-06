@@ -14,9 +14,6 @@
  */
 $(document).ready(function() {
 
-	// Sets up chevron toggling
-	initChevronToggle();
-
 	// Initializes tooltips
 	$('body').tooltip({
 	    selector: '[data-toggle=tooltip]'

@@ -657,8 +657,6 @@
                <include>context/application-context.xml</include>
                <!-- Filter the persistence access properties -->
                <include>config/persistence-access.properties</include>
-               <!-- Filter the project info properties -->
-               <include>config/project.properties</include>
             </includes>
             <filtering>true</filtering>
          </resource>

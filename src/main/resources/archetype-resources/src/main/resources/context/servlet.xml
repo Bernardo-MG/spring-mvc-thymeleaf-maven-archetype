@@ -18,7 +18,6 @@
    <!-- Properties -->
    <context:property-placeholder
       location="classpath:config/view.properties,
-                   classpath:config/project.properties,
                    classpath:config/service.properties,
                    classpath:config/servlet.properties" />
 

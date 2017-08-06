@@ -24,7 +24,7 @@
 /**
  * Model classes.
  * <p>
- * These are used to store the application data.
+ * These represent the main sets of data which the application works with.
  */
 
 package ${package}.model;

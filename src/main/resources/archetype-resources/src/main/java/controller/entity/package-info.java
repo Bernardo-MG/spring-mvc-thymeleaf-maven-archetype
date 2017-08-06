@@ -23,9 +23,6 @@
  */
 /**
  * Controllers for the example entity.
- * <p>
- * These serve as adapters between the view and the rest of the application, and
- * is also the C in the MVC architecture.
  */
 
 package ${package}.controller.entity;

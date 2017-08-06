@@ -1,12 +1,9 @@
 /**
+ * ${projectName} javascript initialization.
+ * Copyright ${currentYear} ${developerName}
  * Licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php)
- */
-/**
+ * 
  * Loads all the Javascript functions used by the site.
- *
- * This requires access to the code in the following Javascript files:
- * - chevron-toggle.js
- * - smooth-scroll.js
  */
 
 /**

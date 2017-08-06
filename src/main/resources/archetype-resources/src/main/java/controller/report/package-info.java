@@ -25,4 +25,4 @@
  * Controllers for report generation.
  */
 
-package com.wandrell.tabletop.dreadball.model.faction;
+package ${package}.controller.report;

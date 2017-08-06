@@ -29,4 +29,4 @@
  * read from.
  */
 
-package com.wandrell.tabletop.dreadball.model.faction;
+package ${package}.repository;

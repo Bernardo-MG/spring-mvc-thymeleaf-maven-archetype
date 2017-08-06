@@ -29,4 +29,4 @@
  * important logic in the application.
  */
 
-package com.wandrell.tabletop.dreadball.model.faction;
+package ${package}.service;

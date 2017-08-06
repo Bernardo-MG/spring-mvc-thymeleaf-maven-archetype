@@ -28,4 +28,4 @@
  * is also the C in the MVC architecture.
  */
 
-package com.wandrell.tabletop.dreadball.model.faction;
+package ${package}.controller.entity;

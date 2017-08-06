@@ -27,4 +27,4 @@
  * These are used to store the application data.
  */
 
-package com.wandrell.tabletop.dreadball.model.faction;
+package ${package}.model;

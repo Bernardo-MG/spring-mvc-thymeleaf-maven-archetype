@@ -25,4 +25,4 @@
  * Controller classes.
  */
 
-package com.wandrell.tabletop.dreadball.model.faction;
+package ${package}.controller;

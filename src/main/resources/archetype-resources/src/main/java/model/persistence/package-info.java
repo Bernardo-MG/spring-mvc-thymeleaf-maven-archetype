@@ -29,4 +29,4 @@
  * It should be used only to communicate with the persistence layer.
  */
 
-package com.wandrell.tabletop.dreadball.model.faction;
+package ${package}.model.persistence;

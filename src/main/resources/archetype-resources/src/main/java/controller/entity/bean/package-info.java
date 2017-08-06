@@ -28,4 +28,4 @@
  * as objects.
  */
 
-package com.wandrell.tabletop.dreadball.model.faction;
+package ${package}.controller.entity.bean;

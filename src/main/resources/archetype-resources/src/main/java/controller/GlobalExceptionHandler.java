@@ -40,7 +40,8 @@ import org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver;
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @ControllerAdvice
-public final class GlobalExceptionHandler {
+public final class GlobalExceptionHandler
+        extends AbstractHandlerExceptionResolver {
 
     /**
      * Logger for the exception handler.

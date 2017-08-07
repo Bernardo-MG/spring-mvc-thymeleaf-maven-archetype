@@ -762,7 +762,7 @@
                   <resource>
                      <!-- Persistence access data is filtered -->
                      <filtering>true</filtering>
-                     <directory>${project.build.resources[0].directory}/config</directory>
+                     <directory>${project.basedir}/src/main/resources/config</directory>
                      <targetPath>WEB-INF/classes/config</targetPath>
                      <includes>
                         <include>persistence-access.properties</include>

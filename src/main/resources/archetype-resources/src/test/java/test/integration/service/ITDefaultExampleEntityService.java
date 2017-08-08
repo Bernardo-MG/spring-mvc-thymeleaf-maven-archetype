@@ -42,8 +42,8 @@ import ${package}.service.ExampleEntityService;
  * Integration tests for the {@link ExampleEntityService}.
  * <p>
  * As this service doesn't contain any actual business logic, and it just wraps
- * the example entities repository, these tests are mostly smoke tests, to
- * verify everything is set up correctly and working.
+ * the example entities repository, these tests are for verifying everything is
+ * set up correctly and working.
  */
 @ContextConfiguration(locations = { "classpath:context/service.xml",
         "classpath:context/persistence.xml",

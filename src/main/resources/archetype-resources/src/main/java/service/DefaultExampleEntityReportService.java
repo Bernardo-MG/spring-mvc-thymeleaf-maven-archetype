@@ -26,7 +26,7 @@ package ${package}.service;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.collections.IteratorUtils;
@@ -85,7 +85,7 @@ public final class DefaultExampleEntityReportService
             throw new RuntimeException(e);
         }
 
-        parameters = new LinkedHashMap<>();
+        parameters = new HashMap<>();
 
         try {
             jasperPrint = JasperFillManager.fillReport(jasperReport, parameters,

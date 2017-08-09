@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  * <p>
- * Copyright (c) 2015 the original author or authors.
+ * Copyright (c) ${currentYear} the original author or authors.
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,26 +22,22 @@
  * SOFTWARE.
  */
 
-package com.wandrell.example.swss.service.domain;
+package ${package}.service;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.wandrell.example.swss.model.DefaultExampleEntity;
-import com.wandrell.example.swss.model.ExampleEntity;
-import com.wandrell.example.swss.repository.ExampleEntityRepository;
+import ${package}.model.persistence.DefaultExampleEntity;
+import ${package}.model.ExampleEntity;
+import ${package}.repository.ExampleEntityRepository;
 
 /**
- * Example entity domain service, using an {@link ExampleEntityRepository} for
- * acquiring the entities.
- * <p>
- * This service just wraps and hides an instance of the
- * {@link com.wandrell.example.swss.repository.ExampleEntityRepository
- * ExampleEntityRepository}.
+ * Default implementation of the example entity service.
+ * 
+ * @author Bernardo Mart&iacute;nez Garrido
  *
- * @author Bernardo Martínez Garrido
  */
 @Service
 public class DefaultExampleEntityService implements ExampleEntityService {
@@ -64,6 +60,11 @@ public class DefaultExampleEntityService implements ExampleEntityService {
 
         this.entityRepository = checkNotNull(repository,
                 "Received a null pointer as repository");
+    }
+
+    @Override
+    public final ExampleEntity add(final DefaultExampleEntity entity) {
+        return getExampleEntityRepository().save(entity);
     }
 
     /**
@@ -89,6 +90,16 @@ public class DefaultExampleEntityService implements ExampleEntityService {
         }
 
         return entity;
+    }
+
+    @Override
+    public final Iterable<DefaultExampleEntity> getAllEntities() {
+        return getExampleEntityRepository().findAll();
+    }
+
+    @Override
+    public final void remove(final DefaultExampleEntity entity) {
+        getExampleEntityRepository().delete(entity);
     }
 
     /**

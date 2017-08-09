@@ -1,8 +1,8 @@
-# Library Maven Archetype
+# Spring MVC with Thymeleaf Maven Archetype
 
 A [Maven Archetype][maven-archetype] for generating a Spring MVC project using Thymeleaf for the frontend.
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.wandrell.maven.archetypes/library-archetype.svg)][maven-repo]
+[![Maven Central](https://img.shields.io/maven-central/v/com.wandrell.maven.archetypes/spring-mvc-thymeleaf-maven-archetype.svg)][maven-repo]
 [![Bintray](https://api.bintray.com/packages/bernardo-mg/maven/spring-mvc-thymeleaf-maven-archetype/images/download.svg)][bintray-repo]
 
 [![Release docs](https://img.shields.io/badge/docs-release-blue.svg)][site-release]
@@ -10,8 +10,15 @@ A [Maven Archetype][maven-archetype] for generating a Spring MVC project using T
 
 ## Features
 
-- Spring MVC
-- Thymeleaf
+- Creates the base for a [Spring MVC][spring-mvc] project.
+- Initial sample project including working persistence and exception handling
+- Integrates with [Thymeleaf][thymeleaf] for the view templates.
+- Integrates with [Jasper Reports][jasper] for generating PDFs.
+- Creates a new Maven library with a fully configured POM, extending from [Wandrell's Base POM][base-pom], including features such as build validation, changes report or manifest configuration.
+- Sets up continuous integration with [Github][github], [Travis][travis] and [Bintray][bintray]. Making a distinction between releases and development versions.
+- Prepared for unit and integration tests suites. Created with [TestNG][testng] and ready to be run with [Surefire][surefire] and [Failsafe][failsafe].
+- A Maven site, using the [Docs Maven Skin][docs-skin], for sharing the project's documentation along the Javadocs and various reports which range from code quality to changes log.
+- Includes basic files such as readme, gitignore and license.
 
 ## Sample project
 
@@ -44,9 +51,7 @@ It is a Maven Archetype, and can be used through command line or an IDE as long 
 ### Prerequisites
 
 The project has been tested on the following Java versions:
-* JDK 7
 * JDK 8
-* OpenJDK 7
 
 All other dependencies are handled through Maven, and noted in the included POM file.
 
@@ -58,7 +63,7 @@ The Maven coordinates and URL for it are:
 
 ```
 Group ID: com.wandrell.maven.archetypes
-Artifact ID: library-archetype
+Artifact ID: spring-mvc-thymeleaf-maven-archetype
 Version: (Check POM or badges)
 URL: https://dl.bintray.com/bernardo-mg/maven/
 ```
@@ -66,7 +71,7 @@ URL: https://dl.bintray.com/bernardo-mg/maven/
 For example, to use it through command line type the following:
 
 ```
-$ mvn archetype:generate -DarchetypeGroupId=com.wandrell.maven.archetypes -DarchetypeArtifactId=library-archetype -DarchetypeVersion=1.0.0 -DarchetypeRepository=https://dl.bintray.com/bernardo-mg/maven/
+$ mvn archetype:generate -DarchetypeGroupId=com.wandrell.maven.archetypes -DarchetypeArtifactId=spring-mvc-thymeleaf-maven-archetype -DarchetypeVersion=1.0.0 -DarchetypeRepository=https://dl.bintray.com/bernardo-mg/maven/
 ```
 
 If using an IDE check its documentation to find out how to use Maven Archetypes, and how to add these to the local repository.
@@ -96,7 +101,7 @@ If you wish to fork or modify the code, visit the [GitHub project page][scm], wh
 The project has been released under the [MIT License][license].
 
 [bintray-repo]: https://bintray.com/bernardo-mg/maven/spring-mvc-thymeleaf-maven-archetype/view
-[maven-repo]: http://mvnrepository.com/artifact/com.wandrell.maven.archetypes/library-archetype
+[maven-repo]: http://mvnrepository.com/artifact/com.wandrell.maven.archetypes/spring-mvc-thymeleaf-maven-archetype
 [testng]: http://testng.org
 [issues]: https://github.com/Bernardo-MG/spring-mvc-thymeleaf-maven-archetype/issues
 [license]: http://www.opensource.org/licenses/mit-license.php
@@ -107,6 +112,11 @@ The project has been released under the [MIT License][license].
 [maven-archetype]: https://maven.apache.org/guides/introduction/introduction-to-archetypes.html
 
 [sample-project]: https://github.com/Bernardo-MG/spring-mvc-thymeleaf-maven-archetype-example
+
+[spring-mvc]: https://spring.io/
+[thymeleaf]: http://www.thymeleaf.org/
+
+[jasper]: http://community.jaspersoft.com/
 
 [docs-skin]: https://github.com/Bernardo-MG/docs-maven-skin
 [base-pom]: https://github.com/Bernardo-MG/base-pom

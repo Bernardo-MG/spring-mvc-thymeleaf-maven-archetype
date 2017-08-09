@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  * <p>
- * Copyright (c) 2015 the original author or authors.
+ * Copyright (c) ${currentYear} the original author or authors.
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,62 +22,48 @@
  * SOFTWARE.
  */
 
-package com.wandrell.example.swss.model;
+package ${package}.controller.entity.bean;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import com.google.common.base.MoreObjects;
 
 /**
- * Persistent entity for the example application.
+ * Represents the form used for the creating and edition example entities.
  * <p>
- * This makes use of JPA annotations for the persistence configuration.
+ * This is a DTO, meant to allow communication between the view and the
+ * controller, and mapping all the values from the form. Each of field in the
+ * DTO matches a field in the form.
  * <p>
- * For the JAXB annotated model check the generated classes folder.
+ * Includes Java validation annotations, for applying binding validation. This
+ * way the controller will make sure it receives all the required data.
  *
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
-@Entity(name = "ExampleEntity")
-@Table(name = "example_entities")
-public final class DefaultExampleEntity implements ExampleEntity {
+public final class ExampleEntityForm implements Serializable {
 
     /**
      * Serialization ID.
      */
-    @Transient
     private static final long serialVersionUID = 1328776989450853491L;
 
     /**
-     * Entity's ID.
-     */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, unique = true)
-    private Integer           id               = -1;
-
-    /**
-     * Name of the entity.
+     * Name field.
      * <p>
-     * This is to have additional data apart from the id, to be used on the
-     * tests.
+     * This is a required field and can't be empty.
      */
-    @Column(name = "name", nullable = false)
-    private String            name             = "";
+    @NotEmpty
+    private String            name;
 
     /**
-     * Constructs an example entity.
+     * Constructs a DTO for the example entity form.
      */
-    public DefaultExampleEntity() {
+    public ExampleEntityForm() {
         super();
     }
 
@@ -95,46 +81,37 @@ public final class DefaultExampleEntity implements ExampleEntity {
             return false;
         }
 
-        final DefaultExampleEntity other = (DefaultExampleEntity) obj;
-        return Objects.equals(id, other.id);
+        final ExampleEntityForm other = (ExampleEntityForm) obj;
+        return Objects.equals(name, other.name);
     }
 
     /**
-     * Returns the identifier assigned to this entity.
-     * <p>
-     * If no identifier has been assigned yet, then the value will be lower than
-     * zero.
-     *
-     * @return the entity's identifier
+     * Returns the value of the name field.
+     * 
+     * @return the value of the name field
      */
-    @Override
-    public final Integer getId() {
-        return id;
-    }
-
-    @Override
     public final String getName() {
         return name;
     }
 
     @Override
     public final int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(name);
     }
 
-    @Override
-    public final void setId(final Integer value) {
-        id = checkNotNull(value, "Received a null pointer as identifier");
-    }
-
-    @Override
+    /**
+     * Sets the value of the name field.
+     * 
+     * @param value
+     *            the new value for the name field
+     */
     public final void setName(final String value) {
         name = checkNotNull(value, "Received a null pointer as name");
     }
 
     @Override
     public final String toString() {
-        return MoreObjects.toStringHelper(this).add("entityId", id).toString();
+        return MoreObjects.toStringHelper(this).add("name", name).toString();
     }
 
 }

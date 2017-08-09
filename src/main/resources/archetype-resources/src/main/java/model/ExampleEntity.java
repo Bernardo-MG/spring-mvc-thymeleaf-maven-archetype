@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  * <p>
- * Copyright (c) 2015 the original author or authors.
+ * Copyright (c) ${currentYear} the original author or authors.
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,17 +22,14 @@
  * SOFTWARE.
  */
 
-package com.wandrell.example.swss.model;
+package ${package}.model;
 
 import java.io.Serializable;
 
 /**
- * A simple entity for the example application.
- * <p>
- * This is meant to be the internal domain model used by the web service. The
- * one for the SOAP messages is in the JAXB generated classes package.
+ * A simple entity to be used as an example.
  *
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 public interface ExampleEntity extends Serializable {
 

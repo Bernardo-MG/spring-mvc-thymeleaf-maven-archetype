@@ -1,15 +1,7 @@
 <div th:fragment="footer">
+   <p>v@project.version@</p>
    <p>
-      </span>v<span th:remove="tag" th:text="${projectVersion}">0.0.0</span> |<span
-         class="fa fa-copyright"><span th:remove="tag"
-         th:text="${projectYear}">2015</span> <a id="author-link"
-         th:href="${projectAuthorUrl}"><span th:remove="tag"
-            th:text="${projectAuthor}">Bernardo Martínez Garrido</span></a>
-         | Code released under the <a id="license-link"
-         th:href="${projectLicenseUrl}" th:text="${projectLicense}">License</a>
-   </p>
-   <p>
-      Check the code at <a th:href="${projectGithubUrl}" title="GitHub"
+      Check the code at <a href="@project.scm.url@" title="GitHub"
          aria-label="GitHub"><span class="fa fa-github"
          aria-hidden="true"></span></a>
    </p>

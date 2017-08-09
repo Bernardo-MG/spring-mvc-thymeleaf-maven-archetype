@@ -18,24 +18,16 @@
    <!-- Properties -->
    <context:property-placeholder
       location="classpath:config/view.properties,
-                   classpath:config/project.properties,
                    classpath:config/service.properties,
                    classpath:config/servlet.properties" />
 
    <!-- Scans for beans -->
-   <context:component-scan base-package="${groupId}" />
+   <context:component-scan base-package="${package}" />
 
    <!-- MVC configuration -->
    <mvc:annotation-driven conversion-service="conversionService"
       validator="validator">
-      <mvc:message-converters>
-         <ref bean="jsonMessageConverter" />
-      </mvc:message-converters>
    </mvc:annotation-driven>
-
-   <bean id="jsonMessageConverter" class="${converter.json.class}">
-      <property name="objectMapper" ref="dreadballObjectMapper" />
-   </bean>
 
    <!-- Static resources -->
    <mvc:resources mapping="/static/**" location="/webjars/, /resources/">

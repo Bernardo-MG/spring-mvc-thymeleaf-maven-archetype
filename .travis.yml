@@ -4,23 +4,14 @@
 # Using Java for the project
 language: java
 jdk:
-# JDK 8 is set to deploy the docs in the configuration matrix
-#  - oraclejdk8
-# JDK 7 is set to deploy the artifacts in the configuration matrix
-#  - oraclejdk7
-  - openjdk7
-matrix:
-  include:
-    # Code artifacts deployed with JDK7
-    - jdk: oraclejdk7
-      env: DEPLOY=true
-    # Documentation deployed with JDK8
-    - jdk: oraclejdk8
-      env: DEPLOY_DOCS=true
+# JDK 8 is set to deploy the docs and artifacts
+  - oraclejdk8
+env:
+  - DEPLOY=true DEPLOY_DOCS=true
 
 before_install:
   # Gets scripts
-  - git clone -b v0.2.4 --single-branch https://github.com/Bernardo-MG/ci-shell-scripts.git ~/.scripts
+  - git clone -b v1.0.0 --single-branch https://github.com/Bernardo-MG/ci-shell-scripts.git ~/.scripts
   # Sets scripts as executable
   - chmod -R +x ~/.scripts/*
   # Prepares CI environment
@@ -30,7 +21,7 @@ before_script:
   - ~/.scripts/java/maven/create-maven-settings.sh $VERSION_TYPE
 script:
   # Unit, integration and archetype tests are run
-  - mvn clean verify archetype:integration-test
+  - mvn clean verify
 after_success:
   # Documentation deployment script
   - ~/.scripts/java/maven/deploy-site.sh $DO_DEPLOY_DOCS deployment

@@ -1,0 +1,6 @@
+<settings>
+   <activeProfiles>
+      <activeProfile>h2</activeProfile>
+      <activeProfile>tomcat7</activeProfile>
+   </activeProfiles>
+</settings>

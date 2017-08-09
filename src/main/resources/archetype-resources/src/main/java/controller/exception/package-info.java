@@ -21,37 +21,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
-package ${package}.test.integration;
-
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
-import ${package}.Greeter;
-
 /**
- * Integration tests for {@link Greeter}.
+ * Controllers which generate exceptions.
  * <p>
- * This is actually a placeholder test for the integration tests suite.
- *
- * @author ${developerName}
- *
+ * These are just for verifying that the application is handling exceptions as expected.
  */
-public final class ITGreeter {
 
-    /**
-     * Default constructor.
-     */
-    public ITGreeter() {
-        super();
-    }
-
-    /**
-     * Tests that the {@code Greeter} returns a greeting.
-     */
-    @Test
-    public final void sayHello() {
-        Assert.assertEquals("Hello World!", new Greeter().sayHello());
-    }
-
-}
+package ${package}.controller.exception;

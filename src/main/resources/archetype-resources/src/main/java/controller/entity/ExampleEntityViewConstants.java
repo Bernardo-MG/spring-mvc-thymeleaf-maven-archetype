@@ -22,36 +22,33 @@
  * SOFTWARE.
  */
 
-package ${package}.test.unit;
-
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
-import ${package}.Greeter;
+package ${package}.controller.entity;
 
 /**
- * Unit tests for {@link Greeter}.
- * <p>
- * This is just a placeholder test for the unit tests suite.
- *
- * @author ${developerName}
- *
+ * Constants for the example entity view controllers.
+ * 
+ * @author Bernardo Mart&iacute;nez Garrido
  */
-public final class TestGreeter {
+public class ExampleEntityViewConstants {
 
     /**
-     * Default constructor.
+     * Form bean parameter name.
      */
-    public TestGreeter() {
-        super();
-    }
+    public static final String BEAN_FORM        = "form";
 
     /**
-     * Tests that the {@code Greeter} returns a greeting.
+     * Entities parameter name.
      */
-    @Test
-    public final void sayHello() {
-        Assert.assertEquals("Hello World!", new Greeter().sayHello());
-    }
+    public static final String PARAM_ENTITIES   = "entities";
+
+    /**
+     * Name for the entity form.
+     */
+    public static final String VIEW_ENTITY_FORM = "entity/form";
+
+    /**
+     * Name for the entities view.
+     */
+    public static final String VIEW_ENTITY_LIST = "entity/list";
 
 }

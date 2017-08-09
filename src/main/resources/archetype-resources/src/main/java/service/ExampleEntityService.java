@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  * <p>
- * Copyright (c) 2015 the original author or authors.
+ * Copyright (c) ${currentYear} the original author or authors.
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,9 +22,10 @@
  * SOFTWARE.
  */
 
-package com.wandrell.example.swss.service.domain;
+package ${package}.service;
 
-import com.wandrell.example.swss.model.ExampleEntity;
+import ${package}.model.persistence.DefaultExampleEntity;
+import ${package}.model.ExampleEntity;
 
 /**
  * Service for the example entity domain.
@@ -32,9 +33,18 @@ import com.wandrell.example.swss.model.ExampleEntity;
  * This is a domain service just to allow the endpoints querying the entities
  * they are asked for.
  *
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 public interface ExampleEntityService {
+
+    /**
+     * Persists an entity.
+     * 
+     * @param entity
+     *            entity to persist
+     * @return the persisted entity
+     */
+    public ExampleEntity add(final DefaultExampleEntity entity);
 
     /**
      * Returns an entity with the given id.
@@ -48,4 +58,19 @@ public interface ExampleEntityService {
      */
     public ExampleEntity findById(final Integer identifier);
 
+    /**
+     * Returns all the entities from the DB.
+     * 
+     * @return the persisted entities
+     */
+    public Iterable<DefaultExampleEntity> getAllEntities();
+
+    /**
+     * Removes an entity from persistence.
+     * 
+     * @param entity
+     *            entity to remove
+     */
+    public void remove(final DefaultExampleEntity entity);
+    
 }

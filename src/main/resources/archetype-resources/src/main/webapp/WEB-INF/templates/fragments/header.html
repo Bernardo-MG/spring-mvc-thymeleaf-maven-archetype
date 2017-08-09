@@ -15,9 +15,9 @@
 <title th:text="#{application.title}">Webapp title</title>
 
 <!-- Metadata -->
-<meta name="description" th:content="${projectDescription}">
-<meta name="keywords" th:content="${projectKeywords}">
-<meta name="author" th:content="${projectAuthor}">
+<meta name="description" th:content="${pageDescription}">
+<meta name="keywords" th:content="${pageKeywords}">
+<meta name="author" th:content="${pageAuthor}">
 
 <!-- CSS -->
 <link rel="stylesheet"
@@ -27,7 +27,7 @@
 <link rel="stylesheet"
    th:href="@{/static/font-awesome/css/font-awesome.min.css}">
 <!-- Custom style -->
-<link rel="stylesheet" th:href="@{/static/css/style.css}">
+<link rel="stylesheet" th:href="@{/static/css/style.min.css}">
 
 <!-- HTML5 Shiv. For IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>

@@ -126,7 +126,7 @@
          <id>h2</id>
          <properties>
             <!-- Access data -->
-            <database.url>jdbc:h2:mem:${groupId}</database.url>
+            <database.url>jdbc:h2:mem:${artifactId}</database.url>
             <database.username>sa</database.username>
             <database.password></database.password>
             <!-- Spring context -->
@@ -147,7 +147,7 @@
          <id>mysql</id>
          <properties>
             <!-- Access data -->
-            <database.url>jdbc:mysql://localhost:3306/${groupId}</database.url>
+            <database.url>jdbc:mysql://localhost:3306/${artifactId}</database.url>
             <database.username>root</database.username>
             <database.password></database.password>
             <!-- Spring context -->

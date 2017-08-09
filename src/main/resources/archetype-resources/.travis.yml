@@ -4,7 +4,7 @@
 # Using Java for the project
 language: java
 jdk:
-# JDK 8 is set to deploy the docs and artifacts
+  # JDK 8 is set to deploy the docs and artifacts
   - oraclejdk8
 env:
   - SERVER=jetty DATABASE=h2 DEPLOY_DOCS=true

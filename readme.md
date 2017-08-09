@@ -11,7 +11,9 @@ A [Maven Archetype][maven-archetype] for generating a Spring MVC project using T
 ## Features
 
 - Creates the base for a [Spring MVC][spring-mvc] project.
+- Initial sample project including working persistence and exception handling
 - Integrates with [Thymeleaf][thymeleaf] for the view templates.
+- Integrates with [Jasper Reports][jasper] for generating PDFs.
 - Creates a new Maven library with a fully configured POM, extending from [Wandrell's Base POM][base-pom], including features such as build validation, changes report or manifest configuration.
 - Sets up continuous integration with [Github][github], [Travis][travis] and [Bintray][bintray]. Making a distinction between releases and development versions.
 - Prepared for unit and integration tests suites. Created with [TestNG][testng] and ready to be run with [Surefire][surefire] and [Failsafe][failsafe].
@@ -113,6 +115,8 @@ The project has been released under the [MIT License][license].
 
 [spring-mvc]: https://spring.io/
 [thymeleaf]: http://www.thymeleaf.org/
+
+[jasper]: http://community.jaspersoft.com/
 
 [docs-skin]: https://github.com/Bernardo-MG/docs-maven-skin
 [base-pom]: https://github.com/Bernardo-MG/base-pom

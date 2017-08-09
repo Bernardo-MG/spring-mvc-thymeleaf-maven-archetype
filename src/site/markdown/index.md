@@ -2,12 +2,13 @@
 
 Archetypes act as templates for new Maven projects, taking care of the most tedious and repetitive tasks for the user, who can just begin coding a pre-configured project.
 
-In this case this Archetype creates a [Spring MVC][spring-mvc] application, using [Thymeleaf][thymeleaf] templates for the views. It also comes ready for a full development cycle and comes ready to use Travis for CI.
+In this case this Archetype creates a [Spring MVC][spring-mvc] application, using [Thymeleaf][thymeleaf] templates for the views. It also comes ready for a full development cycle ausing [Travis](https://travis-ci.org) for CI, [Github](https://github.com/) for SCM, and [Bintray](https://bintray.com/) as the code repository.
 
 ## Features
 
 - Creates the base for a [Spring MVC][spring-mvc] project.
 - Integrates with [Thymeleaf][thymeleaf] for the view templates.
+- Integrates with [Jasper Reports][jasper] for generating PDFs.
 - [Wandrell's Base POM][base-pom] used as parent POM.
 - [Unit and integration test][tests] suites are run separatedly with the use of [TestNG][testng].
 - [Maven site for the project][site], using the [Docs Maven Skin][docs-skin], for creating a small documentation site.
@@ -59,6 +60,7 @@ $ mvn tomcat7:run-war -P h2,tomcat7
 [docs-skin]: https://github.com/Bernardo-MG/docs-maven-skin
 [example-project]: https://github.com/Bernardo-MG/spring-mvc-thymeleaf-archetype-example
 
+[jasper]: http://community.jaspersoft.com/
 [spring-mvc]: https://spring.io/
 [testng]: http://testng.org/
 [thymeleaf]: http://www.thymeleaf.org/

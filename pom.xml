@@ -24,7 +24,7 @@
 
    <groupId>com.wandrell.maven.archetypes</groupId>
    <artifactId>spring-mvc-thymeleaf-archetype</artifactId>
-   <version>0.1.0-SNAPSHOT</version>
+   <version>1.0.0-SNAPSHOT</version>
    <packaging>maven-archetype</packaging>
 
    <name>Spring MVC with Thymeleaf Maven Archetype</name>

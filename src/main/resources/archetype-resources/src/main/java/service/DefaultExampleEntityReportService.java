@@ -86,6 +86,8 @@ public final class DefaultExampleEntityReportService
         }
 
         parameters = new HashMap<>();
+        // TODO: Internationalize
+        parameters.put("ReportTitle", "Report");
 
         try {
             jasperPrint = JasperFillManager.fillReport(jasperReport, parameters,

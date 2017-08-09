@@ -140,5 +140,12 @@
             <include>**/markdown/*.*</include>
          </includes>
       </fileSet>
+      <fileSet encoding="UTF-8">
+         <!-- Scripts -->
+         <directory>.scripts</directory>
+         <includes>
+            <include>**/*.*</include>
+         </includes>
+      </fileSet>
    </fileSets>
 </archetype-descriptor>

@@ -1,8 +1,8 @@
-# An Archetype for Libraries
+# An Archetype for Web Projects
 
 Archetypes act as templates for new Maven projects, taking care of the most tedious and repetitive tasks for the user, who can just begin coding a pre-configured project.
 
-In this case this Archetype creates a generic Maven-based library which includes various common and useful plugins and utilities, and also comes ready for a full development cycle including CI, where each change to the code is checked before performing automatic releases.
+In this case this Archetype creates a [Spring MVC][spring-mvc] application, using [Thymeleaf][thymeleaf] templates for the views. It also comes ready for a full development cycle and comes ready to use Travis for CI.
 
 ## Features
 
@@ -57,7 +57,7 @@ $ mvn tomcat7:run-war -P h2,tomcat7
 
 [base-pom]: https://github.com/Bernardo-MG/base-pom
 [docs-skin]: https://github.com/Bernardo-MG/docs-maven-skin
-[example-project]: https://github.com/Bernardo-MG/library-maven-archetype-example
+[example-project]: https://github.com/Bernardo-MG/spring-mvc-thymeleaf-archetype-example
 
 [spring-mvc]: https://spring.io/
 [testng]: http://testng.org/

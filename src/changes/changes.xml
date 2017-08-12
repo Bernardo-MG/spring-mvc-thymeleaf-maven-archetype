@@ -5,6 +5,11 @@
       <author email="programming@wandrell.com">Bernardo Martínez Garrido</author>
    </properties>
    <body>
+      <release version="1.0.1" date="2017-08-12" description="Logger changes">
+         <action dev="bmg" type="update">
+            Changed logger patterns to show the full date.
+         </action>
+      </release>
       <release version="1.0.0" date="2017-08-09" description="First release">
          <action dev="bmg" type="update">
             First release of the archetype.

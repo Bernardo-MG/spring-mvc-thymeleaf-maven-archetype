@@ -1,3 +1,4 @@
+#set( $symbol_dollar = '$' )
 <!DOCTYPE html>
 
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
@@ -14,9 +15,9 @@
             </tr>
          </thead>
          <tbody>
-            <tr th:each="entity : ${entities}">
+            <tr th:each="entity : ${symbol_dollar}{entities}">
                <td><span th:remove="tag"
-                  th:text="${entity?.name}">Name</span></td>
+                  th:text="${symbol_dollar}{entity?.name}">Name</span></td>
             </tr>
          </tbody>
       </table>

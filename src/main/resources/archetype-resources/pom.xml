@@ -774,7 +774,7 @@
                      <targetPath>WEB-INF/templates/fragments</targetPath>
                      <includes>
                         <!-- Filter the template footer -->
-                        <include>footer.html</include>
+                        <include>**.html</include>
                      </includes>
                      <filtering>true</filtering>
                   </resource>

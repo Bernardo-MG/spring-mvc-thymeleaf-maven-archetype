@@ -1,6 +1,6 @@
 /*!
- * ${projectName} navigation bar styles
- * Copyright ${currentYear} ${developerName}
+ * Spring MVC Project navigation bar styles
+ * Copyright 2017 Bernardo Martínez Garrido
  * Licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php)
  *
  * This file contains styles for the navigation bar.
@@ -9,10 +9,8 @@
 .navbar {
     margin-bottom: 0;
     color: #595959;
-    border-top: 0;
-    border-right: 0;
-    border-left: 0;
-    border-radius: 0;
+    border: 1px solid #e7e7e7;
+    border-radius: 4px;
 }
 
 .navbar-default .navbar-brand {

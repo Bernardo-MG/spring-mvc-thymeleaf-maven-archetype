@@ -22,9 +22,11 @@
  * SOFTWARE.
  */
 /**
- * Controller beans. DTOs for handling the data sent between the view and controllers.
+ * Controller beans. DTOs for handling the data sent between the view and
+ * controllers.
  * <p>
- * These DTOs are meant for a specific view and not for being reusable, and for that reason they don't implement an interface.
+ * These DTOs are meant for a specific view and not for being reusable, and for
+ * that reason they don't implement an interface.
  */
 
 package ${package}.controller.entity.bean;

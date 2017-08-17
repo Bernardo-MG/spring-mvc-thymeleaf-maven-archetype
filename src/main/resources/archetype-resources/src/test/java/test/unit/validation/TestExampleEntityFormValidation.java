@@ -67,27 +67,6 @@ public final class TestExampleEntityFormValidation {
     }
 
     /**
-     * Verifies that if the name is null this field is marked with an error.
-     */
-    @Test
-    public final void testValidation_NullName_Error() {
-        final ExampleEntityForm form; // Tested form
-        final Set<ConstraintViolation<ExampleEntityForm>> errors;
-        final ConstraintViolation<ExampleEntityForm> error;
-
-        form = new ExampleEntityForm();
-
-        // form.setName(null);
-
-        errors = validator.validate(form);
-
-        Assert.assertEquals(errors.size(), 1);
-
-        error = errors.iterator().next();
-        Assert.assertEquals(error.getPropertyPath().toString(), "name");
-    }
-
-    /**
      * Verifies that if the name is empty this field is marked with an error.
      */
     @Test
@@ -99,6 +78,27 @@ public final class TestExampleEntityFormValidation {
         form = new ExampleEntityForm();
 
         form.setName("");
+
+        errors = validator.validate(form);
+
+        Assert.assertEquals(errors.size(), 1);
+
+        error = errors.iterator().next();
+        Assert.assertEquals(error.getPropertyPath().toString(), "name");
+    }
+
+    /**
+     * Verifies that if the name is null this field is marked with an error.
+     */
+    @Test
+    public final void testValidation_NullName_Error() {
+        final ExampleEntityForm form; // Tested form
+        final Set<ConstraintViolation<ExampleEntityForm>> errors;
+        final ConstraintViolation<ExampleEntityForm> error;
+
+        form = new ExampleEntityForm();
+
+        // form.setName(null);
 
         errors = validator.validate(form);
 

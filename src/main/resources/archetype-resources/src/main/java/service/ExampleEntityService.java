@@ -72,5 +72,5 @@ public interface ExampleEntityService {
      *            entity to remove
      */
     public void remove(final DefaultExampleEntity entity);
-    
+
 }

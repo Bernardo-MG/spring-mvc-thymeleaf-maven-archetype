@@ -54,7 +54,7 @@ public final class ExampleEntityViewConstants {
     /**
      * Private constructor to avoid initialization.
      */
-    private final ExampleEntityViewConstants() {
+    private ExampleEntityViewConstants() {
         super();
     }
 

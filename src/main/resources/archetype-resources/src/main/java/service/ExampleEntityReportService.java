@@ -36,6 +36,13 @@ import ${package}.model.persistence.DefaultExampleEntity;
  */
 public interface ExampleEntityReportService {
 
+    /**
+     * Returns the report for the received data.
+     * 
+     * @param data
+     *            data to populate the report
+     * @return the report for the data
+     */
     public JasperPrint getReport(final Iterable<DefaultExampleEntity> data);
 
 }

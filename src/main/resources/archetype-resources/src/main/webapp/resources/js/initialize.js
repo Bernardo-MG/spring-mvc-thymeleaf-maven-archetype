@@ -11,11 +11,6 @@
  */
 $(document).ready(function() {
 
-	// Initializes tooltips
-	$('body').tooltip({
-	    selector: '[data-toggle=tooltip]'
-	});
-
    // Initializes data tables
 	$(".dataTable").DataTable({
 		"renderer" : "bootstrap",

@@ -1,29 +1,19 @@
 /*!
  * Spring MVC Project general styles
- * Copyright 2017 Bernardo MartÃ­nez Garrido
+ * Copyright 2017 Bernardo Martínez Garrido
  * Licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php)
  *
  * This file contains general-use styles, meant to be applied to all the pages on the site.
  */
 
-html {
-    position: relative;
-    min-height: 100%;
-}
-
 body {
     margin: 2em;
-    color: #595959;
     background-color: #fcfcfc;
 }
 
 body > section {
-    margin-top: 1em;
-    padding-top: 1em;
-    padding-right: 2em;
-    padding-bottom: 1em;
-    padding-left: 2em;
     background-color: white;
-    border: 1px solid #e7e7e7;
+    padding: 1em 1em 1em 1em;
+    border: 1px solid #d7d7d7;
     border-radius: 4px;
 }

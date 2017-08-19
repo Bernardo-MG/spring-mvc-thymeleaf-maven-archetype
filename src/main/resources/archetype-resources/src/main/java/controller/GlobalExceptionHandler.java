@@ -46,7 +46,7 @@ public final class GlobalExceptionHandler
     /**
      * Logger for the exception handler.
      */
-    private static final Logger logger         = LoggerFactory
+    private static final Logger LOGGER         = LoggerFactory
             .getLogger(GlobalExceptionHandler.class);
 
     /**
@@ -67,7 +67,7 @@ public final class GlobalExceptionHandler
             final Exception ex) {
         final ModelAndView modelView;
 
-        logger.error(ex.getMessage(), ex);
+        LOGGER.error(ex.getMessage(), ex);
 
         modelView = new ModelAndView(VIEW_EXCEPTION);
         modelView.getModel().put("code",

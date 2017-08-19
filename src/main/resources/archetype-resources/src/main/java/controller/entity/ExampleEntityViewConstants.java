@@ -29,7 +29,7 @@ package ${package}.controller.entity;
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
-public class ExampleEntityViewConstants {
+public final class ExampleEntityViewConstants {
 
     /**
      * Form bean parameter name.
@@ -50,5 +50,12 @@ public class ExampleEntityViewConstants {
      * Name for the entities view.
      */
     public static final String VIEW_ENTITY_LIST = "entity/list";
+
+    /**
+     * Private constructor to avoid initialization.
+     */
+    private ExampleEntityViewConstants() {
+        super();
+    }
 
 }

@@ -58,7 +58,7 @@ public class DefaultExampleEntityService implements ExampleEntityService {
             final ExampleEntityRepository repository) {
         super();
 
-        this.entityRepository = checkNotNull(repository,
+        entityRepository = checkNotNull(repository,
                 "Received a null pointer as repository");
     }
 

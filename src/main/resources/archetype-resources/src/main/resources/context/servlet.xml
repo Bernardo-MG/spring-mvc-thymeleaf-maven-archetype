@@ -57,7 +57,7 @@
 
    <util:list id="baseNames">
       <value>classpath:/messages/application</value>
-      <value>classpath:/messages/affinity-groups</value>
+      <value>classpath:/messages/validation</value>
    </util:list>
 
 </beans>

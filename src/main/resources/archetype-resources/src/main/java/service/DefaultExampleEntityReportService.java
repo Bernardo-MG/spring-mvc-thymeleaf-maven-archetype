@@ -60,7 +60,8 @@ public final class DefaultExampleEntityReportService
     }
 
     @Override
-    public final JasperPrint getReport(final Iterable<DefaultExampleEntity> data) {
+    public final JasperPrint
+            getReport(final Iterable<DefaultExampleEntity> data) {
         final File reportFile;
         final JasperReport jasperReport;
         final JasperPrint jasperPrint;

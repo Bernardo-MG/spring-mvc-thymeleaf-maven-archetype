@@ -27,8 +27,8 @@
  * These serve as adapters between the view and the rest of the application, and
  * are the C in the MVC architecture.
  * <p>
- * As the view is based on templates, these controllers are tied up to specific views, and usually
- * they will tell the next view to be shown.
+ * As the view is based on templates, these controllers are tied up to specific
+ * views, and usually they will tell the next view to be shown.
  */
 
 package ${package}.controller;

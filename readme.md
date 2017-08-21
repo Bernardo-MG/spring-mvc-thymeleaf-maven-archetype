@@ -2,7 +2,7 @@
 
 A [Maven Archetype][maven-archetype] for generating a Spring MVC project using Thymeleaf for the frontend.
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.wandrell.maven.archetypes/spring-mvc-thymeleaf-maven-archetype.svg)][maven-repo]
+[![Maven Central](https://img.shields.io/maven-central/v/com.wandrell.maven.archetypes/spring-mvc-thymeleaf-archetype.svg)][maven-repo]
 [![Bintray](https://api.bintray.com/packages/bernardo-mg/maven/spring-mvc-thymeleaf-maven-archetype/images/download.svg)][bintray-repo]
 
 [![Release docs](https://img.shields.io/badge/docs-release-blue.svg)][site-release]
@@ -102,7 +102,7 @@ If you wish to fork or modify the code, visit the [GitHub project page][scm], wh
 The project has been released under the [MIT License][license].
 
 [bintray-repo]: https://bintray.com/bernardo-mg/maven/spring-mvc-thymeleaf-maven-archetype/view
-[maven-repo]: http://mvnrepository.com/artifact/com.wandrell.maven.archetypes/spring-mvc-thymeleaf-maven-archetype
+[maven-repo]: http://mvnrepository.com/artifact/com.wandrell.maven.archetypes/spring-mvc-thymeleaf-archetype
 [testng]: http://testng.org
 [issues]: https://github.com/Bernardo-MG/spring-mvc-thymeleaf-maven-archetype/issues
 [license]: http://www.opensource.org/licenses/mit-license.php

@@ -24,7 +24,7 @@
 
    <groupId>com.wandrell.maven.archetypes</groupId>
    <artifactId>spring-mvc-thymeleaf-archetype</artifactId>
-   <version>1.0.1</version>
+   <version>1.0.2</version>
    <packaging>maven-archetype</packaging>
 
    <name>Spring MVC with Thymeleaf Maven Archetype</name>
@@ -218,6 +218,20 @@
                <reportFile>target/jshint.xml</reportFile>
                <failOnError>true</failOnError>
             </configuration>
+         </plugin>
+         <plugin>
+            <!-- Site -->
+            <!-- Generates the Maven Site -->
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-site-plugin</artifactId>
+            <dependencies>
+               <dependency>
+                  <!-- Docs Maven Skin -->
+                  <groupId>com.wandrell.maven.skins</groupId>
+                  <artifactId>docs-maven-skin</artifactId>
+                  <version>${site.skin.version}</version>
+               </dependency>
+            </dependencies>
          </plugin>
       </plugins>
    </build>

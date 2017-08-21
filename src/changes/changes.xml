@@ -5,7 +5,15 @@
       <author email="programming@wandrell.com">Bernardo Martínez Garrido</author>
    </properties>
    <body>
-      <release version="1.0.1" date="2017-08-12" description="Logger changes">
+      <release version="1.0.2" date="2017-08-21" description="POM changes">
+         <action dev="bmg" type="update">
+            Using Spring BOM.
+         </action>
+         <action dev="bmg" type="fix">
+            Fixed Maven site generation.
+         </action>
+      </release>
+      <release version="1.0.1" date="2017-08-12" description="Logger and UI changes">
          <action dev="bmg" type="update">
             Changed logger patterns to show the full date.
          </action>

@@ -9,6 +9,9 @@
          <action dev="bmg" type="update">
             Using Spring BOM.
          </action>
+         <action dev="bmg" type="fix">
+            Fixed Maven site generation.
+         </action>
       </release>
       <release version="1.0.1" date="2017-08-12" description="Logger and UI changes">
          <action dev="bmg" type="update">

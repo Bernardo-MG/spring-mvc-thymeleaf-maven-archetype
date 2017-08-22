@@ -335,6 +335,7 @@
       <hikari.version>2.6.3</hikari.version>
       <jackson.version>2.9.0</jackson.version>
       <jasperreports.version>6.4.1</jasperreports.version>
+      <liquibase.version>3.5.3</liquibase.version>
       <log4j.version>2.8.2</log4j.version>
       <mockito.version>1.10.19</mockito.version>
       <mysql.version>5.1.39</mysql.version>
@@ -461,6 +462,14 @@
          <groupId>com.zaxxer</groupId>
          <artifactId>HikariCP</artifactId>
          <version>${hikari.version}</version>
+      </dependency>
+      <!-- ============================================== -->
+      <!-- ================ LIQUIBASE =================== -->
+      <!-- ============================================== -->
+      <dependency>
+         <groupId>org.liquibase</groupId>
+         <artifactId>liquibase-core</artifactId>
+         <version>${liquibase.version}</version>
       </dependency>
       <!-- ============================================== -->
       <!-- ================ THYMELEAF =================== -->

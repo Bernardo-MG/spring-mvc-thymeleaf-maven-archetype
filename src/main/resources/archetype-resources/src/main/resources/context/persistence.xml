@@ -65,4 +65,11 @@
       <property name="password" value="${jdbc.password}" />
    </bean>
 
+   <!-- ======================= LIQUIBASE DB VERSIONING ========================= -->
+
+   <bean id="liquibase" class="${liquibase.integration.class}">
+      <property name="dataSource" ref="dataSource" />
+      <property name="changeLog" value="${liquibase.changelog.path}" />
+   </bean>
+
 </beans>

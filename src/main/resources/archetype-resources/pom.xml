@@ -163,6 +163,27 @@
          </dependencies>
       </profile>
       <profile>
+         <!-- Postgres database profile -->
+         <!-- Prepares the project to make use of a Postgres database -->
+         <id>postgres</id>
+         <properties>
+            <!-- Access data -->
+            <database.url>jdbc:postgresql://localhost:5432/${artifactId.replace("-", "_")}</database.url>
+            <database.username>postgres</database.username>
+            <database.password></database.password>
+            <!-- Spring context -->
+            <spring.profile.database>postgres</spring.profile.database>
+         </properties>
+         <dependencies>
+            <dependency>
+               <!-- Postgres connector -->
+               <groupId>org.postgresql</groupId>
+               <artifactId>postgresql</artifactId>
+               <version>${postgresql.version}</version>
+            </dependency>
+         </dependencies>
+      </profile>
+      <profile>
          <!-- Release site deployment profile -->
          <!-- Sets the site repository to point to the releases repo -->
          <id>deployment-release</id>
@@ -339,6 +360,7 @@
       <log4j.version>2.8.2</log4j.version>
       <mockito.version>1.10.19</mockito.version>
       <mysql.version>5.1.39</mysql.version>
+      <postgresql.version>42.1.4</postgresql.version>
       <servlet.version>3.1.0</servlet.version>
       <slf4j.version>1.7.25</slf4j.version>
       <spring.data.version>1.11.6.RELEASE</spring.data.version>

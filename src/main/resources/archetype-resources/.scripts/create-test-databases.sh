@@ -9,6 +9,9 @@ set -o nounset
 set -e
 
 # MySQL tables
-mysql -e "create database IF NOT EXISTS ${artifactId};" -uroot
+mysql -e "create database IF NOT EXISTS ${artifactId.replace("-", "_")};" -uroot
+
+# PostgreSQL tables
+psql -c 'create database ${artifactId.replace("-", "_")};' -U postgres
 
 exit 0

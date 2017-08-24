@@ -147,7 +147,8 @@
          <id>mysql</id>
          <properties>
             <!-- Access data -->
-            <database.url>jdbc:mysql://localhost:3306/${artifactId.replace("-", "_")}</database.url>
+            <database.url>jdbc:mysql://localhost:3306/${artifactId.replace("-",
+               "_")}</database.url>
             <database.username>root</database.username>
             <database.password></database.password>
             <!-- Spring context -->
@@ -168,7 +169,8 @@
          <id>postgres</id>
          <properties>
             <!-- Access data -->
-            <database.url>jdbc:postgresql://localhost:5432/${artifactId.replace("-", "_")}</database.url>
+            <database.url>jdbc:postgresql://localhost:5432/${artifactId.replace("-",
+               "_")}</database.url>
             <database.username>postgres</database.username>
             <database.password></database.password>
             <!-- Spring context -->
@@ -489,6 +491,7 @@
       <!-- ================ LIQUIBASE =================== -->
       <!-- ============================================== -->
       <dependency>
+         <!-- Liquibase -->
          <groupId>org.liquibase</groupId>
          <artifactId>liquibase-core</artifactId>
          <version>${liquibase.version}</version>
@@ -497,11 +500,13 @@
       <!-- ================ THYMELEAF =================== -->
       <!-- ============================================== -->
       <dependency>
+         <!-- Thymeleaf -->
          <groupId>org.thymeleaf</groupId>
          <artifactId>thymeleaf</artifactId>
          <version>${thymeleaf.version}</version>
       </dependency>
       <dependency>
+         <!-- Thymeleaf for Spring 4 -->
          <groupId>org.thymeleaf</groupId>
          <artifactId>thymeleaf-spring4</artifactId>
          <version>${thymeleaf.version}</version>
@@ -510,6 +515,7 @@
       <!-- ============== JASPERREPORTS ================= -->
       <!-- ============================================== -->
       <dependency>
+         <!-- Jasper Reports -->
          <groupId>net.sf.jasperreports</groupId>
          <artifactId>jasperreports</artifactId>
          <version>${jasperreports.version}</version>

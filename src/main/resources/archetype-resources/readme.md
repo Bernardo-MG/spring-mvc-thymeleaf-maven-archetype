@@ -103,7 +103,7 @@ After this the project will be accessible at [http://localhost:8080/${artifactId
 
 This path is defined in the server.test.path property inside the pom. Change it to use another path.
 
-${symbol_pound}${symbol_pound}${symbol_pound} Testing
+${symbol_pound}${symbol_pound}${symbol_pound} Running the tests
 
 The project requires a database and a server for being able to run the integration tests.
 

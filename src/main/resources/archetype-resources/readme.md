@@ -107,7 +107,7 @@ ${symbol_pound}${symbol_pound}${symbol_pound} Running the tests
 
 The project requires a database and a server for being able to run the integration tests.
 
-Just like running the project, and embedded server and an in-memory database can be used:
+Just like running the project, an embedded server with an in-memory database can be used:
 
 ```
 $ mvn verify -P h2,jetty

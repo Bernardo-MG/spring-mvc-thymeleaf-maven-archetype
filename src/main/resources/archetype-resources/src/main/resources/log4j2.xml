@@ -3,7 +3,7 @@
 <Configuration status="WARN">
 
    <Properties>
-      <Property name="filename">${artifactId}.log</Property>
+      <Property name="filename">app.log</Property>
    </Properties>
 
    <Appenders>

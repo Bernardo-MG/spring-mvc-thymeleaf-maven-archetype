@@ -29,6 +29,8 @@ The project by default comes with a useful series of features:
 - Preconfigured POM to begin developing a new [Spring MVC](https://spring.io) project.
 - Initial sample project including working persistence and exception handling
 - Integration with [Thymeleaf](http://www.thymeleaf.org/) for the view templates.
+- Using [Bootstrap](http://getbootstrap.com/) for the UI.
+- Using [Liquibase](http://www.liquibase.org/) for database versioning.
 - Integration with [Jasper Reports](http://community.jaspersoft.com/) for generating PDFs.
 - Prepared for [Travis CI](https://travis-ci.org/), including configuration files and deployment scripts. Check the [Archetype documentation](http://docs.wandrell.com/maven/library-maven-archetype) to find out more.
 - Unit and integration tests suites ready to be run with [TestNG](http://testng.org/) just by using the Maven test and verify commands.

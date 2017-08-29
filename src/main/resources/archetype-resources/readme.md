@@ -89,19 +89,19 @@ The project can be installed by creating the war file and deploying it into a se
 
 ${symbol_pound}${symbol_pound}${symbol_pound} Running
 
-To run the project locally in an embedded server just use the following Maven command for Jetty:
+To run the project locally in an embedded server just use the following Maven command for deploying to Jetty with an H2 in-memory database:
 
 ```
 $ mvn jetty:run-war -P h2,jetty
 ```
 
-Or this one for Tomcat:
+An embedded Tomcat can be used through this other profile:
 
 ```
 $ mvn tomcat7:run-war -P h2,tomcat7
 ```
 
-After this the project will be accessible at [http://localhost:8080/${artifactId}/].
+With this the project will be accessible at [http://localhost:8080/${artifactId}/].
 
 This path is defined in the server.test.path property inside the pom. Change it to use another path.
 

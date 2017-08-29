@@ -5,7 +5,7 @@
       <author email="programming@wandrell.com">Bernardo Martínez Garrido</author>
    </properties>
    <body>
-      <release version="1.1.0" date="2017-08-22" description="Liquibase">
+      <release version="1.0.3" date="2017-08-29" description="Liquibase">
          <action dev="bmg" type="add">
             Using Liquibase for DB versioning.
          </action>

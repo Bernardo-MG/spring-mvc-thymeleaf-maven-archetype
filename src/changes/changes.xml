@@ -5,6 +5,11 @@
       <author email="programming@wandrell.com">Bernardo Martínez Garrido</author>
    </properties>
    <body>
+      <release version="1.0.4" date="2017-08-29" description="Fixed script">
+         <action dev="bmg" type="fix">
+            Script file is filtered correctly.
+         </action>
+      </release>
       <release version="1.0.3" date="2017-08-29" description="Liquibase">
          <action dev="bmg" type="add">
             Using Liquibase for DB versioning.

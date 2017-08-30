@@ -126,7 +126,7 @@
          <id>h2</id>
          <properties>
             <!-- Access data -->
-            <database.url>jdbc:h2:mem:${artifactId}</database.url>
+            <database.url>jdbc:h2:mem:${artifactId.replace("-", "_")}</database.url>
             <database.username>sa</database.username>
             <database.password></database.password>
             <!-- Spring context -->
@@ -143,11 +143,12 @@
       </profile>
       <profile>
          <!-- MySQL database profile -->
-         <!-- Prepares the project to make use of an H2 in-memory database -->
+         <!-- Prepares the project to make use of a MySQL database -->
          <id>mysql</id>
          <properties>
             <!-- Access data -->
-            <database.url>jdbc:mysql://localhost:3306/${artifactId}</database.url>
+            <database.url>jdbc:mysql://localhost:3306/${artifactId.replace("-",
+               "_")}</database.url>
             <database.username>root</database.username>
             <database.password></database.password>
             <!-- Spring context -->
@@ -163,41 +164,26 @@
          </dependencies>
       </profile>
       <profile>
-         <!-- Release site deployment profile -->
-         <!-- Sets the site repository to point to the releases repo -->
-         <id>deployment-release</id>
-         <activation>
-            <!-- Active by default so the repository appears in the reports -->
-            <activeByDefault>true</activeByDefault>
-         </activation>
-         <distributionManagement>
-            <site>
-               <id>site</id>
-               <name>Project Documentation Site</name>
-               <url>${urlSiteDeployRelease}/${artifactId}</url>
-            </site>
-         </distributionManagement>
-      </profile>
-      <profile>
-         <!-- Development site deployment profile -->
-         <!-- Sets the site repository to point to the development repo -->
-         <id>deployment-development</id>
-         <distributionManagement>
-            <site>
-               <id>site-development</id>
-               <name>Project Development Documentation Site</name>
-               <url>${urlSiteDeployDevelop}/${artifactId}</url>
-            </site>
-         </distributionManagement>
-      </profile>
-      <profile>
-         <!-- Deployment profile -->
-         <!-- Sets ups the environment for deployment -->
-         <id>deployment</id>
+         <!-- Postgres database profile -->
+         <!-- Prepares the project to make use of a Postgres database -->
+         <id>postgres</id>
          <properties>
-            <!-- Tests are skipped -->
-            <maven.test.skip>true</maven.test.skip>
+            <!-- Access data -->
+            <database.url>jdbc:postgresql://localhost:5432/${artifactId.replace("-",
+               "_")}</database.url>
+            <database.username>postgres</database.username>
+            <database.password></database.password>
+            <!-- Spring context -->
+            <spring.profile.database>postgres</spring.profile.database>
          </properties>
+         <dependencies>
+            <dependency>
+               <!-- Postgres connector -->
+               <groupId>org.postgresql</groupId>
+               <artifactId>postgresql</artifactId>
+               <version>${postgresql.version}</version>
+            </dependency>
+         </dependencies>
       </profile>
       <profile>
          <!-- Jetty profile -->
@@ -289,6 +275,43 @@
             </plugins>
          </build>
       </profile>
+      <profile>
+         <!-- Release site deployment profile -->
+         <!-- Sets the site repository to point to the releases repo -->
+         <id>deployment-release</id>
+         <activation>
+            <!-- Active by default so the repository appears in the reports -->
+            <activeByDefault>true</activeByDefault>
+         </activation>
+         <distributionManagement>
+            <site>
+               <id>site</id>
+               <name>Project Documentation Site</name>
+               <url>${urlSiteDeployRelease}/${artifactId}</url>
+            </site>
+         </distributionManagement>
+      </profile>
+      <profile>
+         <!-- Development site deployment profile -->
+         <!-- Sets the site repository to point to the development repo -->
+         <id>deployment-development</id>
+         <distributionManagement>
+            <site>
+               <id>site-development</id>
+               <name>Project Development Documentation Site</name>
+               <url>${urlSiteDeployDevelop}/${artifactId}</url>
+            </site>
+         </distributionManagement>
+      </profile>
+      <profile>
+         <!-- Deployment profile -->
+         <!-- Sets ups the environment for deployment -->
+         <id>deployment</id>
+         <properties>
+            <!-- Tests are skipped -->
+            <maven.test.skip>true</maven.test.skip>
+         </properties>
+      </profile>
    </profiles>
 
    <!-- ********************************************** -->
@@ -335,9 +358,11 @@
       <hikari.version>2.6.3</hikari.version>
       <jackson.version>2.9.0</jackson.version>
       <jasperreports.version>6.4.1</jasperreports.version>
+      <liquibase.version>3.5.3</liquibase.version>
       <log4j.version>2.8.2</log4j.version>
       <mockito.version>1.10.19</mockito.version>
       <mysql.version>5.1.39</mysql.version>
+      <postgresql.version>42.1.4</postgresql.version>
       <servlet.version>3.1.0</servlet.version>
       <slf4j.version>1.7.25</slf4j.version>
       <spring.data.version>1.11.6.RELEASE</spring.data.version>
@@ -463,14 +488,25 @@
          <version>${hikari.version}</version>
       </dependency>
       <!-- ============================================== -->
+      <!-- ================ LIQUIBASE =================== -->
+      <!-- ============================================== -->
+      <dependency>
+         <!-- Liquibase -->
+         <groupId>org.liquibase</groupId>
+         <artifactId>liquibase-core</artifactId>
+         <version>${liquibase.version}</version>
+      </dependency>
+      <!-- ============================================== -->
       <!-- ================ THYMELEAF =================== -->
       <!-- ============================================== -->
       <dependency>
+         <!-- Thymeleaf -->
          <groupId>org.thymeleaf</groupId>
          <artifactId>thymeleaf</artifactId>
          <version>${thymeleaf.version}</version>
       </dependency>
       <dependency>
+         <!-- Thymeleaf for Spring 4 -->
          <groupId>org.thymeleaf</groupId>
          <artifactId>thymeleaf-spring4</artifactId>
          <version>${thymeleaf.version}</version>
@@ -479,6 +515,7 @@
       <!-- ============== JASPERREPORTS ================= -->
       <!-- ============================================== -->
       <dependency>
+         <!-- Jasper Reports -->
          <groupId>net.sf.jasperreports</groupId>
          <artifactId>jasperreports</artifactId>
          <version>${jasperreports.version}</version>
@@ -631,7 +668,6 @@
          <!-- Spring Test -->
          <groupId>org.springframework</groupId>
          <artifactId>spring-test</artifactId>
-         <version>${spring.version}</version>
          <scope>test</scope>
       </dependency>
       <dependency>

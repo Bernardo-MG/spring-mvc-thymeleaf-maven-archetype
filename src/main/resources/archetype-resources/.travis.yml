@@ -6,11 +6,14 @@ language: java
 jdk:
   # JDK 8 is set to deploy the docs and artifacts
   - oraclejdk8
+services:
+  - mysql
+  - postgresql
 env:
   - SERVER=jetty DATABASE=h2 DEPLOY_DOCS=true
   - SERVER=jetty DATABASE=mysql
+  - SERVER=jetty DATABASE=postgres
   - SERVER=tomcat7 DATABASE=h2
-  - SERVER=tomcat7 DATABASE=mysql
 dist: precise
 
 before_install:

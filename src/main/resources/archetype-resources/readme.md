@@ -29,6 +29,8 @@ The project by default comes with a useful series of features:
 - Preconfigured POM to begin developing a new [Spring MVC](https://spring.io) project.
 - Initial sample project including working persistence and exception handling
 - Integration with [Thymeleaf](http://www.thymeleaf.org/) for the view templates.
+- Using [Bootstrap](http://getbootstrap.com/) for the UI.
+- Using [Liquibase](http://www.liquibase.org/) for database versioning.
 - Integration with [Jasper Reports](http://community.jaspersoft.com/) for generating PDFs.
 - Prepared for [Travis CI](https://travis-ci.org/), including configuration files and deployment scripts. Check the [Archetype documentation](http://docs.wandrell.com/maven/library-maven-archetype) to find out more.
 - Unit and integration tests suites ready to be run with [TestNG](http://testng.org/) just by using the Maven test and verify commands.
@@ -66,27 +68,52 @@ The project has been tested on the following Java versions:
 
 All other dependencies are handled through Maven, and noted in the included POM file.
 
+${symbol_pound}${symbol_pound}${symbol_pound} Profiles
+
+Maven profiles are included for setting up the database and an embedded server.
+
+| Profile  | Database              |
+|----------|-----------------------|
+| h2       | H2 in-memory database |
+| mysql    | MySQL database        |
+| postgres | PostgreSQL database   |
+
+| Profile  | Server                   |
+|----------|--------------------------|
+| jetty    | Jetty embedded server    |
+| tomcat7  | Tomcat 7 embedded server |
+
 ${symbol_pound}${symbol_pound}${symbol_pound} Installing
 
 The project can be installed by creating the war file and deploying it into a server.
 
 ${symbol_pound}${symbol_pound}${symbol_pound} Running
 
-To run the project locally in an embedded server just use the following Maven command for Jetty:
+To run the project locally in an embedded server just use the following Maven command for deploying to Jetty with an H2 in-memory database:
 
 ```
 $ mvn jetty:run-war -P h2,jetty
 ```
 
-Or this one for Tomcat:
+An embedded Tomcat can be used through this other profile:
 
 ```
 $ mvn tomcat7:run-war -P h2,tomcat7
 ```
 
-After this the project will be accessible at [http://localhost:8080/${artifactId}/].
+With this the project will be accessible at [http://localhost:8080/${artifactId}/].
 
 This path is defined in the server.test.path property inside the pom. Change it to use another path.
+
+${symbol_pound}${symbol_pound}${symbol_pound} Running the tests
+
+The project requires a database and a server for being able to run the integration tests.
+
+Just like running the project, an embedded server with an in-memory database can be used:
+
+```
+$ mvn verify -P h2,jetty
+```
 
 ${symbol_pound}${symbol_pound} Collaborate
 

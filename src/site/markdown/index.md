@@ -9,6 +9,7 @@ In this case this Archetype creates a [Spring MVC][spring-mvc] application, usin
 - Creates the base for a [Spring MVC][spring-mvc] project.
 - Integrates with [Thymeleaf][thymeleaf] for the view templates.
 - Using [Bootstrap][bootstrap] for the UI.
+- Using [Liquibase][liquibase] for database versioning.
 - Integrates with [Jasper Reports][jasper] for generating PDFs.
 - [Wandrell's Base POM][base-pom] used as parent POM.
 - [Unit and integration test][tests] suites are run separatedly with the use of [TestNG][testng].
@@ -63,6 +64,7 @@ $ mvn tomcat7:run-war -P h2,tomcat7
 
 [bootstrap]: http://getbootstrap.com/
 [jasper]: http://community.jaspersoft.com/
+[liquibase]: http://www.liquibase.org/
 [spring-mvc]: https://spring.io/
 [testng]: http://testng.org/
 [thymeleaf]: http://www.thymeleaf.org/

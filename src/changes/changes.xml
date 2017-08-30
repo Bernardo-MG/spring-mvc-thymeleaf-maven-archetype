@@ -5,6 +5,14 @@
       <author email="programming@wandrell.com">Bernardo Martínez Garrido</author>
    </properties>
    <body>
+      <release version="1.0.3" date="2017-08-29" description="Liquibase">
+         <action dev="bmg" type="add">
+            Using Liquibase for DB versioning.
+         </action>
+         <action dev="bmg" type="fix">
+            Fixed error with hyphenated project ids and database names.
+         </action>
+      </release>
       <release version="1.0.2" date="2017-08-21" description="POM changes">
          <action dev="bmg" type="update">
             Using Spring BOM.

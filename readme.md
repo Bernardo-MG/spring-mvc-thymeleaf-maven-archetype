@@ -14,6 +14,7 @@ A [Maven Archetype][maven-archetype] for generating a Spring MVC project using T
 - Initial sample project including working persistence and exception handling
 - Integrates with [Thymeleaf][thymeleaf] for the view templates.
 - Using [Bootstrap][bootstrap] for the UI.
+- Using [Liquibase][liquibase] for database versioning.
 - Integrates with [Jasper Reports][jasper] for generating PDFs.
 - Creates a new Maven library with a fully configured POM, extending from [Wandrell's Base POM][base-pom], including features such as build validation, changes report or manifest configuration.
 - Sets up continuous integration with [Github][github], [Travis][travis] and [Bintray][bintray]. Making a distinction between releases and development versions.
@@ -118,6 +119,8 @@ The project has been released under the [MIT License][license].
 [thymeleaf]: http://www.thymeleaf.org/
 
 [jasper]: http://community.jaspersoft.com/
+
+[liquibase]: http://www.liquibase.org/
 
 [docs-skin]: https://github.com/Bernardo-MG/docs-maven-skin
 [base-pom]: https://github.com/Bernardo-MG/base-pom

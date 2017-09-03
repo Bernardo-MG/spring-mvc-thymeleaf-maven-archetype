@@ -18,14 +18,32 @@
    <changeSet author="Bernardo" id="initial_data">
       <insert tableName="example_entities">
          <column name="name">entity_1</column>
+      </insert>
+      <insert tableName="example_entities">
          <column name="name">entity_2</column>
+      </insert>
+      <insert tableName="example_entities">
          <column name="name">entity_3</column>
+      </insert>
+      <insert tableName="example_entities">
          <column name="name">entity_4</column>
+      </insert>
+      <insert tableName="example_entities">
          <column name="name">entity_5</column>
+      </insert>
+      <insert tableName="example_entities">
          <column name="name">entity_6</column>
+      </insert>
+      <insert tableName="example_entities">
          <column name="name">entity_7</column>
+      </insert>
+      <insert tableName="example_entities">
          <column name="name">entity_8</column>
+      </insert>
+      <insert tableName="example_entities">
          <column name="name">entity_9</column>
+      </insert>
+      <insert tableName="example_entities">
          <column name="name">entity_10</column>
       </insert>
    </changeSet>

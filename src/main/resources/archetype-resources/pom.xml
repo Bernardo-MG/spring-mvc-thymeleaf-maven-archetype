@@ -129,6 +129,8 @@
          <id>h2</id>
          <properties>
             <!-- Access data -->
+            <!-- Default values for testing and development -->
+            <!-- Override them for production -->
             <database.url>jdbc:h2:mem:${artifactId.replace("-", "_")}</database.url>
             <database.username>sa</database.username>
             <database.password></database.password>
@@ -150,6 +152,8 @@
          <id>mysql</id>
          <properties>
             <!-- Access data -->
+            <!-- Default values for testing and development -->
+            <!-- Override them for production -->
             <database.url>jdbc:mysql://localhost:3306/${artifactId.replace("-",
                "_")}</database.url>
             <database.username>root</database.username>
@@ -172,6 +176,8 @@
          <id>postgres</id>
          <properties>
             <!-- Access data -->
+            <!-- Default values for testing and development -->
+            <!-- Override them for production -->
             <database.url>jdbc:postgresql://localhost:5432/${artifactId.replace("-",
                "_")}</database.url>
             <database.username>postgres</database.username>

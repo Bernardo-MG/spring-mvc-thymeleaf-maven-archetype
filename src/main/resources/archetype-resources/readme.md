@@ -120,7 +120,7 @@ ${symbol_pound}${symbol_pound}${symbol_pound} Packaging the WAR
 When creating the WAR file the database connection credentials should be set manually:
 
 ```
-$ mvn package -P production,mysql -Ddatabase.username=[username] -Ddatabase.password=[password] -Ddatabase.url=[DB url]
+$ mvn package -P mysql -Ddatabase.username=[username] -Ddatabase.password=[password] -Ddatabase.url=[DB url]
 ```
 
 Otherwise the project will try to use the default testing values.

@@ -120,6 +120,9 @@
             </pluginManagement>
          </build>
       </profile>
+      <!-- ============================================== -->
+      <!-- ============= DATABASE PROFILES ============== -->
+      <!-- ============================================== -->
       <profile>
          <!-- H2 database profile -->
          <!-- Prepares the project to make use of an H2 in-memory database -->
@@ -185,6 +188,9 @@
             </dependency>
          </dependencies>
       </profile>
+      <!-- ============================================== -->
+      <!-- ========= EMBEDDED SERVER PROFILES =========== -->
+      <!-- ============================================== -->
       <profile>
          <!-- Jetty profile -->
          <!-- Sets ups Jetty for testing and local deployment -->
@@ -275,6 +281,9 @@
             </plugins>
          </build>
       </profile>
+      <!-- ============================================== -->
+      <!-- ============ DEPLOYMENT PROFILES ============= -->
+      <!-- ============================================== -->
       <profile>
          <!-- Release site deployment profile -->
          <!-- Sets the site repository to point to the releases repo -->

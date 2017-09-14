@@ -115,6 +115,16 @@ Just like running the project, an embedded server with an in-memory database can
 $ mvn verify -P h2,jetty
 ```
 
+${symbol_pound}${symbol_pound}${symbol_pound} Packaging the WAR
+
+When creating the WAR file the database connection credentials should be set manually:
+
+```
+$ mvn package -P production,mysql -Ddatabase.username=[username] -Ddatabase.password=[password] -Ddatabase.url=[DB url]
+```
+
+Otherwise the project will try to use the default testing values.
+
 ${symbol_pound}${symbol_pound} Collaborate
 
 Any kind of help with the project will be well received, and there are two main ways to give such help:

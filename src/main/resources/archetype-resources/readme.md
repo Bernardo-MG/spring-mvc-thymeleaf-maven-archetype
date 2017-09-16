@@ -103,7 +103,7 @@ $ mvn tomcat7:run-war -P h2,tomcat7
 
 With this the project will be accessible at [http://localhost:8080/${artifactId}/].
 
-This path is defined in the server.test.path property inside the pom. Change it to use another path.
+This path is defined in the server.test.path property inside the pom, and can be changed by modifying its value.
 
 ${symbol_pound}${symbol_pound}${symbol_pound} Running the tests
 

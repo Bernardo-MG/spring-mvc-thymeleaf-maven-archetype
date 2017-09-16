@@ -423,6 +423,7 @@
    <dependencyManagement>
       <dependencies>
          <dependency>
+            <!-- Spring Framework BOM -->
             <groupId>org.springframework</groupId>
             <artifactId>spring-framework-bom</artifactId>
             <version>${spring.version}</version>

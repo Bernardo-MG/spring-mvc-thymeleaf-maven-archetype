@@ -25,7 +25,7 @@
 package ${package}.test.unit.controller.form;
 
 import java.util.Collection;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import org.mockito.Mockito;
 import org.springframework.test.web.servlet.MockMvc;
@@ -117,7 +117,7 @@ public final class TestExampleEntityFormControllerSendForm {
 
         service = Mockito.mock(ExampleEntityService.class);
 
-        entities = new LinkedList<>();
+        entities = new ArrayList<>();
 
         Mockito.when(service.getAllEntities()).thenReturn(entities);
 

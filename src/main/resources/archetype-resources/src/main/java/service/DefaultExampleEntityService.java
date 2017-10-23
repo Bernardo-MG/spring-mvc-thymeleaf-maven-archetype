@@ -83,7 +83,7 @@ public class DefaultExampleEntityService implements ExampleEntityService {
 
         checkNotNull(identifier, "Received a null pointer as identifier");
 
-        entity = getExampleEntityRepository().findOne(identifier);
+        entity = getExampleEntityRepository().getOne(identifier);
 
         if (entity == null) {
             entity = new DefaultExampleEntity();

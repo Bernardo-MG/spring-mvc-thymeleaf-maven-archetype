@@ -5,6 +5,11 @@
       <author email="programming@wandrell.com">Bernardo Martínez Garrido</author>
    </properties>
    <body>
+      <release version="1.0.5" date="2017-11-13" description="Relocation">
+         <action dev="bmg" type="update">
+            Prepared for relocation.
+         </action>
+      </release>
       <release version="1.0.4" date="2017-08-29" description="Fixed script">
          <action dev="bmg" type="fix">
             Script file is filtered correctly.

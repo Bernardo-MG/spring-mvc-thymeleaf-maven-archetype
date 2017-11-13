@@ -1,10 +1,10 @@
 # Usage
 
-The project requires a database and a server. But the Maven profiles it includes allow running it locally for development.
+The project requires a database and a server. But the included Maven profiles allow running it locally for development.
 
-## Run the project
+## Running the project locally
 
-To run the project locally in an embedded server just use the following Maven command for deploying to Jetty with an H2 in-memory database:
+To run the project locally in Jetty with an H2 in-memory database:
 
 ```
 $ mvn jetty:run-war -P h2,jetty
@@ -16,7 +16,7 @@ An embedded Tomcat can be used through this other profile:
 $ mvn tomcat7:run-war -P h2,tomcat7
 ```
 
-With this the project will be accessible at [http://localhost:8080/${artifactId}/].
+This makes the project be accessible at [http://localhost:8080/${serverTestPath}/](http://localhost:8080/${serverTestPath}/).
 
 ## Maven profiles
 

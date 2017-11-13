@@ -79,13 +79,13 @@ public class DefaultExampleEntityService implements ExampleEntityService {
      */
     @Override
     public final ExampleEntity findById(final Integer identifier) {
-        ExampleEntity entity;
+        final ExampleEntity entity;
 
         checkNotNull(identifier, "Received a null pointer as identifier");
 
-        entity = getExampleEntityRepository().findOne(identifier);
-
-        if (entity == null) {
+        if (getExampleEntityRepository().existsById(identifier)) {
+            entity = getExampleEntityRepository().getOne(identifier);
+        } else {
             entity = new DefaultExampleEntity();
         }
 

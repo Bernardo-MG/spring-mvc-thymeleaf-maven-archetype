@@ -24,7 +24,7 @@
 
    <groupId>com.wandrell.maven.archetypes</groupId>
    <artifactId>spring-mvc-thymeleaf-archetype</artifactId>
-   <version>1.0.4</version>
+   <version>1.0.5</version>
    <packaging>maven-archetype</packaging>
 
    <name>Spring MVC with Thymeleaf Maven Archetype</name>
@@ -94,7 +94,8 @@
             <site>
                <id>site</id>
                <name>Project Documentation Site</name>
-               <url>scp://docs.wandrell.com:2222/home1/duenco/www/maven/spring-mvc-thymeleaf-maven-archetype</url>
+               <!-- The URL should be set externally -->
+               <url>${site.release.url}</url>
             </site>
          </distributionManagement>
       </profile>
@@ -106,7 +107,8 @@
             <site>
                <id>site-development</id>
                <name>Project Development Documentation Site</name>
-               <url>scp://docs.wandrell.com:2222/home1/duenco/www/development/maven/spring-mvc-thymeleaf-maven-archetype</url>
+               <!-- The URL should be set externally -->
+               <url>${site.develop.url}</url>
             </site>
          </distributionManagement>
       </profile>
@@ -171,7 +173,7 @@
       <!-- ============================================== -->
       <!-- ================= MAVEN SITE ================= -->
       <!-- ============================================== -->
-      <site.skin.version>1.0.0</site.skin.version>
+      <site.skin.version>1.2.0</site.skin.version>
       <repoDownloadURL>https://dl.bintray.com/bernardo-mg/maven/</repoDownloadURL>
       <bintrayURL>https://bintray.com/bernardo-mg/maven/spring-mvc-thymeleaf-maven-archetype/view</bintrayURL>
       <mavenURL>http://mvnrepository.com/artifact/com.wandrell.maven.archetypes/spring-mvc-thymeleaf-archetype</mavenURL>
@@ -227,7 +229,7 @@
             <dependencies>
                <dependency>
                   <!-- Docs Maven Skin -->
-                  <groupId>com.wandrell.maven.skins</groupId>
+                  <groupId>com.bernardomg.maven.skins</groupId>
                   <artifactId>docs-maven-skin</artifactId>
                   <version>${site.skin.version}</version>
                </dependency>

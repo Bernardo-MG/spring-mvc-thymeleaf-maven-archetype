@@ -11,7 +11,7 @@ In this case this Archetype creates a [Spring MVC][spring-mvc] application, usin
 - Using [Bootstrap][bootstrap] for the UI.
 - Using [Liquibase][liquibase] for database versioning.
 - Integrates with [Jasper Reports][jasper] for generating PDFs.
-- [Wandrell's Base POM][base-pom] used as parent POM.
+- [bernardomg's Base POM][base-pom] used as parent POM.
 - [Unit and integration test][tests] suites are run separatedly with the use of [TestNG][testng].
 - [Maven site for the project][site], using the [Docs Maven Skin][docs-skin], for creating a small documentation site.
 - [Javadocs][site-javadoc] included in the Maven site.

@@ -2,7 +2,7 @@
 
 A [Maven Archetype][maven-archetype] for generating a Spring MVC project using Thymeleaf for the frontend.
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.wandrell.maven.archetypes/spring-mvc-thymeleaf-archetype.svg)][maven-repo]
+[![Maven Central](https://img.shields.io/maven-central/v/com.bernardomg.maven.archetypes/spring-mvc-thymeleaf-archetype.svg)][maven-repo]
 [![Bintray](https://api.bintray.com/packages/bernardo-mg/maven/spring-mvc-thymeleaf-maven-archetype/images/download.svg)][bintray-repo]
 
 [![Release docs](https://img.shields.io/badge/docs-release-blue.svg)][site-release]
@@ -16,7 +16,7 @@ A [Maven Archetype][maven-archetype] for generating a Spring MVC project using T
 - Using [Bootstrap][bootstrap] for the UI.
 - Using [Liquibase][liquibase] for database versioning.
 - Integrates with [Jasper Reports][jasper] for generating PDFs.
-- Creates a new Maven library with a fully configured POM, extending from [Wandrell's Base POM][base-pom], including features such as build validation, changes report or manifest configuration.
+- Creates a new Maven library with a fully configured POM, extending from [bernardomg's Base POM][base-pom], including features such as build validation, changes report or manifest configuration.
 - Sets up continuous integration with [Github][github], [Travis][travis] and [Bintray][bintray]. Making a distinction between releases and development versions.
 - Prepared for unit and integration tests suites. Created with [TestNG][testng] and ready to be run with [Surefire][surefire] and [Failsafe][failsafe].
 - A Maven site, using the [Docs Maven Skin][docs-skin], for sharing the project's documentation along the Javadocs and various reports which range from code quality to changes log.
@@ -64,7 +64,7 @@ The best way to install the Archetype is by downloading it from the [Bintray rep
 The Maven coordinates and URL for it are:
 
 ```
-Group ID: com.wandrell.maven.archetypes
+Group ID: com.bernardomg.maven.archetypes
 Artifact ID: spring-mvc-thymeleaf-maven-archetype
 Version: (Check POM or badges)
 URL: https://dl.bintray.com/bernardo-mg/maven/
@@ -73,7 +73,7 @@ URL: https://dl.bintray.com/bernardo-mg/maven/
 For example, to use it through command line type the following:
 
 ```
-$ mvn archetype:generate -DarchetypeGroupId=com.wandrell.maven.archetypes -DarchetypeArtifactId=spring-mvc-thymeleaf-maven-archetype -DarchetypeVersion=1.0.0 -DarchetypeRepository=https://dl.bintray.com/bernardo-mg/maven/
+$ mvn archetype:generate -DarchetypeGroupId=com.bernardomg.maven.archetypes -DarchetypeArtifactId=spring-mvc-thymeleaf-maven-archetype -DarchetypeVersion=1.0.0 -DarchetypeRepository=https://dl.bintray.com/bernardo-mg/maven/
 ```
 
 If using an IDE check its documentation to find out how to use Maven Archetypes, and how to add these to the local repository.
@@ -103,13 +103,13 @@ If you wish to fork or modify the code, visit the [GitHub project page][scm], wh
 The project has been released under the [MIT License][license].
 
 [bintray-repo]: https://bintray.com/bernardo-mg/maven/spring-mvc-thymeleaf-maven-archetype/view
-[maven-repo]: http://mvnrepository.com/artifact/com.wandrell.maven.archetypes/spring-mvc-thymeleaf-archetype
+[maven-repo]: http://mvnrepository.com/artifact/com.bernardomg.maven.archetypes/spring-mvc-thymeleaf-archetype
 [testng]: http://testng.org
 [issues]: https://github.com/Bernardo-MG/spring-mvc-thymeleaf-maven-archetype/issues
 [license]: http://www.opensource.org/licenses/mit-license.php
 [scm]: http://github.com/Bernardo-MG/spring-mvc-thymeleaf-maven-archetype
-[site-develop]: http://docs.wandrell.com/development/maven/spring-mvc-thymeleaf-maven-archetype
-[site-release]: http://docs.wandrell.com/maven/spring-mvc-thymeleaf-maven-archetype
+[site-develop]: http://docs.bernardomg.com/development/maven/spring-mvc-thymeleaf-maven-archetype
+[site-release]: http://docs.bernardomg.com/maven/spring-mvc-thymeleaf-maven-archetype
 
 [maven-archetype]: https://maven.apache.org/guides/introduction/introduction-to-archetypes.html
 

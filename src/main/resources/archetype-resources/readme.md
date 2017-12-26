@@ -33,7 +33,7 @@ The project by default comes with a useful series of features:
 - Using [Liquibase](http://www.liquibase.org/) for database versioning.
 - Integration with [Jasper Reports](http://community.jaspersoft.com/) for generating PDFs.
 - Prepared for [Travis CI](https://travis-ci.org/), including configuration files and deployment scripts. Check the [Archetype documentation](http://docs.bernardomg.com/maven/library-maven-archetype) to find out more.
-- Unit and integration tests suites ready to be run with [TestNG](http://testng.org/) just by using the Maven test and verify commands.
+- Unit and integration tests suites ready to be run with [JUnit](http://junit.org) just by using the Maven test and verify commands.
 - A Maven site, using the [Docs Maven Skin](https://github.com/Bernardo-MG/docs-maven-skin), to contain the documentation, the Javadocs and several reports.
 - A bunch of useful files, such as readme, gitignore and gitattributes.
 

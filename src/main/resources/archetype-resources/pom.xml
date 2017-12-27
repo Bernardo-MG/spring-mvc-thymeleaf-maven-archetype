@@ -387,6 +387,8 @@
       <jackson.version>2.9.2</jackson.version>
       <javaee.api.version>2.2</javaee.api.version>
       <jasperreports.version>6.4.1</jasperreports.version>
+      <junit.jupiter.version>5.0.1</junit.jupiter.version>
+      <junit.platform.version>1.0.1</junit.platform.version>
       <liquibase.version>3.5.3</liquibase.version>
       <log4j.version>2.9.1</log4j.version>
       <mockito.version>1.10.19</mockito.version>
@@ -396,7 +398,6 @@
       <slf4j.version>1.7.25</slf4j.version>
       <spring.data.version>2.0.0.RELEASE</spring.data.version>
       <spring.version>5.0.0.RELEASE</spring.version>
-      <testng.version>6.11</testng.version>
       <thymeleaf.version>3.0.8.RELEASE</thymeleaf.version>
       <webjars.bootstrap.version>3.3.7-1</webjars.bootstrap.version>
       <webjars.bootswatch.version>3.3.5+4</webjars.bootswatch.version>
@@ -693,6 +694,20 @@
       <!-- ======= TEST ENVIRONMENT DEPENDENCIES ======== -->
       <!-- ============================================== -->
       <dependency>
+         <!-- JUnit Jupiter Engine -->
+         <groupId>org.junit.jupiter</groupId>
+         <artifactId>junit-jupiter-engine</artifactId>
+         <version>${junit.jupiter.version}</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <!-- JUnit Jupiter Platform -->
+         <groupId>org.junit.platform</groupId>
+         <artifactId>junit-platform-runner</artifactId>
+         <version>${junit.platform.version}</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
          <!-- Mockito -->
          <groupId>org.mockito</groupId>
          <artifactId>mockito-all</artifactId>
@@ -703,13 +718,6 @@
          <!-- Spring Test -->
          <groupId>org.springframework</groupId>
          <artifactId>spring-test</artifactId>
-         <scope>test</scope>
-      </dependency>
-      <dependency>
-         <!-- TestNG -->
-         <groupId>org.testng</groupId>
-         <artifactId>testng</artifactId>
-         <version>${testng.version}</version>
          <scope>test</scope>
       </dependency>
    </dependencies>

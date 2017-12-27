@@ -12,7 +12,7 @@ In this case this Archetype creates a [Spring MVC][spring-mvc] application, usin
 - Using [Liquibase][liquibase] for database versioning.
 - Integrates with [Jasper Reports][jasper] for generating PDFs.
 - [bernardomg's Base POM][base-pom] used as parent POM.
-- [Unit and integration test][tests] suites are run separatedly with the use of [TestNG][testng].
+- [Unit and integration test][tests] suites are run separatedly with the use of [JUnit][junit].
 - [Maven site for the project][site], using the [Docs Maven Skin][docs-skin], for creating a small documentation site.
 - [Javadocs][site-javadoc] included in the Maven site.
 - [Several useful reports][site-reports] added to the Maven site.
@@ -66,7 +66,7 @@ $ mvn tomcat7:run-war -P h2,tomcat7
 [jasper]: http://community.jaspersoft.com/
 [liquibase]: http://www.liquibase.org/
 [spring-mvc]: https://spring.io/
-[testng]: http://testng.org/
+[junit]: http://junit.org
 [thymeleaf]: http://www.thymeleaf.org/
 
 [license]: ./license.html

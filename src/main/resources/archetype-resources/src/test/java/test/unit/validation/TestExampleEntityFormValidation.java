@@ -30,9 +30,9 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
-import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
 import ${package}.controller.entity.bean.ExampleEntityForm;
 
@@ -61,7 +61,7 @@ public final class TestExampleEntityFormValidation {
     /**
      * Sets up the validator for the tests.
      */
-    @BeforeTest
+    @Before
     public final void setUpValidator() {
         validator = createValidator();
     }

@@ -557,9 +557,9 @@
          <version>${thymeleaf.version}</version>
       </dependency>
       <dependency>
-         <!-- Thymeleaf for Spring 4 -->
+         <!-- Thymeleaf for Spring 5 -->
          <groupId>org.thymeleaf</groupId>
-         <artifactId>thymeleaf-spring4</artifactId>
+         <artifactId>thymeleaf-spring5</artifactId>
          <version>${thymeleaf.version}</version>
       </dependency>
       <!-- ============================================== -->

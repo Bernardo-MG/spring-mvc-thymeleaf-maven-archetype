@@ -81,10 +81,10 @@ public final class TestExampleEntityFormValidation {
 
         errors = validator.validate(form);
 
-        Assert.assertEquals(errors.size(), 1);
+        Assert.assertEquals(1, errors.size());
 
         error = errors.iterator().next();
-        Assert.assertEquals(error.getPropertyPath().toString(), "name");
+        Assert.assertEquals("name", error.getPropertyPath().toString());
     }
 
     /**
@@ -102,10 +102,10 @@ public final class TestExampleEntityFormValidation {
 
         errors = validator.validate(form);
 
-        Assert.assertEquals(errors.size(), 1);
+        Assert.assertEquals(1, errors.size());
 
         error = errors.iterator().next();
-        Assert.assertEquals(error.getPropertyPath().toString(), "name");
+        Assert.assertEquals("name", error.getPropertyPath().toString());
     }
 
     /**

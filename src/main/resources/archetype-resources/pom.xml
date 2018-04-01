@@ -11,7 +11,7 @@
    <parent>
       <groupId>com.bernardomg.maven</groupId>
       <artifactId>base-pom</artifactId>
-      <version>1.2.0</version>
+      <version>1.2.1</version>
    </parent>
 
    <!-- ********************************************** -->
@@ -760,13 +760,6 @@
                <groupId>com.samaxes.maven</groupId>
                <artifactId>minify-maven-plugin</artifactId>
                <version>${plugin.minify.version}</version>
-            </plugin>
-            <plugin>
-               <!-- WAR -->
-               <!-- Generates the WAR package. -->
-               <groupId>org.apache.maven.plugins</groupId>
-               <artifactId>maven-war-plugin</artifactId>
-               <version>${plugin.war.version}</version>
             </plugin>
          </plugins>
       </pluginManagement>

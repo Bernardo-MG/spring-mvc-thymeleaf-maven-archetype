@@ -15,12 +15,6 @@
 
    <!-- Imports -->
    <import resource="classpath:context/persistence.xml" />
-
-   <!-- ======================= LIQUIBASE DB VERSIONING ========================= -->
-
-   <bean id="liquibase" class="${liquibase.integration.class}">
-      <property name="dataSource" ref="dataSource" />
-      <property name="changeLog" value="${liquibase.changelog.path}" />
-   </bean>
+   <import resource="classpath:context/persistence-versioning.xml" />
 
 </beans>

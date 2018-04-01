@@ -24,7 +24,7 @@
 
    <groupId>com.bernardomg.maven.archetypes</groupId>
    <artifactId>spring-mvc-thymeleaf-archetype</artifactId>
-   <version>1.1.1</version>
+   <version>1.1.2-SNAPSHOT</version>
    <packaging>maven-archetype</packaging>
 
    <name>Spring MVC with Thymeleaf Maven Archetype</name>

@@ -34,6 +34,7 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -73,24 +74,33 @@ public final class TestReportController {
      */
     @Before
     public final void setUpMockContext() {
-        mockMvc = MockMvcBuilders.standaloneSetup(getController()).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(getController())
+                .alwaysExpect(MockMvcResultMatchers.status().isOk())
+                .alwaysExpect(MockMvcResultMatchers.content()
+                        .contentType(MediaType.APPLICATION_PDF)).build();
+    }
+
+    /**
+     * Verifies that the PDF view sets the expected content.
+     */
+    @Test
+    public final void testReport_Empty_ExpectedContent() throws Exception {
+        mockMvc.perform(getRequest());
     }
 
     /**
      * Verifies that the PDF view sets the expected attributes.
      */
     @Test
-    public final void testPdf_ExpectedAttributeModel() throws Exception {
+    public final void testReport_Empty_ExpectedHeader() throws Exception {
         final ResultActions result; // Request result
+        final String content;       // Content header
 
         result = mockMvc.perform(getRequest());
 
-        // The operation was accepted
-        result.andExpect(MockMvcResultMatchers.status().isOk());
+        content = result.andReturn().getResponse().getHeader("Content-disposition");
 
-        // The response indicates it is a PDF
-        result.andExpect(MockMvcResultMatchers.content()
-                .contentType(MediaType.APPLICATION_PDF));
+        Assert.assertEquals("inline; filename=EntityReport.pdf", content);
     }
 
     /**

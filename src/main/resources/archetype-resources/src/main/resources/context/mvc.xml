@@ -11,19 +11,29 @@
         http://www.springframework.org/schema/util
         http://www.springframework.org/schema/util/spring-util.xsd">
 
-   <!-- Imports -->
-   <import resource="classpath:context/view.xml" />
-   <import resource="classpath:context/service.xml" />
-   <import resource="classpath:context/messages.xml" />
-   <import resource="classpath:context/mvc.xml" />
+   <!-- MVC configuration -->
+   <mvc:annotation-driven conversion-service="conversionService"
+      validator="validator">
+   </mvc:annotation-driven>
 
-   <!-- Properties -->
-   <context:property-placeholder
-      location="classpath:config/view.properties,
-                   classpath:config/service.properties,
-                   classpath:config/servlet.properties" />
+   <!-- Static resources -->
+   <mvc:resources mapping="/static/**" location="/webjars/, /resources/">
+      <mvc:cache-control cache-public="true" max-age="2592000" />
+      <mvc:resource-chain resource-cache="true">
+         <mvc:resolvers>
+            <ref bean="webjarsResolver" />
+         </mvc:resolvers>
+      </mvc:resource-chain>
+   </mvc:resources>
 
-   <!-- Scans for beans -->
-   <context:component-scan base-package="${package}" />
+   <bean id="webjarsResolver" class="${resolver.webjars.class}" />
+
+   <mvc:default-servlet-handler />
+
+   <bean id="conversionService" class="${conversion.service.class}"/>
+
+   <bean id="validator" class="${validator.factory.class}">
+      <property name="validationMessageSource" ref="messageSource" />
+   </bean>
 
 </beans>

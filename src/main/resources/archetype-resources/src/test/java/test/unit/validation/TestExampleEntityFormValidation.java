@@ -32,7 +32,7 @@ import javax.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import ${package}.controller.entity.bean.ExampleEntityForm;
 

@@ -36,7 +36,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import ${package}.controller.report.ReportController;
 import ${package}.model.persistence.DefaultExampleEntity;

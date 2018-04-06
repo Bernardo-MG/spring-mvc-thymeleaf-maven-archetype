@@ -31,7 +31,7 @@ import javax.validation.Validator;
 
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.junit.Assert;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import ${package}.controller.entity.bean.ExampleEntityForm;
@@ -61,7 +61,7 @@ public final class TestExampleEntityFormValidation {
     /**
      * Sets up the validator for the tests.
      */
-    @Before
+    @BeforeEach
     public final void setUpValidator() {
         validator = createValidator();
     }

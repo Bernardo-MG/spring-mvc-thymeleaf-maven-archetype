@@ -35,7 +35,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.junit.Assert;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import ${package}.controller.report.ReportController;
@@ -72,7 +72,7 @@ public final class TestReportController {
     /**
      * Sets up the mocked MVC context.
      */
-    @Before
+    @BeforeEach
     public final void setUpMockContext() {
         mockMvc = MockMvcBuilders.standaloneSetup(getController())
                 .alwaysExpect(MockMvcResultMatchers.status().isOk())

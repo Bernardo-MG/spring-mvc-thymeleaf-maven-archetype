@@ -135,7 +135,7 @@
             <database.username>sa</database.username>
             <database.password></database.password>
             <!-- Spring context -->
-            <spring.profile.database>h2</spring.profile.database>
+            <database.tag>h2</database.tag>
          </properties>
          <dependencies>
             <dependency>
@@ -159,7 +159,7 @@
             <database.username>root</database.username>
             <database.password></database.password>
             <!-- Spring context -->
-            <spring.profile.database>mysql</spring.profile.database>
+            <database.tag>mysql</database.tag>
          </properties>
          <dependencies>
             <dependency>
@@ -178,12 +178,11 @@
             <!-- Access data -->
             <!-- Default values for testing and development -->
             <!-- Override them for production -->
-            <database.url>jdbc:postgresql://localhost:5432/${artifactId.replace("-",
-               "_")}</database.url>
+            <database.url>jdbc:postgresql://localhost:5432/${artifactId.replace("-","_")}</database.url>
             <database.username>postgres</database.username>
             <database.password></database.password>
             <!-- Spring context -->
-            <spring.profile.database>postgres</spring.profile.database>
+            <database.tag>postgres</database.tag>
          </properties>
          <dependencies>
             <dependency>
@@ -787,6 +786,43 @@
                   </goals>
                   <configuration>
                      <failOnError>true</failOnError>
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+         <plugin>
+            <!-- Enforcer -->
+            <!-- Stops the project from being built if it does not comply 
+               with a set of rules. -->
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-enforcer-plugin</artifactId>
+            <executions>
+               <!-- The enforce goal is bound to the validate phase -->
+               <execution>
+                  <id>enforce-database</id>
+                  <goals>
+                     <goal>enforce</goal>
+                  </goals>
+                  <configuration>
+                     <rules>
+                        <!-- A database should be set. -->
+                        <requireProperty>
+                           <property>database.tag</property>
+                           <message><![CDATA[Give a Spring database profile.]]></message>
+                        </requireProperty>
+                        <requireProperty>
+                           <property>database.url</property>
+                           <message><![CDATA[Give a URL for the database.]]></message>
+                        </requireProperty>
+                        <requireProperty>
+                           <property>database.username</property>
+                           <message><![CDATA[Give a username for the database.]]></message>
+                        </requireProperty>
+                        <requireProperty>
+                           <property>database.password</property>
+                           <message><![CDATA[Give a password for the database.]]></message>
+                        </requireProperty>
+                     </rules>
                   </configuration>
                </execution>
             </executions>

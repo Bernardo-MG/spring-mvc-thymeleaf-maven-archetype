@@ -25,7 +25,7 @@
 package ${package}.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * Controller for home view.
@@ -52,7 +52,7 @@ public class HomeController {
      * 
      * @return the welcome view
      */
-    @RequestMapping("/")
+    @GetMapping("/")
     public final String showWelcome() {
         return VIEW_WELCOME;
     }

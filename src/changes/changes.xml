@@ -5,6 +5,14 @@
       <author email="programming@bernardomg.com">Bernardo Martínez Garrido</author>
    </properties>
    <body>
+      <release version="1.1.3" date="2018-04-08" description="Fixed configuration">
+         <action dev="bmg" type="fix">
+            Fixed configuration errors due to the latest dependency updates.
+         </action>
+         <action dev="bmg" type="add">
+            Using enforce to require DB properties.
+         </action>
+      </release>
       <release version="1.1.2" date="2018-04-01" description="Updated configuration">
          <action dev="bmg" type="update">
             Updated POM.

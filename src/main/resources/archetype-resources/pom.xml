@@ -127,6 +127,10 @@
          <!-- H2 database profile -->
          <!-- Prepares the project to make use of an H2 in-memory database -->
          <id>h2</id>
+         <activation>
+            <!-- Active by default so it can be installed by CI -->
+            <activeByDefault>true</activeByDefault>
+         </activation>
          <properties>
             <!-- Access data -->
             <!-- Default values for testing and development -->

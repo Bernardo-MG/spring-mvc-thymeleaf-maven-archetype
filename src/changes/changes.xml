@@ -9,6 +9,9 @@
          <action dev="bmg" type="add">
             Activated transactionality.
          </action>
+         <action dev="bmg" type="fix">
+            Added missing URL properties.
+         </action>
       </release>
       <release version="1.1.3" date="2018-04-08" description="Fixed configuration">
          <action dev="bmg" type="fix">

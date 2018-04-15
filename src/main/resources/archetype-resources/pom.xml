@@ -233,7 +233,7 @@
                            <daemon>true</daemon>
                            <useTestScope>true</useTestScope>
                            <webApp>
-                              <overrideDescriptor>${project.build.directory}/${project.artifactId}-${project.version}/WEB-INF/web.xml</overrideDescriptor>
+                              <overrideDescriptor>${project.build.directory}/${project.build.finalName}/WEB-INF/web.xml</overrideDescriptor>
                            </webApp>
                         </configuration>
                      </execution>
@@ -275,7 +275,7 @@
                         <configuration>
                            <fork>true</fork>
                            <useTestClasspath>true</useTestClasspath>
-                           <warSourceDirectory>${project.build.directory}/${project.artifactId}-${project.version}/</warSourceDirectory>
+                           <warSourceDirectory>${project.build.directory}/${project.build.finalName}/</warSourceDirectory>
                         </configuration>
                      </execution>
                      <execution>

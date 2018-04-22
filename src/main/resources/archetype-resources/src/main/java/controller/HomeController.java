@@ -24,8 +24,10 @@
 
 package ${package}.controller;
 
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Controller for home view.
@@ -33,6 +35,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @Controller
+@RequestMapping("/")
 public class HomeController {
 
     /**
@@ -52,7 +55,7 @@ public class HomeController {
      * 
      * @return the welcome view
      */
-    @GetMapping("/")
+    @GetMapping(produces = MediaType.TEXT_HTML_VALUE)
     public final String showWelcome() {
         return VIEW_WELCOME;
     }

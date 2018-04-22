@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package ${package}.controller;
+package ${package}.error.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

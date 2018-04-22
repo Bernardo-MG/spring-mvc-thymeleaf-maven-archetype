@@ -21,40 +21,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
-package ${package}.controller;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-
 /**
- * Controller for home view.
- * 
- * @author Bernardo Mart&iacute;nez Garrido
+ * Error controllers.
+ * <p>
+ * These take care of application errors, and generate a response for them.
  */
-@Controller
-public class ErrorController {
 
-    /**
-     * Name for the 404 error view.
-     */
-    private static final String VIEW_404 = "404";
-
-    /**
-     * Default constructor.
-     */
-    public ErrorController() {
-        super();
-    }
-
-    /**
-     * Shows the 404 error view.
-     * 
-     * @return the 404 error view
-     */
-    @RequestMapping("/404")
-    public final String show404() {
-        return VIEW_404;
-    }
-
-}
+package ${package}.error.controller;

@@ -385,7 +385,7 @@
       <guava.version>24.1-jre</guava.version>
       <h2.version>1.4.197</h2.version>
       <hibernate.validator.version>5.4.1.Final</hibernate.validator.version>
-      <hibernate.version>5.2.16.Final</hibernate.version>
+      <hibernate.version>5.2.17.Final</hibernate.version>
       <hikari.version>2.7.8</hikari.version>
       <jackson.version>2.9.5</jackson.version>
       <javaee.api.version>2.2</javaee.api.version>
@@ -518,15 +518,15 @@
       <!-- ================ HIBERNATE =================== -->
       <!-- ============================================== -->
       <dependency>
-         <!-- Hibernate Ehcache -->
+         <!-- Hibernate Core -->
          <groupId>org.hibernate</groupId>
-         <artifactId>hibernate-ehcache</artifactId>
+         <artifactId>hibernate-core</artifactId>
          <version>${hibernate.version}</version>
       </dependency>
       <dependency>
-         <!-- Hibernate Entity Manager -->
+         <!-- Hibernate Ehcache -->
          <groupId>org.hibernate</groupId>
-         <artifactId>hibernate-entitymanager</artifactId>
+         <artifactId>hibernate-ehcache</artifactId>
          <version>${hibernate.version}</version>
       </dependency>
       <dependency>

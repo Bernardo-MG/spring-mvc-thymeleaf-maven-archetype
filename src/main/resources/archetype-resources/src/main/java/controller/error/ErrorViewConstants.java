@@ -21,10 +21,26 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-/**
- * Error controllers.
- * <p>
- * These take care of application errors, and generate a response for them.
- */
 
 package ${package}.controller.error;
+
+/**
+ * Constants for the error view controllers.
+ * 
+ * @author Bernardo Mart&iacute;nez Garrido
+ */
+public final class ErrorViewConstants {
+
+    /**
+     * Name for the error view.
+     */
+    public static final String VIEW_ERROR   = "exception";
+
+    /**
+     * Private constructor to avoid initialization.
+     */
+    private ErrorViewConstants() {
+        super();
+    }
+
+}

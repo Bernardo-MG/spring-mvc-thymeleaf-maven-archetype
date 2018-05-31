@@ -52,6 +52,11 @@ public final class ExampleEntityViewConstants {
     public static final String VIEW_ENTITY_LIST = "entity/list";
 
     /**
+     * Name for the exception view.
+     */
+    public static final String VIEW_EXCEPTION   = "exception";
+
+    /**
      * Private constructor to avoid initialization.
      */
     private ExampleEntityViewConstants() {

@@ -9,6 +9,12 @@
          <action dev="bmg" type="add">
             Activated transactionality.
          </action>
+         <action dev="bmg" type="add">
+            Added Open Graph metadata.
+         </action>
+         <action dev="bmg" type="add">
+            Added Twitter Card metadata.
+         </action>
          <action dev="bmg" type="fix">
             Added missing URL properties.
          </action>

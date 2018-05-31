@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package ${package}.test.unit.controller.error;
+package ${package}.test.unit.error;
 
 import java.util.Collection;
 import java.util.ArrayList;

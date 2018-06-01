@@ -37,19 +37,19 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import ${package}.controller.entity.ExampleEntityListController;
+import ${package}.controller.entity.ExampleEntityListViewController;
 import ${package}.controller.entity.ExampleEntityViewConstants;
 import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.service.ExampleEntityService;
 import ${package}.test.config.UrlConfig;
 
 /**
- * Unit tests for {@link ExampleEntityListController}, checking the methods for
+ * Unit tests for {@link ExampleEntityListViewController}, checking the methods for
  * listing entities.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
-public final class TestExampleEntityListControllerList {
+public final class TestExampleEntityListViewControllerList {
 
     /**
      * Mocked MVC context.
@@ -59,7 +59,7 @@ public final class TestExampleEntityListControllerList {
     /**
      * Default constructor.
      */
-    public TestExampleEntityListControllerList() {
+    public TestExampleEntityListViewControllerList() {
         super();
     }
 
@@ -95,7 +95,7 @@ public final class TestExampleEntityListControllerList {
      * 
      * @return a mocked controller
      */
-    private final ExampleEntityListController getController() {
+    private final ExampleEntityListViewController getController() {
         final ExampleEntityService service; // Mocked service
         final Collection<DefaultExampleEntity> entities; // Mocked entities
 
@@ -105,7 +105,7 @@ public final class TestExampleEntityListControllerList {
 
         Mockito.when(service.getAllEntities()).thenReturn(entities);
 
-        return new ExampleEntityListController(service);
+        return new ExampleEntityListViewController(service);
     }
 
     /**

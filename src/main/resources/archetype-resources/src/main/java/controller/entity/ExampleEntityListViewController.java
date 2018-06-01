@@ -43,7 +43,7 @@ import ${package}.service.ExampleEntityService;
  */
 @Controller
 @RequestMapping("/entity")
-public class ExampleEntityListController {
+public class ExampleEntityListViewController {
 
     /**
      * Example entity service.
@@ -57,7 +57,7 @@ public class ExampleEntityListController {
      *            example entity service
      */
     @Autowired
-    public ExampleEntityListController(final ExampleEntityService service) {
+    public ExampleEntityListViewController(final ExampleEntityService service) {
         super();
 
         exampleEntityService = checkNotNull(service,

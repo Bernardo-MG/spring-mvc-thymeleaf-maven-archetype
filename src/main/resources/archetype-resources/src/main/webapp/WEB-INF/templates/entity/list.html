@@ -8,6 +8,8 @@
    <header class="header" th:include="fragments/menu :: menu" />
 
    <section id="main-section" class="container-fluid">
+      <h1 th:text="#{title.entity.list}">Entity list</h1>
+      <p>This view shows data embedded into the template. There are no additional request for changing pages.</p>
       <table class="table table-striped display dataTable">
          <thead>
             <tr>

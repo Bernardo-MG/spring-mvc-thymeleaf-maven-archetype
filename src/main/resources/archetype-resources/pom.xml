@@ -384,12 +384,14 @@
       <glassfish.el>2.2</glassfish.el>
       <guava.version>24.1-jre</guava.version>
       <h2.version>1.4.197</h2.version>
+      <hamcrest.version>2.0.0.0</hamcrest.version>
       <hibernate.validator.version>5.4.1.Final</hibernate.validator.version>
       <hibernate.version>5.2.17.Final</hibernate.version>
       <hikari.version>2.7.8</hikari.version>
       <jackson.version>2.9.5</jackson.version>
       <javaee.api.version>2.2</javaee.api.version>
       <jasperreports.version>6.4.1</jasperreports.version>
+      <jsonpath.version>2.4.0</jsonpath.version>
       <junit.jupiter.version>5.1.0</junit.jupiter.version>
       <junit.platform.version>1.1.0</junit.platform.version>
       <liquibase.version>3.5.5</liquibase.version>
@@ -696,6 +698,20 @@
       <!-- ============================================== -->
       <!-- ======= TEST ENVIRONMENT DEPENDENCIES ======== -->
       <!-- ============================================== -->
+      <dependency>
+         <!-- Hamcrest -->
+         <groupId>org.hamcrest</groupId>
+         <artifactId>java-hamcrest</artifactId>
+         <version>${hamcrest.version}</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <!-- JSON Path -->
+         <groupId>com.jayway.jsonpath</groupId>
+         <artifactId>json-path</artifactId>
+         <version>${jsonpath.version}</version>
+         <scope>test</scope>
+      </dependency>
       <dependency>
          <!-- JUnit Jupiter Engine -->
          <groupId>org.junit.jupiter</groupId>

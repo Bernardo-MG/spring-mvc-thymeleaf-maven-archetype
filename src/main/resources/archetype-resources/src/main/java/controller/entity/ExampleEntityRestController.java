@@ -22,50 +22,49 @@
  * SOFTWARE.
  */
 
-package ${package}.service;
+package ${package}.controller.entity;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.model.ExampleEntity;
+import ${package}.service.ExampleEntityService;
 
 /**
- * Service for the example entity domain.
- * <p>
- * This is a domain service just to allow the endpoints querying the entities
- * they are asked for.
- *
+ * Rest controller for the example entities.
+ * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
-public interface ExampleEntityService {
+@RestController
+@RequestMapping("/entity")
+public class ExampleEntityRestController {
 
     /**
-     * Persists an entity.
+     * Example entity service.
+     */
+    private final ExampleEntityService exampleEntityService;
+
+    /**
+     * Constructs a controller with the specified dependencies.
      * 
-     * @param entity
-     *            entity to persist
-     * @return the persisted entity
+     * @param service
+     *            example entity service
      */
-    public ExampleEntity add(final DefaultExampleEntity entity);
+    @Autowired
+    public ExampleEntityRestController(final ExampleEntityService service) {
+        super();
 
-    /**
-     * Returns an entity with the given id.
-     * <p>
-     * If no instance exists with that id then an entity with a negative id is
-     * expected to be returned. Avoid returning nulls.
-     *
-     * @param identifier
-     *            identifier of the entity to find
-     * @return the entity for the given id
-     */
-    public ExampleEntity findById(final Integer identifier);
-
-    /**
-     * Returns all the entities from the DB.
-     * 
-     * @return the persisted entities
-     */
-    public Iterable<DefaultExampleEntity> getAllEntities();
+        exampleEntityService = checkNotNull(service,
+                "Received a null pointer as service");
+    }
 
     /**
      * Returns a paginated collection of entities.
@@ -74,14 +73,18 @@ public interface ExampleEntityService {
      *            pagination data
      * @return a paginated collection of entities
      */
-    public Iterable<DefaultExampleEntity> getEntities(final Pageable page);
+    @GetMapping(consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public final Iterable<? extends ExampleEntity> getEntities(final Pageable page) {
+        return getExampleEntityService().getEntities(page);
+    }
 
     /**
-     * Removes an entity from persistence.
+     * Returns the example entity service.
      * 
-     * @param entity
-     *            entity to remove
+     * @return the example entity service
      */
-    public void remove(final DefaultExampleEntity entity);
+    private final ExampleEntityService getExampleEntityService() {
+        return exampleEntityService;
+    }
 
 }

@@ -27,6 +27,7 @@ package ${package}.service;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import ${package}.model.persistence.DefaultExampleEntity;
@@ -95,6 +96,12 @@ public class DefaultExampleEntityService implements ExampleEntityService {
     @Override
     public final Iterable<DefaultExampleEntity> getAllEntities() {
         return getExampleEntityRepository().findAll();
+    }
+
+    @Override
+    public final Iterable<DefaultExampleEntity>
+            getEntities(final Pageable page) {
+        return getExampleEntityRepository().findAll(page);
     }
 
     @Override

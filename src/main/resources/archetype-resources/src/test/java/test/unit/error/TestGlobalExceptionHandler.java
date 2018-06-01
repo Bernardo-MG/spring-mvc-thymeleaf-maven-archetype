@@ -24,9 +24,6 @@
 
 package ${package}.test.unit.error;
 
-import java.util.Collection;
-import java.util.ArrayList;
-
 import org.mockito.Mockito;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
@@ -40,8 +37,6 @@ import org.junit.jupiter.api.Test;
 import ${package}.controller.error.GlobalExceptionHandler;
 import ${package}.controller.error.ErrorViewConstants;
 import ${package}.controller.entity.ExampleEntityFormController;
-import ${package}.controller.entity.ExampleEntityViewConstants;
-import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.service.ExampleEntityService;
 import ${package}.test.config.UrlConfig;
 

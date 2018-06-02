@@ -49,7 +49,7 @@ public final class UrlConfig {
     /**
      * Entities REST URL.
      */
-    public static final String URL_REST      = "/entity";
+    public static final String URL_REST      = "/rest/entity";
 
     /**
      * Default constructor to avoid initialization.

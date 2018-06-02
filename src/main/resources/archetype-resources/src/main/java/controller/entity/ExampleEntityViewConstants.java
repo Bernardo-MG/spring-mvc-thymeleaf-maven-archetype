@@ -47,6 +47,11 @@ public final class ExampleEntityViewConstants {
     public static final String VIEW_ENTITY_FORM = "entity/form";
 
     /**
+     * Name for the entities view using AJAX.
+     */
+    public static final String VIEW_ENTITY_LIST_AJAX = "entity/listAjax";
+
+    /**
      * Name for the entities view.
      */
     public static final String VIEW_ENTITY_LIST = "entity/list";

@@ -14,7 +14,7 @@
  * the License.
  */
 
-package ${package}.test.unit.codex.controller;
+package ${package}.test.unit.controller;
 
 import java.util.ArrayList;
 import java.util.Collection;

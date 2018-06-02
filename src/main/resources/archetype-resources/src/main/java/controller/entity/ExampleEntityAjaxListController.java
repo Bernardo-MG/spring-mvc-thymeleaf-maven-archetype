@@ -27,25 +27,23 @@ package ${package}.controller.entity;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import ${package}.model.ExampleEntity;
 import ${package}.service.ExampleEntityService;
 
 /**
- * Rest controller for the example entities.
+ * Controller for the example entities listing view using AJAX.
+ * <p>
+ * This serves as an adapter between the UI and the services layer.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
-@RestController
-@RequestMapping("/rest/entity")
-public class ExampleEntityRestController {
+@Controller
+@RequestMapping("/entity")
+public class ExampleEntityAjaxListController {
 
     /**
      * Example entity service.
@@ -59,7 +57,7 @@ public class ExampleEntityRestController {
      *            example entity service
      */
     @Autowired
-    public ExampleEntityRestController(final ExampleEntityService service) {
+    public ExampleEntityAjaxListController(final ExampleEntityService service) {
         super();
 
         exampleEntityService = checkNotNull(service,
@@ -67,15 +65,21 @@ public class ExampleEntityRestController {
     }
 
     /**
-     * Returns a paginated collection of entities.
+     * Shows the entities listing view.
+     * <p>
+     * Actually it just returns the name of the view. Spring will take care of
+     * the rest.
+     * <p>
+     * Before returning the name the model should be loaded with all the data
+     * required by the view.
      * 
-     * @param page
-     *            pagination data
-     * @return a paginated collection of entities
+     * @param model
+     *            model map
+     * @return the name for the entities listing view
      */
-    @GetMapping(consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public final Iterable<? extends ExampleEntity> getEntities(final Pageable page) {
-        return getExampleEntityService().getEntities(page);
+    @GetMapping(path = "/list/ajax")
+    public final String showEntityList(final ModelMap model) {
+        return ExampleEntityViewConstants.VIEW_ENTITY_LIST_AJAX;
     }
 
     /**

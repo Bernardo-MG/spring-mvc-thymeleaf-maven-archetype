@@ -14,7 +14,7 @@
  * the License.
  */
 
-package ${package}.test.unit.controller;
+package ${package}.test.unit.controller.rest;
 
 import java.util.ArrayList;
 import java.util.Collection;

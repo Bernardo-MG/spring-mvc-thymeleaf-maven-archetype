@@ -32,8 +32,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import ${package}.service.ExampleEntityService;
-
 /**
  * Controller for the example entities listing view using AJAX.
  * <p>
@@ -46,22 +44,10 @@ import ${package}.service.ExampleEntityService;
 public class ExampleEntityAjaxListController {
 
     /**
-     * Example entity service.
+     * Constructs a controller.
      */
-    private final ExampleEntityService exampleEntityService;
-
-    /**
-     * Constructs a controller with the specified dependencies.
-     * 
-     * @param service
-     *            example entity service
-     */
-    @Autowired
-    public ExampleEntityAjaxListController(final ExampleEntityService service) {
+    public ExampleEntityAjaxListController() {
         super();
-
-        exampleEntityService = checkNotNull(service,
-                "Received a null pointer as service");
     }
 
     /**
@@ -80,15 +66,6 @@ public class ExampleEntityAjaxListController {
     @GetMapping(path = "/list/ajax")
     public final String showEntityList(final ModelMap model) {
         return ExampleEntityViewConstants.VIEW_ENTITY_LIST_AJAX;
-    }
-
-    /**
-     * Returns the example entity service.
-     * 
-     * @return the example entity service
-     */
-    private final ExampleEntityService getExampleEntityService() {
-        return exampleEntityService;
     }
 
 }

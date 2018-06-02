@@ -28,7 +28,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -71,7 +70,7 @@ public class ExampleEntityRestController {
      *            pagination data
      * @return a paginated collection of entities
      */
-    @GetMapping(consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping
     public final Iterable<? extends ExampleEntity> getEntities(final Pageable page) {
         return getExampleEntityService().getEntities(page);
     }

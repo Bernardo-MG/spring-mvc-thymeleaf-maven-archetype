@@ -10,6 +10,9 @@
             Activated transactionality.
          </action>
          <action dev="bmg" type="add">
+            Added AJAX view.
+         </action>
+         <action dev="bmg" type="add">
             Added Open Graph metadata.
          </action>
          <action dev="bmg" type="add">

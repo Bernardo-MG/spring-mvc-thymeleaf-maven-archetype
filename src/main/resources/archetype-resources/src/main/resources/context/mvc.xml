@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xmlns:context="http://www.springframework.org/schema/context"
-   xmlns:mvc="http://www.springframework.org/schema/mvc"
-   xmlns="http://www.springframework.org/schema/beans"
+   xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns="http://www.springframework.org/schema/beans"
    xsi:schemaLocation="http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/beans
@@ -13,6 +12,10 @@
    <!-- MVC configuration -->
    <mvc:annotation-driven conversion-service="conversionService"
       validator="validator">
+      <mvc:argument-resolvers>
+         <ref bean="sortResolver" />
+         <ref bean="pagingResolver" />
+      </mvc:argument-resolvers>
    </mvc:annotation-driven>
 
    <!-- Static resources -->
@@ -25,11 +28,16 @@
       </mvc:resource-chain>
    </mvc:resources>
 
+   <!-- Resolvers -->
+   <bean id="sortResolver" class="${resolver.sort.class}" />
+   <bean id="pagingResolver" class="${resolver.pageable.class}">
+      <constructor-arg ref="sortResolver" />
+   </bean>
    <bean id="webjarsResolver" class="${resolver.webjars.class}" />
 
    <mvc:default-servlet-handler />
 
-   <bean id="conversionService" class="${conversion.service.class}"/>
+   <bean id="conversionService" class="${conversion.service.class}" />
 
    <bean id="validator" class="${validator.factory.class}">
       <property name="validationMessageSource" ref="messageSource" />

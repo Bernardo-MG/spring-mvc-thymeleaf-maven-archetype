@@ -34,7 +34,7 @@ $(document).ready(function() {
          "targets" : "hidden",
          "visible" : false,
       } ],
-      "ajax": '/test/rest/entity'
+      "ajax": '/rest/entity'
    });
 
 });

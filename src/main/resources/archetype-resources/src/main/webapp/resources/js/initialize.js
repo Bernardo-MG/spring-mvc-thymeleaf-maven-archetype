@@ -34,7 +34,13 @@ $(document).ready(function() {
          "targets" : "hidden",
          "visible" : false,
       } ],
-      "ajax": '/rest/entity'
+      "columns" : [ {
+         "content" : "name"
+      } ],
+      "ajax" : {
+         "url" : "/rest/entity",
+         "dataSrc" : "content"
+      },
    });
 
 });

@@ -391,16 +391,16 @@
       <postgresql.version>42.1.4</postgresql.version>
       <servlet.version>4.0.0</servlet.version>
       <slf4j.version>1.8.0-alpha2</slf4j.version>
-      <spring.data.version>2.0.5.RELEASE</spring.data.version>
-      <spring.version>5.0.4.RELEASE</spring.version>
+      <spring.data.version>2.0.7.RELEASE</spring.data.version>
+      <spring.version>5.0.6.RELEASE</spring.version>
       <thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
       <webjars.bootstrap.version>3.3.7-1</webjars.bootstrap.version>
       <webjars.bootswatch.version>3.3.7</webjars.bootswatch.version>
       <webjars.fontAwesome.version>4.7.0</webjars.fontAwesome.version>
-      <webjars.datatables.version>1.10.12-1</webjars.datatables.version>
+      <webjars.datatables.version>1.10.16</webjars.datatables.version>
       <webjars.html5shiv.version>3.7.3-1</webjars.html5shiv.version>
       <webjars.jquery.version>3.3.1-1</webjars.jquery.version>
-      <webjars.locator.version>0.32</webjars.locator.version>
+      <webjars.locator.version>0.34</webjars.locator.version>
       <!-- ============================================== -->
       <!-- ============== PLUGINS VERSIONS ============== -->
       <!-- ============================================== -->

@@ -10,6 +10,9 @@
             Activated transactionality.
          </action>
          <action dev="bmg" type="add">
+            Added pagination support.
+         </action>
+         <action dev="bmg" type="add">
             Added AJAX view.
          </action>
          <action dev="bmg" type="add">

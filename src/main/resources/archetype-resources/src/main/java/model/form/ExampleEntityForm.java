@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package ${package}.controller.entity.bean;
+package ${package}.model.form;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 

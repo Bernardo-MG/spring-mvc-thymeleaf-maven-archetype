@@ -40,7 +40,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import ${package}.service.ExampleEntityService;
 import ${package}.model.persistence.DefaultExampleEntity;
-import ${package}.controller.entity.bean.ExampleEntityForm;
+import ${package}.model.form.ExampleEntityForm;
 
 /**
  * Controller for the example entities form view.

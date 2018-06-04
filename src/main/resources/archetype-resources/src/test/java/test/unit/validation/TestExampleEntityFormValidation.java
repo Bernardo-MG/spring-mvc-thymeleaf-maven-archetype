@@ -34,7 +34,7 @@ import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import ${package}.controller.entity.bean.ExampleEntityForm;
+import ${package}.model.form.ExampleEntityForm;
 
 /**
  * Unit tests for {@link ExampleEntityForm} bean validation.

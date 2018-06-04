@@ -26,4 +26,4 @@
  * controllers.
  */
 
-package ${package}.controller.entity.bean;
+package ${package}.model.form;

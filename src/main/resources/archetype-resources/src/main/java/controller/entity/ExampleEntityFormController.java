@@ -73,9 +73,9 @@ public class ExampleEntityFormController {
     }
 
     /**
-     * Returns the initial Sponsor form data.
+     * Returns the initial entity form data.
      * 
-     * @return the initial Sponsor form data
+     * @return the initial entity form data
      */
     @ModelAttribute(ExampleEntityViewConstants.BEAN_FORM)
     public final ExampleEntityForm getEntityForm() {

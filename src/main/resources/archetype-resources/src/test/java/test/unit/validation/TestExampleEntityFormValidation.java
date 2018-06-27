@@ -33,6 +33,8 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.platform.runner.JUnitPlatform;
+import org.junit.runner.RunWith;
 
 import ${package}.model.form.ExampleEntityForm;
 
@@ -44,6 +46,7 @@ import ${package}.model.form.ExampleEntityForm;
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
+@RunWith(JUnitPlatform.class)
 public final class TestExampleEntityFormValidation {
 
     /**

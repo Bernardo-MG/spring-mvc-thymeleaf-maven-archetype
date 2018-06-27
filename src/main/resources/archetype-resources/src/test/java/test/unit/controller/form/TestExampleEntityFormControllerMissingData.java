@@ -39,6 +39,8 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.platform.runner.JUnitPlatform;
+import org.junit.runner.RunWith;
 
 import ${package}.controller.entity.ExampleEntityFormController;
 import ${package}.controller.entity.ExampleEntityViewConstants;
@@ -55,6 +57,7 @@ import ${package}.test.config.UrlConfig;
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
+@RunWith(JUnitPlatform.class)
 public final class TestExampleEntityFormControllerMissingData {
 
     /**

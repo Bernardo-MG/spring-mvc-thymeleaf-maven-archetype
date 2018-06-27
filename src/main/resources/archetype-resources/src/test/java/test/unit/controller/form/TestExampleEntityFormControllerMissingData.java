@@ -25,6 +25,9 @@
 package ${package}.test.unit.controller.form;
 
 import java.util.Collection;
+
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import java.util.ArrayList;
 
 import org.mockito.Mockito;
@@ -74,7 +77,7 @@ public final class TestExampleEntityFormControllerMissingData {
     @BeforeEach
     public final void setUpMockContext() {
         mockMvc = MockMvcBuilders.standaloneSetup(getController())
-                .alwaysExpect(MockMvcResultMatchers.status().isOk()).build();
+                .alwaysExpect(status().is4xxClientError()).build();
     }
 
     /**

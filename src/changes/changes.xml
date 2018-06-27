@@ -13,6 +13,9 @@
             Added pagination support.
          </action>
          <action dev="bmg" type="add">
+            Set an error response for validation failures.
+         </action>
+         <action dev="bmg" type="add">
             Added AJAX view.
          </action>
          <action dev="bmg" type="add">

@@ -26,6 +26,7 @@ package ${package}.controller.entity;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -91,14 +92,14 @@ public class ExampleEntityFormController {
      *            form data
      * @param bindingResult
      *            binding result
-     * @param session
-     *            HTTP session
+     * @param response
+     *            HTTP response
      * @return the next view to show
      */
     @PostMapping
     public final String saveEntity(final ModelMap model,
             @ModelAttribute(ExampleEntityViewConstants.BEAN_FORM) @Valid final ExampleEntityForm form,
-            final BindingResult bindingResult, final HttpSession session) {
+            final BindingResult bindingResult, final HttpServletResponse response) {
         final String path;
         final DefaultExampleEntity entity;
 
@@ -107,7 +108,9 @@ public class ExampleEntityFormController {
 
             // Returns to the form view
             path = ExampleEntityViewConstants.VIEW_ENTITY_FORM;
-            // TODO: Maybe it should return a bad request status?
+
+            // Marks the response as a bad request
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         } else {
 
             entity = new DefaultExampleEntity();
@@ -117,7 +120,7 @@ public class ExampleEntityFormController {
 
             // TODO: This flow decision shouldn't be handled by the controller
             // TODO: This should be a redirection to the list controller
-            // Loads required data into the model and session
+            // Loads required data into the model
             loadViewModel(model);
 
             path = ExampleEntityViewConstants.VIEW_ENTITY_LIST;

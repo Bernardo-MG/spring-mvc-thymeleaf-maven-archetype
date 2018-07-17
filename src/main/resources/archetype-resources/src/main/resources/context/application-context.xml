@@ -1,5 +1,6 @@
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xmlns:context="http://www.springframework.org/schema/context" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:jdbc="http://www.springframework.org/schema/jdbc"
    xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/jdbc
@@ -16,5 +17,9 @@
    <!-- Imports -->
    <import resource="classpath:context/persistence.xml" />
    <import resource="classpath:context/persistence-versioning.xml" />
+   <import resource="classpath:context/service.xml" />
+
+   <!-- Auto scan -->
+   <context:component-scan base-package="${package}.**.service" />
 
 </beans>

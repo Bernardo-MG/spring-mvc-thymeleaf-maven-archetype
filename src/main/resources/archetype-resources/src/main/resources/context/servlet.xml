@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xmlns:context="http://www.springframework.org/schema/context" xmlns:mvc="http://www.springframework.org/schema/mvc"
-   xmlns="http://www.springframework.org/schema/beans" xmlns:util="http://www.springframework.org/schema/util"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns="http://www.springframework.org/schema/beans"
+   xmlns:util="http://www.springframework.org/schema/util"
    xsi:schemaLocation="http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/beans
@@ -13,17 +14,15 @@
 
    <!-- Imports -->
    <import resource="classpath:context/view.xml" />
-   <import resource="classpath:context/service.xml" />
    <import resource="classpath:context/messages.xml" />
    <import resource="classpath:context/mvc.xml" />
 
    <!-- Properties -->
    <context:property-placeholder
       location="classpath:config/view.properties,
-                   classpath:config/service.properties,
                    classpath:config/servlet.properties" />
 
-   <!-- Scans for beans -->
-   <context:component-scan base-package="${package}" />
+   <!-- Scans for controllers -->
+   <context:component-scan base-package="${package}.**.controller" />
 
 </beans>

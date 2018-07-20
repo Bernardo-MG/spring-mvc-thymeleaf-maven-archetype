@@ -19,6 +19,18 @@
 <meta name="keywords" th:content="${pageKeywords}">
 <meta name="author" th:content="${pageAuthor}">
 
+<!-- Facebook OpenGraph -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="#{application.title}"/>
+<meta property="og:title" content="#{application.title}"/>
+<meta property="og:description" content="${pageDescription}"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:creator" content="${pageTwitter}"/>
+<meta name="twitter:title" content="#{application.title}"/>
+<meta name="twitter:description" content="${pageDescription}"/>
+
 <!-- CSS -->
 <link rel="stylesheet"
    th:href="@{/static/bootswatch-readable/css/bootstrap.min.css}">

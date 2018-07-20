@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  * <p>
- * Copyright (c) ${currentYear} the original author or authors.
+ * Copyright (c) 2017 the original author or authors.
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,88 +22,76 @@
  * SOFTWARE.
  */
 
-package ${package}.test.unit.controller.report;
-
-import java.util.ArrayList;
+package ${package}.test.unit.error;
 
 import org.mockito.Mockito;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 
-import ${package}.controller.report.ReportController;
-import ${package}.model.persistence.DefaultExampleEntity;
-import ${package}.service.DefaultExampleEntityReportService;
-import ${package}.service.ExampleEntityReportService;
+import ${package}.controller.error.GlobalExceptionHandler;
+import ${package}.controller.error.ErrorViewConstants;
+import ${package}.controller.entity.ExampleEntityFormController;
 import ${package}.service.ExampleEntityService;
+import ${package}.test.config.UrlConfig;
 
 /**
- * Unit tests for {@link ReportController}, checking the methods for generating
- * reports.
+ * Unit tests for {@link ExampleEntityFormController}, checking the methods for
+ * sending the form data.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @RunWith(JUnitPlatform.class)
-public final class TestReportController {
-
-    /**
-     * PDF view URL.
-     */
-    private static final String URL_PDF = "/entity/pdf";
+public final class TestGlobalExceptionHandler {
 
     /**
      * Mocked MVC context.
      */
-    private MockMvc             mockMvc;
+    private MockMvc mockMvc;
 
     /**
      * Default constructor.
      */
-    public TestReportController() {
+    public TestGlobalExceptionHandler() {
         super();
     }
 
     /**
      * Sets up the mocked MVC context.
+     * <p>
+     * It expects all the responses to have the OK (200) HTTP code.
      */
     @BeforeEach
     public final void setUpMockContext() {
+        final GlobalExceptionHandler exceptionHandler;
+
+        exceptionHandler = new GlobalExceptionHandler();
         mockMvc = MockMvcBuilders.standaloneSetup(getController())
                 .alwaysExpect(MockMvcResultMatchers.status().isOk())
-                .alwaysExpect(MockMvcResultMatchers.content()
-                        .contentType(MediaType.APPLICATION_PDF)).build();
+                .setControllerAdvice(exceptionHandler).build();
     }
 
     /**
-     * Verifies that the PDF view sets the expected content.
+     * Verifies that after received valid form data the expected view is
+     * returned.
      */
     @Test
-    public final void testReport_Empty_ExpectedContent() throws Exception {
-        mockMvc.perform(getRequest());
-    }
-
-    /**
-     * Verifies that the PDF view sets the expected attributes.
-     */
-    @Test
-    public final void testReport_Empty_ExpectedHeader() throws Exception {
+    public final void testSendFormData_ExpectedView() throws Exception {
         final ResultActions result; // Request result
-        final String content;       // Content header
 
-        result = mockMvc.perform(getRequest());
+        // TODO: Just verify it is not this same view
+        result = mockMvc.perform(getFormRequest());
 
-        content = result.andReturn().getResponse().getHeader("Content-disposition");
-
-        Assert.assertEquals("inline; filename=EntityReport.pdf", content);
+        // The view is valid
+        result.andExpect(MockMvcResultMatchers.view()
+                .name(ErrorViewConstants.VIEW_ERROR));
     }
 
     /**
@@ -111,28 +99,29 @@ public final class TestReportController {
      * 
      * @return a mocked controller
      */
-    private final ReportController getController() {
-        final ExampleEntityService service; // Mocked unit codex
-        final ExampleEntityReportService reportService; // Mocked unit codex
-        final Iterable<DefaultExampleEntity> entities;
-
-        entities = new ArrayList<DefaultExampleEntity>();
+    private final ExampleEntityFormController getController() {
+        final ExampleEntityService service; // Mocked service
 
         service = Mockito.mock(ExampleEntityService.class);
-        Mockito.when(service.getAllEntities()).thenReturn(entities);
 
-        reportService = new DefaultExampleEntityReportService();
+        Mockito.when(service.getAllEntities())
+                .thenThrow(RuntimeException.class);
 
-        return new ReportController(service, reportService);
+        return new ExampleEntityFormController(service);
     }
 
     /**
-     * Returns a request builder for getting the PDF view.
+     * Returns a request builder for posting the form data.
+     * <p>
+     * This request contains all the required request parameters.
+     * <p>
+     * There is only a single required parameter, the {@code name} parameter.
      * 
-     * @return a request builder for the PDF view
+     * @return a request builder for posting the form data
      */
-    private final RequestBuilder getRequest() {
-        return MockMvcRequestBuilders.get(URL_PDF);
+    private final RequestBuilder getFormRequest() {
+        return MockMvcRequestBuilders.post(UrlConfig.URL_FORM_POST)
+                .param("name", "name");
     }
 
 }

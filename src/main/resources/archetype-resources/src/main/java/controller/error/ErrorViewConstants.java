@@ -22,42 +22,25 @@
  * SOFTWARE.
  */
 
-package ${package}.controller;
-
-import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+package ${package}.controller.error;
 
 /**
- * Controller for home view.
+ * Constants for the error view controllers.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
-@Controller
-@RequestMapping("/")
-public class HomeController {
+public final class ErrorViewConstants {
 
     /**
-     * Name for the welcome view.
+     * Name for the error view.
      */
-    private static final String VIEW_WELCOME = "welcome";
+    public static final String VIEW_ERROR   = "exception";
 
     /**
-     * Default constructor.
+     * Private constructor to avoid initialization.
      */
-    public HomeController() {
+    private ErrorViewConstants() {
         super();
-    }
-
-    /**
-     * Shows the welcome view.
-     * 
-     * @return the welcome view
-     */
-    @GetMapping(produces = MediaType.TEXT_HTML_VALUE)
-    public final String showWelcome() {
-        return VIEW_WELCOME;
     }
 
 }

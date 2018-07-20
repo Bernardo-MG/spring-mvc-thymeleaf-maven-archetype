@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package ${package}.controller;
+package ${package}.controller.error;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,6 +33,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver;
+
+import ${package}.controller.error.ErrorViewConstants;
 
 /**
  * Captures and handles exceptions for all the controllers.
@@ -50,11 +52,6 @@ public final class GlobalExceptionHandler
             .getLogger(GlobalExceptionHandler.class);
 
     /**
-     * Name for the exception view.
-     */
-    private static final String VIEW_EXCEPTION = "exception";
-
-    /**
      * Default constructor.
      */
     public GlobalExceptionHandler() {
@@ -69,7 +66,7 @@ public final class GlobalExceptionHandler
 
         LOGGER.error(ex.getMessage(), ex);
 
-        modelView = new ModelAndView(VIEW_EXCEPTION);
+        modelView = new ModelAndView(ErrorViewConstants.VIEW_ERROR);
         modelView.getModel().put("code",
                 HttpStatus.INTERNAL_SERVER_ERROR.value());
         modelView.getModel().put("message", ex.getMessage());

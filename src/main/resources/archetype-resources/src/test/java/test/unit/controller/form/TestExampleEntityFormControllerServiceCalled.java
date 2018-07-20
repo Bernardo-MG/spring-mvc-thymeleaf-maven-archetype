@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  * <p>
- * Copyright (c) 2017 the original author or authors.
+ * Copyright (c) 2017-2018 the original author or authors.
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package ${package}.test.unit.controller.list;
+package ${package}.test.unit.controller.form;
 
 import java.util.Collection;
 import java.util.ArrayList;
@@ -36,30 +36,35 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.platform.runner.JUnitPlatform;
+import org.junit.runner.RunWith;
 
-import ${package}.controller.entity.ExampleEntityListController;
+import ${package}.controller.entity.ExampleEntityFormController;
 import ${package}.controller.entity.ExampleEntityViewConstants;
 import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.service.ExampleEntityService;
 import ${package}.test.config.UrlConfig;
 
 /**
- * Unit tests for {@link ExampleEntityListController}, checking the methods for
- * listing entities.
+ * Unit tests for {@link ExampleEntityFormController}, verifying the service is
+ * called.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
-public final class TestExampleEntityListControllerList {
+@RunWith(JUnitPlatform.class)
+public final class TestExampleEntityFormControllerServiceCalled {
 
     /**
      * Mocked MVC context.
      */
-    private MockMvc mockMvc;
+    private MockMvc              mockMvc;
+
+    private ExampleEntityService service;
 
     /**
      * Default constructor.
      */
-    public TestExampleEntityListControllerList() {
+    public TestExampleEntityFormControllerServiceCalled() {
         super();
     }
 
@@ -70,51 +75,59 @@ public final class TestExampleEntityListControllerList {
      */
     @BeforeEach
     public final void setUpMockContext() {
-        mockMvc = MockMvcBuilders.standaloneSetup(getController())
+        service = Mockito.mock(ExampleEntityService.class);
+
+        mockMvc = MockMvcBuilders.standaloneSetup(getController(service))
                 .alwaysExpect(MockMvcResultMatchers.status().isOk()).build();
     }
 
     /**
-     * Verifies that the form view loads the expected attributes into the model.
-     * <p>
-     * The form requires a bean which will contain all its data.
+     * Verifies that after received valid form data the expected view is
+     * returned.
      */
     @Test
-    public final void testShowForm_ExpectedAttributeModel() throws Exception {
+    public final void testSendFormData_CalledService() throws Exception {
         final ResultActions result; // Request result
 
-        result = mockMvc.perform(getViewRequest());
+        result = mockMvc.perform(getFormRequest());
 
-        // The response model contains the expected attributes
-        result.andExpect(MockMvcResultMatchers.model()
-                .attributeExists(ExampleEntityViewConstants.PARAM_ENTITIES));
+        // The view is valid
+        result.andExpect(MockMvcResultMatchers.view()
+                .name(ExampleEntityViewConstants.VIEW_ENTITY_LIST));
+        
+        Mockito.verify(service, Mockito.times(1)).add(Mockito.any());
     }
 
     /**
      * Returns a controller with mocked dependencies.
      * 
+     * @param service
+     *            service for the controller
      * @return a mocked controller
      */
-    private final ExampleEntityListController getController() {
-        final ExampleEntityService service; // Mocked service
+    private final ExampleEntityFormController
+            getController(final ExampleEntityService service) {
         final Collection<DefaultExampleEntity> entities; // Mocked entities
-
-        service = Mockito.mock(ExampleEntityService.class);
 
         entities = new ArrayList<>();
 
         Mockito.when(service.getAllEntities()).thenReturn(entities);
 
-        return new ExampleEntityListController(service);
+        return new ExampleEntityFormController(service);
     }
 
     /**
-     * Returns a request builder for getting the entities list view.
+     * Returns a request builder for posting the form data.
+     * <p>
+     * This request contains all the required request parameters.
+     * <p>
+     * There is only a single required parameter, the {@code name} parameter.
      * 
-     * @return a request builder for the entities list view
+     * @return a request builder for posting the form data
      */
-    private final RequestBuilder getViewRequest() {
-        return MockMvcRequestBuilders.get(UrlConfig.URL_LIST);
+    private final RequestBuilder getFormRequest() {
+        return MockMvcRequestBuilders.post(UrlConfig.URL_FORM_POST)
+                .param("name", "name");
     }
 
 }

@@ -8,6 +8,7 @@
 
    <section id="main-section" class="container-fluid">
       <h1 th:text="#{title.entity.form}">Entity form</h1>
+      <p>This view allows adding entities through an HTML form.</p>
       <section id="form" class="form-well">
          <form action="#" th:action="@{/entity}"
             th:object="${form}" method="post" role="form" class="form">

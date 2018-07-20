@@ -24,4 +24,23 @@ $(document).ready(function() {
 		} ]
 	});
 
+   $(".dataTableAjax").DataTable({
+      "renderer" : "bootstrap",
+      "order" : [],
+      "columnDefs" : [ {
+         "targets" : "no-sort",
+         "orderable" : false,
+      }, {
+         "targets" : "hidden",
+         "visible" : false,
+      } ],
+      "columns" : [ {
+         "content" : "name"
+      } ],
+      "ajax" : {
+         "url" : "/rest/entity",
+         "dataSrc" : "content"
+      },
+   });
+
 });

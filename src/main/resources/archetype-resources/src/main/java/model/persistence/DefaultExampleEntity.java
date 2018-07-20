@@ -49,7 +49,7 @@ import ${package}.model.ExampleEntity;
  */
 @Entity(name = "ExampleEntity")
 @Table(name = "example_entities")
-public final class DefaultExampleEntity implements ExampleEntity {
+public class DefaultExampleEntity implements ExampleEntity {
 
     /**
      * Serialization ID.
@@ -108,12 +108,12 @@ public final class DefaultExampleEntity implements ExampleEntity {
      * @return the entity's identifier
      */
     @Override
-    public final Integer getId() {
+    public Integer getId() {
         return id;
     }
 
     @Override
-    public final String getName() {
+    public String getName() {
         return name;
     }
 
@@ -123,12 +123,12 @@ public final class DefaultExampleEntity implements ExampleEntity {
     }
 
     @Override
-    public final void setId(final Integer value) {
+    public void setId(final Integer value) {
         id = checkNotNull(value, "Received a null pointer as identifier");
     }
 
     @Override
-    public final void setName(final String value) {
+    public void setName(final String value) {
         name = checkNotNull(value, "Received a null pointer as name");
     }
 

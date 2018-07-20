@@ -33,8 +33,10 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.platform.runner.JUnitPlatform;
+import org.junit.runner.RunWith;
 
-import ${package}.controller.entity.bean.ExampleEntityForm;
+import ${package}.model.form.ExampleEntityForm;
 
 /**
  * Unit tests for {@link ExampleEntityForm} bean validation.
@@ -44,6 +46,7 @@ import ${package}.controller.entity.bean.ExampleEntityForm;
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
+@RunWith(JUnitPlatform.class)
 public final class TestExampleEntityFormValidation {
 
     /**

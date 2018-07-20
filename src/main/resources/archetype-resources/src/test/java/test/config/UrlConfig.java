@@ -47,6 +47,11 @@ public final class UrlConfig {
     public static final String URL_LIST      = "/entity/list";
 
     /**
+     * Entities REST URL.
+     */
+    public static final String URL_REST      = "/rest/entity";
+
+    /**
      * Default constructor to avoid initialization.
      */
     private UrlConfig() {

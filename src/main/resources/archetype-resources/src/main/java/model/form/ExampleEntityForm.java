@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package ${package}.controller.entity.bean;
+package ${package}.model.form;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -34,7 +34,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import com.google.common.base.MoreObjects;
 
 /**
- * Represents the form used for the creating and edition example entities.
+ * Represents the form used for the creating and editing example entities.
  * <p>
  * This is a DTO, meant to allow communication between the view and the
  * controller, and mapping all the values from the form. Each of field in the

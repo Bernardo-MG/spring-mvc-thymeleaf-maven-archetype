@@ -22,11 +22,9 @@
  * SOFTWARE.
  */
 
-package ${package}.controller;
+package ${package}.controller.error;
 
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -35,29 +33,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @Controller
-@RequestMapping("/")
-public class HomeController {
+public class ErrorController {
 
     /**
-     * Name for the welcome view.
+     * Name for the 404 error view.
      */
-    private static final String VIEW_WELCOME = "welcome";
+    private static final String VIEW_404 = "404";
 
     /**
      * Default constructor.
      */
-    public HomeController() {
+    public ErrorController() {
         super();
     }
 
     /**
-     * Shows the welcome view.
+     * Shows the 404 error view.
      * 
-     * @return the welcome view
+     * @return the 404 error view
      */
-    @GetMapping(produces = MediaType.TEXT_HTML_VALUE)
-    public final String showWelcome() {
-        return VIEW_WELCOME;
+    @RequestMapping("/404")
+    public final String show404() {
+        return VIEW_404;
     }
 
 }

@@ -9,19 +9,13 @@
 
    <section id="main-section" class="container-fluid">
       <h1 th:text="#{title.entity.list}">Entity list</h1>
-      <p>This view shows data embedded into the template. There are no additional request for changing pages.</p>
-      <table class="table table-striped display dataTable">
+      <p>This view shows data loaded through an AJAX request.</p>
+      <table class="table table-striped display dataTableAjax">
          <thead>
             <tr>
                <th th:text="#{label.name}">Name</th>
             </tr>
          </thead>
-         <tbody>
-            <tr th:each="entity : ${symbol_dollar}{entities}">
-               <td><span th:remove="tag"
-                  th:text="${symbol_dollar}{entity?.name}">Name</span></td>
-            </tr>
-         </tbody>
       </table>
    </section>
 

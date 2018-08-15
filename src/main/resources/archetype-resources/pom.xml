@@ -391,7 +391,7 @@
       <postgresql.version>42.1.4</postgresql.version>
       <servlet.version>4.0.1</servlet.version>
       <slf4j.version>1.8.0-alpha2</slf4j.version>
-      <spring.data.version>2.0.9.RELEASE</spring.data.version>
+      <spring.data.train.version>Kay-RELEASE</spring.data.train.version>
       <spring.version>5.0.8.RELEASE</spring.version>
       <thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
       <webjars.bootstrap.version>3.3.7-1</webjars.bootstrap.version>
@@ -427,6 +427,14 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-framework-bom</artifactId>
             <version>${spring.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+         </dependency>
+         <dependency>
+            <!-- Spring Data Train BOM -->
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-releasetrain</artifactId>
+            <version>${spring.data.train.version}</version>
             <type>pom</type>
             <scope>import</scope>
          </dependency>
@@ -469,7 +477,6 @@
          <!-- Spring Data JPA -->
          <groupId>org.springframework.data</groupId>
          <artifactId>spring-data-jpa</artifactId>
-         <version>${spring.data.version}</version>
       </dependency>
       <dependency>
          <!-- Spring JDBC -->

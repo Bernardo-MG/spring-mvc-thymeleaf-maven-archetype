@@ -16,7 +16,7 @@ A [Maven Archetype][maven-archetype] for generating a Spring MVC project using T
 - Using [Bootstrap][bootstrap] for the UI.
 - Using [Liquibase][liquibase] for database versioning.
 - Integrates with [Jasper Reports][jasper] for generating PDFs.
-- Creates a new Maven library with a fully configured POM, extending from [bernardomg's Base POM][base-pom], including features such as build validation, changes report or manifest configuration.
+- Fully configured POM, extending from [bernardomg's Base POM][base-pom], including features such as build validation, changes report or manifest configuration.
 - Sets up continuous integration with [Github][github], [Travis][travis] and [Bintray][bintray]. Making a distinction between releases and development versions.
 - Prepared for unit and integration tests suites. Created with [JUnit][junit] and ready to be run with [Surefire][surefire] and [Failsafe][failsafe].
 - A Maven site, using the [Docs Maven Skin][docs-skin], for sharing the project's documentation along the Javadocs and various reports which range from code quality to changes log.

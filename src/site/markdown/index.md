@@ -2,7 +2,7 @@
 
 Archetypes act as templates for new Maven projects, taking care of the most tedious and repetitive tasks for the user, who can just begin coding a pre-configured project.
 
-In this case this Archetype creates a [Spring MVC][spring-mvc] application, using [Thymeleaf][thymeleaf] templates for the views. It also comes ready for a full development cycle ausing [Travis](https://travis-ci.org) for CI, [Github](https://github.com/) for SCM, and [Bintray](https://bintray.com/) as the code repository.
+In this case this Archetype creates a [Spring MVC][spring-mvc] application, using [Thymeleaf][thymeleaf] templates for the views. It also comes ready for a full development cycle using [Travis](https://travis-ci.org) for CI, [Github](https://github.com/) for SCM, and [Bintray](https://bintray.com/) as the code repository.
 
 ## Features
 

@@ -409,7 +409,6 @@
       <plugin.jshint.version>1.6.0</plugin.jshint.version>
       <plugin.minify.version>1.7.6</plugin.minify.version>
       <plugin.tomcat7.version>2.2</plugin.tomcat7.version>
-      <plugin.war.version>3.2.0</plugin.war.version>
       <!-- ============================================== -->
       <!-- ================= MAVEN SITE ================= -->
       <!-- ============================================== -->

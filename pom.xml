@@ -30,7 +30,7 @@
    <name>Spring MVC with Thymeleaf Maven Archetype</name>
    <description>A Maven Archetype for Spring MVC, and Thymeleaf, projects.</description>
    <url>https://www.github.com/bernardo-mg/spring-mvc-thymeleaf-maven-archetype</url>
-   <inceptionYear>2015</inceptionYear>
+   <inceptionYear>2017</inceptionYear>
 
    <licenses>
       <license>

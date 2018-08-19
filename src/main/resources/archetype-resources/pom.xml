@@ -158,8 +158,7 @@
             <!-- Access data -->
             <!-- Default values for testing and development -->
             <!-- Override them for production -->
-            <database.url>jdbc:mysql://localhost:3306/${artifactId.replace("-",
-               "_")}</database.url>
+            <database.url>jdbc:mysql://localhost:3306/${artifactId.replace("-", "_")}</database.url>
             <database.username>root</database.username>
             <database.password></database.password>
             <!-- Spring context -->
@@ -182,7 +181,7 @@
             <!-- Access data -->
             <!-- Default values for testing and development -->
             <!-- Override them for production -->
-            <database.url>jdbc:postgresql://localhost:5432/${artifactId.replace("-","_")}</database.url>
+            <database.url>jdbc:postgresql://localhost:5432/${artifactId.replace("-", "_")}</database.url>
             <database.username>postgres</database.username>
             <database.password></database.password>
             <!-- Spring context -->

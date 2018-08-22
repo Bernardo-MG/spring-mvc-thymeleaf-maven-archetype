@@ -35,13 +35,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @Controller
-@RequestMapping("/")
+@RequestMapping("/**")
 public class HomeController {
 
     /**
      * Name for the welcome view.
      */
-    private static final String VIEW_WELCOME = "welcome";
+    private static final String VIEW_WELCOME = "index";
 
     /**
      * Default constructor.

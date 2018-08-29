@@ -43,8 +43,7 @@ import ${package}.service.ExampleEntityService;
 import ${package}.test.config.UrlConfig;
 
 /**
- * Unit tests for {@link ExampleEntityFormController}, checking the methods for
- * sending the form data.
+ * Unit tests for {@link GlobalExceptionHandler}, checking that it catches and handles errors.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
@@ -79,8 +78,7 @@ public final class TestGlobalExceptionHandler {
     }
 
     /**
-     * Verifies that after received valid form data the expected view is
-     * returned.
+     * Verifies that when an exception is thrown in the backend  the error view is returned.
      */
     @Test
     public final void testSendFormData_ExpectedView() throws Exception {

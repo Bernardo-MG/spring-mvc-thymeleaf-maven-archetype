@@ -371,28 +371,28 @@
       <classmate.version>1.3.4</classmate.version>
       <commons.logging.version>1.2</commons.logging.version>
       <glassfish.el>2.2</glassfish.el>
-      <guava.version>26.0-jre</guava.version>
+      <guava.version>27.1-jre</guava.version>
       <h2.version>1.4.197</h2.version>
       <hamcrest.version>2.0.0.0</hamcrest.version>
       <hibernate.validator.version>5.4.1.Final</hibernate.validator.version>
       <hibernate.version>5.2.17.Final</hibernate.version>
-      <hikari.version>2.7.8</hikari.version>
-      <jackson.version>2.9.6</jackson.version>
+      <hikari.version>3.1.0</hikari.version>
+      <jackson.version>2.9.8</jackson.version>
       <javaee.api.version>2.2</javaee.api.version>
       <jasperreports.version>6.4.1</jasperreports.version>
       <jsonpath.version>2.4.0</jsonpath.version>
       <junit.jupiter.version>5.2.0</junit.jupiter.version>
       <junit.platform.version>1.2.0</junit.platform.version>
       <liquibase.version>3.6.2</liquibase.version>
-      <log4j.version>2.9.1</log4j.version>
+      <log4j.version>2.11.1</log4j.version>
       <mockito.version>2.21.0</mockito.version>
       <mysql.version>5.1.39</mysql.version>
       <postgresql.version>42.1.4</postgresql.version>
       <servlet.version>4.0.1</servlet.version>
       <slf4j.version>1.8.0-alpha2</slf4j.version>
-      <spring.data.train.version>Kay-RELEASE</spring.data.train.version>
-      <spring.version>5.0.8.RELEASE</spring.version>
-      <thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
+      <spring.data.train.version>Lovelace-RELEASE</spring.data.train.version>
+      <spring.version>5.1.5.RELEASE</spring.version>
+      <thymeleaf.version>3.0.11.RELEASE</thymeleaf.version>
       <webjars.bootstrap.version>3.3.7-1</webjars.bootstrap.version>
       <webjars.bootswatch.version>3.3.7</webjars.bootswatch.version>
       <webjars.fontAwesome.version>4.7.0</webjars.fontAwesome.version>
@@ -410,7 +410,7 @@
       <!-- ============================================== -->
       <!-- ================= MAVEN SITE ================= -->
       <!-- ============================================== -->
-      <site.skin.version>1.3.2</site.skin.version>
+      <site.skin.version>1.4.0</site.skin.version>
    </properties>
 
    <!-- ********************************************** -->

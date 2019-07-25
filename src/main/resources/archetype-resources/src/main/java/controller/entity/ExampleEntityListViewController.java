@@ -86,15 +86,6 @@ public class ExampleEntityListViewController {
     }
 
     /**
-     * Returns the example entity service.
-     * 
-     * @return the example entity service
-     */
-    private final ExampleEntityService getExampleEntityService() {
-        return exampleEntityService;
-    }
-
-    /**
      * Loads the model data required for the entities listing view.
      * <p>
      * As the view will list all the entities, it requires these entities as one
@@ -105,7 +96,7 @@ public class ExampleEntityListViewController {
      */
     private final void loadViewModel(final ModelMap model) {
         model.put(ExampleEntityViewConstants.PARAM_ENTITIES,
-                getExampleEntityService().getAllEntities());
+                exampleEntityService.getAllEntities());
     }
 
 }

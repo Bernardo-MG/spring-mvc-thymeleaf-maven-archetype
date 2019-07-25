@@ -72,16 +72,7 @@ public class ExampleEntityRestController {
      */
     @GetMapping
     public Iterable<? extends ExampleEntity> getEntities(final Pageable page) {
-        return getExampleEntityService().getEntities(page);
-    }
-
-    /**
-     * Returns the example entity service.
-     * 
-     * @return the example entity service
-     */
-    private final ExampleEntityService getExampleEntityService() {
-        return exampleEntityService;
+        return exampleEntityService.getEntities(page);
     }
 
 }

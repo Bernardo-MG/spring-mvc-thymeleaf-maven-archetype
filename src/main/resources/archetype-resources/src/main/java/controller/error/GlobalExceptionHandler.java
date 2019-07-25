@@ -42,7 +42,7 @@ import ${package}.controller.error.ErrorViewConstants;
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @ControllerAdvice
-public final class GlobalExceptionHandler
+public class GlobalExceptionHandler
         extends AbstractHandlerExceptionResolver {
 
     /**
@@ -59,7 +59,7 @@ public final class GlobalExceptionHandler
     }
 
     @Override
-    protected ModelAndView doResolveException(final HttpServletRequest request,
+    protected final ModelAndView doResolveException(final HttpServletRequest request,
             final HttpServletResponse response, final Object handler,
             final Exception ex) {
         final ModelAndView modelView;

@@ -61,7 +61,7 @@ public class ExampleEntityAjaxListController {
      * @return the name for the entities listing view
      */
     @GetMapping(path = "/list/ajax")
-    public final String showEntityList(final ModelMap model) {
+    public String showEntityList(final ModelMap model) {
         return ExampleEntityViewConstants.VIEW_ENTITY_LIST_AJAX;
     }
 

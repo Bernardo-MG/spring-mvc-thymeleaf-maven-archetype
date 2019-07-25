@@ -71,7 +71,7 @@ public class ExampleEntityRestController {
      * @return a paginated collection of entities
      */
     @GetMapping
-    public final Iterable<? extends ExampleEntity> getEntities(final Pageable page) {
+    public Iterable<? extends ExampleEntity> getEntities(final Pageable page) {
         return getExampleEntityService().getEntities(page);
     }
 

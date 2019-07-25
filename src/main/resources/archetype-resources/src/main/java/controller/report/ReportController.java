@@ -106,7 +106,7 @@ public class ReportController {
      *             if there is a problem when streaming into the response
      */
     @GetMapping(path = "/pdf")
-    public final void getPdfReport(final Model model,
+    public void getPdfReport(final Model model,
             final HttpServletRequest request,
             final HttpServletResponse response)
             throws JRException, IOException {

@@ -79,7 +79,7 @@ public class ExampleEntityFormController {
      * @return the initial entity form data
      */
     @ModelAttribute(ExampleEntityViewConstants.BEAN_FORM)
-    public final ExampleEntityForm getEntityForm() {
+    public ExampleEntityForm getEntityForm() {
         return new ExampleEntityForm();
     }
 
@@ -97,7 +97,7 @@ public class ExampleEntityFormController {
      * @return the next view to show
      */
     @PostMapping
-    public final String saveEntity(final ModelMap model,
+    public String saveEntity(final ModelMap model,
             @ModelAttribute(ExampleEntityViewConstants.BEAN_FORM) @Valid final ExampleEntityForm form,
             final BindingResult bindingResult, final HttpServletResponse response) {
         final String path;
@@ -138,7 +138,7 @@ public class ExampleEntityFormController {
      * @return the name for the entity edition view
      */
     @GetMapping(path = "/edit")
-    public final String showEntityForm() {
+    public String showEntityForm() {
         return ExampleEntityViewConstants.VIEW_ENTITY_FORM;
     }
 

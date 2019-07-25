@@ -78,7 +78,7 @@ public class ExampleEntityListViewController {
      * @return the name for the entities listing view
      */
     @GetMapping(path = "/list")
-    public final String showEntityList(final ModelMap model) {
+    public String showEntityList(final ModelMap model) {
         // Loads required data into the model
         loadViewModel(model);
 

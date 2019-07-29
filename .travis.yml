@@ -8,6 +8,7 @@ jdk:
   - oraclejdk8
 env:
   - DEPLOY=true DEPLOY_DOCS=true
+dist: precise
 
 before_install:
   # Gets scripts

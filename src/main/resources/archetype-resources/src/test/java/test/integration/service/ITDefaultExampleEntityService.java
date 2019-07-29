@@ -60,7 +60,7 @@ import ${package}.service.ExampleEntityService;
         "classpath:context/application-context.xml" })
 @TestPropertySource({ "classpath:config/persistence-access.properties",
         "classpath:config/service.properties" })
-public final class ITDefaultExampleEntityService {
+public class ITDefaultExampleEntityService {
 
     /**
      * Service being tested.
@@ -79,7 +79,7 @@ public final class ITDefaultExampleEntityService {
      * Verifies that the service adds entities into persistence.
      */
     @Test
-    public final void testAdd_NotExisting_Added() {
+    public void testAdd_NotExisting_Added() {
         final DefaultExampleEntity entity; // Entity to add
         final Integer entitiesCount;       // Original number of entities
         final Integer finalEntitiesCount;  // Final number of entities
@@ -103,7 +103,7 @@ public final class ITDefaultExampleEntityService {
      * entity.
      */
     @Test
-    public final void testFindById_Existing_Valid() {
+    public void testFindById_Existing_Valid() {
         final ExampleEntity entity; // Found entity
 
         entity = service.findById(1);
@@ -116,7 +116,7 @@ public final class ITDefaultExampleEntityService {
      * entity.
      */
     @Test
-    public final void testFindById_NotExisting_Invalid() {
+    public void testFindById_NotExisting_Invalid() {
         final ExampleEntity entity; // Found entity
 
         entity = service.findById(100);

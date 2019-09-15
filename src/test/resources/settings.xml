@@ -2,5 +2,7 @@
    <activeProfiles>
       <activeProfile>h2</activeProfile>
       <activeProfile>tomcat7</activeProfile>
+      <activeProfile>db-properties</activeProfile>
+      <activeProfile>development</activeProfile>
    </activeProfiles>
 </settings>

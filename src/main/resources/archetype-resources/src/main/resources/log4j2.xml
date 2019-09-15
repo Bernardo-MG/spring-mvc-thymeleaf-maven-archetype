@@ -17,6 +17,8 @@
    </Appenders>
 
    <Loggers>
+
+      <!-- Application log -->
       <Logger name="${groupId}" level="debug" additivity="false">
          <AppenderRef ref="file" />
          <AppenderRef ref="console" />
@@ -34,6 +36,12 @@
          <AppenderRef ref="console" />
       </Logger>
       <Logger name="org.hibernate.SQL" level="warn" additivity="false">
+         <AppenderRef ref="file" />
+         <AppenderRef ref="console" />
+      </Logger>
+
+      <!-- Hikari -->
+      <Logger name="com.zaxxer.hikari" level="debug" additivity="false">
          <AppenderRef ref="file" />
          <AppenderRef ref="console" />
       </Logger>

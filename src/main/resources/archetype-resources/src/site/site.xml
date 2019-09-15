@@ -40,6 +40,7 @@
       <menu name="Documentation" inherit="bottom">
          <item name="Acquire" href="./acquire.html" />
          <item name="Usage" href="./usage.html" />
+         <item name="Building" href="./building.html" />
       </menu>
       <menu name="Info and reports" inherit="bottom">
          <item name="Info" href="./info.html" />

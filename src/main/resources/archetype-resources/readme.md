@@ -115,13 +115,13 @@ mvn verify -P h2,jetty
 
 ${symbol_pound}${symbol_pound}${symbol_pound} Packaging the WAR
 
-When creating the WAR file the database connection credentials should be set manually:
+When creating the WAR file the database connection credentials should be read from the environment:
 
 ```
-mvn package -P mysql -Ddatabase.username=[username] -Ddatabase.password=[password] -Ddatabase.url=[DB url]
+mvn package -P production,mysql -D database.auth.source=env
 ```
 
-Otherwise the project will try to use the default testing values.
+Check the documentation for more information.
 
 ${symbol_pound}${symbol_pound} Collaborate
 

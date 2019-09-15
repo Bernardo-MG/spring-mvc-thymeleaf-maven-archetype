@@ -42,6 +42,7 @@
          <item name="Travis Integration" href="./travis.html" />
          <item name="Tests" href="./tests.html" />
          <item name="Maven Configuration" href="./maven.html" />
+         <item name="Building" href="./building.html" />
          <item name="Deployment" href="./deployment.html" />
          <item name="Maven Site and Reports" href="./site.html" />
          <item name="The Changes Log" href="./changes.html" />

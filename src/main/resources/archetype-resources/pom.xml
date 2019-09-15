@@ -368,6 +368,7 @@
       <!-- ============================================== -->
       <!-- =========== DEPENDENCIES VERSIONS ============ -->
       <!-- ============================================== -->
+      <aspectj.version>1.9.4</aspectj.version>
       <classmate.version>1.3.4</classmate.version>
       <commons.logging.version>1.2</commons.logging.version>
       <glassfish.el>2.2</glassfish.el>
@@ -499,6 +500,22 @@
          <!-- Spring ORM -->
          <groupId>org.springframework</groupId>
          <artifactId>spring-orm</artifactId>
+      </dependency>
+      <!-- ============================================== -->
+      <!-- ================= ASPECTJ ==================== -->
+      <!-- ============================================== -->
+      <dependency>
+         <!-- AspectJ Runtime -->
+         <groupId>org.aspectj</groupId>
+         <artifactId>aspectjrt</artifactId>
+         <version>${aspectj.version}</version>
+      </dependency>
+      <dependency>
+         <!-- AspectJ Weaver -->
+         <groupId>org.aspectj</groupId>
+         <artifactId>aspectjweaver</artifactId>
+         <version>${aspectj.version}</version>
+         <scope>runtime</scope>
       </dependency>
       <!-- ============================================== -->
       <!-- ============== JPA DEPENDENCIES ============== -->

@@ -360,12 +360,6 @@
          <!-- Production profile -->
          <!-- Sets ups the environment for production -->
          <id>production</id>
-         <activation>
-            <property>
-               <name>env.ENVIRONMENT_MODE</name>
-               <value>production</value>
-            </property>
-         </activation>
       </profile>
       <profile>
          <!-- Development profile -->
@@ -375,34 +369,6 @@
             <!-- Active by default to ease development -->
             <activeByDefault>true</activeByDefault>
          </activation>
-         <build>
-            <plugins>
-               <plugin>
-                  <!-- Frontend Plugin -->
-                  <groupId>com.github.eirslett</groupId>
-                  <artifactId>frontend-maven-plugin</artifactId>
-                  <executions>
-                     <execution>
-                        <!-- Builds the frontend -->
-                        <id>frontend-build</id>
-                        <goals>
-                           <goal>npm</goal>
-                        </goals>
-                        <configuration>
-                           <arguments>run development</arguments>
-                           <environmentVariables>
-                              <APP_VERSION>${node.env.appVersion}</APP_VERSION>
-                              <REPO_URL>${node.env.repoUrl}</REPO_URL>
-                              <INPUT_PATH>${node.env.inputPath}</INPUT_PATH>
-                              <OUTPUT_PATH>${node.env.outputPath}</OUTPUT_PATH>
-                              <MODULE_PATH>${node.env.modules}</MODULE_PATH>
-                           </environmentVariables>
-                        </configuration>
-                     </execution>
-                  </executions>
-               </plugin>
-            </plugins>
-         </build>
       </profile>
       <!-- ============================================== -->
       <!-- =============== HOST PROFILES ================ -->

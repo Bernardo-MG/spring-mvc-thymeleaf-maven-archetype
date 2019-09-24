@@ -12,7 +12,7 @@
    <parent>
       <groupId>com.bernardomg.maven</groupId>
       <artifactId>base-pom</artifactId>
-      <version>1.2.4</version>
+      <version>1.3.0</version>
    </parent>
 
    <!-- ********************************************** -->
@@ -449,6 +449,10 @@
 
    <properties>
       <!-- ============================================== -->
+      <!-- =============== MAVEN VERSION ================ -->
+      <!-- ============================================== -->
+      <maven.version>3.5.0</maven.version>
+      <!-- ============================================== -->
       <!-- ================ JAVA VERSION ================ -->
       <!-- ============================================== -->
       <java.version>1.8</java.version>
@@ -495,7 +499,7 @@
       <!-- ============================================== -->
       <!-- ============== PLUGINS VERSIONS ============== -->
       <!-- ============================================== -->
-      <plugin.jetty.version>9.4.8.v20171121</plugin.jetty.version>
+      <plugin.jetty.version>9.4.20.v20190813</plugin.jetty.version>
       <plugin.jshint.version>1.6.0</plugin.jshint.version>
       <plugin.minify.version>1.7.6</plugin.minify.version>
       <plugin.tomcat7.version>2.2</plugin.tomcat7.version>

@@ -35,6 +35,8 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.transaction.annotation.Transactional;
 
+import org.junit.jupiter.api.Test;
+
 import org.junit.Assert;
 
 import ${package}.model.ExampleEntity;

@@ -477,8 +477,7 @@
       <javaee.api.version>2.2</javaee.api.version>
       <jasperreports.version>6.4.1</jasperreports.version>
       <jsonpath.version>2.4.0</jsonpath.version>
-      <junit.jupiter.version>5.2.0</junit.jupiter.version>
-      <junit.platform.version>1.2.0</junit.platform.version>
+      <junit.jupiter.version>5.5.2</junit.jupiter.version>
       <liquibase.version>3.6.2</liquibase.version>
       <log4j.version>2.11.1</log4j.version>
       <mockito.version>2.21.0</mockito.version>
@@ -536,6 +535,14 @@
             <groupId>com.fasterxml.jackson</groupId>
             <artifactId>jackson-bom</artifactId>
             <version>${jackson.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+         </dependency>
+         <dependency>
+            <!-- JUnit BOM -->
+            <groupId>org.junit</groupId>
+            <artifactId>junit-bom</artifactId>
+            <version>${junit.jupiter.version}</version>
             <type>pom</type>
             <scope>import</scope>
          </dependency>
@@ -839,14 +846,12 @@
          <!-- JUnit Jupiter Engine -->
          <groupId>org.junit.jupiter</groupId>
          <artifactId>junit-jupiter-engine</artifactId>
-         <version>${junit.jupiter.version}</version>
          <scope>test</scope>
       </dependency>
       <dependency>
          <!-- JUnit Jupiter Platform -->
          <groupId>org.junit.platform</groupId>
          <artifactId>junit-platform-runner</artifactId>
-         <version>${junit.platform.version}</version>
          <scope>test</scope>
       </dependency>
       <dependency>

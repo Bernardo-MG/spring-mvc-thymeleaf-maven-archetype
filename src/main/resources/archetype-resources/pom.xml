@@ -484,7 +484,7 @@
       <jasperreports.version>6.4.1</jasperreports.version>
       <jsonpath.version>2.4.0</jsonpath.version>
       <junit.jupiter.version>5.5.2</junit.jupiter.version>
-      <liquibase.version>3.6.2</liquibase.version>
+      <liquibase.version>3.7.0</liquibase.version>
       <log4j.version>2.12.1</log4j.version>
       <mockito.version>3.1.0</mockito.version>
       <mysql.version>5.1.39</mysql.version>

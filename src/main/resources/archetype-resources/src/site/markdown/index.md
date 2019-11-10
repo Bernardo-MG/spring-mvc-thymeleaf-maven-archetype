@@ -18,6 +18,6 @@ While the project can be used just by itself, it won't take full advantage of mo
 - Continuous integration, Travis CI by default.
 - Releases repository, Bintray by default.
 - Test artifacts repository, Sonatype OSS by default.
-- Documentation repository, a FTP by default.
+- Documentation repository, through SSH by default.
 
 [archetype]: https://www.github.com/bernardo-mg/spring-mvc-thymeleaf-maven-archetype

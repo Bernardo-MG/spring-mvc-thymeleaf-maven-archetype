@@ -34,7 +34,7 @@ import org.springframework.web.bind.annotation.InitBinder;
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @ControllerAdvice
-public final class GlobalBindingInitializer {
+public class GlobalBindingInitializer {
 
     /**
      * Default constructor.
@@ -50,7 +50,7 @@ public final class GlobalBindingInitializer {
      *            data binder
      */
     @InitBinder
-    public final void setDisallowedFields(final WebDataBinder dataBinder) {
+    public void setDisallowedFields(final WebDataBinder dataBinder) {
         dataBinder.setDisallowedFields("id");
     }
 

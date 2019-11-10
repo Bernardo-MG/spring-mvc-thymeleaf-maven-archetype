@@ -6,15 +6,15 @@
       <Property name="filename">testing.log</Property>
    </Properties>
 
-    <Appenders>
-        <Console name="console" target="SYSTEM_OUT">
-            <PatternLayout pattern="[%p] %d %c %M - %m%n" />
-        </Console>
+   <Appenders>
+      <Console name="console" target="SYSTEM_OUT">
+         <PatternLayout pattern="%-5p | %d{ISO8601} | %c{1.} %M %L | %m%n" />
+      </Console>
 
-        <File name="file" fileName="${filename}">
-            <PatternLayout pattern="[%p] %d %c %M - %m%n" />
-        </File>
-    </Appenders>
+      <File name="file" fileName="${filename}">
+         <PatternLayout pattern="%-5p | %d{ISO8601} | %c{1.} %M %L | %m%n" />
+      </File>
+   </Appenders>
 
    <Loggers>
       <Logger name="${groupId}" level="debug" additivity="false">

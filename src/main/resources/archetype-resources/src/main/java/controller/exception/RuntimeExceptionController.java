@@ -50,7 +50,7 @@ public class RuntimeExceptionController {
      * Throws a runtime exception.
      */
     @GetMapping(path = "/runtime")
-    public final void showEntityList() {
+    public void showEntityList() {
         throw new RuntimeException("Some unspecified error has occurred");
     }
 

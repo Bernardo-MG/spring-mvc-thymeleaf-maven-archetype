@@ -106,14 +106,14 @@ public class ReportController {
      *             if there is a problem when streaming into the response
      */
     @GetMapping(path = "/pdf")
-    public final void getPdfReport(final Model model,
+    public void getPdfReport(final Model model,
             final HttpServletRequest request,
             final HttpServletResponse response)
             throws JRException, IOException {
         final JasperPrint jasperPrint;
 
-        jasperPrint = getExampleEntityReportService()
-                .getReport(getExampleEntityService().getAllEntities());
+        jasperPrint = exampleEntityReportService
+                .getReport(exampleEntityService.getAllEntities());
 
         response.setContentType(MediaType.APPLICATION_PDF_VALUE);
         response.setHeader("Content-disposition",
@@ -121,24 +121,6 @@ public class ReportController {
 
         JasperExportManager.exportReportToPdfStream(jasperPrint,
                 response.getOutputStream());
-    }
-
-    /**
-     * Returns the report service.
-     * 
-     * @return the report service
-     */
-    private final ExampleEntityReportService getExampleEntityReportService() {
-        return exampleEntityReportService;
-    }
-
-    /**
-     * Returns the example entity service.
-     * 
-     * @return the example entity service
-     */
-    private final ExampleEntityService getExampleEntityService() {
-        return exampleEntityService;
     }
 
 }

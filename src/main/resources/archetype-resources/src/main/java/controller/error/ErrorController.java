@@ -53,7 +53,7 @@ public class ErrorController {
      * @return the 404 error view
      */
     @RequestMapping("/404")
-    public final String show404() {
+    public String show404() {
         return VIEW_404;
     }
 

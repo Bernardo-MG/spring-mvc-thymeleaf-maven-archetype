@@ -8,15 +8,17 @@
 
    <Appenders>
       <Console name="console" target="SYSTEM_OUT">
-         <PatternLayout pattern="[%p] %d %c %M - %m%n" />
+         <PatternLayout pattern="%-5p | %d{ISO8601} | %c{1.} %M %L | %m%n" />
       </Console>
 
       <File name="file" fileName="${filename}">
-         <PatternLayout pattern="[%p] %d %c %M - %m%n" />
+         <PatternLayout pattern="%-5p | %d{ISO8601} | %c{1.} %M %L | %m%n" />
       </File>
    </Appenders>
 
    <Loggers>
+
+      <!-- Application log -->
       <Logger name="${groupId}" level="debug" additivity="false">
          <AppenderRef ref="file" />
          <AppenderRef ref="console" />
@@ -38,8 +40,15 @@
          <AppenderRef ref="console" />
       </Logger>
 
+      <!-- Hikari -->
+      <Logger name="com.zaxxer.hikari" level="debug" additivity="false">
+         <AppenderRef ref="file" />
+         <AppenderRef ref="console" />
+      </Logger>
+
       <!-- Jackson -->
-      <logger name="com.fasterxml.jackson" level="warn" additivity="false">
+      <logger name="com.fasterxml.jackson" level="warn"
+         additivity="false">
          <AppenderRef ref="file" />
          <AppenderRef ref="console" />
       </logger>

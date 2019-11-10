@@ -12,6 +12,9 @@
          <action dev="bmg" type="fix">
             Several small fixes.
          </action>
+         <action dev="bmg" type="remove">
+            Removed AJAX page.
+         </action>
       </release>
       <release version="1.1.4" date="2018-07-20" description="Added configuration">
          <action dev="bmg" type="add">

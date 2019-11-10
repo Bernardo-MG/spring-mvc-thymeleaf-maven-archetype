@@ -360,6 +360,12 @@
          <!-- Production profile -->
          <!-- Sets ups the environment for production -->
          <id>production</id>
+         <activation>
+            <property>
+               <name>env.ENVIRONMENT_MODE</name>
+               <value>production</value>
+            </property>
+         </activation>
       </profile>
       <profile>
          <!-- Development profile -->

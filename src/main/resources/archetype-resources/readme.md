@@ -83,6 +83,10 @@ Maven profiles are included for setting up the database and an embedded server.
 | jetty    | Jetty embedded server    |
 | tomcat7  | Tomcat 7 embedded server |
 
+| Profile       | Server                                            |
+|---------------|---------------------------------------------------|
+| db-properties | DB authentication info taken from properties file |
+
 ${symbol_pound}${symbol_pound}${symbol_pound} Installing
 
 The project can be installed by creating the war file and deploying it into a server.
@@ -92,13 +96,13 @@ ${symbol_pound}${symbol_pound}${symbol_pound} Running
 To run the project locally in an embedded server just use the following Maven command for deploying to Jetty with an H2 in-memory database:
 
 ```
-mvn jetty:run-war -P h2,jetty
+mvn jetty:run-war -P h2,db-properties,jetty
 ```
 
 An embedded Tomcat can be used through this other profile:
 
 ```
-mvn tomcat7:run-war -P h2,tomcat7
+mvn tomcat7:run-war -P h2,db-properties,tomcat7
 ```
 
 With this the project will be accessible at [http://localhost:8080/].
@@ -110,7 +114,7 @@ The project requires a database and a server for being able to run the integrati
 Just like running the project, an embedded server with an in-memory database can be used:
 
 ```
-mvn verify -P h2,jetty
+mvn verify -P h2,db-properties,jetty
 ```
 
 ${symbol_pound}${symbol_pound}${symbol_pound} Packaging the WAR

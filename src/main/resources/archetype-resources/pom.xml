@@ -491,7 +491,6 @@
       <webjars.bootstrap.version>3.4.1</webjars.bootstrap.version>
       <webjars.bootswatch.version>3.3.7</webjars.bootswatch.version>
       <webjars.fontAwesome.version>5.7.2</webjars.fontAwesome.version>
-      <webjars.datatables.version>1.10.16</webjars.datatables.version>
       <webjars.html5shiv.version>3.7.3-1</webjars.html5shiv.version>
       <webjars.jquery.version>3.3.1-2</webjars.jquery.version>
       <webjars.locator.version>0.34</webjars.locator.version>
@@ -712,12 +711,6 @@
          <groupId>org.webjars</groupId>
          <artifactId>bootswatch-readable</artifactId>
          <version>${webjars.bootswatch.version}</version>
-      </dependency>
-      <dependency>
-         <!-- Datatables -->
-         <groupId>org.webjars</groupId>
-         <artifactId>datatables</artifactId>
-         <version>${webjars.datatables.version}</version>
       </dependency>
       <dependency>
          <!-- Font Awesome -->

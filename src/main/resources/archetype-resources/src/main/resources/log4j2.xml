@@ -39,6 +39,10 @@
          <AppenderRef ref="file" />
          <AppenderRef ref="console" />
       </Logger>
+      <Logger name="org.hibernate.type.descriptor.sql" level="off" additivity="false">
+         <AppenderRef ref="file" />
+         <AppenderRef ref="console" />
+      </Logger>
 
       <!-- Hikari -->
       <Logger name="com.zaxxer.hikari" level="debug" additivity="false">

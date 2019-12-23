@@ -41,6 +41,9 @@
       <logger name="org.hibernate.SQL" level="off" additivity="false">
          <AppenderRef ref="console" />
       </logger>
+      <Logger name="org.hibernate.type.descriptor.sql" level="all" additivity="false">
+         <AppenderRef ref="console" />
+      </Logger>
       <logger name="log4j.logger.jdbc.sqlonly" level="all" additivity="false">
          <AppenderRef ref="console" />
       </logger>
@@ -48,7 +51,6 @@
       <!-- Root -->
       <Root level="error">
          <AppenderRef ref="console" />
-      </Root>
       </Root>
    </Loggers>
 

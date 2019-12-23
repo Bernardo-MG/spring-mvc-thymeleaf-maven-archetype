@@ -17,24 +17,38 @@
    </Appenders>
 
    <Loggers>
+      <!-- Application log -->
       <Logger name="${groupId}" level="debug" additivity="false">
          <AppenderRef ref="file" />
       </Logger>
 
-      <logger name="org.eclipse.jetty" level="trace" additivity="false">
-         <AppenderRef ref="file" />
+      <!-- Jetty -->
+      <logger name="org.eclipse.jetty" level="error" additivity="false">
+         <AppenderRef ref="console" />
       </logger>
 
-      <!-- Queries logs -->
+      <!-- Spring Framework -->
+      <Logger name="org.springframework" level="error" additivity="false">
+         <AppenderRef ref="console" />
+      </Logger>
 
-      <logger name="org.hibernate.SQL" level="trace" additivity="false">
-         <AppenderRef ref="file" />
+      <!-- Hikari -->
+      <Logger name="com.zaxxer.hikari" level="off" additivity="false">
+         <AppenderRef ref="console" />
+      </Logger>
+
+      <!-- Queries logs -->
+      <logger name="org.hibernate.SQL" level="off" additivity="false">
+         <AppenderRef ref="console" />
+      </logger>
+      <logger name="log4j.logger.jdbc.sqlonly" level="all" additivity="false">
+         <AppenderRef ref="console" />
       </logger>
 
       <!-- Root -->
-
       <Root level="error">
-         <AppenderRef ref="file" />
+         <AppenderRef ref="console" />
+      </Root>
       </Root>
    </Loggers>
 

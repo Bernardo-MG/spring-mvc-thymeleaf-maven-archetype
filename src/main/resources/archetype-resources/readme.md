@@ -1,7 +1,7 @@
 #set( $symbol_pound = '#' )
 ${symbol_pound} ${projectName}
 
-This is a [Spring MVC](https://spring.io) project using [Thymeleaf](http://www.thymeleaf.org/) templates for the views, created with the use of the [Spring MVC with Thymeleaf Maven Archetype](https://github.com/Bernardo-MG/spring-mvc-thymeleaf-maven-archetype). It will ease the development of new Spring MVC projects, setting it up for CI through the use of three free services: [Github](https://github.com/), [Travis](https://travis-ci.org) and [Bintray](https://bintray.com/).
+This is a [Spring MVC](https://spring.io) project using [Thymeleaf](https://www.thymeleaf.org/) templates for the views, created with the use of the [Spring MVC with Thymeleaf Maven Archetype](https://github.com/Bernardo-MG/spring-mvc-thymeleaf-maven-archetype). It will ease the development of new Spring MVC projects, setting it up for CI through the use of three free services: [Github](https://github.com/), [Travis](https://travis-ci.org) and [Bintray](https://bintray.com/).
 
 Before beginning with the new project there are a few things which should be edited:
 
@@ -28,12 +28,12 @@ The project by default comes with a useful series of features:
 
 - Preconfigured POM to begin developing a new [Spring MVC](https://spring.io) project.
 - Initial sample project including working persistence and exception handling
-- Integration with [Thymeleaf](http://www.thymeleaf.org/) for the view templates.
-- Using [Bootstrap](http://getbootstrap.com/) for the UI.
-- Using [Liquibase](http://www.liquibase.org/) for database versioning.
-- Integration with [Jasper Reports](http://community.jaspersoft.com/) for generating PDFs.
-- Prepared for [Travis CI](https://travis-ci.org/), including configuration files and deployment scripts. Check the [Archetype documentation](http://docs.bernardomg.com/maven/library-maven-archetype) to find out more.
-- Unit and integration tests suites ready to be run with [JUnit](http://junit.org) just by using the Maven test and verify commands.
+- Integration with [Thymeleaf](https://www.thymeleaf.org/) for the view templates.
+- Using [Bootstrap](https://getbootstrap.com/) for the UI.
+- Using [Liquibase](https://www.liquibase.org/) for database versioning.
+- Integration with [Jasper Reports](https://community.jaspersoft.com/) for generating PDFs.
+- Prepared for [Travis CI](https://travis-ci.org/), including configuration files and deployment scripts. Check the [Archetype documentation](https://docs.bernardomg.com/maven/library-maven-archetype) to find out more.
+- Unit and integration tests suites ready to be run with [JUnit](https://junit.org) just by using the Maven test and verify commands.
 - A Maven site, using the [Docs Maven Skin](https://github.com/Bernardo-MG/docs-maven-skin), to contain the documentation, the Javadocs and several reports.
 - A bunch of useful files, such as readme, gitignore and gitattributes.
 
@@ -147,11 +147,11 @@ ${symbol_pound}${symbol_pound} License
 The project has been released under the [MIT License][license].
 
 [bintray-repo]: https://bintray.com/${repoUserId}/maven/${artifactId}/view
-[maven-repo]: http://mvnrepository.com/artifact/${groupId}/${artifactId}
+[maven-repo]: https://mvnrepository.com/artifact/${groupId}/${artifactId}
 [issues]: https://github.com/${repoUserId}/${artifactId}/issues
 [javadoc-develop]: ${urlSiteDevelop}/${artifactId}/apidocs
 [javadoc-release]: ${urlSiteRelease}/${artifactId}/apidocs
-[license]: http://www.opensource.org/licenses/mit-license.php
+[license]: https://www.opensource.org/licenses/mit-license.php
 [scm]: https://github.com/${repoUserId}/${artifactId}
 [site-develop]: ${urlSiteDevelop}/${artifactId}
 [site-release]: ${urlSiteRelease}/${artifactId}

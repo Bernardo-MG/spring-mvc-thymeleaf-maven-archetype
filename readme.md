@@ -103,31 +103,31 @@ If you wish to fork or modify the code, visit the [GitHub project page][scm], wh
 The project has been released under the [MIT License][license].
 
 [bintray-repo]: https://bintray.com/bernardo-mg/maven/spring-mvc-thymeleaf-maven-archetype/view
-[maven-repo]: http://mvnrepository.com/artifact/com.bernardomg.maven.archetypes/spring-mvc-thymeleaf-archetype
-[junit]: http://junit.org
+[maven-repo]: https://mvnrepository.com/artifact/com.bernardomg.maven.archetypes/spring-mvc-thymeleaf-archetype
+[junit]: https://junit.org
 [issues]: https://github.com/Bernardo-MG/spring-mvc-thymeleaf-maven-archetype/issues
-[license]: http://www.opensource.org/licenses/mit-license.php
-[scm]: http://github.com/Bernardo-MG/spring-mvc-thymeleaf-maven-archetype
-[site-develop]: http://docs.bernardomg.com/development/maven/spring-mvc-thymeleaf-maven-archetype
-[site-release]: http://docs.bernardomg.com/maven/spring-mvc-thymeleaf-maven-archetype
+[license]: https://www.opensource.org/licenses/mit-license.php
+[scm]: https://github.com/Bernardo-MG/spring-mvc-thymeleaf-maven-archetype
+[site-develop]: https://docs.bernardomg.com/development/maven/spring-mvc-thymeleaf-maven-archetype
+[site-release]: https://docs.bernardomg.com/maven/spring-mvc-thymeleaf-maven-archetype
 
 [maven-archetype]: https://maven.apache.org/guides/introduction/introduction-to-archetypes.html
 
 [sample-project]: https://github.com/Bernardo-MG/spring-mvc-thymeleaf-maven-archetype-example
 
-[spring-mvc]: https://spring.io/
-[thymeleaf]: http://www.thymeleaf.org/
+[spring-mvc]: httpss://spring.io/
+[thymeleaf]: https://www.thymeleaf.org/
 
-[jasper]: http://community.jaspersoft.com/
+[jasper]: https://community.jaspersoft.com/
 
-[liquibase]: http://www.liquibase.org/
+[liquibase]: https://www.liquibase.org/
 
 [docs-skin]: https://github.com/Bernardo-MG/docs-maven-skin
 [base-pom]: https://github.com/Bernardo-MG/base-pom
 
 [github]: https://github.com/
 [bintray]: https://bintray.com/
-[bootstrap]: http://getbootstrap.com/
+[bootstrap]: https://getbootstrap.com/
 [travis]: https://travis-ci.org
 
 [surefire]: https://maven.apache.org/surefire/maven-surefire-plugin/

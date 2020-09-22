@@ -30,11 +30,9 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 
 import ${package}.model.form.ExampleEntityForm;
 
@@ -46,7 +44,6 @@ import ${package}.model.form.ExampleEntityForm;
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
-@RunWith(JUnitPlatform.class)
 public final class TestExampleEntityFormValidation {
 
     /**
@@ -84,10 +81,10 @@ public final class TestExampleEntityFormValidation {
 
         errors = validator.validate(form);
 
-        Assert.assertEquals(1, errors.size());
+        Assertions.assertEquals(1, errors.size());
 
         error = errors.iterator().next();
-        Assert.assertEquals("name", error.getPropertyPath().toString());
+        Assertions.assertEquals("name", error.getPropertyPath().toString());
     }
 
     /**
@@ -105,10 +102,10 @@ public final class TestExampleEntityFormValidation {
 
         errors = validator.validate(form);
 
-        Assert.assertEquals(1, errors.size());
+        Assertions.assertEquals(1, errors.size());
 
         error = errors.iterator().next();
-        Assert.assertEquals("name", error.getPropertyPath().toString());
+        Assertions.assertEquals("name", error.getPropertyPath().toString());
     }
 
     /**

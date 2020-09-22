@@ -225,93 +225,6 @@
          </dependencies>
       </profile>
       <!-- ============================================== -->
-      <!-- ========= EMBEDDED SERVER PROFILES =========== -->
-      <!-- ============================================== -->
-      <profile>
-         <!-- Jetty profile -->
-         <!-- Sets ups Jetty for testing and local deployment -->
-         <id>jetty</id>
-         <build>
-            <plugins>
-               <plugin>
-                  <!-- Jetty -->
-                  <!-- Jetty will run the web service during the integration 
-                     tests -->
-                  <groupId>org.eclipse.jetty</groupId>
-                  <artifactId>jetty-maven-plugin</artifactId>
-                  <version>${plugin.jetty.version}</version>
-                  <configuration>
-                     <stopKey>STOP</stopKey>
-                     <stopPort>9999</stopPort>
-                     <stopWait>5</stopWait>
-                  </configuration>
-                  <executions>
-                     <execution>
-                        <id>start-jetty-it</id>
-                        <phase>pre-integration-test</phase>
-                        <goals>
-                           <goal>start</goal>
-                        </goals>
-                        <configuration>
-                           <scanIntervalSeconds>0</scanIntervalSeconds>
-                           <daemon>true</daemon>
-                           <useTestScope>true</useTestScope>
-                           <webApp>
-                              <overrideDescriptor>${project.build.directory}/${project.build.finalName}/WEB-INF/web.xml</overrideDescriptor>
-                           </webApp>
-                        </configuration>
-                     </execution>
-                     <execution>
-                        <id>stop-jetty-it</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                           <goal>stop</goal>
-                        </goals>
-                     </execution>
-                  </executions>
-               </plugin>
-            </plugins>
-         </build>
-      </profile>
-      <profile>
-         <!-- Tomcat 7 profile -->
-         <!-- Sets ups Tomcat 7 for testing and local deployment -->
-         <id>tomcat7</id>
-         <build>
-            <plugins>
-               <plugin>
-                  <!-- Tomcat 7 -->
-                  <!-- Tomcat 7 will run the web service during the integration 
-                     tests -->
-                  <groupId>org.apache.tomcat.maven</groupId>
-                  <artifactId>tomcat7-maven-plugin</artifactId>
-                  <version>${plugin.tomcat7.version}</version>
-                  <executions>
-                     <execution>
-                        <id>start-tomcat-it</id>
-                        <phase>pre-integration-test</phase>
-                        <goals>
-                           <goal>run</goal>
-                        </goals>
-                        <configuration>
-                           <fork>true</fork>
-                           <useTestClasspath>true</useTestClasspath>
-                           <warSourceDirectory>${project.build.directory}/${project.build.finalName}/</warSourceDirectory>
-                        </configuration>
-                     </execution>
-                     <execution>
-                        <id>stop-tomcat-it</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                           <goal>shutdown</goal>
-                        </goals>
-                     </execution>
-                  </executions>
-               </plugin>
-            </plugins>
-         </build>
-      </profile>
-      <!-- ============================================== -->
       <!-- ============ DEPLOYMENT PROFILES ============= -->
       <!-- ============================================== -->
       <profile>
@@ -469,30 +382,33 @@
       <!-- ============================================== -->
       <!-- =========== DEPENDENCIES VERSIONS ============ -->
       <!-- ============================================== -->
-      <aspectj.version>1.9.4</aspectj.version>
-      <classmate.version>1.3.4</classmate.version>
+      <aspectj.version>1.9.6</aspectj.version>
+      <byteBuddy.version>1.10.13</byteBuddy.version>
+      <classmate.version>1.5.1</classmate.version>
       <commons.logging.version>1.2</commons.logging.version>
       <glassfish.el>2.2</glassfish.el>
       <guava.version>28.1-jre</guava.version>
       <h2.version>1.4.200</h2.version>
       <hamcrest.version>2.0.0.0</hamcrest.version>
-      <hibernate.validator.version>5.4.1.Final</hibernate.validator.version>
-      <hibernate.version>5.2.17.Final</hibernate.version>
-      <hikari.version>3.1.0</hikari.version>
-      <jackson.version>2.9.8</jackson.version>
+      <hibernate.validator.version>5.4.3.Final</hibernate.validator.version>
+      <hibernate.version>5.4.21.Final</hibernate.version>
+      <hikari.version>3.4.5</hikari.version>
+      <jackson.version>2.11.2</jackson.version>
       <javaee.api.version>2.2</javaee.api.version>
       <jasperreports.version>6.4.1</jasperreports.version>
       <jsonpath.version>2.4.0</jsonpath.version>
-      <junit.jupiter.version>5.5.2</junit.jupiter.version>
+      <junit.jupiter.version>5.6.2</junit.jupiter.version>
       <liquibase.version>3.7.0</liquibase.version>
       <log4j.version>2.12.1</log4j.version>
-      <mockito.version>3.1.0</mockito.version>
+      <mockito.version>3.5.10</mockito.version>
       <mysql.version>5.1.39</mysql.version>
       <postgresql.version>42.1.4</postgresql.version>
       <servlet.version>4.0.1</servlet.version>
       <slf4j.version>1.8.0-alpha2</slf4j.version>
-      <spring.data.train.version>Lovelace-RELEASE</spring.data.train.version>
-      <spring.version>5.1.5.RELEASE</spring.version>
+      <snakeyaml.version>1.26</snakeyaml.version>
+      <spring.boot.version>2.3.3.RELEASE</spring.boot.version>
+      <spring.data.train.version>Neumann-SR3</spring.data.train.version>
+      <spring.version>5.2.8.RELEASE</spring.version>
       <thymeleaf.version>3.0.11.RELEASE</thymeleaf.version>
       <webjars.bootstrap.version>3.4.1</webjars.bootstrap.version>
       <webjars.bootswatch.version>3.3.7</webjars.bootswatch.version>
@@ -503,10 +419,8 @@
       <!-- ============================================== -->
       <!-- ============== PLUGINS VERSIONS ============== -->
       <!-- ============================================== -->
-      <plugin.jetty.version>9.4.20.v20190813</plugin.jetty.version>
       <plugin.jshint.version>1.6.0</plugin.jshint.version>
-      <plugin.minify.version>1.7.6</plugin.minify.version>
-      <plugin.tomcat7.version>2.2</plugin.tomcat7.version>
+      <plugin.spring.boot.version>${spring.boot.version}</plugin.spring.boot.version>
       <!-- ============================================== -->
       <!-- ================= MAVEN SITE ================= -->
       <!-- ============================================== -->
@@ -559,6 +473,11 @@
       <!-- ================== SPRING ==================== -->
       <!-- ============================================== -->
       <dependency>
+         <!-- Spring AOP -->
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-aop</artifactId>
+      </dependency>
+      <dependency>
          <!-- Spring beans -->
          <groupId>org.springframework</groupId>
          <artifactId>spring-beans</artifactId>
@@ -599,6 +518,11 @@
          <artifactId>spring-tx</artifactId>
       </dependency>
       <dependency>
+         <!-- Spring Web -->
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-web</artifactId>
+      </dependency>
+      <dependency>
          <!-- Spring Web MVC -->
          <groupId>org.springframework</groupId>
          <artifactId>spring-webmvc</artifactId>
@@ -607,6 +531,47 @@
          <!-- Spring ORM -->
          <groupId>org.springframework</groupId>
          <artifactId>spring-orm</artifactId>
+      </dependency>
+      <!-- ============================================== -->
+      <!-- =============== SPRING BOOT ================== -->
+      <!-- ============================================== -->
+      <dependency>
+         <!-- Spring Boot Starter: Thymeleaf -->
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-thymeleaf</artifactId>
+         <version>${spring.boot.version}</version>
+         <exclusions>
+            <exclusion>
+               <groupId>org.springframework.boot</groupId>
+               <artifactId>spring-boot-starter-logging</artifactId>
+            </exclusion>
+         </exclusions>
+      </dependency>
+      <dependency>
+         <!-- Spring Boot Starter: Web -->
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-web</artifactId>
+         <version>${spring.boot.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Spring Boot Starter: JPA -->
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-data-jpa</artifactId>
+         <version>${spring.boot.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Spring Boot Starter: Devtools -->
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-devtools</artifactId>
+         <version>${spring.boot.version}</version>
+         <scope>runtime</scope>
+         <optional>true</optional>
+      </dependency>
+      <dependency>
+         <!-- Spring Boot Starter: AOP -->
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-aop</artifactId>
+         <version>${spring.boot.version}</version>
       </dependency>
       <!-- ============================================== -->
       <!-- ================= ASPECTJ ==================== -->
@@ -668,6 +633,15 @@
          <groupId>org.liquibase</groupId>
          <artifactId>liquibase-core</artifactId>
          <version>${liquibase.version}</version>
+      </dependency>
+      <!-- ============================================== -->
+      <!-- ================ SNAKEYAML =================== -->
+      <!-- ============================================== -->
+      <dependency>
+         <!-- SnakeYAML -->
+         <groupId>org.yaml</groupId>
+         <artifactId>snakeyaml</artifactId>
+         <version>${snakeyaml.version}</version>
       </dependency>
       <!-- ============================================== -->
       <!-- ================ THYMELEAF =================== -->
@@ -824,6 +798,12 @@
          <artifactId>commons-logging</artifactId>
          <version>${commons.logging.version}</version>
       </dependency>
+      <dependency>
+         <!-- Byte Buddy -->
+         <groupId>net.bytebuddy</groupId>
+         <artifactId>byte-buddy</artifactId>
+         <version>${byteBuddy.version}</version>
+      </dependency>
       <!-- ============================================== -->
       <!-- ======= TEST ENVIRONMENT DEPENDENCIES ======== -->
       <!-- ============================================== -->
@@ -852,6 +832,13 @@
          <groupId>org.junit.platform</groupId>
          <artifactId>junit-platform-runner</artifactId>
          <scope>test</scope>
+         <exclusions>
+            <exclusion>
+               <!-- JUnit 3 -->
+               <groupId>junit</groupId>
+               <artifactId>junit</artifactId>
+            </exclusion>
+         </exclusions>
       </dependency>
       <dependency>
          <!-- Mockito -->
@@ -865,6 +852,19 @@
          <groupId>org.springframework</groupId>
          <artifactId>spring-test</artifactId>
          <scope>test</scope>
+      </dependency>
+      <dependency>
+         <!-- Spring Boot Starter: Test -->
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-test</artifactId>
+         <version>${spring.boot.version}</version>
+         <scope>test</scope>
+         <exclusions>
+            <exclusion>
+               <groupId>org.junit.vintage</groupId>
+               <artifactId>junit-vintage-engine</artifactId>
+            </exclusion>
+         </exclusions>
       </dependency>
    </dependencies>
 
@@ -899,13 +899,6 @@
                <groupId>com.cj.jshintmojo</groupId>
                <artifactId>jshint-maven-plugin</artifactId>
                <version>${plugin.jshint.version}</version>
-            </plugin>
-            <plugin>
-               <!-- Minify -->
-               <!-- Minifies files. -->
-               <groupId>com.samaxes.maven</groupId>
-               <artifactId>minify-maven-plugin</artifactId>
-               <version>${plugin.minify.version}</version>
             </plugin>
          </plugins>
       </pluginManagement>
@@ -989,65 +982,6 @@
             </dependencies>
          </plugin>
          <plugin>
-            <!-- Minify -->
-            <!-- Minifies files. -->
-            <groupId>com.samaxes.maven</groupId>
-            <artifactId>minify-maven-plugin</artifactId>
-            <executions>
-               <execution>
-                  <id>default-minify</id>
-                  <phase>package</phase>
-                  <configuration>
-                     <cssSourceDir>resources/css</cssSourceDir>
-                     <cssSourceIncludes>
-                        <cssSourceInclude>**</cssSourceInclude>
-                     </cssSourceIncludes>
-                     <cssFinalFile>style.css</cssFinalFile>
-                  </configuration>
-                  <goals>
-                     <goal>minify</goal>
-                  </goals>
-               </execution>
-            </executions>
-         </plugin>
-         <plugin>
-            <!-- WAR -->
-            <!-- Generates the WAR package. -->
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-war-plugin</artifactId>
-            <configuration>
-               <webResources>
-                  <resource>
-                     <!-- Persistence access data is filtered -->
-                     <filtering>true</filtering>
-                     <directory>${project.basedir}/src/main/resources/config</directory>
-                     <targetPath>WEB-INF/classes/config</targetPath>
-                     <includes>
-                        <include>persistence-access.properties</include>
-                     </includes>
-                  </resource>
-                  <resource>
-                     <!-- Web resources -->
-                     <directory>${project.basedir}/src/main/webapp/WEB-INF/templates/fragments/</directory>
-                     <targetPath>WEB-INF/templates/fragments</targetPath>
-                     <includes>
-                        <!-- Filter the template footer -->
-                        <include>**.html</include>
-                     </includes>
-                     <filtering>true</filtering>
-                  </resource>
-               </webResources>
-               <!-- Variables to to override will be delimited with a @. -->
-               <!-- This avoids collisions with Spring variables. -->
-               <!-- So instead of replacing ${project.name} Maven will replace 
-                  @project.name@. -->
-               <useDefaultDelimiters>false</useDefaultDelimiters>
-               <delimiters>
-                  <delimiter>@</delimiter>
-               </delimiters>
-            </configuration>
-         </plugin>
-         <plugin>
             <!-- Resources -->
             <!-- Handles the project resources. -->
             <groupId>org.apache.maven.plugins</groupId>
@@ -1080,12 +1014,26 @@
             <configuration>
                <options>maxdepth:3,latedef,nonew,jquery</options>
                <directories>
-                  <directory>src/main/webapp/resources/js</directory>
+                  <directory>src/main/resources/static/js</directory>
                </directories>
                <reporter>checkstyle</reporter>
                <reportFile>target/jshint.xml</reportFile>
                <failOnError>true</failOnError>
             </configuration>
+         </plugin>
+         <plugin>
+            <!-- Spring Boot -->
+            <!-- Takes care of running Spring Boot application -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <version>${plugin.spring.boot.version}</version>
+            <executions>
+               <execution>
+                  <goals>
+                     <goal>repackage</goal>
+                  </goals>
+               </execution>
+            </executions>
          </plugin>
       </plugins>
    </build>

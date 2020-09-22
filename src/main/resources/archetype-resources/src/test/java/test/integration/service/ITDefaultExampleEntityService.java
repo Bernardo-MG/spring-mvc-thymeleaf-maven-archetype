@@ -26,19 +26,15 @@ package ${package}.test.integration.service;
 
 import java.util.Collection;
 
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.transaction.annotation.Transactional;
 
-import org.junit.jupiter.api.Test;
-
-import org.junit.Assert;
-
+import ${package}.Application;
 import ${package}.model.ExampleEntity;
 import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.service.ExampleEntityService;
@@ -50,12 +46,10 @@ import ${package}.service.ExampleEntityService;
  * the example entities repository, these tests are for verifying everything is
  * set up correctly and working.
  */
-@RunWith(JUnitPlatform.class)
 @SpringJUnitConfig
 @Transactional
 @Rollback
-@ContextConfiguration(locations = { "classpath:context/application-context.xml" })
-@TestPropertySource({ "classpath:config/persistence-access.properties" })
+@SpringBootTest(classes = Application.class)
 public class ITDefaultExampleEntityService {
 
     /**
@@ -91,7 +85,7 @@ public class ITDefaultExampleEntityService {
         finalEntitiesCount = ((Collection<DefaultExampleEntity>) service
                 .getAllEntities()).size();
 
-        Assert.assertEquals(finalEntitiesCount, new Integer(entitiesCount + 1));
+        Assertions.assertEquals(finalEntitiesCount, new Integer(entitiesCount + 1));
     }
 
     /**
@@ -104,7 +98,7 @@ public class ITDefaultExampleEntityService {
 
         entity = service.findById(1);
 
-        Assert.assertEquals(entity.getId(), new Integer(1));
+        Assertions.assertEquals(entity.getId(), new Integer(1));
     }
 
     /**
@@ -117,7 +111,7 @@ public class ITDefaultExampleEntityService {
 
         entity = service.findById(100);
 
-        Assert.assertEquals(entity.getId(), new Integer(-1));
+        Assertions.assertEquals(entity.getId(), new Integer(-1));
     }
 
 }

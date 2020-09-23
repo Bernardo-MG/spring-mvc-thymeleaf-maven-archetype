@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: initial_tables
+      author: Bernardo
+      changes:
+        - createTable:
+            tableName: example_entities
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+      modifySql:
+        - append:
+            dbms: mysql
+            value: ' ENGINE=InnoDB DEFAULT CHARSET=latin1'

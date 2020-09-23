@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - include:
+      file: structure/example.yaml
+      relativeToChangelogFile: true
+  - changeSet:
+      id: initial_data
+      author: Bernardo
+      changes:
+        - sqlFile:
+            encoding: UTF-8
+            path: data/initial.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            stripComments: true

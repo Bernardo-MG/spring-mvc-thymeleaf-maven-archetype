@@ -292,11 +292,11 @@
       <!-- =========== DEPENDENCIES VERSIONS ============ -->
       <!-- ============================================== -->
       <aspectj.version>1.9.6</aspectj.version>
-      <byteBuddy.version>1.10.13</byteBuddy.version>
+      <byteBuddy.version>1.10.16</byteBuddy.version>
       <classmate.version>1.5.1</classmate.version>
       <commons.logging.version>1.2</commons.logging.version>
       <glassfish.el>2.2</glassfish.el>
-      <guava.version>28.1-jre</guava.version>
+      <guava.version>29.0-jre</guava.version>
       <h2.version>1.4.200</h2.version>
       <hamcrest.version>2.0.0.0</hamcrest.version>
       <hibernate.validator.version>5.4.3.Final</hibernate.validator.version>
@@ -304,20 +304,20 @@
       <hikari.version>3.4.5</hikari.version>
       <jackson.version>2.11.2</jackson.version>
       <javaee.api.version>2.2</javaee.api.version>
-      <jasperreports.version>6.4.1</jasperreports.version>
+      <jasperreports.version>6.14.0</jasperreports.version>
       <jsonpath.version>2.4.0</jsonpath.version>
-      <junit.jupiter.version>5.6.2</junit.jupiter.version>
-      <liquibase.version>3.7.0</liquibase.version>
+      <junit.jupiter.version>5.7.0</junit.jupiter.version>
+      <liquibase.version>4.0.0</liquibase.version>
       <log4j.version>2.13.3</log4j.version>
-      <mockito.version>3.5.10</mockito.version>
+      <mockito.version>3.5.11</mockito.version>
       <mysql.version>5.1.39</mysql.version>
       <postgresql.version>42.1.4</postgresql.version>
       <servlet.version>4.0.1</servlet.version>
       <slf4j.version>1.7.30</slf4j.version>
       <snakeyaml.version>1.26</snakeyaml.version>
-      <spring.boot.version>2.3.3.RELEASE</spring.boot.version>
+      <spring.boot.version>2.3.4.RELEASE</spring.boot.version>
       <spring.data.train.version>Neumann-SR3</spring.data.train.version>
-      <spring.version>5.2.8.RELEASE</spring.version>
+      <spring.version>5.2.9.RELEASE</spring.version>
       <thymeleaf.version>3.0.11.RELEASE</thymeleaf.version>
       <webjars.bootstrap.version>3.4.1</webjars.bootstrap.version>
       <webjars.bootswatch.version>3.3.7</webjars.bootswatch.version>

@@ -308,12 +308,12 @@
       <jsonpath.version>2.4.0</jsonpath.version>
       <junit.jupiter.version>5.6.2</junit.jupiter.version>
       <liquibase.version>3.7.0</liquibase.version>
-      <log4j.version>2.12.1</log4j.version>
+      <log4j.version>2.13.3</log4j.version>
       <mockito.version>3.5.10</mockito.version>
       <mysql.version>5.1.39</mysql.version>
       <postgresql.version>42.1.4</postgresql.version>
       <servlet.version>4.0.1</servlet.version>
-      <slf4j.version>1.8.0-alpha2</slf4j.version>
+      <slf4j.version>1.7.30</slf4j.version>
       <snakeyaml.version>1.26</snakeyaml.version>
       <spring.boot.version>2.3.3.RELEASE</spring.boot.version>
       <spring.data.train.version>Neumann-SR3</spring.data.train.version>
@@ -629,6 +629,18 @@
       <!-- ================== LOGGING =================== -->
       <!-- ============================================== -->
       <dependency>
+         <!-- SL4J API -->
+         <groupId>org.slf4j</groupId>
+         <artifactId>slf4j-api</artifactId>
+         <version>${slf4j.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Log4j SLF4J Bridge -->
+         <groupId>org.apache.logging.log4j</groupId>
+         <artifactId>log4j-slf4j-impl</artifactId>
+         <version>${log4j.version}</version>
+      </dependency>
+      <dependency>
          <!-- Log4j core -->
          <groupId>org.apache.logging.log4j</groupId>
          <artifactId>log4j-core</artifactId>
@@ -641,22 +653,10 @@
          <version>${log4j.version}</version>
       </dependency>
       <dependency>
-         <!-- Log4j SLF4J Bridge -->
-         <groupId>org.apache.logging.log4j</groupId>
-         <artifactId>log4j-slf4j18-impl</artifactId>
-         <version>${log4j.version}</version>
-      </dependency>
-      <dependency>
          <!-- Log4j Web -->
          <groupId>org.apache.logging.log4j</groupId>
          <artifactId>log4j-web</artifactId>
          <version>${log4j.version}</version>
-      </dependency>
-      <dependency>
-         <!-- SL4J API -->
-         <groupId>org.slf4j</groupId>
-         <artifactId>slf4j-api</artifactId>
-         <version>${slf4j.version}</version>
       </dependency>
       <!-- ============================================== -->
       <!-- ================= JACKSON ==================== -->

@@ -22,11 +22,6 @@
          <AppenderRef ref="file" />
       </Logger>
 
-      <!-- Jetty -->
-      <logger name="org.eclipse.jetty" level="error" additivity="false">
-         <AppenderRef ref="console" />
-      </logger>
-
       <!-- Spring Framework -->
       <Logger name="org.springframework" level="error" additivity="false">
          <AppenderRef ref="console" />

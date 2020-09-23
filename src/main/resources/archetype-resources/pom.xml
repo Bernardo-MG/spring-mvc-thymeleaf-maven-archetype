@@ -125,19 +125,6 @@
       <!-- ============= DATABASE PROFILES ============== -->
       <!-- ============================================== -->
       <profile>
-         <!-- Properties-based database profile -->
-         <!-- Sets up the database from properties -->
-         <id>db-properties</id>
-         <activation>
-            <!-- Active by default -->
-            <activeByDefault>true</activeByDefault>
-         </activation>
-         <properties>
-            <!-- Authentication sources for the DB -->
-            <database.auth.source>properties</database.auth.source>
-         </properties>
-      </profile>
-      <profile>
          <!-- H2 database profile -->
          <!-- Prepares the project to make use of an H2 in-memory database -->
          <id>h2</id>
@@ -145,16 +132,6 @@
             <!-- Active by default so it can be installed by CI -->
             <activeByDefault>true</activeByDefault>
          </activation>
-         <properties>
-            <!-- Access data -->
-            <!-- Default values for testing and development -->
-            <!-- Override them for production -->
-            <database.url>jdbc:h2:mem:${artifactId.replace("-", "_")}</database.url>
-            <database.username>sa</database.username>
-            <database.password></database.password>
-            <!-- Spring context -->
-            <database.tag>h2</database.tag>
-         </properties>
          <dependencies>
             <dependency>
                <!-- H2 database -->
@@ -174,17 +151,6 @@
                <value>mysql</value>
             </property>
          </activation>
-         <properties>
-            <!-- Access data -->
-            <!-- Default values for testing and development -->
-            <!-- Override them for production -->
-            <database.url>jdbc:mysql://localhost:3306/${artifactId.replace("-",
-               "_")}</database.url>
-            <database.username>root</database.username>
-            <database.password></database.password>
-            <!-- Spring context -->
-            <database.tag>mysql</database.tag>
-         </properties>
          <dependencies>
             <dependency>
                <!-- MySQL connector -->
@@ -204,17 +170,6 @@
                <value>postgres</value>
             </property>
          </activation>
-         <properties>
-            <!-- Access data -->
-            <!-- Default values for testing and development -->
-            <!-- Override them for production -->
-            <database.url>jdbc:postgresql://localhost:5432/${artifactId.replace("-",
-               "_")}</database.url>
-            <database.username>postgres</database.username>
-            <database.password></database.password>
-            <!-- Spring context -->
-            <database.tag>postgres</database.tag>
-         </properties>
          <dependencies>
             <dependency>
                <!-- Postgres connector -->
@@ -288,52 +243,6 @@
             <!-- Active by default to ease development -->
             <activeByDefault>true</activeByDefault>
          </activation>
-      </profile>
-      <!-- ============================================== -->
-      <!-- =============== HOST PROFILES ================ -->
-      <!-- ============================================== -->
-      <profile>
-         <!-- Heroku profiles -->
-         <!-- Sets up the project to be built by heroku -->
-         <id>heroku</id>
-         <activation>
-            <property>
-               <name>env.DYNO</name>
-            </property>
-         </activation>
-         <properties>
-            <!-- Spring context -->
-            <database.auth.source>env</database.auth.source>
-         </properties>
-         <build>
-            <plugins>
-               <plugin>
-                  <!-- Dependency plugin -->
-                  <!-- Used to copy the webapp runner -->
-                  <groupId>org.apache.maven.plugins</groupId>
-                  <artifactId>maven-dependency-plugin</artifactId>
-                  <executions>
-                     <execution>
-                        <id>copy-webapp-runner</id>
-                        <phase>package</phase>
-                        <goals>
-                           <goal>copy</goal>
-                        </goals>
-                        <configuration>
-                           <artifactItems>
-                              <artifactItem>
-                                 <groupId>com.github.jsimone</groupId>
-                                 <artifactId>webapp-runner</artifactId>
-                                 <version>${webappRunner.version}</version>
-                                 <destFileName>webapp-runner.jar</destFileName>
-                              </artifactItem>
-                           </artifactItems>
-                        </configuration>
-                     </execution>
-                  </executions>
-               </plugin>
-            </plugins>
-         </build>
       </profile>
    </profiles>
 

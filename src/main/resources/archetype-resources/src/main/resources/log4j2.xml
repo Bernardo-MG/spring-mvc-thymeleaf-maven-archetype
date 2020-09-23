@@ -45,7 +45,7 @@
       </Logger>
 
       <!-- Hikari -->
-      <Logger name="com.zaxxer.hikari" level="debug" additivity="false">
+      <Logger name="com.zaxxer.hikari" level="warn" additivity="false">
          <AppenderRef ref="file" />
          <AppenderRef ref="console" />
       </Logger>

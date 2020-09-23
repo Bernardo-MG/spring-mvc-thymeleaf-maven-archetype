@@ -214,7 +214,7 @@
             <configuration>
                <options>maxdepth:3,latedef,nonew,jquery</options>
                <directories>
-                  <directory>src/main/resources/archetype-resources/src/main/webapp/resources/js</directory>
+                  <directory>src/main/resources/archetype-resources/src/main/resources/static/js</directory>
                </directories>
                <reporter>checkstyle</reporter>
                <reportFile>target/jshint.xml</reportFile>

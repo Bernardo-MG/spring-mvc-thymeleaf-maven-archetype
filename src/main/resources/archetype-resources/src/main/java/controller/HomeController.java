@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * Controller for home view.
+ * Controller for the home view.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */

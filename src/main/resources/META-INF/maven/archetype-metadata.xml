@@ -43,22 +43,26 @@
             <include>**/*.java</include>
          </includes>
       </fileSet>
-      <fileSet filtered="true" encoding="UTF-8">
+      <fileSet filtered="false" encoding="UTF-8">
          <!-- Resources -->
          <directory>src/main/resources</directory>
          <includes>
             <include>**/*.*</include>
          </includes>
          <excludes>
-            <!-- Reports should not be filtered -->
-            <exclude>**/report/*.*</exclude>
+            <!-- Files to filter -->
+            <exclude>log4j2.xml</exclude>
+            <exclude>messages/application.properties</exclude>
+            <exclude>db/changelog/data/initial.sql</exclude>
          </excludes>
       </fileSet>
-      <fileSet filtered="false" encoding="UTF-8">
-         <!-- Reports -->
-         <directory>src/main/resources/report</directory>
+      <fileSet filtered="true" encoding="UTF-8">
+         <!-- Logging config -->
+         <directory>src/main/resources</directory>
          <includes>
-            <include>**/*.*</include>
+            <include>log4j2.xml</include>
+            <include>messages/application.properties</include>
+            <include>db/changelog/data/initial.sql</include>
          </includes>
       </fileSet>
       <fileSet filtered="true" packaged="true" encoding="UTF-8">

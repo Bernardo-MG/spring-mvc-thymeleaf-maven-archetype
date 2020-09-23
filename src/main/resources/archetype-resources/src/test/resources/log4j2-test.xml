@@ -36,10 +36,10 @@
       <logger name="org.hibernate.SQL" level="off" additivity="false">
          <AppenderRef ref="console" />
       </logger>
-      <Logger name="org.hibernate.type.descriptor.sql" level="all" additivity="false">
+      <Logger name="org.hibernate.type.descriptor.sql" level="off" additivity="false">
          <AppenderRef ref="console" />
       </Logger>
-      <logger name="log4j.logger.jdbc.sqlonly" level="all" additivity="false">
+      <logger name="log4j.logger.jdbc.sqlonly" level="off" additivity="false">
          <AppenderRef ref="console" />
       </logger>
 

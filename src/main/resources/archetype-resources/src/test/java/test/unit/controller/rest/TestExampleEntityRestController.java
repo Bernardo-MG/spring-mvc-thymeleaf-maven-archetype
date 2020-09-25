@@ -121,7 +121,7 @@ public final class TestExampleEntityRestController {
      */
     private final RequestBuilder getGetRequest() {
         return MockMvcRequestBuilders.get(UrlConfig.URL_REST)
-                .contentType(MediaType.APPLICATION_JSON_UTF8);
+                .contentType(MediaType.APPLICATION_JSON);
     }
 
 }

@@ -15,7 +15,7 @@ A [Maven Archetype][maven-archetype] for generating a Spring MVC project using T
 - Integrates with [Thymeleaf][thymeleaf] for the view templates.
 - Using [Bootstrap][bootstrap] for the UI.
 - Using [Liquibase][liquibase] for database versioning.
-- Integrates with [Jasper Reports][jasper] for generating PDFs.
+- Integration with [iText](https://itextpdf.com/) for generating PDFs.
 - Fully configured POM, extending from [bernardomg's Base POM][base-pom], including features such as build validation, changes report or manifest configuration.
 - Prepared for continuous integration with [Github][github], [Travis][travis] and [Bintray][bintray]. Making a distinction between releases and development versions.
 - Prepared for unit and integration tests suites. Created with [JUnit][junit] and ready to be run with [Surefire][surefire] and [Failsafe][failsafe].
@@ -117,8 +117,6 @@ The project has been released under the [MIT License][license].
 
 [spring-mvc]: httpss://spring.io/
 [thymeleaf]: https://www.thymeleaf.org/
-
-[jasper]: https://community.jaspersoft.com/
 
 [liquibase]: https://www.liquibase.org/
 

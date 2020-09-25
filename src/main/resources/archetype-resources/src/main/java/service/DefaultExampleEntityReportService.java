@@ -24,23 +24,24 @@
 
 package ${package}.service;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.OutputStream;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
-import org.apache.commons.collections.IteratorUtils;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import net.sf.jasperreports.engine.util.JRLoader;
-
-import ${package}.model.persistence.DefaultExampleEntity;
+import ${package}.model.ExampleEntity;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 
 /**
  * Default implementation of the report service.
@@ -53,52 +54,95 @@ public final class DefaultExampleEntityReportService
         implements ExampleEntityReportService {
 
     /**
-     * Default constructor.
+     * Chapter font.
      */
+    private final Font chapterFont   = FontFactory
+            .getFont(FontFactory.HELVETICA, 16, Font.BOLDITALIC);
+
+    /**
+     * Paragraph font.
+     */
+    private final Font paragraphFont = FontFactory
+            .getFont(FontFactory.HELVETICA, 12, Font.NORMAL);
+
     public DefaultExampleEntityReportService() {
         super();
     }
 
     @Override
-    public final JasperPrint
-            getReport(final Iterable<DefaultExampleEntity> data) {
-        final File reportFile;
-        final JasperReport jasperReport;
-        final JasperPrint jasperPrint;
-        final Map<String, Object> parameters;
+    public final void getReport(final Iterable<? extends ExampleEntity> data,
+            final OutputStream output) {
+        final Document document;
+        final Paragraph header;
+        final Paragraph body;
 
-        // TODO: The file should be received as a configuration value
+        document = new Document();
         try {
-            reportFile = new ClassPathResource("/report/entities.jasper")
-                    .getFile();
-        } catch (final IOException e) {
+            PdfWriter.getInstance(document, output);
+        } catch (final DocumentException e) {
             throw new RuntimeException(e);
         }
+        document.open();
 
-        if (!reportFile.exists()) {
-            // TODO: Compile report
-        }
-
-        try {
-            jasperReport = (JasperReport) JRLoader
-                    .loadObjectFromFile(reportFile.getPath());
-        } catch (final JRException e) {
-            throw new RuntimeException(e);
-        }
-
-        parameters = new HashMap<>();
-        // TODO: Internationalize
-        parameters.put("ReportTitle", "Report");
+        header = getHeader();
+        body = getBody(data);
 
         try {
-            jasperPrint = JasperFillManager.fillReport(jasperReport, parameters,
-                    new JRBeanCollectionDataSource(
-                            IteratorUtils.toList(data.iterator())));
-        } catch (final JRException e) {
+            document.add(header);
+            document.add(body);
+        } catch (final DocumentException e) {
             throw new RuntimeException(e);
         }
+        document.close();
+    }
 
-        return jasperPrint;
+    /**
+     * Builds the header paragraph.
+     * 
+     * @return the header paragraph
+     */
+    private final Paragraph getHeader() {
+        final Chunk chunk;
+
+        chunk = new Chunk("Report", chapterFont);
+
+        return new Paragraph(chunk);
+    }
+
+    /**
+     * Builds the report body.
+     * 
+     * @param data
+     *            data to print
+     * @return the body paragraph
+     */
+    private final Paragraph
+            getBody(final Iterable<? extends ExampleEntity> data) {
+        final Paragraph paragraph;
+        final PdfPTable table;
+
+        paragraph = new Paragraph();
+
+        paragraph.add(new Paragraph(" ", paragraphFont));
+
+        table = new PdfPTable(2);
+        paragraph.add(table);
+
+        // Adds headers
+        Stream.of("id", "name").forEach(columnTitle -> {
+            final PdfPCell header = new PdfPCell();
+            header.setBackgroundColor(BaseColor.LIGHT_GRAY);
+            header.setBorderWidth(2);
+            header.setPhrase(new Phrase(columnTitle));
+            table.addCell(header);
+        });
+
+        StreamSupport.stream(data.spliterator(), false).forEach((entity) -> {
+            table.addCell(String.valueOf(entity.getId()));
+            table.addCell(entity.getName());
+        });
+
+        return paragraph;
     }
 
 }

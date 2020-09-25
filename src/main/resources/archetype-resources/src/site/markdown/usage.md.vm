@@ -4,16 +4,10 @@ The project requires a database and a server. But the included Maven profiles al
 
 ## Running the project locally
 
-To run the project locally in Jetty with an H2 in-memory database:
+To run the project locally with an H2 in-memory database:
 
 ```
-$ mvn jetty:run-war -P h2,jetty
-```
-
-An embedded Tomcat can be used through this other profile:
-
-```
-$ mvn tomcat7:run-war -P h2,tomcat7
+mvn spring-boot:run -P h2,development
 ```
 
 This makes the project be accessible at [http://localhost:8080/](http://localhost:8080/).
@@ -26,7 +20,7 @@ This makes the project be accessible at [http://localhost:8080/](http://localhos
 | mysql    | MySQL database        |
 | postgres | PostgreSQL database   |
 
-| Profile  | Server                   |
-|----------|--------------------------|
-| jetty    | Jetty embedded server    |
-| tomcat7  | Tomcat 7 embedded server |
+| Profile     | Server                   |
+|-------------|--------------------------|
+| development | Development settings     |
+| release     | Release settings         |

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head th:fragment="header">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset='utf-8'>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- IE Compatibility tag -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title th:text="#{application.title}">Webapp title</title>
+
+<!-- Metadata -->
+<meta name="description" th:content="${pageDescription}">
+<meta name="keywords" th:content="${pageKeywords}">
+<meta name="author" th:content="${pageAuthor}">
+
+<!-- Facebook OpenGraph -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="#{application.title}"/>
+<meta property="og:title" content="#{application.title}"/>
+<meta property="og:description" content="${pageDescription}"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:creator" content="${pageTwitter}"/>
+<meta name="twitter:title" content="#{application.title}"/>
+<meta name="twitter:description" content="${pageDescription}"/>
+
+<!-- CSS -->
+<link rel="stylesheet"
+   th:href="@{/webjars/bootswatch-readable/css/bootstrap.min.css}">
+<link rel="stylesheet"
+   th:href="@{/webjars/font-awesome/css/font-awesome.min.css}">
+<!-- Custom style -->
+<link rel="stylesheet" th:href="@{/static/css/style.min.css}">
+
+<!-- HTML5 Shiv. For IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+    <script th:src="@{/webjars/html5shiv/html5shiv.min.js}"></script>
+    <![endif]-->
+</head>

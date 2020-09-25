@@ -15,9 +15,9 @@ After that, of course, the classes and tests included should be replaced with ac
 While the project can be used just by itself, it won't take full advantage of most of the configuration until it is integrated with a few services:
 
 - Version control system, Github by default.
-- Continuous integration, Travis CI by default.
+- Continuous integration, Github Workflow by default.
 - Releases repository, Bintray by default.
 - Test artifacts repository, Sonatype OSS by default.
 - Documentation repository, through SSH by default.
 
-[archetype]: https://www.github.com/bernardo-mg/spring-mvc-thymeleaf-maven-archetype
+[archetype]: https://www.github.com/bernardo-mg/spring-mvc-react-maven-archetype

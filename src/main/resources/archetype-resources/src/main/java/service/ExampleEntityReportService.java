@@ -24,9 +24,9 @@
 
 package ${package}.service;
 
-import net.sf.jasperreports.engine.JasperPrint;
+import java.io.OutputStream;
 
-import ${package}.model.persistence.DefaultExampleEntity;
+import ${package}.model.ExampleEntity;
 
 /**
  * Service for generating reports for the example entities.
@@ -41,8 +41,10 @@ public interface ExampleEntityReportService {
      * 
      * @param data
      *            data to populate the report
-     * @return the report for the data
+     * @param output
+     *            stream to store the report
      */
-    public JasperPrint getReport(final Iterable<DefaultExampleEntity> data);
+    public void getReport(final Iterable<? extends ExampleEntity> data,
+            final OutputStream output);
 
 }

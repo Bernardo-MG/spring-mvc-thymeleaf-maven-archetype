@@ -19,11 +19,9 @@ package ${package}.test.unit.controller.rest;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 import org.springframework.data.domain.Pageable;
@@ -48,7 +46,6 @@ import ${package}.test.config.UrlConfig;
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
-@RunWith(JUnitPlatform.class)
 public final class TestExampleEntityRestControllerPagination {
 
     /**
@@ -86,7 +83,7 @@ public final class TestExampleEntityRestControllerPagination {
                         new PageableHandlerMethodArgumentResolver())
                 .alwaysExpect(MockMvcResultMatchers.status().isOk())
                 .alwaysExpect(MockMvcResultMatchers.content()
-                        .contentType(MediaType.APPLICATION_JSON_UTF8))
+                        .contentType(MediaType.APPLICATION_JSON))
                 .build();
     }
 
@@ -101,7 +98,7 @@ public final class TestExampleEntityRestControllerPagination {
 
         pageable = captor.getValue();
 
-        Assert.assertEquals(10, pageable.getPageNumber());
+        Assertions.assertEquals(10, pageable.getPageNumber());
     }
 
     /**
@@ -117,8 +114,8 @@ public final class TestExampleEntityRestControllerPagination {
 
         pageable = captor.getValue();
 
-        Assert.assertEquals(20, pageable.getPageSize());
-        Assert.assertEquals(0, pageable.getPageNumber());
+        Assertions.assertEquals(20, pageable.getPageSize());
+        Assertions.assertEquals(0, pageable.getPageNumber());
     }
 
     /**
@@ -155,7 +152,7 @@ public final class TestExampleEntityRestControllerPagination {
      */
     private final RequestBuilder getGetRequest() {
         return MockMvcRequestBuilders.get(UrlConfig.URL_REST)
-                .contentType(MediaType.APPLICATION_JSON_UTF8);
+                .contentType(MediaType.APPLICATION_JSON);
     }
 
     /**
@@ -165,7 +162,7 @@ public final class TestExampleEntityRestControllerPagination {
      */
     private final RequestBuilder getGetRequestWithPage() {
         return MockMvcRequestBuilders.get(UrlConfig.URL_REST + "?page=10")
-                .contentType(MediaType.APPLICATION_JSON_UTF8);
+                .contentType(MediaType.APPLICATION_JSON);
     }
 
 }

@@ -34,11 +34,9 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 
 import ${package}.controller.report.ReportController;
 import ${package}.model.persistence.DefaultExampleEntity;
@@ -52,7 +50,6 @@ import ${package}.service.ExampleEntityService;
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
-@RunWith(JUnitPlatform.class)
 public final class TestReportController {
 
     /**
@@ -103,7 +100,7 @@ public final class TestReportController {
 
         content = result.andReturn().getResponse().getHeader("Content-disposition");
 
-        Assert.assertEquals("inline; filename=EntityReport.pdf", content);
+        Assertions.assertEquals("inline; filename=EntityReport.pdf", content);
     }
 
     /**

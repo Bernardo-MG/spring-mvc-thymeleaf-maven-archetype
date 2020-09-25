@@ -39,9 +39,13 @@
          <AppenderRef ref="file" />
          <AppenderRef ref="console" />
       </Logger>
+      <Logger name="org.hibernate.type.descriptor.sql" level="off" additivity="false">
+         <AppenderRef ref="file" />
+         <AppenderRef ref="console" />
+      </Logger>
 
       <!-- Hikari -->
-      <Logger name="com.zaxxer.hikari" level="debug" additivity="false">
+      <Logger name="com.zaxxer.hikari" level="warn" additivity="false">
          <AppenderRef ref="file" />
          <AppenderRef ref="console" />
       </Logger>
@@ -49,12 +53,6 @@
       <!-- Jackson -->
       <logger name="com.fasterxml.jackson" level="warn"
          additivity="false">
-         <AppenderRef ref="file" />
-         <AppenderRef ref="console" />
-      </logger>
-
-      <!-- Jetty -->
-      <logger name="org.eclipse.jetty" level="warn" additivity="false">
          <AppenderRef ref="file" />
          <AppenderRef ref="console" />
       </logger>

@@ -140,5 +140,12 @@
             <include>**/markdown/index.md</include>
          </includes>
       </fileSet>
+      <fileSet encoding="UTF-8">
+         <!-- Github workflow -->
+         <directory>.github</directory>
+         <includes>
+            <include>**/*.*</include>
+         </includes>
+      </fileSet>
    </fileSets>
 </archetype-descriptor>

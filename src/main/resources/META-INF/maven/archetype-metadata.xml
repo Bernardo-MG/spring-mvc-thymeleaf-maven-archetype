@@ -54,6 +54,7 @@
             <exclude>log4j2.xml</exclude>
             <exclude>messages.properties</exclude>
             <exclude>db/changelog/data/initial.sql</exclude>
+            <exclude>templates/entity/list.html</exclude>
          </excludes>
       </fileSet>
       <fileSet filtered="true" encoding="UTF-8">
@@ -63,6 +64,7 @@
             <include>log4j2.xml</include>
             <include>messages.properties</include>
             <include>db/changelog/data/initial.sql</include>
+            <include>templates/entity/list.html</include>
          </includes>
       </fileSet>
       <fileSet filtered="true" packaged="true" encoding="UTF-8">

@@ -5,7 +5,7 @@
       <author email="programming@bernardomg.com">Bernardo Martínez Garrido</author>
    </properties>
    <body>
-      <release version="1.2.0" date="2018-09-25" description="Moved to Spring Boot">
+      <release version="1.2.0" date="2020-09-25" description="Moved to Spring Boot">
          <action dev="bmg" type="update">
             Moved to Spring Boot.
          </action>
@@ -19,12 +19,12 @@
             Using itext instead of Jasper Reports.
          </action>
       </release>
-      <release version="1.1.6" date="2018-10-10" description="Corrected usage info">
+      <release version="1.1.6" date="2019-10-10" description="Corrected usage info">
          <action dev="bmg" type="update">
             Corrected usage info.
          </action>
       </release>
-      <release version="1.1.5" date="2018-10-10" description="Updated project">
+      <release version="1.1.5" date="2019-10-10" description="Updated project">
          <action dev="bmg" type="update">
             Updated dependencies.
          </action>

@@ -869,7 +869,7 @@
             <executions>
                <execution>
                   <id>default-minify</id>
-                  <phase>prepare-package</phase>
+                  <phase>generate-resources</phase>
                   <configuration>
                      <webappSourceDir>${basedir}/src/main/resources/static</webappSourceDir>
                      <webappTargetDir>${project.build.outputDirectory}/static</webappTargetDir>

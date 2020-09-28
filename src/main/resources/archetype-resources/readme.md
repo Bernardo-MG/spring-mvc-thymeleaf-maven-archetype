@@ -84,7 +84,7 @@ The project can be installed by creating the war file and deploying it into a se
 
 ${symbol_pound}${symbol_pound}${symbol_pound} Running
 
-To run the project locally use the following Maven command:
+The project is prepared for running as a Spring Boot app:
 
 ```
 mvn spring-boot:run -P h2

@@ -298,7 +298,7 @@
       <glassfish.el>2.2</glassfish.el>
       <guava.version>29.0-jre</guava.version>
       <h2.version>1.4.200</h2.version>
-      <hamcrest.version>2.0.0.0</hamcrest.version>
+      <hamcrest.version>2.2</hamcrest.version>
       <hibernate.validator.version>5.4.3.Final</hibernate.validator.version>
       <hibernate.version>5.4.21.Final</hibernate.version>
       <hikari.version>3.4.5</hikari.version>
@@ -732,7 +732,7 @@
       <dependency>
          <!-- Hamcrest -->
          <groupId>org.hamcrest</groupId>
-         <artifactId>java-hamcrest</artifactId>
+         <artifactId>hamcrest-core</artifactId>
          <version>${hamcrest.version}</version>
          <scope>test</scope>
       </dependency>

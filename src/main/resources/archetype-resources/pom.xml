@@ -298,7 +298,7 @@
       <glassfish.el>2.2</glassfish.el>
       <guava.version>29.0-jre</guava.version>
       <h2.version>1.4.200</h2.version>
-      <hamcrest.version>2.0.0.0</hamcrest.version>
+      <hamcrest.version>2.2</hamcrest.version>
       <hibernate.validator.version>5.4.3.Final</hibernate.validator.version>
       <hibernate.version>5.4.21.Final</hibernate.version>
       <hikari.version>3.4.5</hikari.version>
@@ -481,6 +481,18 @@
          <!-- Spring Boot Starter: AOP -->
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-starter-aop</artifactId>
+         <version>${spring.boot.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Spring Boot Starter: Cache -->
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-cache</artifactId>
+         <version>${spring.boot.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Spring Boot Starter: log4j -->
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-log4j2</artifactId>
          <version>${spring.boot.version}</version>
       </dependency>
       <!-- ============================================== -->
@@ -720,7 +732,7 @@
       <dependency>
          <!-- Hamcrest -->
          <groupId>org.hamcrest</groupId>
-         <artifactId>java-hamcrest</artifactId>
+         <artifactId>hamcrest-core</artifactId>
          <version>${hamcrest.version}</version>
          <scope>test</scope>
       </dependency>
@@ -784,22 +796,6 @@
 
    <build>
       <defaultGoal>clean package</defaultGoal>
-      <resources>
-         <resource>
-            <directory>src/main/resources/</directory>
-         </resource>
-         <resource>
-            <!-- Main resources -->
-            <directory>src/main/resources/</directory>
-            <includes>
-               <!-- Filter the application context -->
-               <include>context/application-context.xml</include>
-               <!-- Filter the persistence access properties -->
-               <include>config/persistence-access.properties</include>
-            </includes>
-            <filtering>true</filtering>
-         </resource>
-      </resources>
       <pluginManagement>
          <plugins>
             <!-- Plugin versions and configurations are enforced here. -->

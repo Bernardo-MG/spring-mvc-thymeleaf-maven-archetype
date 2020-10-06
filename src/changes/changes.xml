@@ -5,6 +5,14 @@
       <author email="programming@bernardomg.com">Bernardo Martínez Garrido</author>
    </properties>
    <body>
+      <release version="1.2.1" date="2020-10-06" description="Configuration corrections">
+         <action dev="bmg" type="fix">
+            Minor config corrections.
+         </action>
+         <action dev="bmg" type="fix">
+            Added Spring Boot starters.
+         </action>
+      </release>
       <release version="1.2.0" date="2020-09-25" description="Moved to Spring Boot">
          <action dev="bmg" type="update">
             Moved to Spring Boot.

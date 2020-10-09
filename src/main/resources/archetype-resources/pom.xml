@@ -180,6 +180,33 @@
          </dependencies>
       </profile>
       <!-- ============================================== -->
+      <!-- =============== BUILD PROFILES =============== -->
+      <!-- ============================================== -->
+      <profile>
+         <!-- Production profile -->
+         <id>production</id>
+         <activation>
+            <property>
+               <name>env.ENVIRONMENT_MODE</name>
+               <value>production</value>
+            </property>
+         </activation>
+      </profile>
+      <profile>
+         <!-- Production profile -->
+         <id>development</id>
+         <dependencies>
+            <dependency>
+               <!-- Spring Boot Starter: Devtools -->
+               <groupId>org.springframework.boot</groupId>
+               <artifactId>spring-boot-devtools</artifactId>
+               <version>${spring.boot.version}</version>
+               <scope>runtime</scope>
+               <optional>true</optional>
+            </dependency>
+         </dependencies>
+      </profile>
+      <!-- ============================================== -->
       <!-- ============ DEPLOYMENT PROFILES ============= -->
       <!-- ============================================== -->
       <profile>

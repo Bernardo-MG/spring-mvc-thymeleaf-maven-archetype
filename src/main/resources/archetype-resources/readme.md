@@ -61,13 +61,6 @@ ${symbol_pound}${symbol_pound} Usage
 
 The application is coded in Java, using Maven to manage the project.
 
-${symbol_pound}${symbol_pound}${symbol_pound} Prerequisites
-
-The project has been tested on the following Java versions:
-* JDK 8
-
-All other dependencies are handled through Maven, and noted in the included POM file.
-
 ${symbol_pound}${symbol_pound}${symbol_pound} Profiles
 
 Maven profiles are included for setting up the database.

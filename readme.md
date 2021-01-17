@@ -50,13 +50,6 @@ The application is coded in Java, using Maven to manage the project.
 
 It is a Maven Archetype, and can be used through command line or an IDE as long as it is included in the local repository.
 
-### Prerequisites
-
-The project has been tested on the following Java versions:
-* JDK 8
-
-All other dependencies are handled through Maven, and noted in the included POM file.
-
 ### Installing
 
 The best way to install the Archetype is by downloading it from the [Bintray repository][bintray-repo]. It can be acquired from the [Maven Central Repository][maven-repo] too, but it is not recommended.

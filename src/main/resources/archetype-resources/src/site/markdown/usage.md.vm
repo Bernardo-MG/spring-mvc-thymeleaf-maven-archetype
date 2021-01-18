@@ -7,7 +7,7 @@ The project requires a database and a server. But the included Maven profiles al
 To run the project locally with an H2 in-memory database:
 
 ```
-mvn spring-boot:run -P h2,development
+mvn spring-boot:run -P h2,development -Dspring.profiles.active=h2
 ```
 
 This makes the project be accessible at [http://localhost:8080/](http://localhost:8080/).

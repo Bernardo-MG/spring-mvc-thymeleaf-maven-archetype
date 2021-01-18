@@ -195,6 +195,10 @@
       <profile>
          <!-- Production profile -->
          <id>development</id>
+         <activation>
+            <!-- Active by default to ease development -->
+            <activeByDefault>true</activeByDefault>
+         </activation>
          <dependencies>
             <dependency>
                <!-- Spring Boot Starter: Devtools -->
@@ -247,29 +251,6 @@
             <!-- Tests are skipped -->
             <maven.test.skip>true</maven.test.skip>
          </properties>
-      </profile>
-      <!-- ============================================== -->
-      <!-- =========== RUNTIME ENV PROFILES ============= -->
-      <!-- ============================================== -->
-      <profile>
-         <!-- Production profile -->
-         <!-- Sets ups the environment for production -->
-         <id>production</id>
-         <activation>
-            <property>
-               <name>env.ENVIRONMENT_MODE</name>
-               <value>production</value>
-            </property>
-         </activation>
-      </profile>
-      <profile>
-         <!-- Development profile -->
-         <!-- Sets ups the environment for development and testing -->
-         <id>development</id>
-         <activation>
-            <!-- Active by default to ease development -->
-            <activeByDefault>true</activeByDefault>
-         </activation>
       </profile>
    </profiles>
 

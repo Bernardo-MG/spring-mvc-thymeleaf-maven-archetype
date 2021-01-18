@@ -10,6 +10,7 @@ jobs:
       matrix:
         jdk: [ 8, 11, 14 ]
         db: [ h2, mysql, postgres ]
+        env: [ development, production ]
 
     services:
       mysql:
@@ -41,4 +42,4 @@ jobs:
       with:
         java-version: ${{ matrix.jdk }}
     - name: Run all tests
-      run: mvn clean verify -P${{ matrix.db }},development -Dspring.profiles.active=test,${{ matrix.db }}
+      run: mvn clean verify -P${{ matrix.db }},${{ matrix.env }} -Dspring.profiles.active=test,${{ matrix.db }}

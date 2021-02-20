@@ -303,7 +303,7 @@
       <byteBuddy.version>1.10.16</byteBuddy.version>
       <classmate.version>1.5.1</classmate.version>
       <commons.logging.version>1.2</commons.logging.version>
-      <glassfish.el>2.2</glassfish.el>
+      <glassfish.el.version>2.2</glassfish.el.version>
       <guava.version>29.0-jre</guava.version>
       <h2.version>1.4.200</h2.version>
       <hamcrest.version>2.2</hamcrest.version>
@@ -342,7 +342,7 @@
       <!-- ============================================== -->
       <!-- ================= MAVEN SITE ================= -->
       <!-- ============================================== -->
-      <site.skin.version>2.0.10</site.skin.version>
+      <site.skin.version>2.0.11</site.skin.version>
    </properties>
 
    <!-- ********************************************** -->
@@ -710,7 +710,7 @@
          <!-- Javax EL implementation -->
          <groupId>org.glassfish.web</groupId>
          <artifactId>el-impl</artifactId>
-         <version>${glassfish.el}</version>
+         <version>${glassfish.el.version}</version>
          <scope>provided</scope>
       </dependency>
       <!-- ============================================== -->

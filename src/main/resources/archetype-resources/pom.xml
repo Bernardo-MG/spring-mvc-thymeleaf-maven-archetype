@@ -312,7 +312,7 @@
       <mysql.version>5.1.39</mysql.version>
       <postgresql.version>42.1.4</postgresql.version>
       <servlet.version>4.0.1</servlet.version>
-      <slf4j.version>2.0.0-alpha1</slf4j.version>
+      <slf4j.version>1.7.30</slf4j.version>
       <snakeyaml.version>1.26</snakeyaml.version>
       <spring.boot.version>2.3.4.RELEASE</spring.boot.version>
       <spring.data.train.version>Neumann-SR4</spring.data.train.version>
@@ -649,7 +649,7 @@
       <dependency>
          <!-- Log4j SLF4J Bridge -->
          <groupId>org.apache.logging.log4j</groupId>
-         <artifactId>log4j-slf4j18-impl</artifactId>
+         <artifactId>log4j-slf4j-impl</artifactId>
          <version>${log4j.version}</version>
       </dependency>
       <dependency>

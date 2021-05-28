@@ -36,7 +36,7 @@ This configuration is for the database, and the easiest way to handle it is by u
 The verify phase is required for generating all the reports, and this means that the integration tests will be run, which require all the dependencies.
 
 ```
-mvn verify site -P h2,development -Dspring.profiles.active=test,h2
+mvn verify site -P h2 -Dspring.profiles.active=test,h2
 ```
 
 ### Running the project locally

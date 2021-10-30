@@ -15,7 +15,7 @@
    <parent>
       <groupId>com.bernardomg.maven</groupId>
       <artifactId>archetype-pom</artifactId>
-      <version>1.2.2</version>
+      <version>1.2.4</version>
    </parent>
 
    <!-- ********************************************** -->
@@ -173,7 +173,7 @@
       <!-- ============================================== -->
       <!-- ================= MAVEN SITE ================= -->
       <!-- ============================================== -->
-      <site.skin.version>2.0.11</site.skin.version>
+      <site.skin.version>2.2.5</site.skin.version>
       <repoDownloadURL>https://dl.bintray.com/bernardo-mg/maven/</repoDownloadURL>
       <bintrayURL>https://bintray.com/bernardo-mg/maven/spring-mvc-thymeleaf-maven-archetype/view</bintrayURL>
       <mavenURL>http://mvnrepository.com/artifact/com.bernardomg.maven.archetypes/spring-mvc-thymeleaf-archetype</mavenURL>

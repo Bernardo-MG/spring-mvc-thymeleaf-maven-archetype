@@ -114,7 +114,7 @@
                <!-- Github repository -->
                <id>github</id>
                <name>GitHub Packages</name>
-               <url>https://maven.pkg.github.com/Bernardo-MG/library-maven-archetype</url>
+               <url>https://maven.pkg.github.com/Bernardo-MG/spring-mvc-thymeleaf-archetype</url>
             </repository>
          </distributionManagement>
       </profile>

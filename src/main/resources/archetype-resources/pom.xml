@@ -190,11 +190,11 @@
       <!-- ============ DEPLOYMENT PROFILES ============= -->
       <!-- ============================================== -->
       <profile>
-         <!-- Release deployment profile -->
-         <!-- Sets the site repository to point to the releases repo -->
+         <!-- Release deployment profile. -->
+         <!-- Sets the site repository to point to the releases repo. -->
          <id>deployment-release</id>
          <activation>
-            <!-- Active by default so the repository appears in the reports -->
+            <!-- Active by default so the repository appears in the reports. -->
             <activeByDefault>true</activeByDefault>
          </activation>
          <distributionManagement>
@@ -207,8 +207,8 @@
          </distributionManagement>
       </profile>
       <profile>
-         <!-- Development deployment profile -->
-         <!-- Sets the site repository to point to the development repo -->
+         <!-- Development deployment profile. -->
+         <!-- Sets the site repository to point to the development repo. -->
          <id>deployment-development</id>
          <distributionManagement>
             <site>
@@ -220,11 +220,11 @@
          </distributionManagement>
       </profile>
       <profile>
-         <!-- Deployment profile -->
-         <!-- Sets ups the environment for deployment -->
+         <!-- Deployment profile. -->
+         <!-- Sets ups the environment for deployment. -->
          <id>deployment</id>
          <properties>
-            <!-- Tests are skipped -->
+            <!-- Tests are skipped. -->
             <maven.test.skip>true</maven.test.skip>
          </properties>
       </profile>
@@ -236,7 +236,7 @@
                <!-- Github repository -->
                <id>github</id>
                <name>GitHub Packages</name>
-               <url>https://maven.pkg.github.com/Bernardo-MG/library-maven-archetype</url>
+               <url>https://maven.pkg.github.com/${repoUserId}/${artifactId}</url>
             </repository>
          </distributionManagement>
       </profile>

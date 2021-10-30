@@ -1,7 +1,7 @@
 #set( $symbol_pound = '#' )
 ${symbol_pound} ${projectName}
 
-This is a [Spring MVC](https://spring.io) project using [Thymeleaf](https://www.thymeleaf.org/) templates for the views, created with the use of the [Spring MVC with Thymeleaf Maven Archetype](https://github.com/Bernardo-MG/spring-mvc-thymeleaf-maven-archetype). It will ease the development of new Spring MVC projects, setting it up for CI through the use of three free services: [Github](https://github.com/), [Travis](https://travis-ci.org) and [Bintray](https://bintray.com/).
+This is a [Spring MVC](https://spring.io) project using [Thymeleaf](https://www.thymeleaf.org/) templates for the views, created with the use of the [Spring MVC with Thymeleaf Maven Archetype](https://github.com/Bernardo-MG/spring-mvc-thymeleaf-maven-archetype). It will ease the development of new Spring MVC projects, setting it up for CI through the use of free services: [Github](https://github.com/), [Github Workflow](https://docs.github.com/en/actions/configuring-and-managing-workflows), [Github Packages](https://github.com/features/packages) and [OSS Sonatype](https://oss.sonatype.org/).
 
 Before beginning with the new project there are a few things which should be edited:
 
@@ -14,7 +14,6 @@ Before beginning with the new project there are a few things which should be edi
 Note that the Maven site is using the [Docs Maven Skin](https://github.com/Bernardo-MG/docs-maven-skin), which will have a few configuration requirements of its own.
 
 [![Maven Central](https://img.shields.io/maven-central/v/${groupId}/${artifactId}.svg)][maven-repo]
-[![Bintray](https://api.bintray.com/packages/${repoUserId}/maven/${artifactId}/images/download.svg)][bintray-repo]
 
 [![Release docs](https://img.shields.io/badge/docs-release-blue.svg)][site-release]
 [![Development docs](https://img.shields.io/badge/docs-develop-blue.svg)][site-develop]
@@ -129,7 +128,6 @@ ${symbol_pound}${symbol_pound} License
 
 The project has been released under the [MIT License][license].
 
-[bintray-repo]: https://bintray.com/${repoUserId}/maven/${artifactId}/view
 [maven-repo]: https://mvnrepository.com/artifact/${groupId}/${artifactId}
 [issues]: https://github.com/${repoUserId}/${artifactId}/issues
 [javadoc-develop]: ${urlSiteDevelop}/${artifactId}/apidocs

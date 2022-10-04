@@ -783,9 +783,9 @@
          <scope>test</scope>
       </dependency>
       <dependency>
-         <!-- JUnit Jupiter Engine -->
+         <!-- JUnit Jupiter -->
          <groupId>org.junit.jupiter</groupId>
-         <artifactId>junit-jupiter-engine</artifactId>
+         <artifactId>junit-jupiter</artifactId>
          <scope>test</scope>
       </dependency>
       <dependency>

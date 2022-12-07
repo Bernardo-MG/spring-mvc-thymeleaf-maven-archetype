@@ -11,7 +11,7 @@
    <parent>
       <groupId>com.bernardomg.maven</groupId>
       <artifactId>base-pom</artifactId>
-      <version>1.4.4</version>
+      <version>1.5.3</version>
    </parent>
 
    <!-- ********************************************** -->
@@ -63,138 +63,15 @@
    <!-- ********************************************** -->
 
    <profiles>
-      <profile>
-         <!-- Profile for the Eclipse Maven plugin -->
-         <!-- Sets the POM so this plugin does not give the usual unregistered goals errors -->
-         <!-- It will be activated automatically on Eclipse if this has the m2e plugin, by detecting the version property -->
-         <id>eclipse-maven</id>
-         <activation>
-            <property>
-               <name>m2e.version</name>
-            </property>
-         </activation>
-         <build>
-            <pluginManagement>
-               <plugins>
-                  <plugin>
-                     <!-- m2e lifecycle mapping -->
-                     <!-- This is used to configure the Maven plugin for Eclipse. -->
-                     <!-- Among other things, it allows registering goals, which Eclipse would otherwise reject. -->
-                     <!-- It has no real effect on Maven. -->
-                     <groupId>org.eclipse.m2e</groupId>
-                     <artifactId>lifecycle-mapping</artifactId>
-                     <version>${plugin.lifecycle.version}</version>
-                     <configuration>
-                        <!-- Sample fix for plugin executions -->
-                        <!-- This is to be used in case a Maven plugins gives problems in Eclipse -->
-                        <!-- <lifecycleMappingMetadata> <pluginExecutions> <pluginExecution> <pluginExecutionFilter> <groupId>org.jacoco</groupId> <artifactId>jacoco-maven-plugin</artifactId> <versionRange>[0.5,)</versionRange> 
-                           <goals> <goal>prepare-agent</goal> </goals> </pluginExecutionFilter> <action> <ignore /> </action> </pluginExecution> </pluginExecutions> </lifecycleMappingMetadata> -->
-                        <downloadSources>true</downloadSources>
-                        <downloadJavadocs>true</downloadJavadocs>
-                     </configuration>
-                  </plugin>
-               </plugins>
-            </pluginManagement>
-         </build>
-      </profile>
-      <!-- ============================================== -->
-      <!-- ============= DATABASE PROFILES ============== -->
-      <!-- ============================================== -->
-      <profile>
-         <!-- H2 database profile -->
-         <!-- Prepares the project to make use of an H2 in-memory database -->
-         <id>h2</id>
-         <activation>
-            <!-- Active by default so it can be installed by CI -->
-            <activeByDefault>true</activeByDefault>
-         </activation>
-         <dependencies>
-            <dependency>
-               <!-- H2 database -->
-               <groupId>com.h2database</groupId>
-               <artifactId>h2</artifactId>
-               <version>${h2.version}</version>
-            </dependency>
-         </dependencies>
-      </profile>
-      <profile>
-         <!-- MySQL database profile -->
-         <!-- Prepares the project to make use of a MySQL database -->
-         <id>mysql</id>
-         <activation>
-            <property>
-               <name>env.DATABASE_SYSTEM</name>
-               <value>mysql</value>
-            </property>
-         </activation>
-         <dependencies>
-            <dependency>
-               <!-- MySQL connector -->
-               <groupId>mysql</groupId>
-               <artifactId>mysql-connector-java</artifactId>
-               <version>${mysql.version}</version>
-            </dependency>
-         </dependencies>
-      </profile>
-      <profile>
-         <!-- Postgres database profile -->
-         <!-- Prepares the project to make use of a Postgres database -->
-         <id>postgres</id>
-         <activation>
-            <property>
-               <name>env.DATABASE_SYSTEM</name>
-               <value>postgres</value>
-            </property>
-         </activation>
-         <dependencies>
-            <dependency>
-               <!-- Postgres connector -->
-               <groupId>org.postgresql</groupId>
-               <artifactId>postgresql</artifactId>
-               <version>${postgresql.version}</version>
-            </dependency>
-         </dependencies>
-      </profile>
-      <!-- ============================================== -->
-      <!-- =============== BUILD PROFILES =============== -->
-      <!-- ============================================== -->
-      <profile>
-         <!-- Production profile -->
-         <id>production</id>
-         <activation>
-            <property>
-               <name>env.ENVIRONMENT_MODE</name>
-               <value>production</value>
-            </property>
-         </activation>
-      </profile>
-      <profile>
-         <!-- Production profile -->
-         <id>development</id>
-         <activation>
-            <!-- Active by default to ease development -->
-            <activeByDefault>true</activeByDefault>
-         </activation>
-         <dependencies>
-            <dependency>
-               <!-- Spring Boot Starter: Devtools -->
-               <groupId>org.springframework.boot</groupId>
-               <artifactId>spring-boot-devtools</artifactId>
-               <version>${spring.boot.version}</version>
-               <scope>runtime</scope>
-               <optional>true</optional>
-            </dependency>
-         </dependencies>
-      </profile>
       <!-- ============================================== -->
       <!-- ============ DEPLOYMENT PROFILES ============= -->
       <!-- ============================================== -->
       <profile>
-         <!-- Release deployment profile. -->
-         <!-- Sets the site repository to point to the releases repo. -->
-         <id>deployment-release</id>
+         <!-- Site deployment profile -->
+         <!-- Sets the site repository to point to the releases repo -->
+         <id>deployment-site</id>
          <activation>
-            <!-- Active by default so the repository appears in the reports. -->
+            <!-- Active by default so the repository appears in the reports -->
             <activeByDefault>true</activeByDefault>
          </activation>
          <distributionManagement>
@@ -202,31 +79,9 @@
                <id>site</id>
                <name>Project Documentation Site</name>
                <!-- The URL should be set externally -->
-               <url>${site.release.url}</url>
+               <url>${site.url}</url>
             </site>
          </distributionManagement>
-      </profile>
-      <profile>
-         <!-- Development deployment profile. -->
-         <!-- Sets the site repository to point to the development repo. -->
-         <id>deployment-development</id>
-         <distributionManagement>
-            <site>
-               <id>site-development</id>
-               <name>Project Development Documentation Site</name>
-               <!-- The URL should be set externally -->
-               <url>${site.develop.url}</url>
-            </site>
-         </distributionManagement>
-      </profile>
-      <profile>
-         <!-- Deployment profile. -->
-         <!-- Sets ups the environment for deployment. -->
-         <id>deployment</id>
-         <properties>
-            <!-- Tests are skipped. -->
-            <maven.test.skip>true</maven.test.skip>
-         </properties>
       </profile>
       <profile>
          <!-- Github deployment profile. -->
@@ -320,10 +175,6 @@
       <!-- ============================================== -->
       <maven.version>3.5.0</maven.version>
       <!-- ============================================== -->
-      <!-- ================ JAVA VERSION ================ -->
-      <!-- ============================================== -->
-      <java.version>1.8</java.version>
-      <!-- ============================================== -->
       <!-- =============== MANIFEST DATA ================ -->
       <!-- ============================================== -->
       <manifest.name>${packageInPathFormat}</manifest.name>
@@ -373,7 +224,9 @@
       <!-- ============================================== -->
       <!-- ================= MAVEN SITE ================= -->
       <!-- ============================================== -->
-      <site.skin.version>2.2.5</site.skin.version>
+      <site.skin.version>2.3.0</site.skin.version>
+      <mavenURL>http://mvnrepository.com/artifact/${project.groupId}/${project.artifactId}</mavenURL>
+      <githubArtifactURL><![CDATA[https://github.com/${repoUserId}?tab=packages&amp;repo_name=${project.artifactId}]]></githubArtifactURL>
    </properties>
 
    <!-- ********************************************** -->

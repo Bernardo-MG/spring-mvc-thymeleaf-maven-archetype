@@ -41,11 +41,10 @@
          <item name="Repositories" href="./repositories.html" />
          <item name="Github Workflow" href="./ghworkflow.html" />
          <item name="Tests" href="./tests.html" />
-         <item name="Maven Configuration" href="./maven.html" />
-         <item name="Building" href="./building.html" />
          <item name="Deployment" href="./deployment.html" />
          <item name="Maven Site and Reports" href="./site.html" />
          <item name="The Changes Log" href="./changes.html" />
+         <item name="Additional Configuration" href="./configuration.html" />
       </menu>
       <menu name="Info and reports" inherit="bottom">
          <item name="Info" href="./info.html" />

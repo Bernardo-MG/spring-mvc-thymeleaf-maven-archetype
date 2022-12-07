@@ -6,61 +6,52 @@ In this case this Archetype creates a generic Maven-based library which includes
 
 ## Features
 
-- Creates the base for a [Spring MVC][spring-mvc] project.
-- [React][react] and [Redux][redux] for the backend.
-- Using [Liquibase][liquibase] for database versioning.
-- [bernardomg's Base POM][base-pom] used as parent POM.
+- Creates the base for a [Spring MVC][spring-mvc] project using [Thymeleaf][thymeleaf].
+- [Liquibase][liquibase] for database versioning.
+- [Archetype parent POM][parent-pom] and [Bernardo MG's Base POM][base-pom] used as parent POMs.
 - [Unit and integration test][tests] suites are run separatedly with the use of [JUnit][junit].
 - [Maven site for the project][site], using the [Docs Maven Skin][docs-skin], for creating a small documentation site.
 - [Javadocs][site-javadoc] included in the Maven site.
 - [Several useful reports][site-reports] added to the Maven site.
 - [Changes log][changes] added to the Maven site.
 - [Ready to make use of Github Workflow][github-workflow] for testing and deployment.
+- [Deployment][deployment] covers both artifacts and documentation site.
+- [Deployment scripts][deployment-scripts] making a distinction between release and development versions.
 - The artifact manifest is fully configured.
 - A basic readme template.
 - .gitignore and .gitattributes files prepared for common uses.
 - [MIT License][license].
 
-## Example project
+## Example Project
 
 For a quick taste, there is an [example project][example-project] showing what can be created with the use of this Archetype.
 
-## Commands for the new project
+## Commands for the New Project
 
-From the first moment the a new project is created all the usual Maven commands can be used, but due to the nature of the project some will require additional configuration.
+From the first moment the a new project is created all the usual Maven commands can be used, some of these are:
 
-This configuration is for the database, and the easiest way to handle it is by using embedded dependencies, which will be set up with the 'h2' profile.
-
-### Site generation
-
-The verify phase is required for generating all the reports, and this means that the integration tests will be run, which require all the dependencies.
-
-```
-mvn verify site -P h2 -Dspring.profiles.active=test,h2
-```
-
-### Running the project locally
-
-To run the project locally use the following Maven command:
-
-```
-mvn spring-boot:run -P h2,development -Dspring.profiles.active=h2
-```
+|Command|Usage|
+|---|---|
+|mvn clean package|Creating the jar file|
+|mvn clean install|Installing the project to the local repository|
+|mvn clean unit|Running only unit tests|
+|mvn clean verify|Running unit and integration tests|
+|mvn clean verify site|Generating the Maven site and all the report|
 
 
-[base-pom]: https://github.com/Bernardo-MG/base-pom
+[parent-pom]: https://github.com/Bernardo-MG/archetype-pom
 [docs-skin]: https://github.com/Bernardo-MG/docs-maven-skin
-[example-project]: https://github.com/Bernardo-MG/spring-mvc-react-archetype-example
+[example-project]: https://github.com/Bernardo-MG/spring-web-service-maven-archetype-example
 
 [liquibase]: http://www.liquibase.org/
 [spring-mvc]: https://spring.io/
 [junit]: http://junit.org
-
-[react]: https://reactjs.org/
-[redux]: https://redux.js.org/
+[thymeleaf]: https://www.thymeleaf.org/
 
 [license]: ./license.html
 
+[deployment]: ./deployment.html
+[deployment-scripts]: ./deployment.html#scripts
 [changes]: ./changes.html
 [site]: ./site.html
 [site-javadoc]: ./site.html#javadocs

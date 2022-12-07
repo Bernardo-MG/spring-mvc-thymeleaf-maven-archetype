@@ -35,6 +35,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import ${package}.controller.entity.ExampleEntityRestController;
 import ${package}.model.ExampleEntity;
+import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.service.ExampleEntityService;
 import ${package}.test.config.UrlConfig;
 
@@ -104,9 +105,9 @@ public final class TestExampleEntityRestController {
         service = Mockito.mock(ExampleEntityService.class);
 
         entities = new ArrayList<>();
-        entities.add(Mockito.mock(ExampleEntity.class));
-        entities.add(Mockito.mock(ExampleEntity.class));
-        entities.add(Mockito.mock(ExampleEntity.class));
+        entities.add(new DefaultExampleEntity());
+        entities.add(new DefaultExampleEntity());
+        entities.add(new DefaultExampleEntity());
 
         Mockito.when(service.getEntities(ArgumentMatchers.any()))
                 .thenReturn((Iterable) entities);

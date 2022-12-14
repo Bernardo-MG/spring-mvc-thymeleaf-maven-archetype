@@ -59,18 +59,6 @@ public class ExampleEntityFormController {
     private final ExampleEntityService exampleEntityService;
 
     /**
-     * Constructs a controller with the specified dependencies.
-     *
-     * @param service
-     *            example entity service
-     */
-    public ExampleEntityFormController(final ExampleEntityService service) {
-        super();
-
-        exampleEntityService = checkNotNull(service, "Received a null pointer as service");
-    }
-
-    /**
      * Returns the initial entity form data.
      *
      * @return the initial entity form data

@@ -51,18 +51,6 @@ public class ExampleEntityListViewController {
     private final ExampleEntityService exampleEntityService;
 
     /**
-     * Constructs a controller with the specified dependencies.
-     *
-     * @param service
-     *            example entity service
-     */
-    public ExampleEntityListViewController(final ExampleEntityService service) {
-        super();
-
-        exampleEntityService = checkNotNull(service, "Received a null pointer as service");
-    }
-
-    /**
      * Shows the entities listing view.
      * <p>
      * Actually it just returns the name of the view. Spring will take care of the rest.

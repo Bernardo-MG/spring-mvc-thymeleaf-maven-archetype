@@ -50,18 +50,6 @@ public class ExampleEntityRestController {
     private final ExampleEntityService exampleEntityService;
 
     /**
-     * Constructs a controller with the specified dependencies.
-     *
-     * @param service
-     *            example entity service
-     */
-    public ExampleEntityRestController(final ExampleEntityService service) {
-        super();
-
-        exampleEntityService = checkNotNull(service, "Received a null pointer as service");
-    }
-
-    /**
      * Returns a paginated collection of entities.
      *
      * @param page

@@ -26,7 +26,7 @@ package ${package}.controller.entity;
 
 /**
  * Constants for the example entity view controllers.
- * 
+ *
  * @author Bernardo Mart&iacute;nez Garrido
  */
 public final class ExampleEntityViewConstants {
@@ -34,17 +34,22 @@ public final class ExampleEntityViewConstants {
     /**
      * Form bean parameter name.
      */
-    public static final String BEAN_FORM        = "form";
+    public static final String BEAN_FORM             = "form";
 
     /**
      * Entities parameter name.
      */
-    public static final String PARAM_ENTITIES   = "entities";
+    public static final String PARAM_ENTITIES        = "entities";
 
     /**
      * Name for the entity form.
      */
-    public static final String VIEW_ENTITY_FORM = "entity/form";
+    public static final String VIEW_ENTITY_FORM      = "entity/form";
+
+    /**
+     * Name for the entities view.
+     */
+    public static final String VIEW_ENTITY_LIST      = "entity/list";
 
     /**
      * Name for the entities view using AJAX.
@@ -52,14 +57,9 @@ public final class ExampleEntityViewConstants {
     public static final String VIEW_ENTITY_LIST_AJAX = "entity/listAjax";
 
     /**
-     * Name for the entities view.
-     */
-    public static final String VIEW_ENTITY_LIST = "entity/list";
-
-    /**
      * Name for the exception view.
      */
-    public static final String VIEW_EXCEPTION   = "exception";
+    public static final String VIEW_EXCEPTION        = "exception";
 
     /**
      * Private constructor to avoid initialization.

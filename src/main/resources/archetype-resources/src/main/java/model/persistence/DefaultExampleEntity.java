@@ -36,9 +36,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import com.google.common.base.MoreObjects;
-
 import ${package}.model.ExampleEntity;
+import com.google.common.base.MoreObjects;
 
 /**
  * Persistent entity for the example application.
@@ -68,8 +67,7 @@ public class DefaultExampleEntity implements ExampleEntity {
     /**
      * Name of the entity.
      * <p>
-     * This is to have additional data apart from the id, to be used on the
-     * tests.
+     * This is to have additional data apart from the id, to be used on the tests.
      */
     @Column(name = "name", nullable = false, unique = true)
     private String            name             = "";
@@ -87,11 +85,7 @@ public class DefaultExampleEntity implements ExampleEntity {
             return true;
         }
 
-        if (obj == null) {
-            return false;
-        }
-
-        if (getClass() != obj.getClass()) {
+        if ((obj == null) || (getClass() != obj.getClass())) {
             return false;
         }
 
@@ -102,8 +96,7 @@ public class DefaultExampleEntity implements ExampleEntity {
     /**
      * Returns the identifier assigned to this entity.
      * <p>
-     * If no identifier has been assigned yet, then the value will be lower than
-     * zero.
+     * If no identifier has been assigned yet, then the value will be lower than zero.
      *
      * @return the entity's identifier
      */
@@ -134,7 +127,9 @@ public class DefaultExampleEntity implements ExampleEntity {
 
     @Override
     public final String toString() {
-        return MoreObjects.toStringHelper(this).add("entityId", id).toString();
+        return MoreObjects.toStringHelper(this)
+            .add("entityId", id)
+            .toString();
     }
 
 }

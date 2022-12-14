@@ -26,7 +26,7 @@ package ${package}.controller.error;
 
 /**
  * Constants for the error view controllers.
- * 
+ *
  * @author Bernardo Mart&iacute;nez Garrido
  */
 public final class ErrorViewConstants {
@@ -34,7 +34,7 @@ public final class ErrorViewConstants {
     /**
      * Name for the error view.
      */
-    public static final String VIEW_ERROR   = "exception";
+    public static final String VIEW_ERROR = "exception";
 
     /**
      * Private constructor to avoid initialization.

@@ -38,7 +38,7 @@ import ${package}.service.ExampleEntityService;
  * Controller for the example entities listing view.
  * <p>
  * This serves as an adapter between the UI and the services layer.
- * 
+ *
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @Controller
@@ -52,7 +52,7 @@ public class ExampleEntityListViewController {
 
     /**
      * Constructs a controller with the specified dependencies.
-     * 
+     *
      * @param service
      *            example entity service
      */
@@ -60,19 +60,16 @@ public class ExampleEntityListViewController {
     public ExampleEntityListViewController(final ExampleEntityService service) {
         super();
 
-        exampleEntityService = checkNotNull(service,
-                "Received a null pointer as service");
+        exampleEntityService = checkNotNull(service, "Received a null pointer as service");
     }
 
     /**
      * Shows the entities listing view.
      * <p>
-     * Actually it just returns the name of the view. Spring will take care of
-     * the rest.
+     * Actually it just returns the name of the view. Spring will take care of the rest.
      * <p>
-     * Before returning the name the model should be loaded with all the data
-     * required by the view.
-     * 
+     * Before returning the name the model should be loaded with all the data required by the view.
+     *
      * @param model
      *            model map
      * @return the name for the entities listing view
@@ -88,15 +85,13 @@ public class ExampleEntityListViewController {
     /**
      * Loads the model data required for the entities listing view.
      * <p>
-     * As the view will list all the entities, it requires these entities as one
-     * of the parameters.
-     * 
+     * As the view will list all the entities, it requires these entities as one of the parameters.
+     *
      * @param model
      *            model map
      */
     private final void loadViewModel(final ModelMap model) {
-        model.put(ExampleEntityViewConstants.PARAM_ENTITIES,
-                exampleEntityService.getAllEntities());
+        model.put(ExampleEntityViewConstants.PARAM_ENTITIES, exampleEntityService.getAllEntities());
     }
 
 }

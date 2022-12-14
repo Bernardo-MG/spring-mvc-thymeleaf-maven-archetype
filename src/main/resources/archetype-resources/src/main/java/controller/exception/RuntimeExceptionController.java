@@ -32,7 +32,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Controller which generates a runtime exception.
  * <p>
  * This is used to verify that the exceptions are being handled correctly.
- * 
+ *
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @Controller

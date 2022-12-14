@@ -44,7 +44,7 @@ import ${package}.service.ExampleEntityService;
  * Controller for generating reports.
  * <p>
  * This serves as an adapter between the UI and the services layer.
- * 
+ *
  * @author Bernardo Mart&iacute;nez Garrido
  *
  */
@@ -69,44 +69,38 @@ public class ReportController {
 
     /**
      * Constructs a controller with the specified dependencies.
-     * 
+     *
      * @param entityService
      *            example entity service
      * @param reportService
      *            report service
      */
     @Autowired
-    public ReportController(final ExampleEntityService entityService,
-            final ExampleEntityReportService reportService) {
+    public ReportController(final ExampleEntityService entityService, final ExampleEntityReportService reportService) {
         super();
 
-        exampleEntityService = checkNotNull(entityService,
-                "Received a null pointer as service");
-        exampleEntityReportService = checkNotNull(reportService,
-                "Received a null pointer as report service");
+        exampleEntityService = checkNotNull(entityService, "Received a null pointer as service");
+        exampleEntityReportService = checkNotNull(reportService, "Received a null pointer as report service");
     }
 
     /**
      * Generates a PDF report and returns it in the response.
-     * 
+     *
      * @param response
      *            HTTP response
      * @throws IOException
      *             if there is a problem when streaming into the response
      */
     @GetMapping(path = "/pdf")
-    public void getPdfReport(final HttpServletResponse response)
-            throws IOException {
+    public void getPdfReport(final HttpServletResponse response) throws IOException {
         final OutputStream output;
 
         response.setContentType(MediaType.APPLICATION_PDF_VALUE);
-        response.setHeader("Content-disposition",
-                String.format("inline; filename=%s.pdf", FILENAME));
+        response.setHeader("Content-disposition", String.format("inline; filename=%s.pdf", FILENAME));
 
         output = response.getOutputStream();
 
-        exampleEntityReportService
-                .getReport(exampleEntityService.getAllEntities(), output);
+        exampleEntityReportService.getReport(exampleEntityService.getAllEntities(), output);
     }
 
 }

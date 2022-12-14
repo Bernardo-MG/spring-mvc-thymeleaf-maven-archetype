@@ -24,8 +24,7 @@
 /**
  * Controllers which generate exceptions.
  * <p>
- * These are just for verifying that the application is handling exceptions as
- * expected.
+ * These are just for verifying that the application is handling exceptions as expected.
  */
 
 package ${package}.controller.exception;

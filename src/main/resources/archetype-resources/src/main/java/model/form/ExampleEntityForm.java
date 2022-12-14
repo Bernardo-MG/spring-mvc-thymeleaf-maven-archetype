@@ -36,12 +36,11 @@ import com.google.common.base.MoreObjects;
 /**
  * Represents the form used for the creating and editing example entities.
  * <p>
- * This is a DTO, meant to allow communication between the view and the
- * controller, and mapping all the values from the form. Each of field in the
- * DTO matches a field in the form.
+ * This is a DTO, meant to allow communication between the view and the controller, and mapping all the values from the
+ * form. Each of field in the DTO matches a field in the form.
  * <p>
- * Includes Java validation annotations, for applying binding validation. This
- * way the controller will make sure it receives all the required data.
+ * Includes Java validation annotations, for applying binding validation. This way the controller will make sure it
+ * receives all the required data.
  *
  * @author Bernardo Mart&iacute;nez Garrido
  */
@@ -73,11 +72,7 @@ public final class ExampleEntityForm implements Serializable {
             return true;
         }
 
-        if (obj == null) {
-            return false;
-        }
-
-        if (getClass() != obj.getClass()) {
+        if ((obj == null) || (getClass() != obj.getClass())) {
             return false;
         }
 
@@ -87,7 +82,7 @@ public final class ExampleEntityForm implements Serializable {
 
     /**
      * Returns the value of the name field.
-     * 
+     *
      * @return the value of the name field
      */
     public final String getName() {
@@ -101,7 +96,7 @@ public final class ExampleEntityForm implements Serializable {
 
     /**
      * Sets the value of the name field.
-     * 
+     *
      * @param value
      *            the new value for the name field
      */
@@ -111,7 +106,9 @@ public final class ExampleEntityForm implements Serializable {
 
     @Override
     public final String toString() {
-        return MoreObjects.toStringHelper(this).add("name", name).toString();
+        return MoreObjects.toStringHelper(this)
+            .add("name", name)
+            .toString();
     }
 
 }

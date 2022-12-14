@@ -31,12 +31,10 @@ import ${package}.model.persistence.DefaultExampleEntity;
 /**
  * Spring-JPA repository for {@link DefaultExampleEntity}.
  * <p>
- * This is a simple repository just to allow the endpoints querying the entities
- * they are asked for.
+ * This is a simple repository just to allow the endpoints querying the entities they are asked for.
  *
  * @author Bernardo Mart&iacute;nez Garrido
  */
-public interface ExampleEntityRepository
-        extends JpaRepository<DefaultExampleEntity, Integer> {
+public interface ExampleEntityRepository extends JpaRepository<DefaultExampleEntity, Integer> {
 
 }

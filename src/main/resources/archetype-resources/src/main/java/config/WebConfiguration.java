@@ -19,15 +19,14 @@ public class WebConfiguration implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(final ViewControllerRegistry registry) {
-        registry.addViewController("/notFound").setViewName("forward:/");
+        registry.addViewController("/notFound")
+            .setViewName("forward:/");
     }
 
     @Bean
-    public WebServerFactoryCustomizer<ConfigurableServletWebServerFactory>
-            containerCustomizer() {
+    public WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> containerCustomizer() {
         return container -> {
-            container.addErrorPages(
-                    new ErrorPage(HttpStatus.NOT_FOUND, "/notFound"));
+            container.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/notFound"));
         };
     }
 

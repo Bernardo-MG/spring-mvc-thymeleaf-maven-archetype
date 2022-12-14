@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 
 /**
  * Initializes all the controllers with a common configuration.
- * 
+ *
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @ControllerAdvice
@@ -45,7 +45,7 @@ public class GlobalBindingInitializer {
 
     /**
      * Sets the fields which can't be bound.
-     * 
+     *
      * @param dataBinder
      *            data binder
      */

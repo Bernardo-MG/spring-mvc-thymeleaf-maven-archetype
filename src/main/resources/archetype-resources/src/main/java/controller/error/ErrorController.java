@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Controller for home view.
- * 
+ *
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @Controller
@@ -49,7 +49,7 @@ public class ErrorController {
 
     /**
      * Shows the 404 error view.
-     * 
+     *
      * @return the 404 error view
      */
     @RequestMapping("/404")

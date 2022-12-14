@@ -26,17 +26,16 @@ package ${package}.service;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.model.ExampleEntity;
+import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.repository.ExampleEntityRepository;
 
 /**
  * Default implementation of the example entity service.
- * 
+ *
  * @author Bernardo Mart&iacute;nez Garrido
  *
  */
@@ -54,13 +53,10 @@ public class DefaultExampleEntityService implements ExampleEntityService {
      * @param repository
      *            the repository for the entity instances
      */
-    @Autowired
-    public DefaultExampleEntityService(
-            final ExampleEntityRepository repository) {
+    public DefaultExampleEntityService(final ExampleEntityRepository repository) {
         super();
 
-        entityRepository = checkNotNull(repository,
-                "Received a null pointer as repository");
+        entityRepository = checkNotNull(repository, "Received a null pointer as repository");
     }
 
     @Override
@@ -71,8 +67,7 @@ public class DefaultExampleEntityService implements ExampleEntityService {
     /**
      * Returns an entity with the given id.
      * <p>
-     * If no instance exists with that id then an entity with a negative id is
-     * returned.
+     * If no instance exists with that id then an entity with a negative id is returned.
      *
      * @param identifier
      *            identifier of the entity to find
@@ -85,7 +80,7 @@ public class DefaultExampleEntityService implements ExampleEntityService {
         checkNotNull(identifier, "Received a null pointer as identifier");
 
         if (entityRepository.existsById(identifier)) {
-            entity = entityRepository.getOne(identifier);
+            entity = entityRepository.getReferenceById(identifier);
         } else {
             entity = new DefaultExampleEntity();
         }
@@ -99,8 +94,7 @@ public class DefaultExampleEntityService implements ExampleEntityService {
     }
 
     @Override
-    public final Iterable<DefaultExampleEntity>
-            getEntities(final Pageable page) {
+    public final Iterable<DefaultExampleEntity> getEntities(final Pageable page) {
         return entityRepository.findAll(page);
     }
 

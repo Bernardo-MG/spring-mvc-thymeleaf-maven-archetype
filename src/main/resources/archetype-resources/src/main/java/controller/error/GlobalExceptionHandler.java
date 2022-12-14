@@ -36,18 +36,16 @@ import org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver;
 
 /**
  * Captures and handles exceptions for all the controllers.
- * 
+ *
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @ControllerAdvice
-public class GlobalExceptionHandler
-        extends AbstractHandlerExceptionResolver {
+public class GlobalExceptionHandler extends AbstractHandlerExceptionResolver {
 
     /**
      * Logger for the exception handler.
      */
-    private static final Logger LOGGER         = LoggerFactory
-            .getLogger(GlobalExceptionHandler.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     /**
      * Default constructor.
@@ -58,16 +56,16 @@ public class GlobalExceptionHandler
 
     @Override
     protected final ModelAndView doResolveException(final HttpServletRequest request,
-            final HttpServletResponse response, final Object handler,
-            final Exception ex) {
+            final HttpServletResponse response, final Object handler, final Exception ex) {
         final ModelAndView modelView;
 
         LOGGER.error(ex.getMessage(), ex);
 
         modelView = new ModelAndView(ErrorViewConstants.VIEW_ERROR);
-        modelView.getModel().put("code",
-                HttpStatus.INTERNAL_SERVER_ERROR.value());
-        modelView.getModel().put("message", ex.getMessage());
+        modelView.getModel()
+            .put("code", HttpStatus.INTERNAL_SERVER_ERROR.value());
+        modelView.getModel()
+            .put("message", ex.getMessage());
 
         return modelView;
     }

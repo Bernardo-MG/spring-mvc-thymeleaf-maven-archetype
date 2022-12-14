@@ -45,34 +45,30 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 /**
  * Default implementation of the report service.
- * 
+ *
  * @author Bernardo Mart&iacute;nez Garrido
  *
  */
 @Service
-public final class DefaultExampleEntityReportService
-        implements ExampleEntityReportService {
+public final class DefaultExampleEntityReportService implements ExampleEntityReportService {
 
     /**
      * Chapter font.
      */
-    private final Font chapterFont   = FontFactory
-            .getFont(FontFactory.HELVETICA, 16, Font.BOLDITALIC);
+    private final Font chapterFont   = FontFactory.getFont(FontFactory.HELVETICA, 16, Font.BOLDITALIC);
 
     /**
      * Paragraph font.
      */
-    private final Font paragraphFont = FontFactory
-            .getFont(FontFactory.HELVETICA, 12, Font.NORMAL);
+    private final Font paragraphFont = FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL);
 
     public DefaultExampleEntityReportService() {
         super();
     }
 
     @Override
-    public final void getReport(final Iterable<? extends ExampleEntity> data,
-            final OutputStream output) {
-        final Document document;
+    public final void getReport(final Iterable<? extends ExampleEntity> data, final OutputStream output) {
+        final Document  document;
         final Paragraph header;
         final Paragraph body;
 
@@ -97,27 +93,13 @@ public final class DefaultExampleEntityReportService
     }
 
     /**
-     * Builds the header paragraph.
-     * 
-     * @return the header paragraph
-     */
-    private final Paragraph getHeader() {
-        final Chunk chunk;
-
-        chunk = new Chunk("Report", chapterFont);
-
-        return new Paragraph(chunk);
-    }
-
-    /**
      * Builds the report body.
-     * 
+     *
      * @param data
      *            data to print
      * @return the body paragraph
      */
-    private final Paragraph
-            getBody(final Iterable<? extends ExampleEntity> data) {
+    private final Paragraph getBody(final Iterable<? extends ExampleEntity> data) {
         final Paragraph paragraph;
         final PdfPTable table;
 
@@ -129,20 +111,35 @@ public final class DefaultExampleEntityReportService
         paragraph.add(table);
 
         // Adds headers
-        Stream.of("id", "name").forEach(columnTitle -> {
-            final PdfPCell header = new PdfPCell();
-            header.setBackgroundColor(BaseColor.LIGHT_GRAY);
-            header.setBorderWidth(2);
-            header.setPhrase(new Phrase(columnTitle));
-            table.addCell(header);
-        });
+        Stream.of("id", "name")
+            .forEach(columnTitle -> {
+                final PdfPCell header = new PdfPCell();
+                header.setBackgroundColor(BaseColor.LIGHT_GRAY);
+                header.setBorderWidth(2);
+                header.setPhrase(new Phrase(columnTitle));
+                table.addCell(header);
+            });
 
-        StreamSupport.stream(data.spliterator(), false).forEach((entity) -> {
-            table.addCell(String.valueOf(entity.getId()));
-            table.addCell(entity.getName());
-        });
+        StreamSupport.stream(data.spliterator(), false)
+            .forEach((entity) -> {
+                table.addCell(String.valueOf(entity.getId()));
+                table.addCell(entity.getName());
+            });
 
         return paragraph;
+    }
+
+    /**
+     * Builds the header paragraph.
+     *
+     * @return the header paragraph
+     */
+    private final Paragraph getHeader() {
+        final Chunk chunk;
+
+        chunk = new Chunk("Report", chapterFont);
+
+        return new Paragraph(chunk);
     }
 
 }

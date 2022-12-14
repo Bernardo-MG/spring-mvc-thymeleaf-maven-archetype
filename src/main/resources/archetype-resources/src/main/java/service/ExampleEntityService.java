@@ -26,14 +26,13 @@ package ${package}.service;
 
 import org.springframework.data.domain.Pageable;
 
-import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.model.ExampleEntity;
+import ${package}.model.persistence.DefaultExampleEntity;
 
 /**
  * Service for the example entity domain.
  * <p>
- * This is a domain service just to allow the endpoints querying the entities
- * they are asked for.
+ * This is a domain service just to allow the endpoints querying the entities they are asked for.
  *
  * @author Bernardo Mart&iacute;nez Garrido
  */
@@ -41,7 +40,7 @@ public interface ExampleEntityService {
 
     /**
      * Persists an entity.
-     * 
+     *
      * @param entity
      *            entity to persist
      * @return the persisted entity
@@ -51,8 +50,8 @@ public interface ExampleEntityService {
     /**
      * Returns an entity with the given id.
      * <p>
-     * If no instance exists with that id then an entity with a negative id is
-     * expected to be returned. Avoid returning nulls.
+     * If no instance exists with that id then an entity with a negative id is expected to be returned. Avoid returning
+     * nulls.
      *
      * @param identifier
      *            identifier of the entity to find
@@ -62,14 +61,14 @@ public interface ExampleEntityService {
 
     /**
      * Returns all the entities from the DB.
-     * 
+     *
      * @return the persisted entities
      */
     public Iterable<DefaultExampleEntity> getAllEntities();
 
     /**
      * Returns a paginated collection of entities.
-     * 
+     *
      * @param page
      *            pagination data
      * @return a paginated collection of entities
@@ -78,7 +77,7 @@ public interface ExampleEntityService {
 
     /**
      * Removes an entity from persistence.
-     * 
+     *
      * @param entity
      *            entity to remove
      */

@@ -22,8 +22,7 @@
  * SOFTWARE.
  */
 /**
- * Form objects. These are DTOs mapping the data sent between the view and
- * controllers.
+ * Form objects. These are DTOs mapping the data sent between the view and controllers.
  */
 
 package ${package}.model.form;

@@ -38,15 +38,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import ${package}.service.ExampleEntityService;
-import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.model.form.ExampleEntityForm;
+import ${package}.model.persistence.DefaultExampleEntity;
+import ${package}.service.ExampleEntityService;
 
 /**
  * Controller for the example entities form view.
  * <p>
  * This serves as an adapter between the UI and the services layer.
- * 
+ *
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @Controller
@@ -60,7 +60,7 @@ public class ExampleEntityFormController {
 
     /**
      * Constructs a controller with the specified dependencies.
-     * 
+     *
      * @param service
      *            example entity service
      */
@@ -68,13 +68,12 @@ public class ExampleEntityFormController {
     public ExampleEntityFormController(final ExampleEntityService service) {
         super();
 
-        exampleEntityService = checkNotNull(service,
-                "Received a null pointer as service");
+        exampleEntityService = checkNotNull(service, "Received a null pointer as service");
     }
 
     /**
      * Returns the initial entity form data.
-     * 
+     *
      * @return the initial entity form data
      */
     @ModelAttribute(ExampleEntityViewConstants.BEAN_FORM)
@@ -84,7 +83,7 @@ public class ExampleEntityFormController {
 
     /**
      * Persists an entity.
-     * 
+     *
      * @param model
      *            model map
      * @param form
@@ -99,7 +98,7 @@ public class ExampleEntityFormController {
     public String saveEntity(final ModelMap model,
             @ModelAttribute(ExampleEntityViewConstants.BEAN_FORM) @Valid final ExampleEntityForm form,
             final BindingResult bindingResult, final HttpServletResponse response) {
-        final String path;
+        final String               path;
         final DefaultExampleEntity entity;
 
         if (bindingResult.hasErrors()) {
@@ -131,9 +130,8 @@ public class ExampleEntityFormController {
     /**
      * Shows the entity edition view.
      * <p>
-     * Actually it just returns the name of the view. Spring will take care of
-     * the rest.
-     * 
+     * Actually it just returns the name of the view. Spring will take care of the rest.
+     *
      * @return the name for the entity edition view
      */
     @GetMapping(path = "/edit")
@@ -144,15 +142,13 @@ public class ExampleEntityFormController {
     /**
      * Loads the model data required for the entities listing view.
      * <p>
-     * As the view will list all the entities, it requires these entities as one
-     * of the parameters.
-     * 
+     * As the view will list all the entities, it requires these entities as one of the parameters.
+     *
      * @param model
      *            model map
      */
     private final void loadViewModel(final ModelMap model) {
-        model.put(ExampleEntityViewConstants.PARAM_ENTITIES,
-                exampleEntityService.getAllEntities());
+        model.put(ExampleEntityViewConstants.PARAM_ENTITIES, exampleEntityService.getAllEntities());
     }
 
 }

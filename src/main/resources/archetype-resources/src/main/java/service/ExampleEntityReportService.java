@@ -30,7 +30,7 @@ import ${package}.model.ExampleEntity;
 
 /**
  * Service for generating reports for the example entities.
- * 
+ *
  * @author Bernardo Mart&iacute;nez Garrido
  *
  */
@@ -38,13 +38,12 @@ public interface ExampleEntityReportService {
 
     /**
      * Returns the report for the received data.
-     * 
+     *
      * @param data
      *            data to populate the report
      * @param output
      *            stream to store the report
      */
-    public void getReport(final Iterable<? extends ExampleEntity> data,
-            final OutputStream output);
+    public void getReport(final Iterable<? extends ExampleEntity> data, final OutputStream output);
 
 }

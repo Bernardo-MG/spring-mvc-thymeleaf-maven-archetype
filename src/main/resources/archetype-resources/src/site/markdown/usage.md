@@ -1,5 +1,9 @@
 # Usage
 
-Some general types about how to use the library should be added here.
+To run the project locally use the following Maven command:
 
-For more concrete information, create more specific pages.
+```
+mvn spring-boot:run
+```
+
+It will be accessible at [http://localhost:8080/](http://localhost:8080/).

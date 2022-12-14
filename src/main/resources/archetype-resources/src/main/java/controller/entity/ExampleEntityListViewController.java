@@ -24,14 +24,14 @@
 
 package ${package}.controller.entity;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import ${package}.service.ExampleEntityService;
+
+import lombok.AllArgsConstructor;
 
 /**
  * Controller for the example entities listing view.
@@ -42,6 +42,7 @@ import ${package}.service.ExampleEntityService;
  */
 @Controller
 @RequestMapping("/entity")
+@AllArgsConstructor
 public class ExampleEntityListViewController {
 
     /**

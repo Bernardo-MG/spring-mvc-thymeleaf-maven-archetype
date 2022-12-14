@@ -24,14 +24,11 @@
 
 package ${package}.controller.report;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import java.io.IOException;
 import java.io.OutputStream;
 
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,6 +36,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import ${package}.service.ExampleEntityReportService;
 import ${package}.service.ExampleEntityService;
+
+import lombok.AllArgsConstructor;
 
 /**
  * Controller for generating reports.
@@ -50,6 +49,7 @@ import ${package}.service.ExampleEntityService;
  */
 @Controller
 @RequestMapping("/entity")
+@AllArgsConstructor
 public class ReportController {
 
     /**
@@ -66,22 +66,6 @@ public class ReportController {
      * Example entity service.
      */
     private final ExampleEntityService       exampleEntityService;
-
-    /**
-     * Constructs a controller with the specified dependencies.
-     *
-     * @param entityService
-     *            example entity service
-     * @param reportService
-     *            report service
-     */
-    @Autowired
-    public ReportController(final ExampleEntityService entityService, final ExampleEntityReportService reportService) {
-        super();
-
-        exampleEntityService = checkNotNull(entityService, "Received a null pointer as service");
-        exampleEntityReportService = checkNotNull(reportService, "Received a null pointer as report service");
-    }
 
     /**
      * Generates a PDF report and returns it in the response.

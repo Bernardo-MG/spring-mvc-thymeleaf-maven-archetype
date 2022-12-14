@@ -24,8 +24,6 @@
 
 package ${package}.controller.entity;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,6 +32,8 @@ import org.springframework.web.bind.annotation.RestController;
 import ${package}.model.ExampleEntity;
 import ${package}.service.ExampleEntityService;
 
+import lombok.AllArgsConstructor;
+
 /**
  * Rest controller for the example entities.
  *
@@ -41,6 +41,7 @@ import ${package}.service.ExampleEntityService;
  */
 @RestController
 @RequestMapping("/rest/entity")
+@AllArgsConstructor
 public class ExampleEntityRestController {
 
     /**

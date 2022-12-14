@@ -24,8 +24,6 @@
 
 package ${package}.controller.entity;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
@@ -41,6 +39,8 @@ import ${package}.model.form.ExampleEntityForm;
 import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.service.ExampleEntityService;
 
+import lombok.AllArgsConstructor;
+
 /**
  * Controller for the example entities form view.
  * <p>
@@ -50,6 +50,7 @@ import ${package}.service.ExampleEntityService;
  */
 @Controller
 @RequestMapping("/entity")
+@AllArgsConstructor
 public class ExampleEntityFormController {
 
     /**

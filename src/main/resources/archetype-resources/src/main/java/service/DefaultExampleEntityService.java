@@ -24,7 +24,7 @@
 
 package ${package}.service;
 
-import static com.google.common.base.Preconditions.checkNotNull;
+import java.util.Objects;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -33,6 +33,8 @@ import ${package}.model.ExampleEntity;
 import ${package}.model.persistence.DefaultExampleEntity;
 import ${package}.repository.ExampleEntityRepository;
 
+import lombok.AllArgsConstructor;
+
 /**
  * Default implementation of the example entity service.
  *
@@ -40,24 +42,13 @@ import ${package}.repository.ExampleEntityRepository;
  *
  */
 @Service
+@AllArgsConstructor
 public class DefaultExampleEntityService implements ExampleEntityService {
 
     /**
      * Repository for the domain entities handled by the service.
      */
     private final ExampleEntityRepository entityRepository;
-
-    /**
-     * Constructs an entities service with the specified repository.
-     *
-     * @param repository
-     *            the repository for the entity instances
-     */
-    public DefaultExampleEntityService(final ExampleEntityRepository repository) {
-        super();
-
-        entityRepository = checkNotNull(repository, "Received a null pointer as repository");
-    }
 
     @Override
     public final ExampleEntity add(final DefaultExampleEntity entity) {
@@ -77,7 +68,7 @@ public class DefaultExampleEntityService implements ExampleEntityService {
     public final ExampleEntity findById(final Integer identifier) {
         final ExampleEntity entity;
 
-        checkNotNull(identifier, "Received a null pointer as identifier");
+        Objects.requireNonNull(identifier, "Received a null pointer as identifier");
 
         if (entityRepository.existsById(identifier)) {
             entity = entityRepository.getReferenceById(identifier);

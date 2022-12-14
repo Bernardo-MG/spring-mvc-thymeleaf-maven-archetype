@@ -182,7 +182,6 @@
       <!-- =========== DEPENDENCIES VERSIONS ============ -->
       <!-- ============================================== -->
       <glassfish.el.version>2.2</glassfish.el.version>
-      <guava.version>29.0-jre</guava.version>
       <hibernate.validator.version>5.4.3.Final</hibernate.validator.version>
       <itext.version>5.5.13.1</itext.version>
       <jackson.version>2.11.2</jackson.version>
@@ -514,6 +513,15 @@
          <version>${webjars.locator.version}</version>
       </dependency>
       <!-- ============================================== -->
+      <!-- ================== LOMBOK ==================== -->
+      <!-- ============================================== -->
+      <dependency>
+         <!-- Lombok -->
+         <groupId>org.projectlombok</groupId>
+         <artifactId>lombok</artifactId>
+         <scope>provided</scope>
+      </dependency>
+      <!-- ============================================== -->
       <!-- ================== LOGGING =================== -->
       <!-- ============================================== -->
       <dependency>
@@ -562,12 +570,6 @@
       <!-- ============================================== -->
       <!-- ============ OTHER DEPENDENCIES ============== -->
       <!-- ============================================== -->
-      <dependency>
-         <!-- Guava -->
-         <groupId>com.google.guava</groupId>
-         <artifactId>guava</artifactId>
-         <version>${guava.version}</version>
-      </dependency>
       <dependency>
          <!-- Javax EL implementation -->
          <groupId>org.glassfish.web</groupId>

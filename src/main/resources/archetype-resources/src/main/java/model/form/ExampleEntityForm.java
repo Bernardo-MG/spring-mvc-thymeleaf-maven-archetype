@@ -24,14 +24,11 @@
 
 package ${package}.model.form;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import java.io.Serializable;
-import java.util.Objects;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.google.common.base.MoreObjects;
+import lombok.Data;
 
 /**
  * Represents the form used for the creating and editing example entities.
@@ -44,6 +41,7 @@ import com.google.common.base.MoreObjects;
  *
  * @author Bernardo Mart&iacute;nez Garrido
  */
+@Data
 public final class ExampleEntityForm implements Serializable {
 
     /**
@@ -58,57 +56,5 @@ public final class ExampleEntityForm implements Serializable {
      */
     @NotEmpty
     private String            name;
-
-    /**
-     * Constructs a DTO for the example entity form.
-     */
-    public ExampleEntityForm() {
-        super();
-    }
-
-    @Override
-    public final boolean equals(final Object obj) {
-        if (this == obj) {
-            return true;
-        }
-
-        if ((obj == null) || (getClass() != obj.getClass())) {
-            return false;
-        }
-
-        final ExampleEntityForm other = (ExampleEntityForm) obj;
-        return Objects.equals(name, other.name);
-    }
-
-    /**
-     * Returns the value of the name field.
-     *
-     * @return the value of the name field
-     */
-    public final String getName() {
-        return name;
-    }
-
-    @Override
-    public final int hashCode() {
-        return Objects.hash(name);
-    }
-
-    /**
-     * Sets the value of the name field.
-     *
-     * @param value
-     *            the new value for the name field
-     */
-    public final void setName(final String value) {
-        name = checkNotNull(value, "Received a null pointer as name");
-    }
-
-    @Override
-    public final String toString() {
-        return MoreObjects.toStringHelper(this)
-            .add("name", name)
-            .toString();
-    }
 
 }

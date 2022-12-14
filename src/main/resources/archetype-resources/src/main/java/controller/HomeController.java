@@ -22,54 +22,29 @@
  * SOFTWARE.
  */
 
-package ${package}.controller.entity;
+package ${package}.controller;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
-import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import ${package}.model.ExampleEntity;
-import ${package}.service.ExampleEntityService;
 
 /**
- * Rest controller for the example entities.
+ * Controller for the home page.
  *
  * @author Bernardo Mart&iacute;nez Garrido
  */
-@RestController
-@RequestMapping("/rest/entity")
-public class ExampleEntityRestController {
+@Controller
+@RequestMapping("/")
+public class HomeController {
 
     /**
-     * Example entity service.
-     */
-    private final ExampleEntityService exampleEntityService;
-
-    /**
-     * Constructs a controller with the specified dependencies.
+     * Shows the home page.
      *
-     * @param service
-     *            example entity service
+     * @return the name for the home page view
      */
-    public ExampleEntityRestController(final ExampleEntityService service) {
-        super();
-
-        exampleEntityService = checkNotNull(service, "Received a null pointer as service");
-    }
-
-    /**
-     * Returns a paginated collection of entities.
-     *
-     * @param page
-     *            pagination data
-     * @return a paginated collection of entities
-     */
-    @GetMapping
-    public Iterable<? extends ExampleEntity> getEntities(final Pageable page) {
-        return exampleEntityService.getEntities(page);
+    @GetMapping(path = "/")
+    public String showEntityForm() {
+        return "welcome";
     }
 
 }

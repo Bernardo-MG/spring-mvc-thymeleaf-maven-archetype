@@ -28,7 +28,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * Controller for home view.
+ * Controller for error views.
  *
  * @author Bernardo Mart&iacute;nez Garrido
  */

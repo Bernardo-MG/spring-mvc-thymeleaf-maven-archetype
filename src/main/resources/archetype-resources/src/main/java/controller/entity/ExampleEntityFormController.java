@@ -29,7 +29,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -64,7 +63,6 @@ public class ExampleEntityFormController {
      * @param service
      *            example entity service
      */
-    @Autowired
     public ExampleEntityFormController(final ExampleEntityService service) {
         super();
 

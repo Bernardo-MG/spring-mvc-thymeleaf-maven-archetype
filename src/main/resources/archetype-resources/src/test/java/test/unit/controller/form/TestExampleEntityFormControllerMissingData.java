@@ -24,12 +24,13 @@
 
 package ${package}.test.unit.controller.form;
 
-import java.util.Collection;
-
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
@@ -37,8 +38,6 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 import ${package}.controller.entity.ExampleEntityFormController;
 import ${package}.controller.entity.ExampleEntityViewConstants;
@@ -47,12 +46,10 @@ import ${package}.service.ExampleEntityService;
 import ${package}.test.config.UrlConfig;
 
 /**
- * Unit tests for {@link ExampleEntityFormController}, checking the methods for
- * sending the form data.
+ * Unit tests for {@link ExampleEntityFormController}, checking the methods for sending the form data.
  * <p>
- * These tests send data with missing values, to validate that the controller
- * handles binding error cases.
- * 
+ * These tests send data with missing values, to validate that the controller handles binding error cases.
+ *
  * @author Bernardo Mart&iacute;nez Garrido
  */
 public final class TestExampleEntityFormControllerMissingData {
@@ -77,32 +74,31 @@ public final class TestExampleEntityFormControllerMissingData {
     @BeforeEach
     public final void setUpMockContext() {
         mockMvc = MockMvcBuilders.standaloneSetup(getController())
-                .alwaysExpect(status().is4xxClientError()).build();
+            .alwaysExpect(status().is4xxClientError())
+            .build();
     }
 
     /**
-     * Verifies that after receiving form data missing the name, which is a
-     * required field, this is marked as an error.
+     * Verifies that after receiving form data missing the name, which is a required field, this is marked as an error.
      */
     @Test
-    public final void testSendFormData_NoName_ExpectedAttributeModel()
-            throws Exception {
+    public final void testSendFormData_NoName_ExpectedAttributeModel() throws Exception {
         final ResultActions result; // Request result
 
         result = mockMvc.perform(getFormRequest());
 
         // The response model contains the expected attributes
         result.andExpect(MockMvcResultMatchers.model()
-                .attributeExists(ExampleEntityViewConstants.BEAN_FORM));
+            .attributeExists(ExampleEntityViewConstants.BEAN_FORM));
 
         // The response contains the expected errors
-        result.andExpect(MockMvcResultMatchers.model().attributeHasFieldErrors(
-                ExampleEntityViewConstants.BEAN_FORM, "name"));
+        result.andExpect(MockMvcResultMatchers.model()
+            .attributeHasFieldErrors(ExampleEntityViewConstants.BEAN_FORM, "name"));
     }
 
     /**
-     * Verifies that after receiving form data missing the name, which is a
-     * required field, the view is again the form view.
+     * Verifies that after receiving form data missing the name, which is a required field, the view is again the form
+     * view.
      */
     @Test
     public final void testSendFormData_NoName_NoViewChange() throws Exception {
@@ -112,23 +108,24 @@ public final class TestExampleEntityFormControllerMissingData {
 
         // The view is valid
         result.andExpect(MockMvcResultMatchers.view()
-                .name(ExampleEntityViewConstants.VIEW_ENTITY_FORM));
+            .name(ExampleEntityViewConstants.VIEW_ENTITY_FORM));
     }
 
     /**
      * Returns a controller with mocked dependencies.
-     * 
+     *
      * @return a mocked controller
      */
     private final ExampleEntityFormController getController() {
-        final ExampleEntityService service; // Mocked service
+        final ExampleEntityService             service;  // Mocked service
         final Collection<DefaultExampleEntity> entities; // Mocked entities
 
         service = Mockito.mock(ExampleEntityService.class);
 
         entities = new ArrayList<>();
 
-        Mockito.when(service.getAllEntities()).thenReturn(entities);
+        Mockito.when(service.getAllEntities())
+            .thenReturn(entities);
 
         return new ExampleEntityFormController(service);
     }
@@ -139,7 +136,7 @@ public final class TestExampleEntityFormControllerMissingData {
      * This request is missing all the required request parameters.
      * <p>
      * There is only a single required parameter, the {@code name} parameter.
-     * 
+     *
      * @return a request builder for posting the form data
      */
     private final RequestBuilder getFormRequest() {

@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 the original author or authors
+ * Copyright ${currentYear} the original author or authors
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -40,11 +40,10 @@ import ${package}.service.ExampleEntityService;
 import ${package}.test.config.UrlConfig;
 
 /**
- * TeamPlayer tests for {@link ExampleEntityRestController}, validating the
- * results of REST requests.
+ * TeamPlayer tests for {@link ExampleEntityRestController}, validating the results of REST requests.
  * <p>
  * The tested controller gives support only for GET requests.
- * 
+ *
  * @author Bernardo Mart&iacute;nez Garrido
  */
 public final class TestExampleEntityRestController {
@@ -67,12 +66,12 @@ public final class TestExampleEntityRestController {
     @BeforeEach
     public final void setUpMockContext() {
         mockMvc = MockMvcBuilders.standaloneSetup(getController())
-                .setCustomArgumentResolvers(
-                        new PageableHandlerMethodArgumentResolver())
-                .alwaysExpect(MockMvcResultMatchers.status().isOk())
-                .alwaysExpect(MockMvcResultMatchers.content()
-                        .contentType(MediaType.APPLICATION_JSON))
-                .build();
+            .setCustomArgumentResolvers(new PageableHandlerMethodArgumentResolver())
+            .alwaysExpect(MockMvcResultMatchers.status()
+                .isOk())
+            .alwaysExpect(MockMvcResultMatchers.content()
+                .contentType(MediaType.APPLICATION_JSON))
+            .build();
     }
 
     /**
@@ -85,21 +84,21 @@ public final class TestExampleEntityRestController {
         result = mockMvc.perform(getGetRequest());
 
         // The operation was accepted
-        result.andExpect(MockMvcResultMatchers.status().isOk());
+        result.andExpect(MockMvcResultMatchers.status()
+            .isOk());
 
         // The response model contains the expected attributes
-        result.andExpect(
-                MockMvcResultMatchers.jsonPath("$", Matchers.hasSize(3)));
+        result.andExpect(MockMvcResultMatchers.jsonPath("$", Matchers.hasSize(3)));
     }
 
     /**
      * Returns a controller with mocked dependencies.
-     * 
+     *
      * @return a controller with mocked dependencies
      */
     @SuppressWarnings({ "rawtypes", "unchecked" })
     private final ExampleEntityRestController getController() {
-        final ExampleEntityService service;   // Mocked service
+        final ExampleEntityService      service;  // Mocked service
         final Collection<ExampleEntity> entities; // Returned entities
 
         service = Mockito.mock(ExampleEntityService.class);
@@ -110,19 +109,19 @@ public final class TestExampleEntityRestController {
         entities.add(new DefaultExampleEntity());
 
         Mockito.when(service.getEntities(ArgumentMatchers.any()))
-                .thenReturn((Iterable) entities);
+            .thenReturn((Iterable) entities);
 
         return new ExampleEntityRestController(service);
     }
 
     /**
      * Returns a request builder prepared for reading entities.
-     * 
+     *
      * @return a request builder prepared for reading entities
      */
     private final RequestBuilder getGetRequest() {
         return MockMvcRequestBuilders.get(UrlConfig.URL_REST)
-                .contentType(MediaType.APPLICATION_JSON);
+            .contentType(MediaType.APPLICATION_JSON);
     }
 
 }

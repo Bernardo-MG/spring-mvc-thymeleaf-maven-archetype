@@ -29,19 +29,18 @@ import java.util.Set;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 
-import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 import ${package}.model.form.ExampleEntityForm;
 
 /**
  * Unit tests for {@link ExampleEntityForm} bean validation.
  * <p>
- * These tests verify that the bean applies the correct Java validation
- * annotations.
- * 
+ * These tests verify that the bean applies the correct Java validation annotations.
+ *
  * @author Bernardo Mart&iacute;nez Garrido
  */
 public final class TestExampleEntityFormValidation {
@@ -71,9 +70,9 @@ public final class TestExampleEntityFormValidation {
      */
     @Test
     public final void testValidation_EmptyName_Error() {
-        final ExampleEntityForm form; // Tested form
+        final ExampleEntityForm                           form;  // Tested form
         final Set<ConstraintViolation<ExampleEntityForm>> errors;
-        final ConstraintViolation<ExampleEntityForm> error;
+        final ConstraintViolation<ExampleEntityForm>      error;
 
         form = new ExampleEntityForm();
 
@@ -83,8 +82,10 @@ public final class TestExampleEntityFormValidation {
 
         Assertions.assertEquals(1, errors.size());
 
-        error = errors.iterator().next();
-        Assertions.assertEquals("name", error.getPropertyPath().toString());
+        error = errors.iterator()
+            .next();
+        Assertions.assertEquals("name", error.getPropertyPath()
+            .toString());
     }
 
     /**
@@ -92,9 +93,9 @@ public final class TestExampleEntityFormValidation {
      */
     @Test
     public final void testValidation_NullName_Error() {
-        final ExampleEntityForm form; // Tested form
+        final ExampleEntityForm                           form;  // Tested form
         final Set<ConstraintViolation<ExampleEntityForm>> errors;
-        final ConstraintViolation<ExampleEntityForm> error;
+        final ConstraintViolation<ExampleEntityForm>      error;
 
         form = new ExampleEntityForm();
 
@@ -104,13 +105,15 @@ public final class TestExampleEntityFormValidation {
 
         Assertions.assertEquals(1, errors.size());
 
-        error = errors.iterator().next();
-        Assertions.assertEquals("name", error.getPropertyPath().toString());
+        error = errors.iterator()
+            .next();
+        Assertions.assertEquals("name", error.getPropertyPath()
+            .toString());
     }
 
     /**
      * Returns the validator to use in the tests.
-     * 
+     *
      * @return the validator to use in the tests
      */
     private final Validator createValidator() {

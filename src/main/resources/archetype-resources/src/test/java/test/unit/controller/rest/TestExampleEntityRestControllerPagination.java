@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 the original author or authors
+ * Copyright ${currentYear} the original author or authors
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -40,11 +40,10 @@ import ${package}.service.ExampleEntityService;
 import ${package}.test.config.UrlConfig;
 
 /**
- * TeamPlayer tests for {@link ExampleEntityRestController}, validating the
- * results of REST requests.
+ * TeamPlayer tests for {@link ExampleEntityRestController}, validating the results of REST requests.
  * <p>
  * The tested controller gives support only for GET requests.
- * 
+ *
  * @author Bernardo Mart&iacute;nez Garrido
  */
 public final class TestExampleEntityRestControllerPagination {
@@ -78,14 +77,13 @@ public final class TestExampleEntityRestControllerPagination {
      */
     @BeforeEach
     public final void setUpMockContext() {
-        mockMvc = MockMvcBuilders
-                .standaloneSetup(new ExampleEntityRestController(service))
-                .setCustomArgumentResolvers(
-                        new PageableHandlerMethodArgumentResolver())
-                .alwaysExpect(MockMvcResultMatchers.status().isOk())
-                .alwaysExpect(MockMvcResultMatchers.content()
-                        .contentType(MediaType.APPLICATION_JSON))
-                .build();
+        mockMvc = MockMvcBuilders.standaloneSetup(new ExampleEntityRestController(service))
+            .setCustomArgumentResolvers(new PageableHandlerMethodArgumentResolver())
+            .alwaysExpect(MockMvcResultMatchers.status()
+                .isOk())
+            .alwaysExpect(MockMvcResultMatchers.content()
+                .contentType(MediaType.APPLICATION_JSON))
+            .build();
     }
 
     /**
@@ -103,12 +101,10 @@ public final class TestExampleEntityRestControllerPagination {
     }
 
     /**
-     * Verifies that default pagination values are used when no pagination
-     * parameters are received.
+     * Verifies that default pagination values are used when no pagination parameters are received.
      */
     @Test
-    public final void testGet_WithoutPagination_DefaultValues()
-            throws Exception {
+    public final void testGet_WithoutPagination_DefaultValues() throws Exception {
         final Pageable pageable;
 
         mockMvc.perform(getGetRequest());
@@ -123,12 +119,12 @@ public final class TestExampleEntityRestControllerPagination {
      * Returns a mocked service.
      * <p>
      * It is prepared for using the pagination data argument captor.
-     * 
+     *
      * @return a mocked service
      */
     @SuppressWarnings({ "unchecked", "rawtypes" })
     private final ExampleEntityService getExampleEntityService() {
-        final ExampleEntityService service;   // Mocked service
+        final ExampleEntityService      service;  // Mocked service
         final Collection<ExampleEntity> entities; // Returned entities
 
         service = Mockito.mock(ExampleEntityService.class);
@@ -141,29 +137,29 @@ public final class TestExampleEntityRestControllerPagination {
         captor = ArgumentCaptor.forClass(Pageable.class);
 
         Mockito.when(service.getEntities(captor.capture()))
-                .thenReturn((Iterable) entities);
+            .thenReturn((Iterable) entities);
 
         return service;
     }
 
     /**
      * Returns a request builder prepared for reading entities.
-     * 
+     *
      * @return a request builder prepared for reading entities
      */
     private final RequestBuilder getGetRequest() {
         return MockMvcRequestBuilders.get(UrlConfig.URL_REST)
-                .contentType(MediaType.APPLICATION_JSON);
+            .contentType(MediaType.APPLICATION_JSON);
     }
 
     /**
      * Returns a request builder prepared for reading entities and a page set.
-     * 
+     *
      * @return a request builder prepared for reading entities
      */
     private final RequestBuilder getGetRequestWithPage() {
         return MockMvcRequestBuilders.get(UrlConfig.URL_REST + "?page=10")
-                .contentType(MediaType.APPLICATION_JSON);
+            .contentType(MediaType.APPLICATION_JSON);
     }
 
 }

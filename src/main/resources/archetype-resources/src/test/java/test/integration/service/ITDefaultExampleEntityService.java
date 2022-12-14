@@ -42,9 +42,8 @@ import ${package}.service.ExampleEntityService;
 /**
  * Integration tests for the {@link ExampleEntityService}.
  * <p>
- * As this service doesn't contain any actual business logic, and it just wraps
- * the example entities repository, these tests are for verifying everything is
- * set up correctly and working.
+ * As this service doesn't contain any actual business logic, and it just wraps the example entities repository, these
+ * tests are for verifying everything is set up correctly and working.
  */
 @SpringJUnitConfig
 @Transactional
@@ -70,27 +69,24 @@ public class ITDefaultExampleEntityService {
      */
     @Test
     public void testAdd_NotExisting_Added() {
-        final DefaultExampleEntity entity; // Entity to add
-        final Integer entitiesCount;       // Original number of entities
-        final Integer finalEntitiesCount;  // Final number of entities
+        final DefaultExampleEntity entity;             // Entity to add
+        final Integer              entitiesCount;      // Original number of entities
+        final Integer              finalEntitiesCount; // Final number of entities
 
-        entitiesCount = ((Collection<DefaultExampleEntity>) service
-                .getAllEntities()).size();
+        entitiesCount = ((Collection<DefaultExampleEntity>) service.getAllEntities()).size();
 
         entity = new DefaultExampleEntity();
         entity.setName("ABC");
 
         service.add(entity);
 
-        finalEntitiesCount = ((Collection<DefaultExampleEntity>) service
-                .getAllEntities()).size();
+        finalEntitiesCount = ((Collection<DefaultExampleEntity>) service.getAllEntities()).size();
 
         Assertions.assertEquals(finalEntitiesCount, Integer.valueOf(entitiesCount + 1));
     }
 
     /**
-     * Verifies that searching an existing entity by id returns the expected
-     * entity.
+     * Verifies that searching an existing entity by id returns the expected entity.
      */
     @Test
     public void testFindById_Existing_Valid() {
@@ -102,8 +98,7 @@ public class ITDefaultExampleEntityService {
     }
 
     /**
-     * Verifies that searching for a not existing entity by id returns an empty
-     * entity.
+     * Verifies that searching for a not existing entity by id returns an empty entity.
      */
     @Test
     public void testFindById_NotExisting_Invalid() {

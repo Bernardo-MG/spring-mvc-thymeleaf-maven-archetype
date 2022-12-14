@@ -24,9 +24,11 @@
 
 package ${package}.test.unit.controller.form;
 
-import java.util.Collection;
 import java.util.ArrayList;
+import java.util.Collection;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
@@ -34,8 +36,6 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 import ${package}.controller.entity.ExampleEntityFormController;
 import ${package}.controller.entity.ExampleEntityViewConstants;
@@ -44,9 +44,8 @@ import ${package}.service.ExampleEntityService;
 import ${package}.test.config.UrlConfig;
 
 /**
- * Unit tests for {@link ExampleEntityFormController}, checking the methods for
- * showing the form.
- * 
+ * Unit tests for {@link ExampleEntityFormController}, checking the methods for showing the form.
+ *
  * @author Bernardo Mart&iacute;nez Garrido
  */
 public final class TestExampleEntityFormControllerShowForm {
@@ -71,7 +70,9 @@ public final class TestExampleEntityFormControllerShowForm {
     @BeforeEach
     public final void setUpMockContext() {
         mockMvc = MockMvcBuilders.standaloneSetup(getController())
-                .alwaysExpect(MockMvcResultMatchers.status().isOk()).build();
+            .alwaysExpect(MockMvcResultMatchers.status()
+                .isOk())
+            .build();
     }
 
     /**
@@ -87,30 +88,31 @@ public final class TestExampleEntityFormControllerShowForm {
 
         // The response model contains the expected attributes
         result.andExpect(MockMvcResultMatchers.model()
-                .attributeExists(ExampleEntityViewConstants.BEAN_FORM));
+            .attributeExists(ExampleEntityViewConstants.BEAN_FORM));
     }
 
     /**
      * Returns a controller with mocked dependencies.
-     * 
+     *
      * @return a mocked controller
      */
     private final ExampleEntityFormController getController() {
-        final ExampleEntityService service;
+        final ExampleEntityService             service;
         final Collection<DefaultExampleEntity> entities;
 
         service = Mockito.mock(ExampleEntityService.class);
 
         entities = new ArrayList<>();
 
-        Mockito.when(service.getAllEntities()).thenReturn(entities);
+        Mockito.when(service.getAllEntities())
+            .thenReturn(entities);
 
         return new ExampleEntityFormController(service);
     }
 
     /**
      * Returns a request builder for getting the tested form view.
-     * 
+     *
      * @return a request builder for the form view
      */
     private final RequestBuilder getViewRequest() {

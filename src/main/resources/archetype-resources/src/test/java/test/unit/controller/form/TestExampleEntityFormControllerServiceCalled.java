@@ -24,9 +24,12 @@
 
 package ${package}.test.unit.controller.form;
 
-import java.util.Collection;
 import java.util.ArrayList;
+import java.util.Collection;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
@@ -34,8 +37,6 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 import ${package}.controller.entity.ExampleEntityFormController;
 import ${package}.controller.entity.ExampleEntityViewConstants;
@@ -44,9 +45,8 @@ import ${package}.service.ExampleEntityService;
 import ${package}.test.config.UrlConfig;
 
 /**
- * Unit tests for {@link ExampleEntityFormController}, verifying the service is
- * called.
- * 
+ * Unit tests for {@link ExampleEntityFormController}, verifying the service is called.
+ *
  * @author Bernardo Mart&iacute;nez Garrido
  */
 public final class TestExampleEntityFormControllerServiceCalled {
@@ -75,12 +75,13 @@ public final class TestExampleEntityFormControllerServiceCalled {
         service = Mockito.mock(ExampleEntityService.class);
 
         mockMvc = MockMvcBuilders.standaloneSetup(getController(service))
-                .alwaysExpect(MockMvcResultMatchers.status().isOk()).build();
+            .alwaysExpect(MockMvcResultMatchers.status()
+                .isOk())
+            .build();
     }
 
     /**
-     * Verifies that after received valid form data the expected view is
-     * returned.
+     * Verifies that after received valid form data the expected view is returned.
      */
     @Test
     public final void testSendFormData_CalledService() throws Exception {
@@ -90,25 +91,26 @@ public final class TestExampleEntityFormControllerServiceCalled {
 
         // The view is valid
         result.andExpect(MockMvcResultMatchers.view()
-                .name(ExampleEntityViewConstants.VIEW_ENTITY_LIST));
-        
-        Mockito.verify(service, Mockito.times(1)).add(Mockito.any());
+            .name(ExampleEntityViewConstants.VIEW_ENTITY_LIST));
+
+        Mockito.verify(service, Mockito.times(1))
+            .add(ArgumentMatchers.any());
     }
 
     /**
      * Returns a controller with mocked dependencies.
-     * 
+     *
      * @param service
      *            service for the controller
      * @return a mocked controller
      */
-    private final ExampleEntityFormController
-            getController(final ExampleEntityService service) {
+    private final ExampleEntityFormController getController(final ExampleEntityService service) {
         final Collection<DefaultExampleEntity> entities; // Mocked entities
 
         entities = new ArrayList<>();
 
-        Mockito.when(service.getAllEntities()).thenReturn(entities);
+        Mockito.when(service.getAllEntities())
+            .thenReturn(entities);
 
         return new ExampleEntityFormController(service);
     }
@@ -119,12 +121,12 @@ public final class TestExampleEntityFormControllerServiceCalled {
      * This request contains all the required request parameters.
      * <p>
      * There is only a single required parameter, the {@code name} parameter.
-     * 
+     *
      * @return a request builder for posting the form data
      */
     private final RequestBuilder getFormRequest() {
         return MockMvcRequestBuilders.post(UrlConfig.URL_FORM_POST)
-                .param("name", "name");
+            .param("name", "name");
     }
 
 }

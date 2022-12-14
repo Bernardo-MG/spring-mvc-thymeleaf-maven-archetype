@@ -17,33 +17,12 @@
    </Appenders>
 
    <Loggers>
+
       <!-- Application log -->
       <Logger name="${groupId}" level="debug" additivity="false">
-         <AppenderRef ref="file" />
-      </Logger>
-
-      <!-- Spring Framework -->
-      <Logger name="org.springframework" level="error" additivity="false">
          <AppenderRef ref="console" />
       </Logger>
 
-      <!-- Hikari -->
-      <Logger name="com.zaxxer.hikari" level="off" additivity="false">
-         <AppenderRef ref="console" />
-      </Logger>
-
-      <!-- Queries logs -->
-      <logger name="org.hibernate.SQL" level="off" additivity="false">
-         <AppenderRef ref="console" />
-      </logger>
-      <Logger name="org.hibernate.type.descriptor.sql" level="off" additivity="false">
-         <AppenderRef ref="console" />
-      </Logger>
-      <logger name="log4j.logger.jdbc.sqlonly" level="off" additivity="false">
-         <AppenderRef ref="console" />
-      </logger>
-
-      <!-- Root -->
       <Root level="error">
          <AppenderRef ref="console" />
       </Root>

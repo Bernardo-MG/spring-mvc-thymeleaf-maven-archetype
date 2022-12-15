@@ -183,11 +183,6 @@
       <!-- ============================================== -->
       <plugin.jshint.version>1.6.0</plugin.jshint.version>
       <!-- ============================================== -->
-      <!-- =========== PLUGINS CONFIGURATION ============ -->
-      <!-- ============================================== -->
-      <!-- Archetype test settings -->
-      <archetype.test.settingsFile>${project.build.testResources[0].directory}/settings.xml</archetype.test.settingsFile>
-      <!-- ============================================== -->
       <!-- ================= MAVEN SITE ================= -->
       <!-- ============================================== -->
       <site.skin.version>2.3.0</site.skin.version>

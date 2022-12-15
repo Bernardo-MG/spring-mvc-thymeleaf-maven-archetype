@@ -22,7 +22,10 @@
  * SOFTWARE.
  */
 
-package ${package}.test.unit.error;
+package ${package}.test.domain.unit.controller.form;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -35,17 +38,17 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import ${package}.domain.controller.entity.ExampleEntityFormController;
-import ${package}.controller.error.ErrorViewConstants;
-import ${package}.controller.error.GlobalExceptionHandler;
+import ${package}.domain.controller.entity.ExampleEntityViewConstants;
+import ${package}.domain.model.persistence.DefaultExampleEntity;
 import ${package}.domain.service.ExampleEntityService;
 import ${package}.test.domain.config.UrlConfig;
 
 /**
- * Unit tests for {@link GlobalExceptionHandler}, checking that it catches and handles errors.
+ * Unit tests for {@link ExampleEntityFormController}, checking the methods for sending the form data.
  *
  * @author Bernardo Mart&iacute;nez Garrido
  */
-public final class TestGlobalExceptionHandler {
+public final class TestExampleEntityFormControllerSendForm {
 
     /**
      * Mocked MVC context.
@@ -55,7 +58,7 @@ public final class TestGlobalExceptionHandler {
     /**
      * Default constructor.
      */
-    public TestGlobalExceptionHandler() {
+    public TestExampleEntityFormControllerSendForm() {
         super();
     }
 
@@ -66,18 +69,28 @@ public final class TestGlobalExceptionHandler {
      */
     @BeforeEach
     public final void setUpMockContext() {
-        final GlobalExceptionHandler exceptionHandler;
-
-        exceptionHandler = new GlobalExceptionHandler();
         mockMvc = MockMvcBuilders.standaloneSetup(getController())
             .alwaysExpect(MockMvcResultMatchers.status()
                 .isOk())
-            .setControllerAdvice(exceptionHandler)
             .build();
     }
 
     /**
-     * Verifies that when an exception is thrown in the backend the error view is returned.
+     * Verifies that after receiving valid form data the expected attributes are loaded into the model.
+     */
+    @Test
+    public final void testSendFormData_ExpectedAttributeModel() throws Exception {
+        final ResultActions result; // Request result
+
+        result = mockMvc.perform(getFormRequest());
+
+        // The response model contains the expected attributes
+        result.andExpect(MockMvcResultMatchers.model()
+            .attributeExists(ExampleEntityViewConstants.BEAN_FORM));
+    }
+
+    /**
+     * Verifies that after received valid form data the expected view is returned.
      */
     @Test
     public final void testSendFormData_ExpectedView() throws Exception {
@@ -88,7 +101,7 @@ public final class TestGlobalExceptionHandler {
 
         // The view is valid
         result.andExpect(MockMvcResultMatchers.view()
-            .name(ErrorViewConstants.VIEW_ERROR));
+            .name(ExampleEntityViewConstants.VIEW_ENTITY_LIST));
     }
 
     /**
@@ -97,12 +110,15 @@ public final class TestGlobalExceptionHandler {
      * @return a mocked controller
      */
     private final ExampleEntityFormController getController() {
-        final ExampleEntityService service; // Mocked service
+        final ExampleEntityService             service;  // Mocked service
+        final Collection<DefaultExampleEntity> entities; // Mocked entities
 
         service = Mockito.mock(ExampleEntityService.class);
 
+        entities = new ArrayList<>();
+
         Mockito.when(service.getAllEntities())
-            .thenThrow(RuntimeException.class);
+            .thenReturn(entities);
 
         return new ExampleEntityFormController(service);
     }

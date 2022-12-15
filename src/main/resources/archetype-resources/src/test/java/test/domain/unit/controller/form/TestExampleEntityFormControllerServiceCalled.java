@@ -22,10 +22,14 @@
  * SOFTWARE.
  */
 
-package ${package}.test.unit.error;
+package ${package}.test.domain.unit.controller.form;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
@@ -35,27 +39,29 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import ${package}.domain.controller.entity.ExampleEntityFormController;
-import ${package}.controller.error.ErrorViewConstants;
-import ${package}.controller.error.GlobalExceptionHandler;
+import ${package}.domain.controller.entity.ExampleEntityViewConstants;
+import ${package}.domain.model.persistence.DefaultExampleEntity;
 import ${package}.domain.service.ExampleEntityService;
 import ${package}.test.domain.config.UrlConfig;
 
 /**
- * Unit tests for {@link GlobalExceptionHandler}, checking that it catches and handles errors.
+ * Unit tests for {@link ExampleEntityFormController}, verifying the service is called.
  *
  * @author Bernardo Mart&iacute;nez Garrido
  */
-public final class TestGlobalExceptionHandler {
+public final class TestExampleEntityFormControllerServiceCalled {
 
     /**
      * Mocked MVC context.
      */
-    private MockMvc mockMvc;
+    private MockMvc              mockMvc;
+
+    private ExampleEntityService service;
 
     /**
      * Default constructor.
      */
-    public TestGlobalExceptionHandler() {
+    public TestExampleEntityFormControllerServiceCalled() {
         super();
     }
 
@@ -66,43 +72,45 @@ public final class TestGlobalExceptionHandler {
      */
     @BeforeEach
     public final void setUpMockContext() {
-        final GlobalExceptionHandler exceptionHandler;
+        service = Mockito.mock(ExampleEntityService.class);
 
-        exceptionHandler = new GlobalExceptionHandler();
-        mockMvc = MockMvcBuilders.standaloneSetup(getController())
+        mockMvc = MockMvcBuilders.standaloneSetup(getController(service))
             .alwaysExpect(MockMvcResultMatchers.status()
                 .isOk())
-            .setControllerAdvice(exceptionHandler)
             .build();
     }
 
     /**
-     * Verifies that when an exception is thrown in the backend the error view is returned.
+     * Verifies that after received valid form data the expected view is returned.
      */
     @Test
-    public final void testSendFormData_ExpectedView() throws Exception {
+    public final void testSendFormData_CalledService() throws Exception {
         final ResultActions result; // Request result
 
-        // TODO: Just verify it is not this same view
         result = mockMvc.perform(getFormRequest());
 
         // The view is valid
         result.andExpect(MockMvcResultMatchers.view()
-            .name(ErrorViewConstants.VIEW_ERROR));
+            .name(ExampleEntityViewConstants.VIEW_ENTITY_LIST));
+
+        Mockito.verify(service, Mockito.times(1))
+            .add(ArgumentMatchers.any());
     }
 
     /**
      * Returns a controller with mocked dependencies.
      *
+     * @param service
+     *            service for the controller
      * @return a mocked controller
      */
-    private final ExampleEntityFormController getController() {
-        final ExampleEntityService service; // Mocked service
+    private final ExampleEntityFormController getController(final ExampleEntityService service) {
+        final Collection<DefaultExampleEntity> entities; // Mocked entities
 
-        service = Mockito.mock(ExampleEntityService.class);
+        entities = new ArrayList<>();
 
         Mockito.when(service.getAllEntities())
-            .thenThrow(RuntimeException.class);
+            .thenReturn(entities);
 
         return new ExampleEntityFormController(service);
     }

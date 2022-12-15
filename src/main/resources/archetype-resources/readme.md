@@ -58,14 +58,6 @@ The verify phase is required, otherwise some of the reports won't be generated.
 
 ${symbol_pound}${symbol_pound} Usage
 
-The application is coded in Java, using Maven to manage the project.
-
-${symbol_pound}${symbol_pound}${symbol_pound} Installing
-
-The project can be installed by creating the war file and deploying it into a server.
-
-${symbol_pound}${symbol_pound}${symbol_pound} Running
-
 To run the project locally use the following Maven command:
 
 ```
@@ -73,24 +65,6 @@ mvn spring-boot:run
 ```
 
 It will be accessible at [http://localhost:8080/](http://localhost:8080/).
-
-${symbol_pound}${symbol_pound}${symbol_pound} Running the tests
-
-The project requires a database and a server for being able to run the integration tests.
-
-Just like running the project, an embedded server with an in-memory database can be used:
-
-```
-mvn verify
-```
-
-${symbol_pound}${symbol_pound}${symbol_pound} Packaging the WAR
-
-When creating the WAR file the database connection credentials should be read from the environment:
-
-```
-mvn package -P production,mysql
-```
 
 ${symbol_pound}${symbol_pound} Collaborate
 

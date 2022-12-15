@@ -33,7 +33,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import ${package}.domain.controller.entity.ExampleEntityRestController;
+import ${package}.domain.controller.ExampleEntityRestController;
 import ${package}.domain.model.ExampleEntity;
 import ${package}.domain.model.persistence.DefaultExampleEntity;
 import ${package}.domain.service.ExampleEntityService;

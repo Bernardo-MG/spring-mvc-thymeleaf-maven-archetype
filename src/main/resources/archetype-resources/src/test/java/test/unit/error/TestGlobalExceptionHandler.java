@@ -34,7 +34,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import ${package}.domain.controller.entity.ExampleEntityFormController;
+import ${package}.domain.controller.ExampleEntityFormController;
 import ${package}.controller.error.ErrorViewConstants;
 import ${package}.controller.error.GlobalExceptionHandler;
 import ${package}.domain.service.ExampleEntityService;

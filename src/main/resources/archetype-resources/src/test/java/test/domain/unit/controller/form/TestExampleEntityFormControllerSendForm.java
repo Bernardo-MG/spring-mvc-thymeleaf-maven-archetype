@@ -37,8 +37,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import ${package}.domain.controller.entity.ExampleEntityFormController;
-import ${package}.domain.controller.entity.ExampleEntityViewConstants;
+import ${package}.domain.controller.ExampleEntityFormController;
+import ${package}.domain.controller.ExampleEntityViewConstants;
 import ${package}.domain.model.persistence.DefaultExampleEntity;
 import ${package}.domain.service.ExampleEntityService;
 import ${package}.test.domain.config.UrlConfig;

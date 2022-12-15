@@ -22,39 +22,52 @@
  * SOFTWARE.
  */
 
-package ${package}.controller.error;
+package ${package}.error.handler;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver;
 
 /**
- * Controller for error views.
+ * Captures and handles exceptions for all the controllers.
  *
  * @author Bernardo Mart&iacute;nez Garrido
  */
-@Controller
-public class ErrorController {
+@ControllerAdvice
+public class GlobalExceptionHandler extends AbstractHandlerExceptionResolver {
 
     /**
-     * Name for the 404 error view.
+     * Logger for the exception handler.
      */
-    private static final String VIEW_404 = "404";
+    private static final Logger LOGGER = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     /**
      * Default constructor.
      */
-    public ErrorController() {
+    public GlobalExceptionHandler() {
         super();
     }
 
-    /**
-     * Shows the 404 error view.
-     *
-     * @return the 404 error view
-     */
-    @RequestMapping("/404")
-    public String show404() {
-        return VIEW_404;
+    @Override
+    protected final ModelAndView doResolveException(final HttpServletRequest request,
+            final HttpServletResponse response, final Object handler, final Exception ex) {
+        final ModelAndView modelView;
+
+        LOGGER.error(ex.getMessage(), ex);
+
+        modelView = new ModelAndView(ErrorViewConstants.VIEW_ERROR);
+        modelView.getModel()
+            .put("code", HttpStatus.INTERNAL_SERVER_ERROR.value());
+        modelView.getModel()
+            .put("message", ex.getMessage());
+
+        return modelView;
     }
 
 }

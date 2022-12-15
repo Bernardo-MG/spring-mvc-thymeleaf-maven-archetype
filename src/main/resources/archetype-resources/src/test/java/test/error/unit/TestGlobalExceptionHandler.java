@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package ${package}.test.unit.error;
+package ${package}.test.error.unit;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -35,8 +35,8 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import ${package}.domain.controller.ExampleEntityFormController;
-import ${package}.controller.error.ErrorViewConstants;
-import ${package}.controller.error.GlobalExceptionHandler;
+import ${package}.error.handler.ErrorViewConstants;
+import ${package}.error.handler.GlobalExceptionHandler;
 import ${package}.domain.service.ExampleEntityService;
 import ${package}.test.domain.config.UrlConfig;
 

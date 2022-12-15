@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package ${package}.controller.error;
+package ${package}.error.handler;
 
 /**
  * Constants for the error view controllers.

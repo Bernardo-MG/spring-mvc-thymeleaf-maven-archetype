@@ -27,4 +27,4 @@
  * These take care of application errors, and generate a response for them.
  */
 
-package ${package}.controller.error;
+package ${package}.error.handler;

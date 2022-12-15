@@ -22,52 +22,39 @@
  * SOFTWARE.
  */
 
-package ${package}.controller.error;
+package ${package}.error.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * Captures and handles exceptions for all the controllers.
+ * Controller for error views.
  *
  * @author Bernardo Mart&iacute;nez Garrido
  */
-@ControllerAdvice
-public class GlobalExceptionHandler extends AbstractHandlerExceptionResolver {
+@Controller
+public class ErrorController {
 
     /**
-     * Logger for the exception handler.
+     * Name for the 404 error view.
      */
-    private static final Logger LOGGER = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+    private static final String VIEW_404 = "404";
 
     /**
      * Default constructor.
      */
-    public GlobalExceptionHandler() {
+    public ErrorController() {
         super();
     }
 
-    @Override
-    protected final ModelAndView doResolveException(final HttpServletRequest request,
-            final HttpServletResponse response, final Object handler, final Exception ex) {
-        final ModelAndView modelView;
-
-        LOGGER.error(ex.getMessage(), ex);
-
-        modelView = new ModelAndView(ErrorViewConstants.VIEW_ERROR);
-        modelView.getModel()
-            .put("code", HttpStatus.INTERNAL_SERVER_ERROR.value());
-        modelView.getModel()
-            .put("message", ex.getMessage());
-
-        return modelView;
+    /**
+     * Shows the 404 error view.
+     *
+     * @return the 404 error view
+     */
+    @RequestMapping("/404")
+    public String show404() {
+        return VIEW_404;
     }
 
 }

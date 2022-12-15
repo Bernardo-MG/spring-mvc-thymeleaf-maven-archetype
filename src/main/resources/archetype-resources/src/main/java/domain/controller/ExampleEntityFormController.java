@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package ${package}.domain.controller.entity;
+package ${package}.domain.controller;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;

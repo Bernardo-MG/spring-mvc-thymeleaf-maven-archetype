@@ -25,4 +25,4 @@
  * Controllers for the example entity.
  */
 
-package ${package}.domain.controller.entity;
+package ${package}.domain.controller;

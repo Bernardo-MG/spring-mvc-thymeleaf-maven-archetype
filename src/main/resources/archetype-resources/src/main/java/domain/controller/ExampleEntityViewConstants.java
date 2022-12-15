@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package ${package}.domain.controller.entity;
+package ${package}.domain.controller;
 
 /**
  * Constants for the example entity view controllers.

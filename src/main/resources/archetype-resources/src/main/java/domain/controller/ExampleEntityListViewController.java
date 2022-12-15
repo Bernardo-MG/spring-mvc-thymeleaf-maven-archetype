@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package ${package}.domain.controller.entity;
+package ${package}.domain.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

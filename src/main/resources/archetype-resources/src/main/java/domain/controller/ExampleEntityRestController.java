@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package ${package}.domain.controller.entity;
+package ${package}.domain.controller;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;

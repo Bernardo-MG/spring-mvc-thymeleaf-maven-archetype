@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package ${package}.test.unit.validation;
+package ${package}.test.domain.unit.validation;
 
 import java.util.Set;
 

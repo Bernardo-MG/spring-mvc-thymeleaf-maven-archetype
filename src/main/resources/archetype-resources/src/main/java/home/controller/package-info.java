@@ -30,4 +30,4 @@
  * next view to be shown.
  */
 
-package ${package}.controller;
+package ${package}.home.controller;

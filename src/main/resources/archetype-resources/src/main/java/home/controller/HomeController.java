@@ -22,36 +22,29 @@
  * SOFTWARE.
  */
 
-package ${package}.controller.exception;
+package ${package}.home.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * Controller which generates a runtime exception.
- * <p>
- * This is used to verify that the exceptions are being handled correctly.
+ * Controller for the home page.
  *
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @Controller
-@RequestMapping("/exception")
-public class RuntimeExceptionController {
+@RequestMapping("/")
+public class HomeController {
 
     /**
-     * Constructs a controller.
+     * Shows the home page.
+     *
+     * @return the name for the home page view
      */
-    public RuntimeExceptionController() {
-        super();
-    }
-
-    /**
-     * Throws a runtime exception.
-     */
-    @GetMapping(path = "/runtime")
-    public void showEntityList() {
-        throw new RuntimeException("Some unspecified error has occurred");
+    @GetMapping(path = "/")
+    public String showEntityForm() {
+        return "welcome";
     }
 
 }

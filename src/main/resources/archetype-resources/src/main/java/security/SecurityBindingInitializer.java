@@ -21,10 +21,41 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-/**
- * Controllers which generate exceptions.
- * <p>
- * These are just for verifying that the application is handling exceptions as expected.
- */
 
-package ${package}.controller.exception;
+package ${package}.security;
+
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.InitBinder;
+
+/**
+ * Initializes all controllers with security constraints.
+ * <p>
+ * <ul>
+ * <li>Disallows binding ids</li>
+ * </ul>
+ *
+ * @author Bernardo Mart&iacute;nez Garrido
+ */
+@ControllerAdvice
+public class SecurityBindingInitializer {
+
+    /**
+     * Default constructor.
+     */
+    public SecurityBindingInitializer() {
+        super();
+    }
+
+    /**
+     * Sets the fields which can't be bound.
+     *
+     * @param dataBinder
+     *            data binder
+     */
+    @InitBinder
+    public void setDisallowedFields(final WebDataBinder dataBinder) {
+        dataBinder.setDisallowedFields("id");
+    }
+
+}

@@ -24,6 +24,7 @@
 
 package ${package}.error.controller;
 
+import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -33,17 +34,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @Controller
-public class ErrorController {
+public class CustomErrorController implements ErrorController  {
 
     /**
      * Name for the 404 error view.
      */
-    private static final String VIEW_404 = "404";
+    private static final String VIEW_404   = "404";
+
+    /**
+     * Name for the generic error view.
+     */
+    private static final String VIEW_ERROR = "error";
 
     /**
      * Default constructor.
      */
-    public ErrorController() {
+    public CustomErrorController() {
         super();
     }
 
@@ -55,6 +61,16 @@ public class ErrorController {
     @RequestMapping("/404")
     public String show404() {
         return VIEW_404;
+    }
+
+    /**
+     * Shows the generic error view.
+     *
+     * @return the generic error view
+     */
+    @RequestMapping("/error")
+    public String showError() {
+        return VIEW_ERROR;
     }
 
 }

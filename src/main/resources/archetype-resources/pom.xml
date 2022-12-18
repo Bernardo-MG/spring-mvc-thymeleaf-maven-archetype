@@ -189,17 +189,14 @@
       <spring.boot.version>2.7.6</spring.boot.version>
       <spring.data.version>2022.0.0</spring.data.version>
       <spring.version>5.3.24</spring.version>
-      <webjars.bootstrap.version>3.4.1</webjars.bootstrap.version>
-      <webjars.bootswatch.version>3.3.7</webjars.bootswatch.version>
-      <webjars.fontAwesome.version>5.7.2</webjars.fontAwesome.version>
-      <webjars.html5shiv.version>3.7.3-1</webjars.html5shiv.version>
-      <webjars.jquery.version>3.3.1-2</webjars.jquery.version>
-      <webjars.locator.version>0.34</webjars.locator.version>
+      <webjars.bootstrap.version>5.2.3</webjars.bootstrap.version>
+      <webjars.bootswatch.version>5.0.2</webjars.bootswatch.version>
+      <webjars.fontAwesome.version>6.2.0</webjars.fontAwesome.version>
+      <webjars.locator.version>0.45</webjars.locator.version>
+      <webjars.popper.version>2.9.3</webjars.popper.version>
       <!-- ============================================== -->
       <!-- ============== PLUGINS VERSIONS ============== -->
       <!-- ============================================== -->
-      <plugin.jshint.version>1.6.0</plugin.jshint.version>
-      <plugin.minify.version>1.7.6</plugin.minify.version>
       <plugin.spring.boot.version>${spring.boot.version}</plugin.spring.boot.version>
       <!-- ============================================== -->
       <!-- ================= MAVEN SITE ================= -->
@@ -483,9 +480,15 @@
          <version>${webjars.bootstrap.version}</version>
       </dependency>
       <dependency>
-         <!-- Bootswatch Readable -->
+         <!-- Popper JS -->
          <groupId>org.webjars</groupId>
-         <artifactId>bootswatch-readable</artifactId>
+         <artifactId>popper.js</artifactId>
+         <version>${webjars.popper.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Bootswatch Litera -->
+         <groupId>org.webjars</groupId>
+         <artifactId>bootswatch-litera</artifactId>
          <version>${webjars.bootswatch.version}</version>
       </dependency>
       <dependency>
@@ -493,18 +496,6 @@
          <groupId>org.webjars</groupId>
          <artifactId>font-awesome</artifactId>
          <version>${webjars.fontAwesome.version}</version>
-      </dependency>
-      <dependency>
-         <!-- HTML5 Shiv -->
-         <groupId>org.webjars</groupId>
-         <artifactId>html5shiv</artifactId>
-         <version>${webjars.html5shiv.version}</version>
-      </dependency>
-      <dependency>
-         <!-- JQuery -->
-         <groupId>org.webjars</groupId>
-         <artifactId>jquery</artifactId>
-         <version>${webjars.jquery.version}</version>
       </dependency>
       <dependency>
          <!-- Webjars Locator -->
@@ -643,25 +634,6 @@
 
    <build>
       <defaultGoal>clean package</defaultGoal>
-      <pluginManagement>
-         <plugins>
-            <!-- Plugin versions and configurations are enforced here. -->
-            <plugin>
-               <!-- JSHint -->
-               <!-- Validates Javascript files. -->
-               <groupId>com.cj.jshintmojo</groupId>
-               <artifactId>jshint-maven-plugin</artifactId>
-               <version>${plugin.jshint.version}</version>
-            </plugin>
-            <plugin>
-               <!-- Minify -->
-               <!-- Minifies files. -->
-               <groupId>com.samaxes.maven</groupId>
-               <artifactId>minify-maven-plugin</artifactId>
-               <version>${plugin.minify.version}</version>
-            </plugin>
-         </plugins>
-      </pluginManagement>
       <plugins>
          <plugin>
             <!-- Changes -->
@@ -705,30 +677,6 @@
             </dependencies>
          </plugin>
          <plugin>
-            <!-- Minify -->
-            <!-- Minifies files. -->
-            <groupId>com.samaxes.maven</groupId>
-            <artifactId>minify-maven-plugin</artifactId>
-            <executions>
-               <execution>
-                  <id>default-minify</id>
-                  <phase>generate-resources</phase>
-                  <configuration>
-                     <webappSourceDir>${basedir}/src/main/resources/static</webappSourceDir>
-                     <webappTargetDir>${project.build.outputDirectory}/static</webappTargetDir>
-                     <cssSourceDir>/css</cssSourceDir>
-                     <cssSourceIncludes>
-                        <cssSourceInclude>**</cssSourceInclude>
-                     </cssSourceIncludes>
-                     <cssFinalFile>style.css</cssFinalFile>
-                  </configuration>
-                  <goals>
-                     <goal>minify</goal>
-                  </goals>
-               </execution>
-            </executions>
-         </plugin>
-         <plugin>
             <!-- Resources -->
             <!-- Handles the project resources. -->
             <groupId>org.apache.maven.plugins</groupId>
@@ -741,30 +689,6 @@
                <delimiters>
                   <delimiter>@</delimiter>
                </delimiters>
-            </configuration>
-         </plugin>
-         <plugin>
-            <!-- JSHint -->
-            <!-- Validates Javascript files. -->
-            <groupId>com.cj.jshintmojo</groupId>
-            <artifactId>jshint-maven-plugin</artifactId>
-            <executions>
-               <execution>
-                  <id>jshint</id>
-                  <phase>test</phase>
-                  <goals>
-                     <goal>lint</goal>
-                  </goals>
-               </execution>
-            </executions>
-            <configuration>
-               <options>maxdepth:3,latedef,nonew,jquery</options>
-               <directories>
-                  <directory>src/main/resources/static/js</directory>
-               </directories>
-               <reporter>checkstyle</reporter>
-               <reportFile>target/jshint.xml</reportFile>
-               <failOnError>true</failOnError>
             </configuration>
          </plugin>
          <plugin>

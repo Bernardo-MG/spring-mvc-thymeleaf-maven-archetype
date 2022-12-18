@@ -3,46 +3,24 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head th:include="fragments/header :: header" />
+
 <body>
    <header class="header" th:include="fragments/menu :: menu" />
 
    <section id="main-section" class="container-fluid">
       <h1 th:text="#{title.entity.form}">Entity form</h1>
       <p>This view allows adding entities through an HTML form.</p>
-      <section id="form" class="form-well">
-         <form action="#" th:action="@{/entity}"
-            th:object="${form}" method="post" role="form" class="form">
-            <div class="col-md-12">
-               <div class="panel panel-default">
-                  <div class="panel-heading"
-                     th:text="#{title.entity.form.data}">Data</div>
-                  <div class="panel-body">
-                     <!-- Name input -->
-                     <div class="form-group"
-                        th:classappend="${#fields.hasErrors('name')} ? 'error'">
-                        <label class="control-label" for="name"
-                           th:text="#{label.name}">Name</label>
-                        <div class="controls">
-                           <input type="text" th:field="*{name}"
-                              class="form-control"
-                              placeholder="Name">
-                           <!-- Validation errors -->
-                           <p
-                              th:if="${#fields.hasErrors('name')}"
-                              class="label label-danger"
-                              th:errors="*{name}">Error</p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+      <form action="#" th:action="@{/entity}" th:object="${form}" method="post" role="form" class="form">
+         <div class="mb-3">
+            <label for="nameInput" class="form-label" th:text="#{label.name}">Email address</label>
+            <input type="text" class="form-control" id="nameInput" aria-describedby="name" th:field="*{name}"
+               placeholder="Name">
+            <div class="invalid-feedback">
+               <p th:if="${#fields.hasErrors('name')}" class="label label-danger" th:errors="*{name}">Error</p>
             </div>
-            <div id="submit" class="row">
-               <div class="col-md-12">
-                  <button type="submit" th:text="#{button.submit}">Submit</button>
-               </div>
-            </div>
-         </form>
-      </section>
+         </div>
+         <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
    </section>
 
    <footer>

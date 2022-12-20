@@ -22,52 +22,36 @@
  * SOFTWARE.
  */
 
-package ${package}.domain.model.persistence;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Transient;
-
-import ${package}.domain.model.ExampleEntity;
+package ${package}.domain.model;
 
 import lombok.Data;
+import lombok.NonNull;
 
 /**
- * Persistent entity for the example application.
- * <p>
- * This makes use of JPA annotations for the persistence configuration.
+ * Immutable implementation of {@link ExampleEntity}.
  *
  * @author Bernardo Mart&iacute;nez Garrido
  */
-@Entity(name = "ExampleEntity")
-@Table(name = "example_entities")
 @Data
-public class DefaultExampleEntity implements ExampleEntity {
-
-    /**
-     * Serialization ID.
-     */
-    @Transient
-    private static final long serialVersionUID = 1328776989450853491L;
+public final class ImmutableExampleEntity implements ExampleEntity {
 
     /**
      * Entity's ID.
      */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, unique = true)
-    private Integer           id               = -1;
+    private final Integer id;
 
     /**
      * Name of the entity.
      * <p>
      * This is to have additional data apart from the id, to be used on the tests.
      */
-    @Column(name = "name", nullable = false, unique = true)
-    private String            name             = "";
+    private final String  name;
+
+    public ImmutableExampleEntity(@NonNull final Integer identifier, @NonNull final String nm) {
+        super();
+
+        id = identifier;
+        name = nm;
+    }
 
 }

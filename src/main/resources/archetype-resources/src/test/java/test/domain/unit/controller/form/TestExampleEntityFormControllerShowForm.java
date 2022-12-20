@@ -39,7 +39,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import ${package}.domain.controller.ExampleEntityFormController;
 import ${package}.domain.controller.ExampleEntityViewConstants;
-import ${package}.domain.model.persistence.DefaultExampleEntity;
+import ${package}.domain.model.ExampleEntity;
 import ${package}.domain.service.ExampleEntityService;
 import ${package}.test.domain.config.UrlConfig;
 
@@ -97,8 +97,8 @@ public final class TestExampleEntityFormControllerShowForm {
      * @return a mocked controller
      */
     private final ExampleEntityFormController getController() {
-        final ExampleEntityService             service;
-        final Collection<DefaultExampleEntity> entities;
+        final ExampleEntityService      service;
+        final Collection<ExampleEntity> entities;
 
         service = Mockito.mock(ExampleEntityService.class);
 

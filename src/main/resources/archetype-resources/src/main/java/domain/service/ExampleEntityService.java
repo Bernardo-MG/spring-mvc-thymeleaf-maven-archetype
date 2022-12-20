@@ -27,7 +27,6 @@ package ${package}.domain.service;
 import org.springframework.data.domain.Pageable;
 
 import ${package}.domain.model.ExampleEntity;
-import ${package}.domain.model.persistence.DefaultExampleEntity;
 
 /**
  * Service for the example entity domain.
@@ -45,7 +44,7 @@ public interface ExampleEntityService {
      *            entity to persist
      * @return the persisted entity
      */
-    public ExampleEntity add(final DefaultExampleEntity entity);
+    public ExampleEntity add(final ExampleEntity entity);
 
     /**
      * Returns an entity with the given id.
@@ -64,7 +63,7 @@ public interface ExampleEntityService {
      *
      * @return the persisted entities
      */
-    public Iterable<DefaultExampleEntity> getAllEntities();
+    public Iterable<ExampleEntity> getAllEntities();
 
     /**
      * Returns a paginated collection of entities.
@@ -73,7 +72,7 @@ public interface ExampleEntityService {
      *            pagination data
      * @return a paginated collection of entities
      */
-    public Iterable<DefaultExampleEntity> getEntities(final Pageable page);
+    public Iterable<ExampleEntity> getEntities(final Pageable page);
 
     /**
      * Removes an entity from persistence.
@@ -81,6 +80,6 @@ public interface ExampleEntityService {
      * @param entity
      *            entity to remove
      */
-    public void remove(final DefaultExampleEntity entity);
+    public void remove(final ExampleEntity entity);
 
 }

@@ -35,8 +35,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import ${package}.domain.model.ExampleEntity;
+import ${package}.domain.model.ImmutableExampleEntity;
 import ${package}.domain.model.form.ExampleEntityForm;
-import ${package}.domain.model.persistence.DefaultExampleEntity;
 import ${package}.domain.service.ExampleEntityService;
 
 import lombok.AllArgsConstructor;
@@ -85,8 +86,8 @@ public class ExampleEntityFormController {
     public String saveEntity(final ModelMap model,
             @ModelAttribute(ExampleEntityViewConstants.BEAN_FORM) @Valid final ExampleEntityForm form,
             final BindingResult bindingResult, final HttpServletResponse response) {
-        final String               path;
-        final DefaultExampleEntity entity;
+        final String        path;
+        final ExampleEntity entity;
 
         if (bindingResult.hasErrors()) {
             // Invalid form data
@@ -98,8 +99,7 @@ public class ExampleEntityFormController {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         } else {
 
-            entity = new DefaultExampleEntity();
-            entity.setName(form.getName());
+            entity = new ImmutableExampleEntity(-1, form.getName());
 
             exampleEntityService.add(entity);
 

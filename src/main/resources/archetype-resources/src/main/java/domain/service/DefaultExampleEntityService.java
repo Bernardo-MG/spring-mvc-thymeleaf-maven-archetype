@@ -25,13 +25,15 @@
 package ${package}.domain.service;
 
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import ${package}.domain.repository.ExampleEntityRepository;
 import ${package}.domain.model.ExampleEntity;
-import ${package}.domain.model.persistence.DefaultExampleEntity;
+import ${package}.domain.model.ImmutableExampleEntity;
+import ${package}.domain.model.persistence.PersistentExampleEntity;
+import ${package}.domain.repository.ExampleEntityRepository;
 
 import lombok.AllArgsConstructor;
 
@@ -51,8 +53,15 @@ public class DefaultExampleEntityService implements ExampleEntityService {
     private final ExampleEntityRepository entityRepository;
 
     @Override
-    public final ExampleEntity add(final DefaultExampleEntity entity) {
-        return entityRepository.save(entity);
+    public final ExampleEntity add(final ExampleEntity data) {
+        final PersistentExampleEntity entity;
+        final PersistentExampleEntity created;
+
+        entity = toEntity(data);
+
+        created = entityRepository.save(entity);
+
+        return toDto(created);
     }
 
     /**
@@ -66,32 +75,52 @@ public class DefaultExampleEntityService implements ExampleEntityService {
      */
     @Override
     public final ExampleEntity findById(final Integer identifier) {
-        final ExampleEntity entity;
+        final PersistentExampleEntity result;
+        final ExampleEntity           entity;
 
         Objects.requireNonNull(identifier, "Received a null pointer as identifier");
 
         if (entityRepository.existsById(identifier)) {
-            entity = entityRepository.getReferenceById(identifier);
+            result = entityRepository.getReferenceById(identifier);
+            entity = toDto(result);
         } else {
-            entity = new DefaultExampleEntity();
+            entity = new ImmutableExampleEntity(-1, "");
         }
 
         return entity;
     }
 
     @Override
-    public final Iterable<DefaultExampleEntity> getAllEntities() {
-        return entityRepository.findAll();
+    public final Iterable<ExampleEntity> getAllEntities() {
+        return entityRepository.findAll()
+            .stream()
+            .map(this::toDto)
+            .collect(Collectors.toList());
     }
 
     @Override
-    public final Iterable<DefaultExampleEntity> getEntities(final Pageable page) {
-        return entityRepository.findAll(page);
+    public final Iterable<ExampleEntity> getEntities(final Pageable page) {
+        return entityRepository.findAll(page)
+            .map(this::toDto);
     }
 
     @Override
-    public final void remove(final DefaultExampleEntity entity) {
-        entityRepository.delete(entity);
+    public final void remove(final ExampleEntity entity) {
+        entityRepository.deleteById(entity.getId());
+    }
+
+    private final ExampleEntity toDto(final PersistentExampleEntity entity) {
+        return new ImmutableExampleEntity(entity.getId(), entity.getName());
+    }
+
+    private final PersistentExampleEntity toEntity(final ExampleEntity dto) {
+        final PersistentExampleEntity entity;
+
+        entity = new PersistentExampleEntity();
+        entity.setId(dto.getId());
+        entity.setName(dto.getName());
+
+        return entity;
     }
 
 }

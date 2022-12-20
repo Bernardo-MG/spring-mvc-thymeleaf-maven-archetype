@@ -24,8 +24,11 @@
 
 package ${package}.test.domain.unit.controller.report;
 
-import java.util.ArrayList;
+import java.util.Collections;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
@@ -34,19 +37,16 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 import ${package}.domain.controller.report.ReportController;
-import ${package}.domain.model.persistence.DefaultExampleEntity;
+import ${package}.domain.model.ExampleEntity;
 import ${package}.domain.service.DefaultExampleEntityReportService;
 import ${package}.domain.service.ExampleEntityReportService;
 import ${package}.domain.service.ExampleEntityService;
 
 /**
  * Unit tests for {@link ReportController}, checking the methods for generating reports.
- * 
+ *
  * @author Bernardo Mart&iacute;nez Garrido
  */
 public final class TestReportController {
@@ -108,15 +108,15 @@ public final class TestReportController {
 
     /**
      * Returns a controller with mocked dependencies.
-     * 
+     *
      * @return a mocked controller
      */
     private final ReportController getController() {
-        final ExampleEntityService           service;       // Mocked unit codex
-        final ExampleEntityReportService     reportService; // Mocked unit codex
-        final Iterable<DefaultExampleEntity> entities;
+        final ExampleEntityService       service;       // Mocked unit codex
+        final ExampleEntityReportService reportService; // Mocked unit codex
+        final Iterable<ExampleEntity>    entities;
 
-        entities = new ArrayList<DefaultExampleEntity>();
+        entities = Collections.emptyList();
 
         service = Mockito.mock(ExampleEntityService.class);
         Mockito.when(service.getAllEntities())
@@ -129,7 +129,7 @@ public final class TestReportController {
 
     /**
      * Returns a request builder for getting the PDF view.
-     * 
+     *
      * @return a request builder for the PDF view
      */
     private final RequestBuilder getRequest() {

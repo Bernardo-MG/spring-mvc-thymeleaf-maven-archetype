@@ -36,7 +36,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ${package}.Application;
 import ${package}.domain.model.ExampleEntity;
-import ${package}.domain.model.persistence.DefaultExampleEntity;
+import ${package}.domain.model.ImmutableExampleEntity;
 import ${package}.domain.service.ExampleEntityService;
 
 /**
@@ -69,18 +69,17 @@ public class ITDefaultExampleEntityService {
      */
     @Test
     public void testAdd_NotExisting_Added() {
-        final DefaultExampleEntity entity;             // Entity to add
-        final Integer              entitiesCount;      // Original number of entities
-        final Integer              finalEntitiesCount; // Final number of entities
+        final ExampleEntity entity;             // Entity to add
+        final Integer       entitiesCount;      // Original number of entities
+        final Integer       finalEntitiesCount; // Final number of entities
 
-        entitiesCount = ((Collection<DefaultExampleEntity>) service.getAllEntities()).size();
+        entitiesCount = ((Collection<ExampleEntity>) service.getAllEntities()).size();
 
-        entity = new DefaultExampleEntity();
-        entity.setName("ABC");
+        entity = new ImmutableExampleEntity(-1, "ABC");
 
         service.add(entity);
 
-        finalEntitiesCount = ((Collection<DefaultExampleEntity>) service.getAllEntities()).size();
+        finalEntitiesCount = ((Collection<ExampleEntity>) service.getAllEntities()).size();
 
         Assertions.assertEquals(finalEntitiesCount, Integer.valueOf(entitiesCount + 1));
     }

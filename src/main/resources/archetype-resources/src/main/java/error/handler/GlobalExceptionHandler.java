@@ -34,18 +34,16 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Captures and handles exceptions for all the controllers.
  *
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @ControllerAdvice
+@Slf4j
 public class GlobalExceptionHandler extends AbstractHandlerExceptionResolver {
-
-    /**
-     * Logger for the exception handler.
-     */
-    private static final Logger LOGGER = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     /**
      * Default constructor.
@@ -59,7 +57,7 @@ public class GlobalExceptionHandler extends AbstractHandlerExceptionResolver {
             final HttpServletResponse response, final Object handler, final Exception ex) {
         final ModelAndView modelView;
 
-        LOGGER.error(ex.getMessage(), ex);
+        log.error(ex.getMessage(), ex);
 
         modelView = new ModelAndView(ErrorViewConstants.VIEW_ERROR);
         modelView.getModel()

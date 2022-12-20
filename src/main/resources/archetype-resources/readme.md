@@ -28,7 +28,7 @@ The project by default comes with a useful series of features:
 - Preconfigured POM to begin developing a new [Spring MVC](https://spring.io) project with [Spring Boot}(https://spring.io/projects/spring-boot).
 - Initial sample project including working persistence and exception handling
 - Integration with [Thymeleaf](https://www.thymeleaf.org/) for the view templates.
-- Using [Bootstrap](https://getbootstrap.com/) for the UI.
+- Using [Bootstrap 5](https://getbootstrap.com/) for the UI.
 - Using [Liquibase](https://www.liquibase.org/) for database versioning.
 - Integration with [iText](https://itextpdf.com/) for generating PDFs.
 - Prepared for [Github Workflow](https://docs.github.com/en/actions/configuring-and-managing-workflows), including configuration files and deployment scripts. Check the [Archetype documentation](https://docs.bernardomg.com/maven/spring-mvc-thymeleaf-archetype) to find out more.

@@ -12,7 +12,7 @@ A [Maven Archetype][maven-archetype] for generating a Spring MVC project using T
 - Creates the base for a [Spring MVC][spring-mvc] project.
 - Initial sample project including working persistence and exception handling
 - Integrates with [Thymeleaf][thymeleaf] for the view templates.
-- Using [Bootstrap][bootstrap] for the UI.
+- Using [Bootstrap 5][bootstrap] for the UI.
 - Using [Liquibase][liquibase] for database versioning.
 - Integration with [iText](https://itextpdf.com/) for generating PDFs.
 - Fully configured POM, extending from [bernardomg's Base POM][base-pom], including features such as build validation, changes report or manifest configuration.

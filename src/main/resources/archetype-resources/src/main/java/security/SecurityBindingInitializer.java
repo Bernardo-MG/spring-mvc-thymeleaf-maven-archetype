@@ -30,7 +30,6 @@ import org.springframework.web.bind.annotation.InitBinder;
 
 /**
  * Initializes all controllers with security constraints.
- * <p>
  * <ul>
  * <li>Disallows binding ids</li>
  * </ul>

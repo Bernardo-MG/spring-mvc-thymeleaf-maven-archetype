@@ -263,11 +263,6 @@
          <artifactId>spring-aop</artifactId>
       </dependency>
       <dependency>
-         <!-- Spring beans -->
-         <groupId>org.springframework</groupId>
-         <artifactId>spring-beans</artifactId>
-      </dependency>
-      <dependency>
          <!-- Spring context -->
          <groupId>org.springframework</groupId>
          <artifactId>spring-context</artifactId>
@@ -281,6 +276,11 @@
          <!-- Spring Core -->
          <groupId>org.springframework</groupId>
          <artifactId>spring-core</artifactId>
+      </dependency>
+      <dependency>
+         <!-- Spring Data Commons -->
+         <groupId>org.springframework.data</groupId>
+         <artifactId>spring-data-commons</artifactId>
       </dependency>
       <dependency>
          <!-- Spring Data JPA -->
@@ -317,9 +317,24 @@
          <groupId>org.springframework</groupId>
          <artifactId>spring-orm</artifactId>
       </dependency>
+      <dependency>
+         <!-- Spring Beans -->
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-beans</artifactId>
+      </dependency>
       <!-- ============================================== -->
       <!-- =============== SPRING BOOT ================== -->
       <!-- ============================================== -->
+      <dependency>
+         <!-- Spring Boot -->
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot</artifactId>
+      </dependency>
+      <dependency>
+         <!-- Spring Boot Autoconfigure -->
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-autoconfigure</artifactId>
+      </dependency>
       <dependency>
          <!-- Spring Boot Starter: Thymeleaf -->
          <groupId>org.springframework.boot</groupId>
@@ -384,6 +399,14 @@
          <!-- JPA API -->
          <groupId>javax.persistence</groupId>
          <artifactId>javax.persistence-api</artifactId>
+      </dependency>
+      <!-- ============================================== -->
+      <!-- ================= VALIDATION ================= -->
+      <!-- ============================================== -->
+      <dependency>
+         <!-- Validation API -->
+         <groupId>javax.validation</groupId>
+         <artifactId>validation-api</artifactId>
       </dependency>
       <!-- ============================================== -->
       <!-- ================ HIBERNATE =================== -->
@@ -584,6 +607,12 @@
          <scope>test</scope>
       </dependency>
       <dependency>
+         <!-- JUnit API -->
+         <groupId>org.junit.jupiter</groupId>
+         <artifactId>junit-jupiter-api</artifactId>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
          <!-- JUnit Jupiter Engine -->
          <groupId>org.junit.jupiter</groupId>
          <artifactId>junit-jupiter-engine</artifactId>
@@ -612,6 +641,12 @@
          <!-- Spring Test -->
          <groupId>org.springframework</groupId>
          <artifactId>spring-test</artifactId>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <!-- Spring Boot Test -->
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-test</artifactId>
          <scope>test</scope>
       </dependency>
       <dependency>

@@ -106,7 +106,7 @@ public class ExampleEntityFormController {
             // TODO: This flow decision shouldn't be handled by the controller
             // TODO: This should be a redirection to the list controller
             // Loads required data into the model
-            loadViewModel(model);
+            model.put(ExampleEntityViewConstants.PARAM_ENTITIES, exampleEntityService.getAllEntities());
 
             path = ExampleEntityViewConstants.VIEW_ENTITY_LIST;
         }
@@ -124,18 +124,6 @@ public class ExampleEntityFormController {
     @GetMapping(path = "/edit")
     public String showEntityForm() {
         return ExampleEntityViewConstants.VIEW_ENTITY_FORM;
-    }
-
-    /**
-     * Loads the model data required for the entities listing view.
-     * <p>
-     * As the view will list all the entities, it requires these entities as one of the parameters.
-     *
-     * @param model
-     *            model map
-     */
-    private final void loadViewModel(final ModelMap model) {
-        model.put(ExampleEntityViewConstants.PARAM_ENTITIES, exampleEntityService.getAllEntities());
     }
 
 }

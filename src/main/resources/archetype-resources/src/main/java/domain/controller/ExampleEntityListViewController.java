@@ -64,21 +64,9 @@ public class ExampleEntityListViewController {
     @GetMapping(path = "/list")
     public String showEntityList(final ModelMap model) {
         // Loads required data into the model
-        loadViewModel(model);
+        model.put(ExampleEntityViewConstants.PARAM_ENTITIES, exampleEntityService.getAllEntities());
 
         return ExampleEntityViewConstants.VIEW_ENTITY_LIST;
-    }
-
-    /**
-     * Loads the model data required for the entities listing view.
-     * <p>
-     * As the view will list all the entities, it requires these entities as one of the parameters.
-     *
-     * @param model
-     *            model map
-     */
-    private final void loadViewModel(final ModelMap model) {
-        model.put(ExampleEntityViewConstants.PARAM_ENTITIES, exampleEntityService.getAllEntities());
     }
 
 }

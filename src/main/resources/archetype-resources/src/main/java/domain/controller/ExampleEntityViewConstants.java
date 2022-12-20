@@ -52,16 +52,6 @@ public final class ExampleEntityViewConstants {
     public static final String VIEW_ENTITY_LIST      = "entity/list";
 
     /**
-     * Name for the entities view using AJAX.
-     */
-    public static final String VIEW_ENTITY_LIST_AJAX = "entity/listAjax";
-
-    /**
-     * Name for the exception view.
-     */
-    public static final String VIEW_EXCEPTION        = "exception";
-
-    /**
      * Private constructor to avoid initialization.
      */
     private ExampleEntityViewConstants() {

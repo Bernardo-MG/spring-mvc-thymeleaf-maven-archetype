@@ -2,6 +2,12 @@
 
 A [Maven Archetype][maven-archetype] for generating a Spring MVC project using Thymeleaf for the frontend.
 
+While it can be prepared for any CI service, it is prepared for [Github Workflow][github-workflow]. Acquiring the code from a [Github][github] repository and publishing into [OSS Sonatype][sonatype] or [Github packages][github-packages].
+
+After running all the tests artifacts will be published into this repository, but the new project will be able to generate and publish also a Maven site, which, thanks to the [Docs Maven Skin][docs-skin], will show documentation and useful reports from Checkstyle, SpotBugs and similar tools.
+
+The Archetype will do little more than take care of configuration, setting up the POM and the Maven project is most of its job, and so it will include few files not related to this. Some useful things such as a readme, a gitignore and a license files are included, but the initial code will consists just of a few placeholder classes.
+
 [![Maven Central](https://img.shields.io/maven-central/v/com.bernardomg.maven.archetypes/spring-mvc-thymeleaf-archetype.svg)][maven-repo]
 
 [![Release docs](https://img.shields.io/badge/docs-release-blue.svg)][site-release]
@@ -112,6 +118,10 @@ The project has been released under the [MIT License][license].
 [base-pom]: https://github.com/Bernardo-MG/base-pom
 
 [github]: https://github.com/
+[sonatype]: https://oss.sonatype.org/
+[github-packages]: https://github.com/features/packages
+[github-workflow]: https://docs.github.com/en/actions/configuring-and-managing-workflows
+
 [bootstrap]: https://getbootstrap.com/
 
 [surefire]: https://maven.apache.org/surefire/maven-surefire-plugin/

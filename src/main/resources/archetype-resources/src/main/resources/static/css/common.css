@@ -11,6 +11,10 @@ body {
     background-color: #fcfcfc;
 }
 
+body > header {
+    margin-bottom: 1em;
+}
+
 body > section {
     background-color: white;
     padding: 1em 1em 1em 1em;

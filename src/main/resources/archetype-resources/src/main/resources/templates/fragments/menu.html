@@ -1,39 +1,33 @@
 <header th:fragment="menu">
-	<nav id="navbar-main" class="navbar navbar-main navbar-default">
+	<nav id="navbar-main"
+		class="navbar navbar-expand-md navbar-light bg-light">
 		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#navbar-main-body"
-					aria-expanded="false" aria-controls="navbar-main">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" th:href="@{/}"
-					th:text="#{application.title}">Webapp title</a>
+			<a class="navbar-brand" th:href="@{/}" th:text="#{application.title}">Webapp
+				title</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbar-main-menu"
+				aria-controls="navbar-main" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
 			</div>
-
-			<div id="navbar-main-body"
-				class="navbar-body navbar-collapse collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li>
-						<ul class="list-unstyled icons-list">
-							<li><a href="@project.scm.url@" title="GitHub"
-								aria-label="GitHub"><span class="fa fa-github"
-									aria-hidden="true"></span></a></li>
-						</ul>
-					</li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-haspopup="true"
+			<div class="collapse navbar-collapse" id="navbar-main-menu">
+				<ul class="nav navbar-nav ms-auto">
+					<li class="nav-item dropdown"><a href="#"
+						class="nav-link dropdown-toggle" id="optionsDropdown"
+						data-bs-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false"><span th:remove="tag"
-							th:text="#{title.data}">Data</span> <span aria-hidden="true"></span>
-					</a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a th:href="@{/entity/list}" th:text="#{label.list}">List</a></li>
-							<li><a th:href="@{/entity/edit}" th:text="#{label.add}">Addition</a></li>
-							<li><a th:href="@{/entity/pdf}" th:text="#{label.pdf}">PDF</a></li>
-							<li><a th:href="@{/exception/runtime}"
+							th:text="#{title.data}">Data</span></a> </a>
+						<ul class="dropdown-menu dropdown-menu-end"
+							aria-labelledby="optionsDropdown">
+							<li><a class="dropdown-item" th:href="@{/entity/list}"
+								th:text="#{label.list}">List</a></li>
+							<li><a class="dropdown-item" th:href="@{/entity/edit}"
+								th:text="#{label.add}">Addition</a></li>
+							<li><a class="dropdown-item" th:href="@{/entity/pdf}"
+								th:text="#{label.pdf}">PDF</a></li>
+							<li><a class="dropdown-item" th:href="@{/exception/runtime}"
 								th:text="#{label.exception}">Exception</a></li>
 						</ul></li>
 				</ul>

@@ -1,10 +1,49 @@
 #set( $symbol_pound = '#' )
-${symbol_pound} Setting up the dependencies
+${symbol_pound} Acquiring the Project
 
 The project files are hosted in the the [Maven Central Repository][maven-repo], and the [Github Packages Repository][github-repo]. This means that most Maven setups will be able to acquire the dependency without any additional configuration.
 
-For any additional information about how to set up the dependency check the [dependency information section](./dependency-info.html).
+${symbol_pound}${symbol_pound} Adding the Archetype to the Local Catalog
 
+To be able to use the Archetype it should be installed into the local Maven repository, and registered into the Archetypes catalog.
 
+${symbol_pound}${symbol_pound}${symbol_pound} Using an IDE
+
+To find out how to add the archetype to the local catalog consult your preferred IDE's manual.
+
+${symbol_pound}${symbol_pound}${symbol_pound} Manual Installation
+
+It is always possible to manually install the Archetype by just getting the code from the [code repository][code-repo] and using the following command:
+
+```sh
+mvn install
+```
+
+The project is prepared to automatically update the local catalog when installed.
+
+${symbol_pound}${symbol_pound}${symbol_pound} Maven Command
+
+It is possible to install the Archetype at the same time it is used for the first time, if a repository is given. Check the Maven command used for this in the [usage section][usage].
+
+${symbol_pound}${symbol_pound} Archetype Identification
+
+When acquiring the Archetype the following data will be used to identify it:
+
+${symbol_pound}${symbol_pound}${symbol_pound} Version
+
+|Group ID|Artifact ID|Version|
+|---|---|---|---|
+|$project.groupId|$project.artifactId|$project.version|
+
+${symbol_pound}${symbol_pound}${symbol_pound} Downloads Link
+
+|Repository URL|
+|---|
+|$mavenURL |
+|$githubArtifactURL |
+
+[code-repo]: $project.scm.url
 [maven-repo]: ${mavenURL}
 [github-repo]: ${githubArtifactURL}
+
+[usage]: ./usage.html

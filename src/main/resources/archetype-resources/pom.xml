@@ -11,7 +11,7 @@
    <parent>
       <groupId>com.bernardomg.maven</groupId>
       <artifactId>base-pom</artifactId>
-      <version>1.4.4</version>
+      <version>1.5.3</version>
    </parent>
 
    <!-- ********************************************** -->
@@ -63,138 +63,15 @@
    <!-- ********************************************** -->
 
    <profiles>
-      <profile>
-         <!-- Profile for the Eclipse Maven plugin -->
-         <!-- Sets the POM so this plugin does not give the usual unregistered goals errors -->
-         <!-- It will be activated automatically on Eclipse if this has the m2e plugin, by detecting the version property -->
-         <id>eclipse-maven</id>
-         <activation>
-            <property>
-               <name>m2e.version</name>
-            </property>
-         </activation>
-         <build>
-            <pluginManagement>
-               <plugins>
-                  <plugin>
-                     <!-- m2e lifecycle mapping -->
-                     <!-- This is used to configure the Maven plugin for Eclipse. -->
-                     <!-- Among other things, it allows registering goals, which Eclipse would otherwise reject. -->
-                     <!-- It has no real effect on Maven. -->
-                     <groupId>org.eclipse.m2e</groupId>
-                     <artifactId>lifecycle-mapping</artifactId>
-                     <version>${plugin.lifecycle.version}</version>
-                     <configuration>
-                        <!-- Sample fix for plugin executions -->
-                        <!-- This is to be used in case a Maven plugins gives problems in Eclipse -->
-                        <!-- <lifecycleMappingMetadata> <pluginExecutions> <pluginExecution> <pluginExecutionFilter> <groupId>org.jacoco</groupId> <artifactId>jacoco-maven-plugin</artifactId> <versionRange>[0.5,)</versionRange> 
-                           <goals> <goal>prepare-agent</goal> </goals> </pluginExecutionFilter> <action> <ignore /> </action> </pluginExecution> </pluginExecutions> </lifecycleMappingMetadata> -->
-                        <downloadSources>true</downloadSources>
-                        <downloadJavadocs>true</downloadJavadocs>
-                     </configuration>
-                  </plugin>
-               </plugins>
-            </pluginManagement>
-         </build>
-      </profile>
-      <!-- ============================================== -->
-      <!-- ============= DATABASE PROFILES ============== -->
-      <!-- ============================================== -->
-      <profile>
-         <!-- H2 database profile -->
-         <!-- Prepares the project to make use of an H2 in-memory database -->
-         <id>h2</id>
-         <activation>
-            <!-- Active by default so it can be installed by CI -->
-            <activeByDefault>true</activeByDefault>
-         </activation>
-         <dependencies>
-            <dependency>
-               <!-- H2 database -->
-               <groupId>com.h2database</groupId>
-               <artifactId>h2</artifactId>
-               <version>${h2.version}</version>
-            </dependency>
-         </dependencies>
-      </profile>
-      <profile>
-         <!-- MySQL database profile -->
-         <!-- Prepares the project to make use of a MySQL database -->
-         <id>mysql</id>
-         <activation>
-            <property>
-               <name>env.DATABASE_SYSTEM</name>
-               <value>mysql</value>
-            </property>
-         </activation>
-         <dependencies>
-            <dependency>
-               <!-- MySQL connector -->
-               <groupId>mysql</groupId>
-               <artifactId>mysql-connector-java</artifactId>
-               <version>${mysql.version}</version>
-            </dependency>
-         </dependencies>
-      </profile>
-      <profile>
-         <!-- Postgres database profile -->
-         <!-- Prepares the project to make use of a Postgres database -->
-         <id>postgres</id>
-         <activation>
-            <property>
-               <name>env.DATABASE_SYSTEM</name>
-               <value>postgres</value>
-            </property>
-         </activation>
-         <dependencies>
-            <dependency>
-               <!-- Postgres connector -->
-               <groupId>org.postgresql</groupId>
-               <artifactId>postgresql</artifactId>
-               <version>${postgresql.version}</version>
-            </dependency>
-         </dependencies>
-      </profile>
-      <!-- ============================================== -->
-      <!-- =============== BUILD PROFILES =============== -->
-      <!-- ============================================== -->
-      <profile>
-         <!-- Production profile -->
-         <id>production</id>
-         <activation>
-            <property>
-               <name>env.ENVIRONMENT_MODE</name>
-               <value>production</value>
-            </property>
-         </activation>
-      </profile>
-      <profile>
-         <!-- Production profile -->
-         <id>development</id>
-         <activation>
-            <!-- Active by default to ease development -->
-            <activeByDefault>true</activeByDefault>
-         </activation>
-         <dependencies>
-            <dependency>
-               <!-- Spring Boot Starter: Devtools -->
-               <groupId>org.springframework.boot</groupId>
-               <artifactId>spring-boot-devtools</artifactId>
-               <version>${spring.boot.version}</version>
-               <scope>runtime</scope>
-               <optional>true</optional>
-            </dependency>
-         </dependencies>
-      </profile>
       <!-- ============================================== -->
       <!-- ============ DEPLOYMENT PROFILES ============= -->
       <!-- ============================================== -->
       <profile>
-         <!-- Release deployment profile. -->
-         <!-- Sets the site repository to point to the releases repo. -->
-         <id>deployment-release</id>
+         <!-- Site deployment profile -->
+         <!-- Sets the site repository to point to the releases repo -->
+         <id>deployment-site</id>
          <activation>
-            <!-- Active by default so the repository appears in the reports. -->
+            <!-- Active by default so the repository appears in the reports -->
             <activeByDefault>true</activeByDefault>
          </activation>
          <distributionManagement>
@@ -202,31 +79,9 @@
                <id>site</id>
                <name>Project Documentation Site</name>
                <!-- The URL should be set externally -->
-               <url>${site.release.url}</url>
+               <url>${site.url}</url>
             </site>
          </distributionManagement>
-      </profile>
-      <profile>
-         <!-- Development deployment profile. -->
-         <!-- Sets the site repository to point to the development repo. -->
-         <id>deployment-development</id>
-         <distributionManagement>
-            <site>
-               <id>site-development</id>
-               <name>Project Development Documentation Site</name>
-               <!-- The URL should be set externally -->
-               <url>${site.develop.url}</url>
-            </site>
-         </distributionManagement>
-      </profile>
-      <profile>
-         <!-- Deployment profile. -->
-         <!-- Sets ups the environment for deployment. -->
-         <id>deployment</id>
-         <properties>
-            <!-- Tests are skipped. -->
-            <maven.test.skip>true</maven.test.skip>
-         </properties>
       </profile>
       <profile>
          <!-- Github deployment profile. -->
@@ -320,60 +175,42 @@
       <!-- ============================================== -->
       <maven.version>3.5.0</maven.version>
       <!-- ============================================== -->
-      <!-- ================ JAVA VERSION ================ -->
-      <!-- ============================================== -->
-      <java.version>1.8</java.version>
-      <!-- ============================================== -->
       <!-- =============== MANIFEST DATA ================ -->
       <!-- ============================================== -->
       <manifest.name>${packageInPathFormat}</manifest.name>
       <!-- ============================================== -->
       <!-- =========== DEPENDENCIES VERSIONS ============ -->
       <!-- ============================================== -->
-      <aspectj.version>1.9.6</aspectj.version>
-      <byteBuddy.version>1.10.16</byteBuddy.version>
-      <classmate.version>1.5.1</classmate.version>
-      <commons.logging.version>1.2</commons.logging.version>
       <glassfish.el.version>2.2</glassfish.el.version>
-      <guava.version>29.0-jre</guava.version>
-      <h2.version>1.4.200</h2.version>
-      <hamcrest.version>2.2</hamcrest.version>
       <hibernate.validator.version>5.4.3.Final</hibernate.validator.version>
-      <hibernate.version>5.4.21.Final</hibernate.version>
-      <hikari.version>3.4.5</hikari.version>
       <itext.version>5.5.13.1</itext.version>
       <jackson.version>2.11.2</jackson.version>
-      <javaee.api.version>2.2</javaee.api.version>
-      <jsonpath.version>2.4.0</jsonpath.version>
       <junit.jupiter.version>5.7.0</junit.jupiter.version>
-      <liquibase.version>4.0.0</liquibase.version>
-      <log4j.version>2.13.3</log4j.version>
-      <mockito.version>3.5.11</mockito.version>
-      <mysql.version>5.1.39</mysql.version>
-      <postgresql.version>42.1.4</postgresql.version>
-      <servlet.version>4.0.1</servlet.version>
-      <slf4j.version>1.7.30</slf4j.version>
-      <snakeyaml.version>1.26</snakeyaml.version>
-      <spring.boot.version>2.3.4.RELEASE</spring.boot.version>
-      <spring.data.train.version>Neumann-SR4</spring.data.train.version>
-      <spring.version>5.2.9.RELEASE</spring.version>
-      <thymeleaf.version>3.0.11.RELEASE</thymeleaf.version>
-      <webjars.bootstrap.version>3.4.1</webjars.bootstrap.version>
-      <webjars.bootswatch.version>3.3.7</webjars.bootswatch.version>
-      <webjars.fontAwesome.version>5.7.2</webjars.fontAwesome.version>
-      <webjars.html5shiv.version>3.7.3-1</webjars.html5shiv.version>
-      <webjars.jquery.version>3.3.1-2</webjars.jquery.version>
-      <webjars.locator.version>0.34</webjars.locator.version>
+      <spring.boot.version>2.7.6</spring.boot.version>
+      <spring.data.version>2022.0.0</spring.data.version>
+      <spring.version>5.3.24</spring.version>
+      <webjars.bootstrap.version>5.2.3</webjars.bootstrap.version>
+      <webjars.bootswatch.version>5.0.2</webjars.bootswatch.version>
+      <webjars.fontAwesome.version>6.2.0</webjars.fontAwesome.version>
+      <webjars.locator.version>0.45</webjars.locator.version>
+      <webjars.popper.version>2.9.3</webjars.popper.version>
       <!-- ============================================== -->
       <!-- ============== PLUGINS VERSIONS ============== -->
       <!-- ============================================== -->
-      <plugin.jshint.version>1.6.0</plugin.jshint.version>
-      <plugin.minify.version>1.7.6</plugin.minify.version>
       <plugin.spring.boot.version>${spring.boot.version}</plugin.spring.boot.version>
+      <!-- ============================================== -->
+      <!-- ============ PLUGIN CONFIGURATION ============ -->
+      <!-- ============================================== -->
+      <!-- Checkstyle customized rules file -->
+      <checkstyle.config.location>${project.basedir}/src/config/checkstyle/checkstyle-rules.xml</checkstyle.config.location>
+      <!-- Excludes generated code for Checkstyle -->
+      <checkstyle.excludes>**/generated/**/*</checkstyle.excludes>
+      <!-- Exclusion patterns for SpotBugs -->
+      <spotbugs.excludeFilterFile>${project.basedir}/src/config/spotbugs/spotbugs-exclude.xml</spotbugs.excludeFilterFile>
       <!-- ============================================== -->
       <!-- ================= MAVEN SITE ================= -->
       <!-- ============================================== -->
-      <site.skin.version>2.2.5</site.skin.version>
+      <site.skin.version>2.3.0</site.skin.version>
    </properties>
 
    <!-- ********************************************** -->
@@ -391,10 +228,18 @@
             <scope>import</scope>
          </dependency>
          <dependency>
-            <!-- Spring Data Train BOM -->
+            <!-- Spring Boot Dependencies BOM -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-dependencies</artifactId>
+            <version>${spring.boot.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+         </dependency>
+         <dependency>
+            <!-- Spring Data BOM -->
             <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-releasetrain</artifactId>
-            <version>${spring.data.train.version}</version>
+            <artifactId>spring-data-bom</artifactId>
+            <version>${spring.data.version}</version>
             <type>pom</type>
             <scope>import</scope>
          </dependency>
@@ -427,11 +272,6 @@
          <artifactId>spring-aop</artifactId>
       </dependency>
       <dependency>
-         <!-- Spring beans -->
-         <groupId>org.springframework</groupId>
-         <artifactId>spring-beans</artifactId>
-      </dependency>
-      <dependency>
          <!-- Spring context -->
          <groupId>org.springframework</groupId>
          <artifactId>spring-context</artifactId>
@@ -445,6 +285,11 @@
          <!-- Spring Core -->
          <groupId>org.springframework</groupId>
          <artifactId>spring-core</artifactId>
+      </dependency>
+      <dependency>
+         <!-- Spring Data Commons -->
+         <groupId>org.springframework.data</groupId>
+         <artifactId>spring-data-commons</artifactId>
       </dependency>
       <dependency>
          <!-- Spring Data JPA -->
@@ -481,18 +326,36 @@
          <groupId>org.springframework</groupId>
          <artifactId>spring-orm</artifactId>
       </dependency>
+      <dependency>
+         <!-- Spring Beans -->
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-beans</artifactId>
+      </dependency>
       <!-- ============================================== -->
       <!-- =============== SPRING BOOT ================== -->
       <!-- ============================================== -->
       <dependency>
+         <!-- Spring Boot -->
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot</artifactId>
+      </dependency>
+      <dependency>
+         <!-- Spring Boot Autoconfigure -->
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-autoconfigure</artifactId>
+      </dependency>
+      <dependency>
          <!-- Spring Boot Starter: Thymeleaf -->
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-starter-thymeleaf</artifactId>
-         <version>${spring.boot.version}</version>
          <exclusions>
             <exclusion>
-               <groupId>org.springframework.boot</groupId>
-               <artifactId>spring-boot-starter-logging</artifactId>
+               <groupId>ch.qos.logback</groupId>
+               <artifactId>logback-classic</artifactId>
+            </exclusion>
+            <exclusion>
+               <groupId>org.apache.logging.log4j</groupId>
+               <artifactId>log4j-to-slf4j</artifactId>
             </exclusion>
          </exclusions>
       </dependency>
@@ -500,19 +363,16 @@
          <!-- Spring Boot Starter: Web -->
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-starter-web</artifactId>
-         <version>${spring.boot.version}</version>
       </dependency>
       <dependency>
          <!-- Spring Boot Starter: JPA -->
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-starter-data-jpa</artifactId>
-         <version>${spring.boot.version}</version>
       </dependency>
       <dependency>
          <!-- Spring Boot Starter: Devtools -->
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-devtools</artifactId>
-         <version>${spring.boot.version}</version>
          <scope>runtime</scope>
          <optional>true</optional>
       </dependency>
@@ -520,19 +380,16 @@
          <!-- Spring Boot Starter: AOP -->
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-starter-aop</artifactId>
-         <version>${spring.boot.version}</version>
       </dependency>
       <dependency>
          <!-- Spring Boot Starter: Cache -->
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-starter-cache</artifactId>
-         <version>${spring.boot.version}</version>
       </dependency>
       <dependency>
          <!-- Spring Boot Starter: log4j -->
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-starter-log4j2</artifactId>
-         <version>${spring.boot.version}</version>
       </dependency>
       <!-- ============================================== -->
       <!-- ================= ASPECTJ ==================== -->
@@ -541,13 +398,11 @@
          <!-- AspectJ Runtime -->
          <groupId>org.aspectj</groupId>
          <artifactId>aspectjrt</artifactId>
-         <version>${aspectj.version}</version>
       </dependency>
       <dependency>
          <!-- AspectJ Weaver -->
          <groupId>org.aspectj</groupId>
          <artifactId>aspectjweaver</artifactId>
-         <version>${aspectj.version}</version>
          <scope>runtime</scope>
       </dependency>
       <!-- ============================================== -->
@@ -557,7 +412,14 @@
          <!-- JPA API -->
          <groupId>javax.persistence</groupId>
          <artifactId>javax.persistence-api</artifactId>
-         <version>${javaee.api.version}</version>
+      </dependency>
+      <!-- ============================================== -->
+      <!-- ================= VALIDATION ================= -->
+      <!-- ============================================== -->
+      <dependency>
+         <!-- Validation API -->
+         <groupId>javax.validation</groupId>
+         <artifactId>validation-api</artifactId>
       </dependency>
       <!-- ============================================== -->
       <!-- ================ HIBERNATE =================== -->
@@ -566,13 +428,11 @@
          <!-- Hibernate Core -->
          <groupId>org.hibernate</groupId>
          <artifactId>hibernate-core</artifactId>
-         <version>${hibernate.version}</version>
       </dependency>
       <dependency>
          <!-- Hibernate Ehcache -->
          <groupId>org.hibernate</groupId>
          <artifactId>hibernate-ehcache</artifactId>
-         <version>${hibernate.version}</version>
       </dependency>
       <dependency>
          <!-- Hibernate validator -->
@@ -584,7 +444,20 @@
          <!-- Hikari CP -->
          <groupId>com.zaxxer</groupId>
          <artifactId>HikariCP</artifactId>
-         <version>${hikari.version}</version>
+         <exclusions>
+            <exclusion>
+               <groupId>org.slf4j</groupId>
+               <artifactId>slf4j-api</artifactId>
+            </exclusion>
+         </exclusions>
+      </dependency>
+      <!-- ============================================== -->
+      <!-- ==================== H2 ====================== -->
+      <!-- ============================================== -->
+      <dependency>
+         <!-- H2 database -->
+         <groupId>com.h2database</groupId>
+         <artifactId>h2</artifactId>
       </dependency>
       <!-- ============================================== -->
       <!-- ================ LIQUIBASE =================== -->
@@ -593,7 +466,6 @@
          <!-- Liquibase -->
          <groupId>org.liquibase</groupId>
          <artifactId>liquibase-core</artifactId>
-         <version>${liquibase.version}</version>
       </dependency>
       <!-- ============================================== -->
       <!-- ================ SNAKEYAML =================== -->
@@ -602,7 +474,6 @@
          <!-- SnakeYAML -->
          <groupId>org.yaml</groupId>
          <artifactId>snakeyaml</artifactId>
-         <version>${snakeyaml.version}</version>
       </dependency>
       <!-- ============================================== -->
       <!-- =================== ITEXT ==================== -->
@@ -620,13 +491,11 @@
          <!-- Thymeleaf -->
          <groupId>org.thymeleaf</groupId>
          <artifactId>thymeleaf</artifactId>
-         <version>${thymeleaf.version}</version>
       </dependency>
       <dependency>
          <!-- Thymeleaf for Spring 5 -->
          <groupId>org.thymeleaf</groupId>
          <artifactId>thymeleaf-spring5</artifactId>
-         <version>${thymeleaf.version}</version>
       </dependency>
       <!-- ============================================== -->
       <!-- ================ SERVLET ===================== -->
@@ -635,7 +504,6 @@
          <!-- Servlet API -->
          <groupId>javax.servlet</groupId>
          <artifactId>javax.servlet-api</artifactId>
-         <version>${servlet.version}</version>
          <scope>provided</scope>
       </dependency>
       <!-- ============================================== -->
@@ -648,9 +516,15 @@
          <version>${webjars.bootstrap.version}</version>
       </dependency>
       <dependency>
-         <!-- Bootswatch Readable -->
+         <!-- Popper JS -->
          <groupId>org.webjars</groupId>
-         <artifactId>bootswatch-readable</artifactId>
+         <artifactId>popper.js</artifactId>
+         <version>${webjars.popper.version}</version>
+      </dependency>
+      <dependency>
+         <!-- Bootswatch Litera -->
+         <groupId>org.webjars</groupId>
+         <artifactId>bootswatch-litera</artifactId>
          <version>${webjars.bootswatch.version}</version>
       </dependency>
       <dependency>
@@ -660,22 +534,19 @@
          <version>${webjars.fontAwesome.version}</version>
       </dependency>
       <dependency>
-         <!-- HTML5 Shiv -->
-         <groupId>org.webjars</groupId>
-         <artifactId>html5shiv</artifactId>
-         <version>${webjars.html5shiv.version}</version>
-      </dependency>
-      <dependency>
-         <!-- JQuery -->
-         <groupId>org.webjars</groupId>
-         <artifactId>jquery</artifactId>
-         <version>${webjars.jquery.version}</version>
-      </dependency>
-      <dependency>
          <!-- Webjars Locator -->
          <groupId>org.webjars</groupId>
          <artifactId>webjars-locator</artifactId>
          <version>${webjars.locator.version}</version>
+      </dependency>
+      <!-- ============================================== -->
+      <!-- ================== LOMBOK ==================== -->
+      <!-- ============================================== -->
+      <dependency>
+         <!-- Lombok -->
+         <groupId>org.projectlombok</groupId>
+         <artifactId>lombok</artifactId>
+         <scope>provided</scope>
       </dependency>
       <!-- ============================================== -->
       <!-- ================== LOGGING =================== -->
@@ -684,31 +555,26 @@
          <!-- SL4J API -->
          <groupId>org.slf4j</groupId>
          <artifactId>slf4j-api</artifactId>
-         <version>${slf4j.version}</version>
       </dependency>
       <dependency>
          <!-- Log4j SLF4J Bridge -->
          <groupId>org.apache.logging.log4j</groupId>
          <artifactId>log4j-slf4j-impl</artifactId>
-         <version>${log4j.version}</version>
       </dependency>
       <dependency>
          <!-- Log4j core -->
          <groupId>org.apache.logging.log4j</groupId>
          <artifactId>log4j-core</artifactId>
-         <version>${log4j.version}</version>
       </dependency>
       <dependency>
          <!-- Log4j Commons Logging Bridge -->
          <groupId>org.apache.logging.log4j</groupId>
          <artifactId>log4j-jcl</artifactId>
-         <version>${log4j.version}</version>
       </dependency>
       <dependency>
          <!-- Log4j Web -->
          <groupId>org.apache.logging.log4j</groupId>
          <artifactId>log4j-web</artifactId>
-         <version>${log4j.version}</version>
       </dependency>
       <!-- ============================================== -->
       <!-- ================= JACKSON ==================== -->
@@ -732,38 +598,11 @@
       <!-- ============ OTHER DEPENDENCIES ============== -->
       <!-- ============================================== -->
       <dependency>
-         <!-- Guava -->
-         <groupId>com.google.guava</groupId>
-         <artifactId>guava</artifactId>
-         <version>${guava.version}</version>
-      </dependency>
-      <dependency>
          <!-- Javax EL implementation -->
          <groupId>org.glassfish.web</groupId>
          <artifactId>el-impl</artifactId>
          <version>${glassfish.el.version}</version>
          <scope>provided</scope>
-      </dependency>
-      <!-- ============================================== -->
-      <!-- =========== VERSION ENFORCEMENT ============== -->
-      <!-- ============================================== -->
-      <dependency>
-         <!-- FasterXML ClassMate -->
-         <groupId>com.fasterxml</groupId>
-         <artifactId>classmate</artifactId>
-         <version>${classmate.version}</version>
-      </dependency>
-      <dependency>
-         <!-- Commons Logging -->
-         <groupId>commons-logging</groupId>
-         <artifactId>commons-logging</artifactId>
-         <version>${commons.logging.version}</version>
-      </dependency>
-      <dependency>
-         <!-- Byte Buddy -->
-         <groupId>net.bytebuddy</groupId>
-         <artifactId>byte-buddy</artifactId>
-         <version>${byteBuddy.version}</version>
       </dependency>
       <!-- ============================================== -->
       <!-- ======= TEST ENVIRONMENT DEPENDENCIES ======== -->
@@ -772,14 +611,18 @@
          <!-- Hamcrest -->
          <groupId>org.hamcrest</groupId>
          <artifactId>hamcrest-core</artifactId>
-         <version>${hamcrest.version}</version>
          <scope>test</scope>
       </dependency>
       <dependency>
          <!-- JSON Path -->
          <groupId>com.jayway.jsonpath</groupId>
          <artifactId>json-path</artifactId>
-         <version>${jsonpath.version}</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <!-- JUnit API -->
+         <groupId>org.junit.jupiter</groupId>
+         <artifactId>junit-jupiter-api</artifactId>
          <scope>test</scope>
       </dependency>
       <dependency>
@@ -795,7 +638,7 @@
          <scope>test</scope>
          <exclusions>
             <exclusion>
-               <!-- JUnit 3 -->
+               <!-- JUnit -->
                <groupId>junit</groupId>
                <artifactId>junit</artifactId>
             </exclusion>
@@ -805,7 +648,6 @@
          <!-- Mockito -->
          <groupId>org.mockito</groupId>
          <artifactId>mockito-core</artifactId>
-         <version>${mockito.version}</version>
          <scope>test</scope>
       </dependency>
       <dependency>
@@ -815,17 +657,16 @@
          <scope>test</scope>
       </dependency>
       <dependency>
+         <!-- Spring Boot Test -->
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-test</artifactId>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
          <!-- Spring Boot Starter: Test -->
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-starter-test</artifactId>
-         <version>${spring.boot.version}</version>
          <scope>test</scope>
-         <exclusions>
-            <exclusion>
-               <groupId>org.junit.vintage</groupId>
-               <artifactId>junit-vintage-engine</artifactId>
-            </exclusion>
-         </exclusions>
       </dependency>
    </dependencies>
 
@@ -835,25 +676,6 @@
 
    <build>
       <defaultGoal>clean package</defaultGoal>
-      <pluginManagement>
-         <plugins>
-            <!-- Plugin versions and configurations are enforced here. -->
-            <plugin>
-               <!-- JSHint -->
-               <!-- Validates Javascript files. -->
-               <groupId>com.cj.jshintmojo</groupId>
-               <artifactId>jshint-maven-plugin</artifactId>
-               <version>${plugin.jshint.version}</version>
-            </plugin>
-            <plugin>
-               <!-- Minify -->
-               <!-- Minifies files. -->
-               <groupId>com.samaxes.maven</groupId>
-               <artifactId>minify-maven-plugin</artifactId>
-               <version>${plugin.minify.version}</version>
-            </plugin>
-         </plugins>
-      </pluginManagement>
       <plugins>
          <plugin>
             <!-- Changes -->
@@ -897,30 +719,6 @@
             </dependencies>
          </plugin>
          <plugin>
-            <!-- Minify -->
-            <!-- Minifies files. -->
-            <groupId>com.samaxes.maven</groupId>
-            <artifactId>minify-maven-plugin</artifactId>
-            <executions>
-               <execution>
-                  <id>default-minify</id>
-                  <phase>generate-resources</phase>
-                  <configuration>
-                     <webappSourceDir>${basedir}/src/main/resources/static</webappSourceDir>
-                     <webappTargetDir>${project.build.outputDirectory}/static</webappTargetDir>
-                     <cssSourceDir>/css</cssSourceDir>
-                     <cssSourceIncludes>
-                        <cssSourceInclude>**</cssSourceInclude>
-                     </cssSourceIncludes>
-                     <cssFinalFile>style.css</cssFinalFile>
-                  </configuration>
-                  <goals>
-                     <goal>minify</goal>
-                  </goals>
-               </execution>
-            </executions>
-         </plugin>
-         <plugin>
             <!-- Resources -->
             <!-- Handles the project resources. -->
             <groupId>org.apache.maven.plugins</groupId>
@@ -933,30 +731,6 @@
                <delimiters>
                   <delimiter>@</delimiter>
                </delimiters>
-            </configuration>
-         </plugin>
-         <plugin>
-            <!-- JSHint -->
-            <!-- Validates Javascript files. -->
-            <groupId>com.cj.jshintmojo</groupId>
-            <artifactId>jshint-maven-plugin</artifactId>
-            <executions>
-               <execution>
-                  <id>jshint</id>
-                  <phase>test</phase>
-                  <goals>
-                     <goal>lint</goal>
-                  </goals>
-               </execution>
-            </executions>
-            <configuration>
-               <options>maxdepth:3,latedef,nonew,jquery</options>
-               <directories>
-                  <directory>src/main/resources/static/js</directory>
-               </directories>
-               <reporter>checkstyle</reporter>
-               <reportFile>target/jshint.xml</reportFile>
-               <failOnError>true</failOnError>
             </configuration>
          </plugin>
          <plugin>

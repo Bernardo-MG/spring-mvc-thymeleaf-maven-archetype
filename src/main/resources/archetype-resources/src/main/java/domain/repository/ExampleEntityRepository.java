@@ -26,15 +26,15 @@ package ${package}.domain.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import ${package}.domain.model.persistence.DefaultExampleEntity;
+import ${package}.domain.model.persistence.PersistentExampleEntity;
 
 /**
- * Spring-JPA repository for {@link DefaultExampleEntity}.
+ * Spring-JPA repository for {@link PersistentExampleEntity}.
  * <p>
  * This is a simple repository just to allow the endpoints querying the entities they are asked for.
  *
  * @author Bernardo Mart&iacute;nez Garrido
  */
-public interface ExampleEntityRepository extends JpaRepository<DefaultExampleEntity, Integer> {
+public interface ExampleEntityRepository extends JpaRepository<PersistentExampleEntity, Integer> {
 
 }

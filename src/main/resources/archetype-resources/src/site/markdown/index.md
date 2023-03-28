@@ -20,4 +20,4 @@ While the project can be used just by itself, it won't take full advantage of mo
 - Test artifacts repository, Sonatype OSS by default.
 - Documentation repository, through FTP or SSH.
 
-[archetype]: https://www.github.com/bernardo-mg/spring-mvc-thymeleaf-maven-archetype
+[archetype]: https://github.com/bernardo-mg/spring-mvc-thymeleaf-maven-archetype
